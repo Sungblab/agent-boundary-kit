@@ -1,0 +1,13 @@
+{
+  "hookId": "pre_write_boundary_check",
+  "scanner": "phase-gate-plan-scan",
+  "status": "error",
+  "exitCode": 2,
+  "blocked": true,
+  "reason": "configuration error",
+  "inputsUsed": [
+    "task"
+  ],
+  "findings": [],
+  "rawPrivateTranscript": "This field is intentionally invalid. Runner output must not return private conversation text."
+}

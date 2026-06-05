@@ -12,6 +12,8 @@ The minimal runner plan is recorded in `docs/hook-runner-minimal-plan.md`. It de
 
 The runner JSON input contract is recorded in `docs/hook-runner-input-contract.md`. It includes `hooks/claude/runner-input.schema.json`, a valid input example, and invalid examples for transcript leakage and missing declared metadata.
 
+The runner JSON output contract is recorded in `docs/hook-runner-output-contract.md`. It includes `hooks/claude/runner-output.schema.json`, clear and finding examples, and invalid examples for final-copy generation and transcript leakage.
+
 The first narrow scanner candidate is defined in `docs/first-scanner-candidate.md`. It targets only test runtime patching. Its red/green evidence is recorded in `docs/scanner-validation-test-runtime-patch.md`, its first application sweep is recorded in `docs/scanner-application-test-runtime-patch.md`, and its read-only script is `benchmarks/scripts/scan-test-runtime-patch.js`.
 
 The next scanner candidate is `test-fake-contract-scan`; its red/green evidence is recorded in `docs/scanner-validation-test-fake-contract.md`, and its read-only script is `benchmarks/scripts/scan-test-fake-contract.js`. It is still not an installed hook.

@@ -179,7 +179,9 @@ Each benchmark fixture should include:
 50. Add a hook runner plan check so runner inputs stay limited to explicit paths and declared metadata. Completed: `benchmarks/scripts/check-hook-runner-minimal-plan.js`.
 51. Record a hook runner input contract with valid and invalid JSON examples. Completed: `docs/hook-runner-input-contract.md`.
 52. Add a hook runner input contract check so transcript fields and missing metadata cannot pass as runner input. Completed: `benchmarks/scripts/check-hook-runner-input-contract.js`.
-53. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
+53. Record a hook runner output contract with valid and invalid JSON examples. Completed: `docs/hook-runner-output-contract.md`.
+54. Add a hook runner output contract check so final-response fields and transcript fields cannot pass as runner output. Completed: `benchmarks/scripts/check-hook-runner-output-contract.js`.
+55. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet
 

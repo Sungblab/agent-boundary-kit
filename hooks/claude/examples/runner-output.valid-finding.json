@@ -1,0 +1,21 @@
+{
+  "hookId": "post_edit_scope_check",
+  "scanner": "legacy-surface-retention-scan",
+  "status": "finding",
+  "exitCode": 1,
+  "blocked": true,
+  "reason": "stale public surface term found",
+  "inputsUsed": [
+    "repoRoot",
+    "changedFiles",
+    "staleTerms"
+  ],
+  "findings": [
+    {
+      "path": "docs/mindmap.md",
+      "line": 12,
+      "rule": "stale-public-surface",
+      "detail": "Old public surface term remains after replacement work."
+    }
+  ]
+}

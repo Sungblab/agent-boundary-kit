@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Boundary Hook Runner Output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "hookId",
+    "scanner",
+    "status",
+    "exitCode",
+    "blocked",
+    "reason",
+    "inputsUsed",
+    "findings"
+  ],
+  "properties": {
+    "hookId": {
+      "type": "string",
+      "enum": [
+        "pre_write_boundary_check",
+        "post_edit_scope_check",
+        "test_integrity_check",
+        "completion_evidence_check"
+      ]
+    },
+    "scanner": {
+      "type": "string",
+      "enum": [
+        "parser-fallback-boundary-scan",
+        "latex-renderer-boundary-scan",
+        "legacy-surface-retention-scan",
+        "phase-gate-plan-scan",
+        "test-runtime-patch-scan",
+        "completion-evidence-gate-scan",
+        "noisy-log-root-cause-scan",
+        "hardcoded-credential-fallback-scan",
+        "test-fake-contract-scan",
+        "untrusted-context-canary-scan"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["clear", "finding", "error"]
+    },
+    "exitCode": {
+      "type": "integer",
+      "enum": [0, 1, 2]
+    },
+    "blocked": {
+      "type": "boolean"
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "inputsUsed": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "line", "rule", "detail"],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "line": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "rule": {
+            "type": "string",
+            "minLength": 1
+          },
+          "detail": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}
