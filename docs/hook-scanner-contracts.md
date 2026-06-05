@@ -31,4 +31,6 @@ Do not package these as executable hooks until the repo has a small hook runner 
 
 That runner contract is recorded in `docs/hook-runner-minimal-plan.md`.
 
+The runner input schema and examples are recorded in `docs/hook-runner-input-contract.md`.
+
 The runner must not infer approval, scope, final gates, or stale terms from private chat history. Those fields must be declared by the agent or provided by the user-facing workflow.

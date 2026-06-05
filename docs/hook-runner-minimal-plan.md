@@ -4,6 +4,8 @@ This is a runner contract for future hook packaging. It is not an installed hook
 
 The runner exists only to pass explicit file or repo paths and declared metadata into the read-only scanners already covered by fixture evidence.
 
+The JSON input contract and examples are recorded in `docs/hook-runner-input-contract.md`.
+
 ## Boundary
 
 The runner must preserve the same boundary recorded in `docs/hook-scanner-contracts.md` and `docs/scanner-coverage-matrix.md`.
@@ -90,6 +92,7 @@ This plan is checked by:
 
 ```sh
 node benchmarks/scripts/check-hook-runner-minimal-plan.js
+node benchmarks/scripts/check-hook-runner-input-contract.js
 npm run bench:check
 npm run bench:check:red
 ```

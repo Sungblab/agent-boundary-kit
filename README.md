@@ -82,6 +82,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `docs/scanner-coverage-matrix.md`: fixture-to-scanner coverage and promotion decisions
 - `docs/hook-scanner-contracts.md`: future Claude hook scanner input/output contracts
 - `docs/hook-runner-minimal-plan.md`: minimal runner contract for future hook packaging
+- `docs/hook-runner-input-contract.md`: JSON input contract and examples for the future hook runner
 - `docs/first-ten-result-synthesis.md`: first reviewed-result synthesis and enforcement-surface gap analysis
 - `docs/first-scanner-candidate.md`: first narrow scanner candidate and red/green validation path
 - `docs/scanner-validation-test-runtime-patch.md`: recorded red/green evidence for the first scanner
@@ -123,6 +124,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/check-scanner-coverage-matrix.js`: verifies every fixture has scanner coverage evidence in the matrix
 - `benchmarks/scripts/check-hook-scanner-contracts.js`: verifies hook specs declare scanner input/output contracts
 - `benchmarks/scripts/check-hook-runner-minimal-plan.js`: verifies the future hook runner stays limited to explicit paths and declared metadata
+- `benchmarks/scripts/check-hook-runner-input-contract.js`: verifies the hook runner input schema and valid/invalid examples
 - `benchmarks/fixtures/`: runnable benchmark fixtures
 - `benchmarks/results/`: reviewed result summary template and publication rules
 - `templates/AGENTS.boundary.md`: repository instruction template for Codex-style agents
@@ -173,6 +175,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - public docs and result summaries are checked for local paths, file URLs, and credential-like tokens.
 - the read-only scanners are checked against recorded red/green evidence.
 - future hook runner docs are checked for explicit input boundaries and scanner mapping.
+- future hook runner input examples are checked against a bounded JSON contract.
 - `research/public-case-index.md` is checked for case count, required benchmark fields, stable case ids, taxonomy-linked failure types, and manifest source references.
 - repository-level benchmark scripts are checked for portable verifier paths.
 

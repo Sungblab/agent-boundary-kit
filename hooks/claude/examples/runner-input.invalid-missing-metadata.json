@@ -1,0 +1,12 @@
+{
+  "hookId": "post_edit_scope_check",
+  "repoRoot": ".",
+  "inputs": {
+    "changedFiles": [
+      "src/app.ts"
+    ],
+    "approvedScope": [
+      "src/**"
+    ]
+  }
+}

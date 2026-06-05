@@ -1,0 +1,18 @@
+{
+  "hookId": "completion_evidence_check",
+  "repoRoot": ".",
+  "task": {
+    "type": "completion",
+    "declaredBy": "agent",
+    "summary": "Check whether completion evidence exists before a final report is written."
+  },
+  "inputs": {
+    "completionDraft": "reports/completion.md",
+    "commandLog": "reports/command-log.md",
+    "finalGate": {
+      "command": "npm run bench:check",
+      "artifactPath": "reports/final-gate.json"
+    }
+  },
+  "rawPrivateTranscript": "This field is intentionally invalid. Runner input must not include private conversation text."
+}

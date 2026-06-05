@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Boundary Hook Runner Input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["hookId", "repoRoot", "task", "inputs"],
+  "properties": {
+    "hookId": {
+      "type": "string",
+      "enum": [
+        "pre_write_boundary_check",
+        "post_edit_scope_check",
+        "test_integrity_check",
+        "completion_evidence_check"
+      ]
+    },
+    "repoRoot": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "declaredBy", "summary"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "research-only",
+            "planning-only",
+            "implementation",
+            "replacement",
+            "test-repair",
+            "completion"
+          ]
+        },
+        "declaredBy": {
+          "type": "string",
+          "enum": ["user", "agent", "workflow"]
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "changedFiles": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "diffPath": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approvedScope": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "offLimits": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "namedTools": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "staleTerms": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "externalSources": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "finalGate": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["command", "artifactPath"],
+          "properties": {
+            "command": {
+              "type": "string",
+              "minLength": 1
+            },
+            "artifactPath": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "commandLog": {
+          "type": "string",
+          "minLength": 1
+        },
+        "completionDraft": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metadataFiles": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "testFiles": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "productionFiles": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "behaviorContract": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

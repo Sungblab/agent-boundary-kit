@@ -1,0 +1,40 @@
+{
+  "hookId": "post_edit_scope_check",
+  "repoRoot": ".",
+  "task": {
+    "type": "replacement",
+    "declaredBy": "agent",
+    "summary": "Replace a public surface and remove stale references from declared files."
+  },
+  "inputs": {
+    "changedFiles": [
+      "src/mindmap/new-surface.ts",
+      "docs/mindmap.md",
+      "tests/mindmap.spec.ts"
+    ],
+    "approvedScope": [
+      "src/mindmap/**",
+      "docs/**",
+      "tests/**"
+    ],
+    "offLimits": [
+      "src/auth/**",
+      "src/billing/**"
+    ],
+    "namedTools": [
+      "opendataloader-pdf",
+      "latex"
+    ],
+    "staleTerms": [
+      "legacy mind map",
+      "old mindmap"
+    ],
+    "externalSources": [
+      "evidence/issue.md",
+      "evidence/log-summary.md"
+    ],
+    "metadataFiles": [
+      "boundary.json"
+    ]
+  }
+}
