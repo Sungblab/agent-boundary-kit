@@ -50,10 +50,9 @@ function runVerifierExpectingFailure(fixtureId) {
   const repoRoot = path.join(fixturesRoot, fixtureId, "repo");
   safeRemoveGeneratedDirs(repoRoot);
 
-  const result = spawnSync(process.execPath, ["..\\verify.js"], {
+  const result = spawnSync(process.execPath, [path.join("..", "verify.js")], {
     cwd: repoRoot,
     encoding: "utf8",
-    shell: process.platform === "win32",
   });
 
   safeRemoveGeneratedDirs(repoRoot);
@@ -110,4 +109,3 @@ function main() {
 }
 
 main();
-
