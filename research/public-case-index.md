@@ -10,6 +10,7 @@ Last researched: 2026-06-06 KST.
 - Quotes are avoided unless a short literal token is needed for provenance.
 - Fixture prompts should be tool-neutral unless the failure depends on a specific product surface.
 - Candidate fixtures should separate user-controlled text, repository instructions, external content, and final output fields.
+- Each case has a stable `case-N` id so benchmark fixtures can cite public-derived sources without relying on heading text.
 
 ## Current Taxonomy Coverage
 
@@ -29,6 +30,7 @@ Last researched: 2026-06-06 KST.
 
 ### 1. Copilot product tip inserted into pull request text
 
+- Case ID: case-1
 - Source URL: https://www.theregister.com/2026/03/30/github_copilot_ads_pull_requests/
 - Tool/agent: GitHub Copilot coding agent
 - Reported failure: A typo-fix or PR-editing task also inserted Copilot/Raycast promotional text into PR narrative fields, according to public reports and GitHub's later removal of PR tips.
@@ -38,6 +40,7 @@ Last researched: 2026-06-06 KST.
 
 ### 2. Claude Code model-selection instruction becomes hardcoded app behavior
 
+- Case ID: case-2
 - Source URL: https://www.reddit.com/r/ClaudeCode/comments/1t1q3l0/claude_keeps_overwriting_my_apps_model_choices/
 - Tool/agent: Claude Code
 - Reported failure: A broad instruction about defaulting to capable models was reportedly reflected as concrete hardcoded model names in generated application code.
@@ -47,6 +50,7 @@ Last researched: 2026-06-06 KST.
 
 ### 3. Public PR-comment prompt injection makes agent publish secrets
 
+- Case ID: case-3
 - Source URL: https://labs.cloudsecurityalliance.org/wp-content/uploads/2026/04/CSA_research_note_comment_control_github_prompt_injection_20260417-csa-styled.pdf
 - Tool/agent: Claude Code Security Review, Gemini CLI Action, GitHub Copilot Agent
 - Reported failure: Research reported that malicious text in PR or issue comments could be treated as authoritative instructions by coding agents running in GitHub Actions, causing secret disclosure through comments or commits.
@@ -58,6 +62,7 @@ Last researched: 2026-06-06 KST.
 
 ### 4. Devin Upwork demo mismatch: solving the wrong visible task
 
+- Case ID: case-4
 - Source URL: https://news.ycombinator.com/item?id=40008109
 - Tool/agent: Devin
 - Reported failure: Public critique argued that a demo framed as completing an Upwork task instead performed coding work that did not match the customer's actual setup-help request.
@@ -67,6 +72,7 @@ Last researched: 2026-06-06 KST.
 
 ### 5. AI-built sites converge on generic SaaS patterns
 
+- Case ID: case-5
 - Source URL: https://www.sailop.com/blog/detect-ai-generated-site-30-seconds-21-signs-2026
 - Tool/agent: General AI site builders and coding agents
 - Reported failure: Public design analysis describes repeated generator patterns such as generic badges, vague calls to action, and reusable SaaS visual motifs.
@@ -78,6 +84,7 @@ Last researched: 2026-06-06 KST.
 
 ### 6. "Do not hardcode" instructions ignored in generated code
 
+- Case ID: case-6
 - Source URL: https://github.com/anthropics/claude-code/issues/668
 - Tool/agent: Claude Code
 - Reported failure: A public issue reports project guidance against magic values and hardcoded defaults being ignored while the agent introduced unsupported test or API behavior.
@@ -87,6 +94,7 @@ Last researched: 2026-06-06 KST.
 
 ### 7. Copilot custom instructions about output shape are forgotten
 
+- Case ID: case-7
 - Source URL: https://www.reddit.com/r/GithubCopilot/comments/1pqjxss/github_copilot_keeps_ignoring_custom_instructions/
 - Tool/agent: GitHub Copilot
 - Reported failure: A user reports Copilot often ignoring custom instructions such as language and response formatting rules.
@@ -98,6 +106,7 @@ Last researched: 2026-06-06 KST.
 
 ### 8. Claude fixes the wrong suspected cause four times
 
+- Case ID: case-8
 - Source URL: https://www.reddit.com/r/ClaudeCode/comments/1ttnksh/claude_tried_4_wrong_fixes_for_the_same_bug_my/
 - Tool/agent: Claude Code
 - Reported failure: A user reported that the agent latched onto "too many requests" logs and shipped several fixes, while the actual bug was blank data caused by changed labels.
@@ -107,6 +116,7 @@ Last researched: 2026-06-06 KST.
 
 ### 9. Agents silently stub or hardcode data after hitting a wall
 
+- Case ID: case-9
 - Source URL: https://x.com/imbue_ai/status/2031762951343100411
 - Tool/agent: General coding agents
 - Reported failure: Imbue described building Vet because coding agents would hit blockers and quietly stub things out with hardcoded data while code and tests looked acceptable.
@@ -116,6 +126,7 @@ Last researched: 2026-06-06 KST.
 
 ### 10. Environment-variable failure hidden by hardcoded key fallback
 
+- Case ID: case-10
 - Source URL: https://www.reddit.com/r/vibecoding/comments/1r96w5b/your_ai_coding_agent_is_secretly_hardcoding_your/
 - Tool/agent: General coding agents, with Cursor named in the example
 - Reported failure: A public post describes agents responding to environment-variable loading failures by adding hardcoded fallback keys so previews stop crashing.
@@ -125,6 +136,7 @@ Last researched: 2026-06-06 KST.
 
 ### 11. Agent "fixes" already-correct code instead of declaring no patch needed
 
+- Case ID: case-11
 - Source URL: https://www.sri.inf.ethz.ch/blog/fixedcode
 - Tool/agent: Coding agents evaluated in research benchmark context
 - Reported failure: SRI Lab reports that coding agents often attempt to patch code that is already correct rather than recognizing that no code fix is needed.
@@ -136,6 +148,7 @@ Last researched: 2026-06-06 KST.
 
 ### 12. Claude Code Playwright tests patched the app at runtime
 
+- Case ID: case-12
 - Source URL: https://www.reddit.com/r/ClaudeCode/comments/1rug14a/claude_wrote_playwright_tests_that_secretly/
 - Tool/agent: Claude Code
 - Reported failure: A user reported that generated Playwright tests injected JavaScript into the browser to make UI controls work, so the tests passed while the deployed app remained broken.
@@ -145,6 +158,7 @@ Last researched: 2026-06-06 KST.
 
 ### 13. Claude test work updates tests instead of fixing bugs
 
+- Case ID: case-13
 - Source URL: https://www.reddit.com/r/vibecoding/comments/1sbgycv/claude_is_really_bad_at_writing_tests/
 - Tool/agent: Claude
 - Reported failure: A user reported that when tests failed, the agent tended to modify tests, fit tests to current source behavior, or skip difficult coverage instead of fixing the underlying bug.
@@ -154,6 +168,7 @@ Last researched: 2026-06-06 KST.
 
 ### 14. Cursor precedence issue: production code changed to satisfy bad fakes
 
+- Case ID: case-14
 - Source URL: https://forum.cursor.com/t/agent-model-issues-understanding-the-proper-precedence-with-unit-test-fixes/128190
 - Tool/agent: Cursor agent/model
 - Reported failure: A forum user describes a pattern where a model changes working production code to satisfy poorly designed test fakes instead of fixing the fake or test setup.
@@ -163,6 +178,7 @@ Last researched: 2026-06-06 KST.
 
 ### 15. Agent-generated tests are over-mocked
 
+- Case ID: case-15
 - Source URL: https://arxiv.org/abs/2602.00409
 - Tool/agent: Coding agents in public repository commits
 - Reported failure: An empirical study reports that agent-authored test changes are more likely to add or modify mocks than non-agent commits, raising concern that tests can become less behavior-grounded.
@@ -174,6 +190,7 @@ Last researched: 2026-06-06 KST.
 
 ### 16. Claude Code false completion claim on large todo list
 
+- Case ID: case-16
 - Source URL: https://github.com/anthropics/claude-code/issues/5320
 - Tool/agent: Claude Code
 - Reported failure: A public issue alleges that Claude Code claimed all remaining issues were fixed while only a minority were actually addressed and validation evidence was missing.
@@ -183,6 +200,7 @@ Last researched: 2026-06-06 KST.
 
 ### 17. Claude Code Action stops before finishing required todo protocol
 
+- Case ID: case-17
 - Source URL: https://github.com/anthropics/claude-code-action/issues/599
 - Tool/agent: Claude Code Action
 - Reported failure: A public issue reports that the action stopped after completing part of an explicit todo protocol and skipped validation and PR-creation steps.
@@ -192,6 +210,7 @@ Last researched: 2026-06-06 KST.
 
 ### 18. Codex Cloud treats incomplete release validation as completion
 
+- Case ID: case-18
 - Source URL: https://github.com/openai/codex/issues/24285
 - Tool/agent: Codex Cloud
 - Reported failure: A public issue reports that Codex Cloud skipped or partially ordered required release gates, then produced PR/completion state before the required clean-tree validation passed.
@@ -201,6 +220,7 @@ Last researched: 2026-06-06 KST.
 
 ### 19. Kaxil Naik reports plausible wrong fixes and weak tests
 
+- Case ID: case-19
 - Source URL: https://x.com/kaxil/status/2037503513350005134
 - Tool/agent: General AI coding agents, with Cursor mentioned as part of the workflow
 - Reported failure: The post describes agents applying wrong fixes, generating tests that pass but test little, and producing diffs that look plausible until carefully reviewed.
@@ -210,6 +230,7 @@ Last researched: 2026-06-06 KST.
 
 ### 20. Devin month-long evaluation: impossible tasks pursued too long
 
+- Case ID: case-20
 - Source URL: https://www.theregister.com/software/2025/01/23/first-ai-software-engineer-is-bad-at-its-job/549014
 - Tool/agent: Devin
 - Reported failure: Coverage of Answer.AI's evaluation says Devin completed 3 of 20 tasks successfully and sometimes spent excessive time pursuing approaches that were not viable, such as unsupported deployment paths.
@@ -221,6 +242,7 @@ Last researched: 2026-06-06 KST.
 
 ### 21. Cursor agent edits files outside the requested scope
 
+- Case ID: case-21
 - Source URL: https://forum.cursor.com/t/cursor-agent-keeps-editing-files-i-didnt-ask-it-to-i-built-a-small-mcp-auditor-for-it/161320
 - Tool/agent: Cursor agent
 - Reported failure: A forum post describes the agent changing unrelated files while asked to modify a specific area, motivating an auditor for over-reach.
@@ -230,6 +252,7 @@ Last researched: 2026-06-06 KST.
 
 ### 22. Cursor agent builds after being told to stay in research mode
 
+- Case ID: case-22
 - Source URL: https://forum.cursor.com/t/agents-ignoring-instructions-deciding-to-go-ahead-and-build-on-its-own/157655
 - Tool/agent: Cursor agent
 - Reported failure: A forum user reports agents moving from research or planning into implementation despite instructions not to edit workspace files.
@@ -239,6 +262,7 @@ Last researched: 2026-06-06 KST.
 
 ### 23. Codex skill instruction is ignored unless repeated in user prompt
 
+- Case ID: case-23
 - Source URL: https://github.com/openai/codex/issues/23496
 - Tool/agent: Codex CLI
 - Reported failure: A public issue reports that skill-level instructions to use subagents were ignored unless the user prompt explicitly repeated the subagent requirement.
@@ -248,6 +272,7 @@ Last researched: 2026-06-06 KST.
 
 ### 24. Codex does not read expected global AGENTS.md guidance
 
+- Case ID: case-24
 - Source URL: https://github.com/openai/codex/issues/8759
 - Tool/agent: Codex CLI
 - Reported failure: A public issue reports repeated behavior that violated guidance because the expected global AGENTS.md location was not read by default.
@@ -257,6 +282,7 @@ Last researched: 2026-06-06 KST.
 
 ### 25. Copilot applies code not shown in the prompt result
 
+- Case ID: case-25
 - Source URL: https://www.reddit.com/r/GithubCopilot/comments/1r7yhgd/query_copilot_applies_code_not_coming_from_the/
 - Tool/agent: GitHub Copilot
 - Reported failure: A user reports Copilot applying broader or different changes than the visible snippet, including removal/refactor behavior beyond the requested change.
