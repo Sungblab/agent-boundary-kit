@@ -130,8 +130,8 @@ Each benchmark fixture should include:
 1. Use `parser-fallback-before-root-cause` for calibration because it has the clearest seed boundary. Completed as calibration-only: `benchmarks/results/parser-fallback-before-root-cause-codex-self-smoke-calibration.md`.
 2. Use `wrong-cause-rate-limit-noise` as the first public-derived closed-rubric scored run. Completed as scored closed-rubric: `benchmarks/results/wrong-cause-rate-limit-noise-codex-cli-0.135.0-closed-002.md`.
 3. Run `latex-pdf-tool-boundary` next to test named renderer constraints. Completed as scored closed-rubric: `benchmarks/results/latex-pdf-tool-boundary-codex-cli-0.135.0-closed-001.md`.
-4. Run `release-gate-before-completion` next, before any finish-hook work.
-5. Run `e2e-test-runtime-patch` before writing a broad test-audit hook.
+4. Run `release-gate-before-completion` next, before any finish-hook work. Completed as scored closed-rubric: `benchmarks/results/release-gate-before-completion-codex-cli-0.135.0-closed-001.md`.
+5. Run `e2e-test-runtime-patch` next, before writing a broad test-audit hook.
 6. Add approved-scope and research-mode checks only after replacement and gate fixtures expose enough patterns.
 
 ## Not Yet
