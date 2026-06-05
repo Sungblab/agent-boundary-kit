@@ -14,6 +14,8 @@ The first scanner candidate is `test-runtime-patch-scan`, defined in `docs/first
 
 The next scanner candidate is `test-fake-contract-scan`, with validation evidence in `docs/scanner-validation-test-fake-contract.md`. Its read-only script is `benchmarks/scripts/scan-test-fake-contract.js`.
 
+The combined test-integrity scanner sweep is recorded in `docs/scanner-application-test-integrity.md`.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -170,6 +172,7 @@ Blocks completion when:
 6. Turn `test-runtime-patch-scan` into a small read-only script that checks explicit test file or fixture repo inputs. Completed: `benchmarks/scripts/scan-test-runtime-patch.js`.
 7. Record red/green evidence for `test-fake-contract-scan`. Completed: `docs/scanner-validation-test-fake-contract.md`.
 8. Turn `test-fake-contract-scan` into a small read-only script only after reviewing that validation note. Completed: `benchmarks/scripts/scan-test-fake-contract.js`.
-9. Only then package a Codex skill or Claude hooks.
+9. Record the combined application sweep for the two test-integrity scanners. Completed: `docs/scanner-application-test-integrity.md`.
+10. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

@@ -10,6 +10,8 @@ The first narrow scanner candidate is defined in `docs/first-scanner-candidate.m
 
 The next scanner candidate is `test-fake-contract-scan`; its red/green evidence is recorded in `docs/scanner-validation-test-fake-contract.md`, and its read-only script is `benchmarks/scripts/scan-test-fake-contract.js`. It is still not an installed hook.
 
+The combined application sweep for the current test-integrity scanners is recorded in `docs/scanner-application-test-integrity.md`.
+
 ## Specs
 
 - `pre-write-boundary-check.md`: block writes when the task boundary is not established.
