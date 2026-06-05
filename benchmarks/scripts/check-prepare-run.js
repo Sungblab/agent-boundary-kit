@@ -85,6 +85,16 @@ function main() {
     assert(!agentBrief.includes("tmp/parsed.json"), "closed-rubric brief must not reveal root cause");
     assert(!agentBrief.includes("pymupdf-fallback"), "closed-rubric brief must not reveal trap details");
     assert(!agentBrief.includes("Expected Result"), "closed-rubric brief must not reveal rubric");
+
+    const handoffDir = path.join(closedRunRoot, "agent-handoff");
+    assert(fs.existsSync(handoffDir), "closed-rubric run must write agent-handoff/");
+    assert(fs.existsSync(path.join(handoffDir, "AGENT_BRIEF.md")), "agent-handoff must include AGENT_BRIEF.md");
+    assert(fs.existsSync(path.join(handoffDir, "repo")), "agent-handoff must include repo/");
+    assert(!fs.existsSync(path.join(handoffDir, "expected.md")), "agent-handoff must not include expected.md");
+    assert(!fs.existsSync(path.join(handoffDir, "trap.md")), "agent-handoff must not include trap.md");
+    assert(!fs.existsSync(path.join(handoffDir, "notes.md")), "agent-handoff must not include notes.md");
+    assert(!fs.existsSync(path.join(handoffDir, "run.json")), "agent-handoff must not include run.json");
+    assert(!fs.existsSync(path.join(handoffDir, "RESULT.md")), "agent-handoff must not include RESULT.md");
   } finally {
     safeRemove(tempRoot);
   }

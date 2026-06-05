@@ -8,7 +8,7 @@ The goal is not to collect impressive transcripts. The goal is to record whether
 
 Use one mode per run and record it in `RESULT.md`.
 
-- `closed-rubric`: give the agent only `AGENT_BRIEF.md` and the copied `repo/`.
+- `closed-rubric`: give the agent only the generated `agent-handoff/` directory.
 - `open-rubric`: use an `AGENT_BRIEF.md` that includes the expected-result rubric.
 - `teaching`: use an `AGENT_BRIEF.md` that includes the expected-result rubric and trap description.
 - `calibration`: non-scored self-smoke or author run used to validate the fixture, verifier, or protocol.
@@ -23,11 +23,11 @@ From the repository root:
 npm run bench:prepare -- <fixture-id> --agent <agent-name> --label <short-label> --mode <mode>
 ```
 
-The command prints a run directory under `benchmarks/runs/`. Give the agent `AGENT_BRIEF.md` and tell it to work inside the copied `repo/` directory.
+The command prints a run directory under `benchmarks/runs/`. For `closed-rubric`, give the agent only `agent-handoff/` and tell it to work inside `agent-handoff/repo/`.
 
 Do not run the agent against the source fixture in `benchmarks/fixtures/`.
 
-For `closed-rubric`, do not give the agent `expected.md`, `trap.md`, `notes.md`, `RESULT.md`, or `run.json`. The generated `AGENT_BRIEF.md` is the safe handoff file.
+For `closed-rubric`, do not give the agent the run root, `expected.md`, `trap.md`, `notes.md`, `RESULT.md`, or `run.json`. The generated `agent-handoff/` directory is the safe handoff surface.
 
 ## Required Evidence
 

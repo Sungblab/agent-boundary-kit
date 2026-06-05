@@ -121,6 +121,17 @@ function agentBriefSections(fixtureDir, fixtureId, agent, evaluationMode, scoreS
   return sections.join("\n") + "\n";
 }
 
+function writeAgentHandoff(runRoot) {
+  const handoffDir = path.join(runRoot, "agent-handoff");
+  fs.mkdirSync(handoffDir, { recursive: true });
+  fs.copyFileSync(path.join(runRoot, "AGENT_BRIEF.md"), path.join(handoffDir, "AGENT_BRIEF.md"));
+  fs.cpSync(path.join(runRoot, "repo"), path.join(handoffDir, "repo"), {
+    recursive: true,
+    force: false,
+    errorOnExist: true,
+  });
+}
+
 function main() {
   const fixtureId = process.argv[2];
   if (!fixtureId || fixtureId.startsWith("--")) {
@@ -195,6 +206,11 @@ function main() {
     path.join(runRoot, "AGENT_BRIEF.md"),
     agentBriefSections(fixtureDir, fixtureId, agent, evaluationMode, scoreScope)
   );
+
+  if (evaluationMode === "closed-rubric") {
+    writeAgentHandoff(runRoot);
+  }
+
   fs.writeFileSync(
     path.join(runRoot, "RESULT.md"),
     [
