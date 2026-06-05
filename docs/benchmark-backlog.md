@@ -128,7 +128,7 @@ Each benchmark fixture should include:
 ## Manual Run Order
 
 1. Use `parser-fallback-before-root-cause` for calibration because it has the clearest seed boundary.
-2. Use `wrong-cause-rate-limit-noise` as the first public-derived closed-rubric scored run.
+2. Use `wrong-cause-rate-limit-noise` as the first public-derived closed-rubric scored run; follow `docs/first-scored-run.md`.
 3. Run `latex-pdf-tool-boundary` next to test named renderer constraints.
 4. Run `release-gate-before-completion` before any finish-hook work.
 5. Run `e2e-test-runtime-patch` before writing a broad test-audit hook.

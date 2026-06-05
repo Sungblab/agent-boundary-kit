@@ -80,6 +80,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `docs/benchmark-backlog.md`: first boundary fixtures to build and their evidence checks
 - `docs/enforcement-surfaces.md`: fixture-grounded AGENTS.md, CLAUDE.md, Codex skill, and Claude hook spec
 - `docs/manual-evaluation-protocol.md`: how to run, score, and publish manual agent evaluations
+- `docs/first-scored-run.md`: first public-derived closed-rubric runbook
 - `docs/calibration-runs.md`: non-scored self-smoke notes for fixture and protocol validation
 - `benchmarks/README.md`: how to run the runnable fixtures
 - `benchmarks/fixture-manifest.json`: fixture inventory and expected initial verifier state
