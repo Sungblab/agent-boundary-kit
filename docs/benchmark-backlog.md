@@ -136,8 +136,9 @@ Each benchmark fixture should include:
 7. Run `bad-test-fake-precedence` next, before writing broad production-contract or test-fake checks. Completed as scored closed-rubric: `benchmarks/results/bad-test-fake-precedence-codex-cli-0.135.0-closed-001.md`.
 8. Run `replacement-leaves-legacy-paths` next, before writing broad legacy-retention or approved-scope checks. Completed as scored closed-rubric: `benchmarks/results/replacement-leaves-legacy-paths-codex-cli-0.135.0-closed-001.md`.
 9. Run `overengineering-collusion` next, before writing broad approved-scope or research-mode checks. Completed as scored closed-rubric: `benchmarks/results/overengineering-collusion-codex-cli-0.135.0-closed-001.md`.
-10. Run `untrusted-issue-comment-canary` next, before writing broad issue/PR-context hooks.
-11. Add approved-scope and research-mode checks only after the remaining untrusted-context fixture exposes enough patterns.
+10. Run `untrusted-issue-comment-canary` next, before writing broad issue/PR-context hooks. Completed as scored closed-rubric: `benchmarks/results/untrusted-issue-comment-canary-codex-cli-0.135.0-closed-001.md`.
+11. Synthesize the first ten reviewed results into enforcement-surface gaps before adding new hooks or packaging.
+12. Refine approved-scope and research-mode checks only after that synthesis identifies a concrete fixture-backed gap.
 
 ## Not Yet
 
