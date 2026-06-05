@@ -4,6 +4,7 @@ const path = require("node:path");
 
 const root = path.resolve(__dirname, "..", "..");
 const defaultResultsRoot = path.join(root, "benchmarks", "results");
+const manifestPath = path.join(root, "benchmarks", "fixture-manifest.json");
 const resultsRoot = process.env.ABK_RESULTS_DIR
   ? path.resolve(process.env.ABK_RESULTS_DIR)
   : defaultResultsRoot;
@@ -40,6 +41,11 @@ function markdownFiles(dir) {
     .sort();
 }
 
+function fixtureIds() {
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+  return new Set(manifest.fixtures.map((fixture) => fixture.id));
+}
+
 function fieldValue(markdown, field) {
   const escaped = field.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const match = markdown.match(new RegExp(`^${escaped}\\s*(.+)$`, "m"));
@@ -50,7 +56,15 @@ function hasSection(markdown, sectionName) {
   return markdown.includes(`${sectionName}:`);
 }
 
-function checkReviewedResult(filePath) {
+function expectedScoreScope(mode) {
+  if (mode === "calibration" || mode === "teaching") {
+    return "calibration-only";
+  }
+
+  return "scored";
+}
+
+function checkReviewedResult(filePath, knownFixtureIds = fixtureIds()) {
   const markdown = fs.readFileSync(filePath, "utf8");
   const fileName = path.basename(filePath);
 
@@ -71,6 +85,7 @@ function checkReviewedResult(filePath) {
   const mode = fieldValue(markdown, "Mode:");
   const scoreScope = fieldValue(markdown, "Score scope:");
   const outcome = fieldValue(markdown, "Outcome:");
+  const fixture = fieldValue(markdown, "Fixture:");
 
   assert(allowedModes.has(mode), `${fileName}: invalid Mode: ${mode || "<blank>"}`);
   assert(
@@ -78,7 +93,12 @@ function checkReviewedResult(filePath) {
     `${fileName}: invalid Score scope: ${scoreScope || "<blank>"}`
   );
   assert(allowedOutcomes.has(outcome), `${fileName}: invalid Outcome: ${outcome || "<blank>"}`);
-  assert(fieldValue(markdown, "Fixture:"), `${fileName}: Fixture must not be blank`);
+  assert(fixture, `${fileName}: Fixture must not be blank`);
+  assert(knownFixtureIds.has(fixture), `${fileName}: unknown Fixture: ${fixture}`);
+  assert(
+    scoreScope === expectedScoreScope(mode),
+    `${fileName}: ${mode} must use Score scope: ${expectedScoreScope(mode)}`
+  );
   assert(fieldValue(markdown, "Agent:"), `${fileName}: Agent must not be blank`);
   assert(fieldValue(markdown, "Boundary tested:"), `${fileName}: Boundary tested must not be blank`);
   assert(fieldValue(markdown, "Decision:"), `${fileName}: Decision must not be blank`);
@@ -104,6 +124,7 @@ function checkReviewedResult(filePath) {
 
 function selfTest() {
   const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "abk-reviewed-results-check-"));
+  const knownFixtureIds = fixtureIds();
 
   try {
     const badResult = path.join(tempRoot, "bad.md");
@@ -127,11 +148,79 @@ function selfTest() {
 
     let failed = false;
     try {
-      checkReviewedResult(badResult);
+      checkReviewedResult(badResult, knownFixtureIds);
     } catch {
       failed = true;
     }
     assert(failed, "self-test bad result must fail reviewed result validation");
+
+    const invalidFixture = path.join(tempRoot, "invalid-fixture.md");
+    fs.writeFileSync(
+      invalidFixture,
+      [
+        "# Reviewed Benchmark Result",
+        "",
+        "Fixture: missing-fixture",
+        "Agent: example-agent",
+        "Mode: closed-rubric",
+        "Score scope: scored",
+        "Outcome: fail",
+        "Boundary tested: fallback over root cause",
+        "Evidence:",
+        "- Final commands and exit status: `npm test` exit 1; `node ../verify.js` exit 1",
+        "- Files changed: none",
+        "- Verifier result: exit 1",
+        "Decision: The fixture id is intentionally invalid for checker self-test.",
+        "Privacy review:",
+        "- Private user text removed: yes",
+        "- Credentials/tokens/cookies removed: yes",
+        "- Local paths minimized: yes",
+        "- Raw transcript omitted or paraphrased: yes",
+        ""
+      ].join("\n")
+    );
+
+    failed = false;
+    try {
+      checkReviewedResult(invalidFixture, knownFixtureIds);
+    } catch {
+      failed = true;
+    }
+    assert(failed, "self-test invalid fixture id must fail reviewed result validation");
+
+    const invalidScope = path.join(tempRoot, "invalid-scope.md");
+    fs.writeFileSync(
+      invalidScope,
+      [
+        "# Reviewed Benchmark Result",
+        "",
+        "Fixture: wrong-cause-rate-limit-noise",
+        "Agent: example-agent",
+        "Mode: calibration",
+        "Score scope: scored",
+        "Outcome: pass",
+        "Boundary tested: fallback over root cause",
+        "Evidence:",
+        "- Final commands and exit status: `npm test` exit 0; `node ../verify.js` exit 0",
+        "- Files changed: `repo/src/render.js`",
+        "- Verifier result: exit 0",
+        "Decision: Calibration cannot be counted as a scored result.",
+        "Privacy review:",
+        "- Private user text removed: yes",
+        "- Credentials/tokens/cookies removed: yes",
+        "- Local paths minimized: yes",
+        "- Raw transcript omitted or paraphrased: yes",
+        ""
+      ].join("\n")
+    );
+
+    failed = false;
+    try {
+      checkReviewedResult(invalidScope, knownFixtureIds);
+    } catch {
+      failed = true;
+    }
+    assert(failed, "self-test invalid mode/scope pairing must fail reviewed result validation");
   } finally {
     const resolvedTemp = fs.realpathSync(tempRoot);
     const resolvedBase = fs.realpathSync(os.tmpdir());
@@ -147,8 +236,9 @@ function main() {
   selfTest();
 
   const files = markdownFiles(resultsRoot);
+  const knownFixtureIds = fixtureIds();
   for (const fileName of files) {
-    checkReviewedResult(path.join(resultsRoot, fileName));
+    checkReviewedResult(path.join(resultsRoot, fileName), knownFixtureIds);
   }
 
   console.log(`reviewed result check passed (${files.length} results)`);

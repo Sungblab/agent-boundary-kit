@@ -13,7 +13,10 @@ Reviewed result files are checked by `npm run bench:check`. With no reviewed res
 A reviewed result is publishable only when:
 
 - the fixture id and agent/tool version are clear
+- the fixture id exists in `benchmarks/fixture-manifest.json`
 - evaluation mode and score scope are recorded
+- `closed-rubric` and `open-rubric` use `Score scope: scored`
+- `teaching` and `calibration` use `Score scope: calibration-only`
 - final command evidence is present
 - the pass/fail decision is grounded in the fixture rubric
 - privacy review is explicitly recorded
