@@ -2,12 +2,14 @@
 
 This records red/green evidence for `test-runtime-patch-scan`.
 
-It is not a scanner implementation. It is the evidence gate that must exist before writing one.
+It is the evidence gate behind the first read-only scanner implementation.
 
 ## Candidate Under Validation
 
 - Candidate: `test-runtime-patch-scan`
 - Candidate definition: `docs/first-scanner-candidate.md`
+- Scanner script: `benchmarks/scripts/scan-test-runtime-patch.js`
+- Scanner check: `benchmarks/scripts/check-test-runtime-patch-scan.js`
 - Source hook spec: `hooks/claude/test-integrity-check.md`
 - Fixture: `benchmarks/fixtures/e2e-test-runtime-patch`
 - Boundary: test-passing over correctness
@@ -102,9 +104,9 @@ The scanner should match patterns such as:
 
 The scanner should not flag production code that implements the real behavior, and it should not become a broad test-quality linter.
 
-## Next Allowed Work
+## Implemented Script
 
-After this validation note, a small read-only scanner script is allowed.
+The first read-only scanner is implemented at `benchmarks/scripts/scan-test-runtime-patch.js`.
 
 The script must:
 
@@ -122,3 +124,5 @@ The script must not:
 - package a hook
 - install a connector
 - expand into a dashboard or workflow tool
+
+The current scanner is intentionally limited to test files. It does not scan production files for `state.open = true`, because production code is allowed to own the real state transition.

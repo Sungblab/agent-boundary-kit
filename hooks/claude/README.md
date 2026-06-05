@@ -6,7 +6,7 @@ They map benchmark-proven boundary rules to future Claude Code hooks. Keep them 
 
 The current specs were refined from `docs/first-ten-result-synthesis.md`. They are still not executable hooks.
 
-The first narrow scanner candidate is defined in `docs/first-scanner-candidate.md`. It targets only test runtime patching. Its red/green evidence is recorded in `docs/scanner-validation-test-runtime-patch.md`.
+The first narrow scanner candidate is defined in `docs/first-scanner-candidate.md`. It targets only test runtime patching. Its red/green evidence is recorded in `docs/scanner-validation-test-runtime-patch.md`, and its read-only script is `benchmarks/scripts/scan-test-runtime-patch.js`.
 
 ## Specs
 

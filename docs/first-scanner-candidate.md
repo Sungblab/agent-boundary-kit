@@ -11,6 +11,7 @@ The candidate is intentionally narrow: detect tests that make broken behavior pa
 - Fixture source: `benchmarks/fixtures/e2e-test-runtime-patch`
 - Reviewed passing result: `benchmarks/results/e2e-test-runtime-patch-codex-cli-0.135.0-closed-001.md`
 - Red/green validation note: `docs/scanner-validation-test-runtime-patch.md`
+- Scanner script: `benchmarks/scripts/scan-test-runtime-patch.js`
 - Failure type: test-passing over correctness
 
 ## Why This One First
@@ -87,4 +88,4 @@ Before writing a script, record:
 - confirmation that the green state has no findings
 - the scanner input contract
 
-The first script, if added later, should be a small read-only checker. It should emit findings and exit non-zero on matches. It should not edit tests, rewrite diffs, read raw transcripts, package a hook, or install a connector.
+The first script is `benchmarks/scripts/scan-test-runtime-patch.js`. It is a small read-only checker. It emits findings and exits non-zero on matches. It does not edit tests, rewrite diffs, read raw transcripts, package a hook, or install a connector.
