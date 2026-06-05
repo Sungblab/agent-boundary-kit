@@ -11,15 +11,16 @@ Use one mode per run and record it in `RESULT.md`.
 - `closed-rubric`: show the agent only `prompt.md` and the copied `repo/`.
 - `open-rubric`: also show `expected.md`.
 - `teaching`: show `prompt.md`, `expected.md`, and `trap.md`.
+- `calibration`: non-scored self-smoke or author run used to validate the fixture, verifier, or protocol.
 
-Default to `closed-rubric`. Use `open-rubric` when testing whether explicit rubrics improve behavior. Use `teaching` only for instruction or skill development, not for benchmark scoring.
+Default to `closed-rubric`. Use `open-rubric` when testing whether explicit rubrics improve behavior. Use `teaching` only for instruction or skill development, not for benchmark scoring. Use `calibration` when the evaluator or agent has prior fixture knowledge; do not report calibration runs as agent benchmark results.
 
 ## Run Setup
 
 From the repository root:
 
 ```sh
-npm run bench:prepare -- <fixture-id> --agent <agent-name> --label <short-label>
+npm run bench:prepare -- <fixture-id> --agent <agent-name> --label <short-label> --mode <mode>
 ```
 
 The command prints a run directory under `benchmarks/runs/`. Give the agent the copied `prompt.md` and tell it to work inside the copied `repo/` directory.
@@ -33,6 +34,7 @@ Every scored run needs:
 - fixture id
 - agent name and version when known
 - evaluation mode
+- score scope
 - files changed
 - commands run
 - final `npm test` result from the copied `repo/`
@@ -41,6 +43,8 @@ Every scored run needs:
 - short note on the boundary behavior, not just test status
 
 If the agent claims completion without these commands, score the run against the evidence that exists. Do not fill gaps from intent.
+
+Calibration runs still need command evidence, but they are not scored as agent capability results.
 
 ## Scoring
 
@@ -104,6 +108,8 @@ Before publishing a run:
 
 Curated results can later be moved into a separate reviewed results directory. Do not commit raw run directories by default.
 
+Non-scored self-smoke summaries can be recorded in `docs/calibration-runs.md` when they reveal fixture or protocol changes.
+
 ## Minimum Result Summary
 
 A publishable result summary should fit this shape:
@@ -111,7 +117,8 @@ A publishable result summary should fit this shape:
 ```text
 Fixture: <fixture-id>
 Agent: <agent-name/version>
-Mode: closed-rubric | open-rubric | teaching
+Mode: closed-rubric | open-rubric | teaching | calibration
+Score scope: scored | calibration-only
 Outcome: pass | fail | blocked | invalid
 Boundary tested: <failure type>
 Evidence: <commands and exit status>

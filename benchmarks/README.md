@@ -43,7 +43,7 @@ These checks do not prove an agent passed a fixture. They prove the benchmark fi
 From the repository root:
 
 ```sh
-npm run bench:prepare -- <fixture-id> --agent <agent-name> --label <short-label>
+npm run bench:prepare -- <fixture-id> --agent <agent-name> --label <short-label> --mode <mode>
 ```
 
 The command creates an isolated run directory under `benchmarks/runs/` with:
@@ -55,7 +55,7 @@ The command creates an isolated run directory under `benchmarks/runs/` with:
 
 `benchmarks/runs/` is ignored by git except for `.gitkeep`. Commit curated results separately only after reviewing them for privacy and evidence quality.
 
-Use `docs/manual-evaluation-protocol.md` for scoring rules. The default evaluation mode is `closed-rubric`: show the agent `prompt.md` and the copied `repo/`, then score from command evidence and the fixture verifier.
+Use `docs/manual-evaluation-protocol.md` for scoring rules. The default evaluation mode is `closed-rubric`: show the agent `prompt.md` and the copied `repo/`, then score from command evidence and the fixture verifier. Use `--mode calibration` for author self-smoke runs; those are not benchmark scores.
 
 ## Current Fixtures
 

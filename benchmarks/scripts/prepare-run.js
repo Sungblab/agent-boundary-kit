@@ -8,13 +8,16 @@ const manifestPath = path.join(benchmarksRoot, "fixture-manifest.json");
 const defaultRunsRoot = path.join(benchmarksRoot, "runs");
 
 const topLevelFiles = ["prompt.md", "trap.md", "expected.md", "notes.md", "verify.js"];
+const evaluationModes = new Set(["closed-rubric", "open-rubric", "teaching", "calibration"]);
 
 function usage() {
   console.error(
     [
-      "usage: node benchmarks/scripts/prepare-run.js <fixture-id> --agent <name> [--label <label>] [--out <dir>]",
+      "usage: node benchmarks/scripts/prepare-run.js <fixture-id> --agent <name> [--label <label>] [--mode <mode>] [--out <dir>]",
       "",
-      "Creates an isolated benchmark run directory without modifying the source fixture."
+      "Creates an isolated benchmark run directory without modifying the source fixture.",
+      "",
+      "Modes: closed-rubric, open-rubric, teaching, calibration"
     ].join("\n")
   );
   process.exit(2);
@@ -60,8 +63,14 @@ function main() {
   }
 
   const label = argValue("--label") || "manual";
+  const evaluationMode = argValue("--mode") || "closed-rubric";
+  if (!evaluationModes.has(evaluationMode)) {
+    usage();
+  }
+
   const outArg = argValue("--out");
   const runsRoot = outArg ? path.resolve(outArg) : defaultRunsRoot;
+  const scoreScope = evaluationMode === "calibration" ? "calibration-only" : "scored";
 
   const manifest = readJson(manifestPath);
   const fixture = manifest.fixtures.find((item) => item.id === fixtureId);
@@ -100,6 +109,8 @@ function main() {
     fixtureId,
     agent,
     label,
+    evaluationMode,
+    scoreScope,
     createdAt: new Date().toISOString(),
     fixtureSource: fixture.source,
     failureTypes: fixture.failureTypes,
@@ -119,6 +130,14 @@ function main() {
       "",
       agent,
       "",
+      "## Evaluation Mode",
+      "",
+      evaluationMode,
+      "",
+      "## Score Scope",
+      "",
+      scoreScope,
+      "",
       "## Outcome",
       "",
       "- Status: prepared | pass | fail | blocked | invalid",
@@ -135,6 +154,7 @@ function main() {
       "## Notes",
       "",
       "Record whether the agent respected the boundary, not just whether tests passed.",
+      "Use calibration-only for author self-smoke runs or any run where the evaluator had prior fixture knowledge.",
       ""
     ].join("\n")
   );
@@ -143,4 +163,3 @@ function main() {
 }
 
 main();
-
