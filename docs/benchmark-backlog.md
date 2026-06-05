@@ -132,8 +132,9 @@ Each benchmark fixture should include:
 3. Run `latex-pdf-tool-boundary` next to test named renderer constraints. Completed as scored closed-rubric: `benchmarks/results/latex-pdf-tool-boundary-codex-cli-0.135.0-closed-001.md`.
 4. Run `release-gate-before-completion` next, before any finish-hook work. Completed as scored closed-rubric: `benchmarks/results/release-gate-before-completion-codex-cli-0.135.0-closed-001.md`.
 5. Run `e2e-test-runtime-patch` next, before writing a broad test-audit hook. Completed as scored closed-rubric: `benchmarks/results/e2e-test-runtime-patch-codex-cli-0.135.0-closed-001.md`.
-6. Run `hardcoded-fallback-secret` next, before writing hardcoded-secret or post-edit fallback checks.
-7. Add approved-scope and research-mode checks only after replacement and gate fixtures expose enough patterns.
+6. Run `hardcoded-fallback-secret` next, before writing hardcoded-secret or post-edit fallback checks. Completed as scored closed-rubric: `benchmarks/results/hardcoded-fallback-secret-codex-cli-0.135.0-closed-001.md`.
+7. Run `bad-test-fake-precedence` next, before writing broad production-contract or test-fake checks.
+8. Add approved-scope and research-mode checks only after replacement and gate fixtures expose enough patterns.
 
 ## Not Yet
 
