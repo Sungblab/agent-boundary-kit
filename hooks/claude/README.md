@@ -12,6 +12,8 @@ The next scanner candidate is `test-fake-contract-scan`; its red/green evidence 
 
 The combined application sweep for the current test-integrity scanners is recorded in `docs/scanner-application-test-integrity.md`.
 
+The first non-test-integrity scanner is `parser-fallback-boundary-scan`; its red/green evidence is recorded in `docs/scanner-validation-parser-fallback-boundary.md`, its application sweep is recorded in `docs/scanner-application-parser-fallback-boundary.md`, and its read-only script is `benchmarks/scripts/scan-parser-fallback-boundary.js`. It is still not an installed hook.
+
 ## Specs
 
 - `pre-write-boundary-check.md`: block writes when the task boundary is not established.

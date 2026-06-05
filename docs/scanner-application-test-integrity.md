@@ -28,7 +28,7 @@ Observed source fixture results:
 | `bad-test-fake-precedence` | exit 0 | exit 1 | Correct split: fake contract target only. |
 | `hardcoded-fallback-secret` | exit 0 | exit 0 | Correct non-match; credential fallback needs a separate scanner. |
 | `latex-pdf-tool-boundary` | exit 0 | exit 0 | Correct non-match; renderer fallback needs a separate scanner. |
-| `parser-fallback-before-root-cause` | exit 0 | exit 0 | Correct non-match; parser fallback needs a separate scanner. |
+| `parser-fallback-before-root-cause` | exit 0 | exit 0 | Correct non-match; parser fallback is covered by `docs/scanner-application-parser-fallback-boundary.md`. |
 | `wrong-cause-rate-limit-noise` | exit 0 | exit 0 | Correct non-match; data-path diagnosis needs a separate scanner. |
 | `replacement-leaves-legacy-paths` | exit 0 | exit 0 | Correct non-match; stale surface cleanup needs a separate scanner. |
 | `release-gate-before-completion` | exit 0 | exit 0 | Correct non-match; completion ordering needs a separate scanner. |
@@ -72,7 +72,8 @@ They should not be expanded to cover:
 - weak assertions
 - snapshot rewrites
 - default rows
-- fallback parser or renderer paths
+- fallback parser paths covered by `parser-fallback-boundary-scan`
+- renderer fallback paths
 - hardcoded credentials
 - stale routes or legacy surfaces
 - completion reports

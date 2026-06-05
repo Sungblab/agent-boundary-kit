@@ -85,6 +85,8 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `docs/scanner-application-test-runtime-patch.md`: first application sweep for the runtime-patch scanner
 - `docs/scanner-validation-test-fake-contract.md`: red/green evidence for the next test-integrity scanner candidate
 - `docs/scanner-application-test-integrity.md`: combined application sweep for the current test-integrity scanners
+- `docs/scanner-validation-parser-fallback-boundary.md`: red/green evidence for the parser fallback boundary scanner
+- `docs/scanner-application-parser-fallback-boundary.md`: application sweep for the parser fallback boundary scanner
 - `docs/manual-evaluation-protocol.md`: how to run, score, and publish manual agent evaluations
 - `docs/first-scored-run.md`: first public-derived closed-rubric runbook
 - `docs/calibration-runs.md`: non-scored self-smoke notes for fixture and protocol validation
@@ -93,6 +95,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/prepare-run.js`: creates isolated fixture run directories
 - `benchmarks/scripts/scan-test-runtime-patch.js`: read-only scanner for test-side runtime patching
 - `benchmarks/scripts/scan-test-fake-contract.js`: read-only scanner for fake/production contract mismatch
+- `benchmarks/scripts/scan-parser-fallback-boundary.js`: read-only scanner for named-parser fallback activation
 - `benchmarks/fixtures/`: runnable benchmark fixtures
 - `benchmarks/results/`: reviewed result summary template and publication rules
 - `templates/AGENTS.boundary.md`: repository instruction template for Codex-style agents
@@ -141,7 +144,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - fixture `failureTypes` are checked against `docs/failure-taxonomy.md`.
 - reviewed result summaries under `benchmarks/results/` are also checked for required evidence and privacy-review fields.
 - public docs and result summaries are checked for local paths, file URLs, and credential-like tokens.
-- the first read-only scanner is checked against recorded red/green test-runtime-patch evidence.
+- the read-only scanners are checked against recorded red/green evidence.
 - `research/public-case-index.md` is checked for case count, required benchmark fields, stable case ids, taxonomy-linked failure types, and manifest source references.
 - repository-level benchmark scripts are checked for portable verifier paths.
 

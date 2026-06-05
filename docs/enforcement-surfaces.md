@@ -16,6 +16,8 @@ The next scanner candidate is `test-fake-contract-scan`, with validation evidenc
 
 The combined test-integrity scanner sweep is recorded in `docs/scanner-application-test-integrity.md`.
 
+The next non-test-integrity scanner is `parser-fallback-boundary-scan`, with validation evidence in `docs/scanner-validation-parser-fallback-boundary.md`, application evidence in `docs/scanner-application-parser-fallback-boundary.md`, and read-only script `benchmarks/scripts/scan-parser-fallback-boundary.js`.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -173,6 +175,9 @@ Blocks completion when:
 7. Record red/green evidence for `test-fake-contract-scan`. Completed: `docs/scanner-validation-test-fake-contract.md`.
 8. Turn `test-fake-contract-scan` into a small read-only script only after reviewing that validation note. Completed: `benchmarks/scripts/scan-test-fake-contract.js`.
 9. Record the combined application sweep for the two test-integrity scanners. Completed: `docs/scanner-application-test-integrity.md`.
-10. Only then package a Codex skill or Claude hooks.
+10. Record red/green evidence for `parser-fallback-boundary-scan`. Completed: `docs/scanner-validation-parser-fallback-boundary.md`.
+11. Turn `parser-fallback-boundary-scan` into a small read-only script only after reviewing that validation note. Completed: `benchmarks/scripts/scan-parser-fallback-boundary.js`.
+12. Record the parser fallback scanner application sweep. Completed: `docs/scanner-application-parser-fallback-boundary.md`.
+13. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

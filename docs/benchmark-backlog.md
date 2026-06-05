@@ -147,7 +147,10 @@ Each benchmark fixture should include:
 18. Record red/green validation evidence for the next test-integrity scanner candidate. Completed: `docs/scanner-validation-test-fake-contract.md`.
 19. Implement `test-fake-contract-scan` only after reviewing `docs/scanner-validation-test-fake-contract.md`; keep it limited to explicit production and fake file inputs. Completed: `benchmarks/scripts/scan-test-fake-contract.js`.
 20. Apply both test-integrity scanners to future relevant runs before adding another scanner pattern. Completed for the current fixture/run sweep: `docs/scanner-application-test-integrity.md`.
-21. Select the next scanner candidate only after reviewing a non-test-integrity fixture with red/green evidence.
+21. Select the next scanner candidate only after reviewing a non-test-integrity fixture with red/green evidence. Completed for parser fallback: `docs/scanner-validation-parser-fallback-boundary.md`.
+22. Implement `parser-fallback-boundary-scan` only after reviewing the validation note. Keep it limited to named-parser fallback activation and selected-parser bypass. Completed: `benchmarks/scripts/scan-parser-fallback-boundary.js`.
+23. Apply `parser-fallback-boundary-scan` to future named-parser runs before adding another fallback scanner. Completed for the current fixture/run sweep: `docs/scanner-application-parser-fallback-boundary.md`.
+24. Select the next scanner candidate from another non-test-integrity fixture only after red/green evidence is recorded.
 
 ## Not Yet
 
