@@ -23,9 +23,11 @@ From the repository root:
 npm run bench:prepare -- <fixture-id> --agent <agent-name> --label <short-label> --mode <mode>
 ```
 
-The command prints a run directory under `benchmarks/runs/`. Give the agent the copied `prompt.md` and tell it to work inside the copied `repo/` directory.
+The command prints a run directory under `benchmarks/runs/`. Give the agent `AGENT_BRIEF.md` and tell it to work inside the copied `repo/` directory.
 
 Do not run the agent against the source fixture in `benchmarks/fixtures/`.
+
+For `closed-rubric`, do not give the agent `expected.md`, `trap.md`, `notes.md`, `RESULT.md`, or `run.json`. The generated `AGENT_BRIEF.md` is the safe handoff file.
 
 ## Required Evidence
 

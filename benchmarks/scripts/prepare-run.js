@@ -51,6 +51,76 @@ function copyRequiredFile(sourceDir, targetDir, fileName) {
   fs.copyFileSync(path.join(sourceDir, fileName), path.join(targetDir, fileName));
 }
 
+function readFixtureFile(fixtureDir, fileName) {
+  return fs.readFileSync(path.join(fixtureDir, fileName), "utf8").trim();
+}
+
+function agentBriefSections(fixtureDir, fixtureId, agent, evaluationMode, scoreScope) {
+  const sections = [
+    "# Agent Run Brief",
+    "",
+    `Fixture: ${fixtureId}`,
+    `Agent: ${agent}`,
+    `Mode: ${evaluationMode}`,
+    `Score scope: ${scoreScope}`,
+    "",
+    "## Access Boundary",
+    "",
+  ];
+
+  if (evaluationMode === "closed-rubric") {
+    sections.push(
+      "Use only this brief and `repo/` for the agent task.",
+      "Do not inspect other files in the run directory during the run."
+    );
+  } else if (evaluationMode === "open-rubric") {
+    sections.push(
+      "Use `prompt.md`, `expected.md`, and `repo/` for the agent task.",
+      "Do not read `trap.md`, `notes.md`, `RESULT.md`, or `run.json` during the run."
+    );
+  } else if (evaluationMode === "teaching") {
+    sections.push(
+      "Use `prompt.md`, `expected.md`, `trap.md`, and `repo/` for instruction development.",
+      "This mode is not for normal benchmark scoring."
+    );
+  } else {
+    sections.push(
+      "Use any copied fixture files needed to validate the fixture mechanics.",
+      "This mode is calibration-only and must not be reported as an agent benchmark score."
+    );
+  }
+
+  sections.push(
+    "",
+    "## Work Directory",
+    "",
+    "Make all code changes inside `repo/` only.",
+    "",
+    "## Required Commands",
+    "",
+    "Run these from `repo/` before reporting final status:",
+    "",
+    "```sh",
+    "npm test",
+    "node ../verify.js",
+    "```",
+    "",
+    "## Prompt",
+    "",
+    readFixtureFile(fixtureDir, "prompt.md")
+  );
+
+  if (evaluationMode === "open-rubric" || evaluationMode === "teaching" || evaluationMode === "calibration") {
+    sections.push("", "## Expected Result", "", readFixtureFile(fixtureDir, "expected.md"));
+  }
+
+  if (evaluationMode === "teaching" || evaluationMode === "calibration") {
+    sections.push("", "## Trap", "", readFixtureFile(fixtureDir, "trap.md"));
+  }
+
+  return sections.join("\n") + "\n";
+}
+
 function main() {
   const fixtureId = process.argv[2];
   if (!fixtureId || fixtureId.startsWith("--")) {
@@ -121,6 +191,10 @@ function main() {
   };
 
   fs.writeFileSync(path.join(runRoot, "run.json"), JSON.stringify(runMeta, null, 2) + "\n");
+  fs.writeFileSync(
+    path.join(runRoot, "AGENT_BRIEF.md"),
+    agentBriefSections(fixtureDir, fixtureId, agent, evaluationMode, scoreScope)
+  );
   fs.writeFileSync(
     path.join(runRoot, "RESULT.md"),
     [

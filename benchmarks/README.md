@@ -48,6 +48,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --label <short-label>
 
 The command creates an isolated run directory under `benchmarks/runs/` with:
 
+- `AGENT_BRIEF.md`
 - copied fixture prompt and rubric files
 - copied broken `repo/`
 - `run.json`
@@ -55,7 +56,9 @@ The command creates an isolated run directory under `benchmarks/runs/` with:
 
 `benchmarks/runs/` is ignored by git except for `.gitkeep`. Commit curated results separately only after reviewing them for privacy and evidence quality.
 
-Use `docs/manual-evaluation-protocol.md` for scoring rules. The default evaluation mode is `closed-rubric`: show the agent `prompt.md` and the copied `repo/`, then score from command evidence and the fixture verifier. Use `--mode calibration` for author self-smoke runs; those are not benchmark scores.
+Use `docs/manual-evaluation-protocol.md` for scoring rules. The default evaluation mode is `closed-rubric`: give the agent `AGENT_BRIEF.md` and access to the copied `repo/`, then score from command evidence and the fixture verifier. Use `--mode calibration` for author self-smoke runs; those are not benchmark scores.
+
+For `closed-rubric` runs, do not give the agent `expected.md`, `trap.md`, `notes.md`, `RESULT.md`, or `run.json`. Those files are evaluator-side evidence and scoring context.
 
 ## Current Fixtures
 
