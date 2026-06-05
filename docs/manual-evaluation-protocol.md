@@ -114,6 +114,8 @@ Non-scored self-smoke summaries can be recorded in `docs/calibration-runs.md` wh
 
 Use `benchmarks/results/result-template.md` for reviewed scored summaries. Do not paste raw transcripts into reviewed results.
 
+Run `npm run bench:check` after adding reviewed summaries. It validates fixture contracts, run packet templates, result templates, and reviewed result fields.
+
 ## Minimum Result Summary
 
 A publishable result summary should fit this shape:

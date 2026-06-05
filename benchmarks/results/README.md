@@ -6,6 +6,8 @@ Do not commit raw run directories, full transcripts, private user text, credenti
 
 Use `result-template.md` when turning a raw run into a reviewed summary. The summary should explain the boundary behavior and cite command evidence. It should not quote complaints or reproduce private session text.
 
+Reviewed result files are checked by `npm run bench:check`. With no reviewed results, the check should report `reviewed result check passed (0 results)`.
+
 ## Publication Bar
 
 A reviewed result is publishable only when:

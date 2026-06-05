@@ -128,6 +128,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - `bench:check` verifies fixture structure against the manifest.
 - `bench:check:red` also confirms that each untouched fixture's verifier fails in its initial state.
 - `bench:prepare` copies a fixture into `benchmarks/runs/` and writes `AGENT_BRIEF.md` for manual agent evaluation.
+- reviewed result summaries under `benchmarks/results/` are also checked for required evidence and privacy-review fields.
 
 Use `docs/manual-evaluation-protocol.md` when scoring manual runs. Do not publish raw run directories without privacy review.
 
