@@ -245,6 +245,7 @@ Blocks completion when:
 47. Add post-edit scanner fan-out dry-run coverage before implementation. Completed: `hooks/claude/examples/runner-dry-run.post-edit-scope-fanout.json`.
 48. Record hook runner scanner selection rules before implementation. Completed: `docs/hook-runner-selection-matrix.md`.
 49. Record a plan-only dry-run CLI contract before implementation. Completed: `docs/hook-runner-dry-run-cli-contract.md`.
-50. Only then package a Codex skill or Claude hooks.
+50. Add plan-only dry-run CLI output fixtures before implementation. Completed: `hooks/claude/examples/runner-dry-run-cli.planned-output.json` and `hooks/claude/examples/runner-dry-run-cli.configuration-error-output.json`.
+51. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

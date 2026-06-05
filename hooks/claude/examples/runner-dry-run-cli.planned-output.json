@@ -1,0 +1,55 @@
+{
+  "mode": "dry-run-plan",
+  "hookId": "post_edit_scope_check",
+  "inputPath": "hooks/claude/examples/runner-dry-run.post-edit-scope-fanout.json",
+  "status": "planned",
+  "exitCode": 0,
+  "selectedScanners": [
+    {
+      "scanner": "parser-fallback-boundary-scan",
+      "script": "benchmarks/scripts/scan-parser-fallback-boundary.js",
+      "inputsRequired": [
+        "repoRoot",
+        "changedFiles",
+        "namedTools"
+      ],
+      "willExecute": false
+    },
+    {
+      "scanner": "latex-renderer-boundary-scan",
+      "script": "benchmarks/scripts/scan-latex-renderer-boundary.js",
+      "inputsRequired": [
+        "repoRoot",
+        "changedFiles",
+        "namedTools"
+      ],
+      "willExecute": false
+    },
+    {
+      "scanner": "legacy-surface-retention-scan",
+      "script": "benchmarks/scripts/scan-legacy-surface-retention.js",
+      "inputsRequired": [
+        "repoRoot",
+        "changedFiles",
+        "staleTerms"
+      ],
+      "willExecute": false
+    },
+    {
+      "scanner": "untrusted-context-canary-scan",
+      "script": "benchmarks/scripts/scan-untrusted-context-canary.js",
+      "inputsRequired": [
+        "externalSources",
+        "changedFiles"
+      ],
+      "willExecute": false
+    }
+  ],
+  "configurationErrors": [],
+  "nonGoals": [
+    "Do not execute scanners",
+    "Do not install hooks",
+    "Do not write files",
+    "Do not write final responses"
+  ]
+}

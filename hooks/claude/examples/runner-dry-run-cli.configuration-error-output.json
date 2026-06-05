@@ -1,0 +1,23 @@
+{
+  "mode": "dry-run-plan",
+  "hookId": "pre_write_boundary_check",
+  "inputPath": "hooks/claude/examples/runner-input.invalid-missing-metadata.json",
+  "status": "configuration-error",
+  "exitCode": 2,
+  "selectedScanners": [],
+  "configurationErrors": [
+    {
+      "scanner": "phase-gate-plan-scan",
+      "missingInputs": [
+        "metadataFiles"
+      ],
+      "reason": "Required declared metadata is missing."
+    }
+  ],
+  "nonGoals": [
+    "Do not execute scanners",
+    "Do not install hooks",
+    "Do not write files",
+    "Do not write final responses"
+  ]
+}

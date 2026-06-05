@@ -45,6 +45,11 @@ The plan-only dry run must reject transcript fields and missing required metadat
 
 The output is a selection plan, not scanner evidence.
 
+Output examples:
+
+- `hooks/claude/examples/runner-dry-run-cli.planned-output.json`
+- `hooks/claude/examples/runner-dry-run-cli.configuration-error-output.json`
+
 Required output fields:
 
 - `mode`
