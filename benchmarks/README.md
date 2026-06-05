@@ -33,7 +33,7 @@ npm run bench:check
 npm run bench:check:red
 ```
 
-- `bench:check` checks fixture structure and manifest coverage.
+- `bench:check` checks fixture structure, taxonomy coverage, public case references, result templates, and script portability.
 - `bench:check:red` runs each fixture verifier and expects failure in the untouched initial state.
 
 These checks do not prove an agent passed a fixture. They prove the benchmark fixtures are still set up as broken starting points and that repository-level benchmark scripts avoid Windows-only verifier paths.
