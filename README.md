@@ -79,6 +79,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `research/public-case-index.md`: public-derived benchmark candidates grouped by failure type
 - `docs/benchmark-backlog.md`: first boundary fixtures to build and their evidence checks
 - `docs/enforcement-surfaces.md`: fixture-grounded AGENTS.md, CLAUDE.md, Codex skill, and Claude hook spec
+- `docs/manual-evaluation-protocol.md`: how to run, score, and publish manual agent evaluations
 - `benchmarks/README.md`: how to run the runnable fixtures
 - `benchmarks/fixture-manifest.json`: fixture inventory and expected initial verifier state
 - `benchmarks/scripts/prepare-run.js`: creates isolated fixture run directories
@@ -125,6 +126,8 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name>
 - `bench:check` verifies fixture structure against the manifest.
 - `bench:check:red` also confirms that each untouched fixture's verifier fails in its initial state.
 - `bench:prepare` copies a fixture into `benchmarks/runs/` for manual agent evaluation.
+
+Use `docs/manual-evaluation-protocol.md` when scoring manual runs. Do not publish raw run directories without privacy review.
 
 ## Relationship To devflow-native
 

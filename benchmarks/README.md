@@ -55,6 +55,8 @@ The command creates an isolated run directory under `benchmarks/runs/` with:
 
 `benchmarks/runs/` is ignored by git except for `.gitkeep`. Commit curated results separately only after reviewing them for privacy and evidence quality.
 
+Use `docs/manual-evaluation-protocol.md` for scoring rules. The default evaluation mode is `closed-rubric`: show the agent `prompt.md` and the copied `repo/`, then score from command evidence and the fixture verifier.
+
 ## Current Fixtures
 
 ### `parser-fallback-before-root-cause`
