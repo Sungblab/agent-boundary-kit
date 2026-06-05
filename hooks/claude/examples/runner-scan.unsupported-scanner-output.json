@@ -1,0 +1,10 @@
+{
+  "hookId": "post_edit_scope_check",
+  "scanner": "runner-command-contract",
+  "status": "error",
+  "exitCode": 2,
+  "blocked": true,
+  "reason": "Runner scanner id is unsupported.",
+  "inputsUsed": [],
+  "findings": []
+}

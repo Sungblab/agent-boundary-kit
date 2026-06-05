@@ -191,7 +191,8 @@ Each benchmark fixture should include:
 62. Implement the first plan-only `abk-runner dry-run --input` command without scanner execution. Completed: `bin/abk-runner.js`.
 63. Add plan-only dry-run CLI configuration-error coverage for invalid transcript and unsupported hook inputs. Completed: `hooks/claude/examples/runner-dry-run-cli.invalid-transcript-output.json` and `hooks/claude/examples/runner-dry-run-cli.unsupported-hook-output.json`.
 64. Record and implement the first read-only `abk-runner scan --input --scanner` execution path for one scanner. Completed: `docs/hook-runner-read-only-execution-contract.md` and `benchmarks/scripts/check-abk-runner-scan.js`.
-65. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
+65. Add read-only runner scan configuration-error coverage for unsupported scanner, unselected scanner, and missing changed files. Completed: `hooks/claude/examples/runner-scan.unsupported-scanner-output.json`, `hooks/claude/examples/runner-scan.unselected-scanner-output.json`, and `hooks/claude/examples/runner-scan.missing-changed-files-output.json`.
+66. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet
 

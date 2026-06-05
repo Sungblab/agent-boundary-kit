@@ -35,7 +35,8 @@
         "noisy-log-root-cause-scan",
         "hardcoded-credential-fallback-scan",
         "test-fake-contract-scan",
-        "untrusted-context-canary-scan"
+        "untrusted-context-canary-scan",
+        "runner-command-contract"
       ]
     },
     "status": {

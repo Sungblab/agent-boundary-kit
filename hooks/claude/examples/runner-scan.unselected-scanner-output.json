@@ -1,0 +1,10 @@
+{
+  "hookId": "post_edit_scope_check",
+  "scanner": "legacy-surface-retention-scan",
+  "status": "error",
+  "exitCode": 2,
+  "blocked": true,
+  "reason": "Runner scanner id is not selected by declared input.",
+  "inputsUsed": [],
+  "findings": []
+}

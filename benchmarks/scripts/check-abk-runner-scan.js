@@ -11,6 +11,7 @@ const cases = [
     name: "legacy surface finding",
     input: "hooks/claude/examples/runner-scan.legacy-surface-finding-input.json",
     scanner: "legacy-surface-retention-scan",
+    expectedScanner: "legacy-surface-retention-scan",
     expected: "hooks/claude/examples/runner-scan.legacy-surface-finding-output.json",
     exitCode: 1,
   },
@@ -18,8 +19,33 @@ const cases = [
     name: "legacy surface clear",
     input: "hooks/claude/examples/runner-scan.legacy-surface-clear-input.json",
     scanner: "legacy-surface-retention-scan",
+    expectedScanner: "legacy-surface-retention-scan",
     expected: "hooks/claude/examples/runner-scan.legacy-surface-clear-output.json",
     exitCode: 0,
+  },
+  {
+    name: "unsupported scanner configuration error",
+    input: "hooks/claude/examples/runner-scan.legacy-surface-finding-input.json",
+    scanner: "unknown-boundary-scan",
+    expectedScanner: "runner-command-contract",
+    expected: "hooks/claude/examples/runner-scan.unsupported-scanner-output.json",
+    exitCode: 2,
+  },
+  {
+    name: "unselected scanner configuration error",
+    input: "hooks/claude/examples/runner-scan.unselected-scanner-input.json",
+    scanner: "legacy-surface-retention-scan",
+    expectedScanner: "legacy-surface-retention-scan",
+    expected: "hooks/claude/examples/runner-scan.unselected-scanner-output.json",
+    exitCode: 2,
+  },
+  {
+    name: "missing changed files configuration error",
+    input: "hooks/claude/examples/runner-scan.missing-changed-files-input.json",
+    scanner: "legacy-surface-retention-scan",
+    expectedScanner: "legacy-surface-retention-scan",
+    expected: "hooks/claude/examples/runner-scan.missing-changed-files-output.json",
+    exitCode: 2,
   },
 ];
 
@@ -81,7 +107,7 @@ function runScan(testCase) {
 
 function assertRunnerOutput(output, testCase) {
   assert.equal(output.hookId, "post_edit_scope_check", `${testCase.name}: hookId mismatch`);
-  assert.equal(output.scanner, testCase.scanner, `${testCase.name}: scanner mismatch`);
+  assert.equal(output.scanner, testCase.expectedScanner, `${testCase.name}: scanner mismatch`);
   assert.ok(["clear", "finding", "error"].includes(output.status), `${testCase.name}: invalid status`);
   assert.equal(output.exitCode, testCase.exitCode, `${testCase.name}: output exitCode mismatch`);
   assert.equal(typeof output.blocked, "boolean", `${testCase.name}: blocked must be boolean`);

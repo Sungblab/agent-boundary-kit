@@ -17,7 +17,7 @@ It is not an installed hook, not a runner implementation, and not plugin packagi
 Runner output is limited to a bounded result:
 
 - `hookId`: the hook candidate that requested scanner execution.
-- `scanner`: the fixture-backed scanner id.
+- `scanner`: the fixture-backed scanner id, or `runner-command-contract` for a pre-execution command configuration error.
 - `status`: `clear`, `finding`, or `error`.
 - `exitCode`: scanner-style exit code `0`, `1`, or `2`.
 - `blocked`: whether a future hook should block or require override.
@@ -51,6 +51,8 @@ The runner must not turn scanner output into user-visible copy. Another agent or
 - `exitCode: 0` requires `status: "clear"`, `blocked: false`, and an empty `findings` array.
 - `exitCode: 1` requires `status: "finding"`, `blocked: true`, and at least one finding.
 - `exitCode: 2` requires `status: "error"` and `blocked: true`.
+
+When the runner rejects an unsupported scanner id before scanner execution, it must use `scanner: "runner-command-contract"` instead of mapping the request to a supported scanner id.
 
 ## Validation
 

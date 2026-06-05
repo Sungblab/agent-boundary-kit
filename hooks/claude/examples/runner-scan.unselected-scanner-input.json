@@ -1,0 +1,17 @@
+{
+  "hookId": "post_edit_scope_check",
+  "repoRoot": "hooks/claude/examples/runner-scan-fixtures/legacy-clear",
+  "task": {
+    "type": "replacement",
+    "declaredBy": "agent",
+    "summary": "This input has changed files but no declared stale public terms."
+  },
+  "inputs": {
+    "changedFiles": [
+      "docs/overview.md"
+    ],
+    "approvedScope": [
+      "docs/**"
+    ]
+  }
+}

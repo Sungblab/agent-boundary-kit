@@ -1,0 +1,14 @@
+{
+  "hookId": "post_edit_scope_check",
+  "scanner": "legacy-surface-retention-scan",
+  "status": "error",
+  "exitCode": 2,
+  "blocked": true,
+  "reason": "Runner input is missing required declared inputs: changedFiles.",
+  "inputsUsed": [
+    "repoRoot",
+    "changedFiles",
+    "staleTerms"
+  ],
+  "findings": []
+}

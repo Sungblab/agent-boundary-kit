@@ -30,6 +30,7 @@ const scannerIds = [
   "hardcoded-credential-fallback-scan",
   "test-fake-contract-scan",
   "untrusted-context-canary-scan",
+  "runner-command-contract",
 ];
 
 const statuses = ["clear", "finding", "error"];
@@ -252,6 +253,7 @@ function main() {
     "No final responses",
     "bounded result",
     "supporting evidence",
+    "runner-command-contract",
   ]) {
     assert(contractDoc.includes(phrase), `contract doc missing phrase: ${phrase}`);
   }

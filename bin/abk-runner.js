@@ -31,6 +31,8 @@ const hookIds = [
   "completion_evidence_check",
 ];
 
+const runnerCommandContract = "runner-command-contract";
+
 const scannerCatalog = {
   "parser-fallback-boundary-scan": {
     script: "benchmarks/scripts/scan-parser-fallback-boundary.js",
@@ -380,7 +382,7 @@ function scanOutput(input, scanner, result) {
 function scan(inputPath, scanner) {
   const input = readRunnerInput(inputPath);
   const hookId = typeof input.hookId === "string" ? input.hookId : "unknown";
-  const outputScanner = scannerCatalog[scanner] ? scanner : "legacy-surface-retention-scan";
+  const outputScanner = scannerCatalog[scanner] ? scanner : runnerCommandContract;
 
   const forbiddenKey = findForbiddenKey(input);
   if (forbiddenKey) {

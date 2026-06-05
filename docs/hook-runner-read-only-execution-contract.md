@@ -46,6 +46,8 @@ Execution examples:
 
 - `hooks/claude/examples/runner-scan.legacy-surface-finding-input.json`
 - `hooks/claude/examples/runner-scan.legacy-surface-clear-input.json`
+- `hooks/claude/examples/runner-scan.unselected-scanner-input.json`
+- `hooks/claude/examples/runner-scan.missing-changed-files-input.json`
 
 ## Output
 
@@ -55,6 +57,9 @@ Output examples:
 
 - `hooks/claude/examples/runner-scan.legacy-surface-finding-output.json`
 - `hooks/claude/examples/runner-scan.legacy-surface-clear-output.json`
+- `hooks/claude/examples/runner-scan.unsupported-scanner-output.json`
+- `hooks/claude/examples/runner-scan.unselected-scanner-output.json`
+- `hooks/claude/examples/runner-scan.missing-changed-files-output.json`
 
 The command must not emit dry-run planning output.
 
@@ -74,6 +79,8 @@ The first implementation may execute only `legacy-surface-retention-scan`.
 
 It must pass changed files from the declared `repoRoot` and `inputs.changedFiles` fields. If those fields are missing, it must return `exitCode: 2`.
 
+For pre-execution command errors, the output may use `runner-command-contract` as the bounded `scanner` value. It must not map an unknown scanner request to a supported scanner id.
+
 It must keep `dry-run` plan-only behavior unchanged.
 
 ## Evidence Gate
@@ -86,7 +93,7 @@ npm run bench:check
 npm run bench:check:red
 ```
 
-The check verifies clear and finding outputs for the first supported read-only scanner.
+The check verifies clear, finding, and configuration-error outputs for the first supported read-only scanner.
 
 ## Non-Goals
 
