@@ -84,6 +84,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `docs/hook-runner-minimal-plan.md`: minimal runner contract for future hook packaging
 - `docs/hook-runner-input-contract.md`: JSON input contract and examples for the future hook runner
 - `docs/hook-runner-output-contract.md`: JSON output contract and examples for bounded runner results
+- `docs/hook-runner-dry-run-spec.md`: dry-run example for scanner selection and bounded result mapping
 - `docs/first-ten-result-synthesis.md`: first reviewed-result synthesis and enforcement-surface gap analysis
 - `docs/first-scanner-candidate.md`: first narrow scanner candidate and red/green validation path
 - `docs/scanner-validation-test-runtime-patch.md`: recorded red/green evidence for the first scanner
@@ -127,6 +128,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/check-hook-runner-minimal-plan.js`: verifies the future hook runner stays limited to explicit paths and declared metadata
 - `benchmarks/scripts/check-hook-runner-input-contract.js`: verifies the hook runner input schema and valid/invalid examples
 - `benchmarks/scripts/check-hook-runner-output-contract.js`: verifies the hook runner output schema and valid/invalid examples
+- `benchmarks/scripts/check-hook-runner-dry-run-spec.js`: verifies the dry-run scanner selection example
 - `benchmarks/fixtures/`: runnable benchmark fixtures
 - `benchmarks/results/`: reviewed result summary template and publication rules
 - `templates/AGENTS.boundary.md`: repository instruction template for Codex-style agents
@@ -179,6 +181,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - future hook runner docs are checked for explicit input boundaries and scanner mapping.
 - future hook runner input examples are checked against a bounded JSON contract.
 - future hook runner output examples are checked against a bounded JSON contract.
+- future hook runner dry-run examples are checked for bounded scanner selection and output mapping.
 - `research/public-case-index.md` is checked for case count, required benchmark fields, stable case ids, taxonomy-linked failure types, and manifest source references.
 - repository-level benchmark scripts are checked for portable verifier paths.
 

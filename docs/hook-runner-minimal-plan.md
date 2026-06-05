@@ -8,6 +8,8 @@ The JSON input contract and examples are recorded in `docs/hook-runner-input-con
 
 The JSON output contract and examples are recorded in `docs/hook-runner-output-contract.md`.
 
+The dry-run scanner selection example is recorded in `docs/hook-runner-dry-run-spec.md`.
+
 ## Boundary
 
 The runner must preserve the same boundary recorded in `docs/hook-scanner-contracts.md` and `docs/scanner-coverage-matrix.md`.
@@ -96,6 +98,7 @@ This plan is checked by:
 node benchmarks/scripts/check-hook-runner-minimal-plan.js
 node benchmarks/scripts/check-hook-runner-input-contract.js
 node benchmarks/scripts/check-hook-runner-output-contract.js
+node benchmarks/scripts/check-hook-runner-dry-run-spec.js
 npm run bench:check
 npm run bench:check:red
 ```

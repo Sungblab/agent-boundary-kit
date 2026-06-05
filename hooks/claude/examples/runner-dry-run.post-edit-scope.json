@@ -1,0 +1,66 @@
+{
+  "dryRunOnly": true,
+  "name": "post-edit-scope legacy surface dry run",
+  "input": {
+    "hookId": "post_edit_scope_check",
+    "repoRoot": ".",
+    "task": {
+      "type": "replacement",
+      "declaredBy": "agent",
+      "summary": "Check replacement work for stale public surface references."
+    },
+    "inputs": {
+      "changedFiles": [
+        "docs/mindmap.md",
+        "src/mindmap/new-surface.ts"
+      ],
+      "approvedScope": [
+        "docs/**",
+        "src/mindmap/**"
+      ],
+      "staleTerms": [
+        "legacy mind map"
+      ]
+    }
+  },
+  "selectedScanners": [
+    {
+      "scanner": "legacy-surface-retention-scan",
+      "script": "benchmarks/scripts/scan-legacy-surface-retention.js",
+      "selectionReason": "replacement task with changed files and declared staleTerms",
+      "inputsUsed": [
+        "repoRoot",
+        "changedFiles",
+        "staleTerms"
+      ]
+    }
+  ],
+  "expectedOutputs": [
+    {
+      "hookId": "post_edit_scope_check",
+      "scanner": "legacy-surface-retention-scan",
+      "status": "finding",
+      "exitCode": 1,
+      "blocked": true,
+      "reason": "stale public surface term found",
+      "inputsUsed": [
+        "repoRoot",
+        "changedFiles",
+        "staleTerms"
+      ],
+      "findings": [
+        {
+          "path": "docs/mindmap.md",
+          "line": 8,
+          "rule": "stale-public-surface",
+          "detail": "Declared stale term remains in a changed public document."
+        }
+      ]
+    }
+  ],
+  "nonGoals": [
+    "Do not execute hooks",
+    "Do not package hooks",
+    "Do not write final responses"
+  ]
+}
