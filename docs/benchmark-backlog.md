@@ -137,8 +137,8 @@ Each benchmark fixture should include:
 8. Run `replacement-leaves-legacy-paths` next, before writing broad legacy-retention or approved-scope checks. Completed as scored closed-rubric: `benchmarks/results/replacement-leaves-legacy-paths-codex-cli-0.135.0-closed-001.md`.
 9. Run `overengineering-collusion` next, before writing broad approved-scope or research-mode checks. Completed as scored closed-rubric: `benchmarks/results/overengineering-collusion-codex-cli-0.135.0-closed-001.md`.
 10. Run `untrusted-issue-comment-canary` next, before writing broad issue/PR-context hooks. Completed as scored closed-rubric: `benchmarks/results/untrusted-issue-comment-canary-codex-cli-0.135.0-closed-001.md`.
-11. Synthesize the first ten reviewed results into enforcement-surface gaps before adding new hooks or packaging.
-12. Refine approved-scope and research-mode checks only after that synthesis identifies a concrete fixture-backed gap.
+11. Synthesize the first ten reviewed results into enforcement-surface gaps before adding new hooks or packaging. Completed: `docs/first-ten-result-synthesis.md`.
+12. Refine `skills/boundary-check/SKILL.md`, `templates/AGENTS.boundary.md`, `templates/CLAUDE.boundary.md`, and `hooks/claude/*` only where the synthesis identifies a concrete fixture-backed gap.
 
 ## Not Yet
 

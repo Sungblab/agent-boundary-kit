@@ -79,6 +79,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `research/public-case-index.md`: public-derived benchmark candidates grouped by failure type
 - `docs/benchmark-backlog.md`: first boundary fixtures to build and their evidence checks
 - `docs/enforcement-surfaces.md`: fixture-grounded AGENTS.md, CLAUDE.md, Codex skill, and Claude hook spec
+- `docs/first-ten-result-synthesis.md`: first reviewed-result synthesis and enforcement-surface gap analysis
 - `docs/manual-evaluation-protocol.md`: how to run, score, and publish manual agent evaluations
 - `docs/first-scored-run.md`: first public-derived closed-rubric runbook
 - `docs/calibration-runs.md`: non-scored self-smoke notes for fixture and protocol validation

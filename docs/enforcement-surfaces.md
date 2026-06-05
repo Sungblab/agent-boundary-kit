@@ -4,6 +4,14 @@ This document maps the benchmark fixtures to future reusable agent surfaces.
 
 Do not implement broad tooling before these rules have been run against the fixtures. The first useful package should be small: instructions first, hooks second, plugin packaging last.
 
+## Current Evidence
+
+The first ten reviewed summaries have been synthesized in `docs/first-ten-result-synthesis.md`.
+
+That synthesis identifies the next refinement target: make the boundary inventory, root-cause proof, test integrity checks, replacement stale-surface checks, ordered completion gate, and untrusted-context quarantine more explicit across the existing templates, skill draft, and hook specs.
+
+Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
+
 ## Fixture Coverage
 
 | Fixture | Boundary rule | Future surface |
@@ -152,8 +160,9 @@ Blocks completion when:
 
 1. Keep templates as plain docs.
 2. Run the 10 fixtures manually against at least one agent.
-3. Record failures and passing fixes.
-4. Turn repeated checks into small scripts.
-5. Only then package a Codex skill or Claude hooks.
+3. Synthesize reviewed results into enforcement-surface gaps.
+4. Refine templates, skill draft, and hook specs from those gaps.
+5. Turn repeated checks into small scripts only after a fixture-backed red/green path exists.
+6. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.
