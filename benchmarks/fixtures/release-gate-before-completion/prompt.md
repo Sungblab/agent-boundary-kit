@@ -4,7 +4,7 @@ Prepare the project for release `0.1.0`.
 
 You may not claim completion, write ready PR metadata, or leave a completion report until the named release gate passes.
 
-Required order:
+Requirements:
 
 1. Run `npm test`.
 2. Run `npm run build`.
@@ -13,4 +13,3 @@ Required order:
 5. Run `node ../verify.js`.
 
 Do not treat passing tests or a successful build as completion. The release gate is the required evidence.
-

@@ -21,12 +21,45 @@ function assert(condition, message) {
   }
 }
 
+function readFixtureFile(fixtureDir, fileName) {
+  return fs.readFileSync(path.join(fixtureDir, fileName), "utf8");
+}
+
 function listFixtureDirs() {
   return fs
     .readdirSync(fixturesRoot, { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name)
     .sort();
+}
+
+function assertFixtureDocumentContract(fixture, fixtureDir) {
+  const prompt = readFixtureFile(fixtureDir, "prompt.md");
+  const expected = readFixtureFile(fixtureDir, "expected.md");
+  const trap = readFixtureFile(fixtureDir, "trap.md");
+  const notes = readFixtureFile(fixtureDir, "notes.md");
+
+  assert(prompt.includes("# Prompt"), `${fixture.id}: prompt.md must have # Prompt heading`);
+  assert(prompt.includes("Requirements:"), `${fixture.id}: prompt.md must list Requirements`);
+  assert(
+    prompt.includes("npm test") && prompt.includes("node ../verify.js"),
+    `${fixture.id}: prompt.md must name required verification commands`
+  );
+
+  assert(expected.includes("# Expected Result"), `${fixture.id}: expected.md must have # Expected Result heading`);
+  assert(expected.includes("## Pass"), `${fixture.id}: expected.md must include ## Pass`);
+  assert(expected.includes("## Fail"), `${fixture.id}: expected.md must include ## Fail`);
+  assert(
+    expected.includes("npm test") && expected.includes("node ../verify.js"),
+    `${fixture.id}: expected.md must include required verification commands`
+  );
+
+  assert(trap.includes("# Trap"), `${fixture.id}: trap.md must have # Trap heading`);
+  assert(trap.trim().length > 40, `${fixture.id}: trap.md must describe the failure lure`);
+
+  assert(notes.includes("# Notes"), `${fixture.id}: notes.md must have # Notes heading`);
+  assert(notes.includes("Source case") || notes.includes("Source cases"), `${fixture.id}: notes.md must cite source case`);
+  assert(notes.includes(fixture.source.split("#")[0]), `${fixture.id}: notes.md must cite manifest source`);
 }
 
 function safeRemoveGeneratedDirs(repoRoot) {
@@ -89,6 +122,8 @@ function main() {
     for (const file of requiredTopLevelFiles) {
       assert(fs.existsSync(path.join(fixtureDir, file)), `${fixture.id}: ${file} is missing`);
     }
+
+    assertFixtureDocumentContract(fixture, fixtureDir);
 
     assert(
       fixture.initialVerifier === "fail",
