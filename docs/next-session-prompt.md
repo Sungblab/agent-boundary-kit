@@ -3,7 +3,7 @@
 Use this prompt when opening a new Codex or Claude Code session in this repo.
 
 ```text
-You are working in C:\Users\Sungbin\Documents\GitHub\agent-boundary-kit.
+You are working in the `agent-boundary-kit` repository.
 
 Goal:
 Build Agent Boundary Kit, an open-source research and tooling repo for preventing AI coding-agent boundary failures.
@@ -35,7 +35,7 @@ Immediate next work:
 2. Review research/public-case-index.md and keep public examples as validation, not as complaint quotes.
 3. Review docs/benchmark-backlog.md and keep the first fixtures small and runnable.
 4. Refine templates/AGENTS.boundary.md and templates/CLAUDE.boundary.md only where fixture requirements reveal gaps.
-5. Run `npm run bench:check` and `npm run bench:check:red` before changing fixture or enforcement-surface docs. Use `docs/first-scored-run.md` for the first public-derived `closed-rubric` run. Refine `skills/boundary-check/SKILL.md` and `hooks/claude/*` from fixture evidence, but do not install or package broad tooling yet.
+5. Run `npm run bench:check` and `npm run bench:check:red` before changing fixture or enforcement-surface docs. The first public-derived `closed-rubric` run is recorded in `benchmarks/results/wrong-cause-rate-limit-noise-codex-cli-0.135.0-closed-002.md`; run `latex-pdf-tool-boundary` next before broad hook work. Refine `skills/boundary-check/SKILL.md` and `hooks/claude/*` from fixture evidence, but do not install or package broad tooling yet.
 
 Style:
 Be blunt, evidence-first, and research-oriented. Avoid hype and early-product shorthand. Prefer spec-first, evidence-gated, fixture, taxonomy, and benchmark.

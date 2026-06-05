@@ -132,6 +132,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - fixture prompts, rubrics, traps, and notes are checked for minimum benchmark-contract fields.
 - fixture `failureTypes` are checked against `docs/failure-taxonomy.md`.
 - reviewed result summaries under `benchmarks/results/` are also checked for required evidence and privacy-review fields.
+- public docs and result summaries are checked for local paths, file URLs, and credential-like tokens.
 - `research/public-case-index.md` is checked for case count, required benchmark fields, stable case ids, taxonomy-linked failure types, and manifest source references.
 - repository-level benchmark scripts are checked for portable verifier paths.
 
