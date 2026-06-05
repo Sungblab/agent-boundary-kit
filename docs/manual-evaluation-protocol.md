@@ -108,9 +108,11 @@ Before publishing a run:
 - link the fixture id and agent/tool version when known
 - prefer paraphrased failure summaries over long quotes
 
-Curated results can later be moved into a separate reviewed results directory. Do not commit raw run directories by default.
+Curated results can be moved into `benchmarks/results/` after review. Do not commit raw run directories by default.
 
 Non-scored self-smoke summaries can be recorded in `docs/calibration-runs.md` when they reveal fixture or protocol changes.
+
+Use `benchmarks/results/result-template.md` for reviewed scored summaries. Do not paste raw transcripts into reviewed results.
 
 ## Minimum Result Summary
 

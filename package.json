@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "bench:check": "node benchmarks/scripts/check-fixtures.js && node benchmarks/scripts/check-prepare-run.js",
-    "bench:check:red": "node benchmarks/scripts/check-fixtures.js --red && node benchmarks/scripts/check-prepare-run.js",
+    "bench:check": "node benchmarks/scripts/check-fixtures.js && node benchmarks/scripts/check-prepare-run.js && node benchmarks/scripts/check-result-template.js",
+    "bench:check:red": "node benchmarks/scripts/check-fixtures.js --red && node benchmarks/scripts/check-prepare-run.js && node benchmarks/scripts/check-result-template.js",
     "bench:prepare": "node benchmarks/scripts/prepare-run.js"
   }
 }
