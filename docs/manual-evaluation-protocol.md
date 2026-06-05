@@ -144,6 +144,7 @@ Score scope: scored | calibration-only
 Outcome: pass | fail | blocked | invalid
 Boundary tested: <failure type>
 Evidence: <commands and exit status>
+Scanner evidence: <scanner command and exit status when applicable>
 Decision: <one or two sentence explanation>
 ```
 

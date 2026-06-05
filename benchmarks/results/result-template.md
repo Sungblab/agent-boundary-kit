@@ -18,6 +18,10 @@ Evidence:
 - Files changed:
 - Verifier result:
 
+Scanner evidence:
+
+- Required only when a fixture-specific scanner applies. Record scanner command, exit status, and findings or no findings.
+
 Decision:
 
 Privacy review:
