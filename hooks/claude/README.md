@@ -20,6 +20,8 @@ The hook runner selection matrix is recorded in `docs/hook-runner-selection-matr
 
 The plan-only dry-run CLI contract is recorded in `docs/hook-runner-dry-run-cli-contract.md`. Its local implementation is `bin/abk-runner.js`, which prints scanner selection plans without executing scanners. `runner-dry-run-cli.planned-output.json`, `runner-dry-run-cli.configuration-error-output.json`, `runner-dry-run-cli.invalid-transcript-output.json`, and `runner-dry-run-cli.unsupported-hook-output.json` are output examples. It is still not an installed hook.
 
+The first read-only execution contract is recorded in `docs/hook-runner-read-only-execution-contract.md`. Its local implementation is `bin/abk-runner.js`, limited to `legacy-surface-retention-scan` with explicit runner input and changed file paths. It is still not an installed hook.
+
 The first narrow scanner candidate is defined in `docs/first-scanner-candidate.md`. It targets only test runtime patching. Its red/green evidence is recorded in `docs/scanner-validation-test-runtime-patch.md`, its first application sweep is recorded in `docs/scanner-application-test-runtime-patch.md`, and its read-only script is `benchmarks/scripts/scan-test-runtime-patch.js`.
 
 The next scanner candidate is `test-fake-contract-scan`; its red/green evidence is recorded in `docs/scanner-validation-test-fake-contract.md`, and its read-only script is `benchmarks/scripts/scan-test-fake-contract.js`. It is still not an installed hook.

@@ -1,0 +1,137 @@
+const assert = require("node:assert");
+const fs = require("node:fs");
+const path = require("node:path");
+const { spawnSync } = require("node:child_process");
+
+const root = path.resolve(__dirname, "..", "..");
+const runnerPath = path.join(root, "bin", "abk-runner.js");
+
+const cases = [
+  {
+    name: "legacy surface finding",
+    input: "hooks/claude/examples/runner-scan.legacy-surface-finding-input.json",
+    scanner: "legacy-surface-retention-scan",
+    expected: "hooks/claude/examples/runner-scan.legacy-surface-finding-output.json",
+    exitCode: 1,
+  },
+  {
+    name: "legacy surface clear",
+    input: "hooks/claude/examples/runner-scan.legacy-surface-clear-input.json",
+    scanner: "legacy-surface-retention-scan",
+    expected: "hooks/claude/examples/runner-scan.legacy-surface-clear-output.json",
+    exitCode: 0,
+  },
+];
+
+const forbiddenOutputKeys = [
+  "rawPrivateTranscript",
+  "hiddenChatHistory",
+  "chatHistory",
+  "conversation",
+  "messages",
+  "secret",
+  "cookie",
+  "token",
+  "password",
+  "finalResponse",
+  "prDescription",
+  "releaseNotes",
+  "productCopy",
+  "completionClaim",
+];
+
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(root, relativePath), "utf8"));
+}
+
+function findForbiddenKey(value, trail = []) {
+  if (!value || typeof value !== "object") {
+    return null;
+  }
+
+  if (Array.isArray(value)) {
+    for (let index = 0; index < value.length; index += 1) {
+      const nested = findForbiddenKey(value[index], trail.concat(String(index)));
+      if (nested) {
+        return nested;
+      }
+    }
+    return null;
+  }
+
+  for (const key of Object.keys(value)) {
+    if (forbiddenOutputKeys.includes(key)) {
+      return trail.concat(key).join(".");
+    }
+    const nested = findForbiddenKey(value[key], trail.concat(key));
+    if (nested) {
+      return nested;
+    }
+  }
+
+  return null;
+}
+
+function runScan(testCase) {
+  return spawnSync(process.execPath, [runnerPath, "scan", "--input", testCase.input, "--scanner", testCase.scanner], {
+    cwd: root,
+    encoding: "utf8",
+  });
+}
+
+function assertRunnerOutput(output, testCase) {
+  assert.equal(output.hookId, "post_edit_scope_check", `${testCase.name}: hookId mismatch`);
+  assert.equal(output.scanner, testCase.scanner, `${testCase.name}: scanner mismatch`);
+  assert.ok(["clear", "finding", "error"].includes(output.status), `${testCase.name}: invalid status`);
+  assert.equal(output.exitCode, testCase.exitCode, `${testCase.name}: output exitCode mismatch`);
+  assert.equal(typeof output.blocked, "boolean", `${testCase.name}: blocked must be boolean`);
+  assert.equal(typeof output.reason, "string", `${testCase.name}: reason must be string`);
+  assert.ok(Array.isArray(output.inputsUsed), `${testCase.name}: inputsUsed must be array`);
+  assert.ok(Array.isArray(output.findings), `${testCase.name}: findings must be array`);
+  assert.equal(findForbiddenKey(output), null, `${testCase.name}: output contains forbidden field`);
+}
+
+function main() {
+  assert.ok(fs.existsSync(runnerPath), "bin/abk-runner.js is missing");
+  assert.ok(
+    fs.existsSync(path.join(root, "docs", "hook-runner-read-only-execution-contract.md")),
+    "docs/hook-runner-read-only-execution-contract.md is missing"
+  );
+
+  for (const testCase of cases) {
+    assert.ok(fs.existsSync(path.join(root, testCase.input)), `${testCase.input} is missing`);
+    assert.ok(fs.existsSync(path.join(root, testCase.expected)), `${testCase.expected} is missing`);
+
+    const result = runScan(testCase);
+    assert.equal(result.status, testCase.exitCode, `${testCase.name}: exit code mismatch\nstderr=${result.stderr}`);
+    assert.equal(result.stderr, "", `${testCase.name}: stderr should be empty`);
+
+    const actual = JSON.parse(result.stdout);
+    const expected = readJson(testCase.expected);
+    assertRunnerOutput(actual, testCase);
+    assert.deepEqual(actual, expected, `${testCase.name}: output mismatch`);
+  }
+
+  const contract = fs.readFileSync(path.join(root, "docs", "hook-runner-read-only-execution-contract.md"), "utf8");
+  for (const phrase of [
+    "abk-runner scan --input <runner-input.json> --scanner <scanner-id>",
+    "legacy-surface-retention-scan",
+    "may execute exactly one selected scanner",
+    "No raw private transcripts",
+    "No broad workspace scraping",
+    "No file writes",
+    "Do not execute multiple scanners",
+    "Do not package hooks yet",
+  ]) {
+    assert(contract.includes(phrase), `read-only execution contract missing phrase: ${phrase}`);
+  }
+
+  for (const testCase of cases) {
+    assert(contract.includes(testCase.input), `read-only execution contract missing input example: ${testCase.input}`);
+    assert(contract.includes(testCase.expected), `read-only execution contract missing output example: ${testCase.expected}`);
+  }
+
+  console.log(`abk runner scan check passed (${cases.length} cases)`);
+}
+
+main();

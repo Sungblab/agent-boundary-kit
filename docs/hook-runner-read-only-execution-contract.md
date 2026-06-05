@@ -1,0 +1,99 @@
+# Hook Runner Read-Only Execution Contract
+
+This is the first scanner execution contract for the local runner. It is not an installed hook and not hook packaging.
+
+The implemented command shape is:
+
+```sh
+abk-runner scan --input <runner-input.json> --scanner <scanner-id>
+```
+
+The first supported scanner id is `legacy-surface-retention-scan`.
+
+## Boundary
+
+The read-only execution command may execute exactly one selected scanner.
+
+It may read only:
+
+- the provided runner input JSON
+- the scanner script selected by explicit `--scanner`
+- the explicit file or repo paths declared in the runner input
+
+It must not infer stale terms, named tools, scope, final gates, or evidence paths from private chat context.
+
+No raw private transcripts.
+
+No hidden chat history.
+
+No broad workspace scraping.
+
+No file writes.
+
+No hook installation.
+
+No final responses.
+
+Do not package hooks yet.
+
+## Input
+
+The input must match `docs/hook-runner-input-contract.md`.
+
+The requested `--scanner` must already be selected by `docs/hook-runner-selection-matrix.md` for the declared input. If the scanner is not selected, the command must emit a bounded configuration error instead of guessing new inputs.
+
+Execution examples:
+
+- `hooks/claude/examples/runner-scan.legacy-surface-finding-input.json`
+- `hooks/claude/examples/runner-scan.legacy-surface-clear-input.json`
+
+## Output
+
+The output must match `docs/hook-runner-output-contract.md`.
+
+Output examples:
+
+- `hooks/claude/examples/runner-scan.legacy-surface-finding-output.json`
+- `hooks/claude/examples/runner-scan.legacy-surface-clear-output.json`
+
+The command must not emit dry-run planning output.
+
+The command must not emit final-response, PR-description, release-note, product-copy, completion-claim, transcript, credential, cookie, token, or password fields.
+
+## Exit Codes
+
+Exit 0 means the selected scanner executed and found no boundary finding.
+
+Exit 1 means the selected scanner executed and found a boundary finding.
+
+Exit 2 means invalid input, rejected transcript fields, unsupported hook id, unsupported scanner id, unselected scanner id, missing required declared inputs, or scanner invocation error.
+
+## Current Implementation Scope
+
+The first implementation may execute only `legacy-surface-retention-scan`.
+
+It must pass changed files from the declared `repoRoot` and `inputs.changedFiles` fields. If those fields are missing, it must return `exitCode: 2`.
+
+It must keep `dry-run` plan-only behavior unchanged.
+
+## Evidence Gate
+
+This contract is checked by:
+
+```sh
+node benchmarks/scripts/check-abk-runner-scan.js
+npm run bench:check
+npm run bench:check:red
+```
+
+The check verifies clear and finding outputs for the first supported read-only scanner.
+
+## Non-Goals
+
+- Do not execute multiple scanners.
+- Do not execute scanner fan-out.
+- Do not install Claude hooks.
+- Do not package a Codex plugin.
+- Do not write files.
+- Do not infer missing metadata from chat history.
+- Do not treat scanner output as a substitute for tests, final gates, or reviewer judgment.

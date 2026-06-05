@@ -35,4 +35,6 @@ The runner input schema and examples are recorded in `docs/hook-runner-input-con
 
 The runner output schema and examples are recorded in `docs/hook-runner-output-contract.md`.
 
+The first read-only runner execution contract is recorded in `docs/hook-runner-read-only-execution-contract.md`.
+
 The runner must not infer approval, scope, final gates, or stale terms from private chat history. Those fields must be declared by the agent or provided by the user-facing workflow.

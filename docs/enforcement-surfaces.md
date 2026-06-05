@@ -48,6 +48,8 @@ The hook runner selection matrix is recorded in `docs/hook-runner-selection-matr
 
 The hook runner dry-run CLI contract is recorded in `docs/hook-runner-dry-run-cli-contract.md`. Its first local implementation is `bin/abk-runner.js`, limited to plan-only scanner selection without scanner execution.
 
+The hook runner read-only execution contract is recorded in `docs/hook-runner-read-only-execution-contract.md`. Its first local implementation is `bin/abk-runner.js`, limited to `legacy-surface-retention-scan` with explicit runner input and changed file paths.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -248,6 +250,7 @@ Blocks completion when:
 50. Add plan-only dry-run CLI output fixtures before implementation. Completed: `hooks/claude/examples/runner-dry-run-cli.planned-output.json` and `hooks/claude/examples/runner-dry-run-cli.configuration-error-output.json`.
 51. Implement the first plan-only `abk-runner dry-run --input` command without scanner execution. Completed: `bin/abk-runner.js`.
 52. Add plan-only dry-run CLI configuration-error coverage for invalid transcript and unsupported hook inputs. Completed: `hooks/claude/examples/runner-dry-run-cli.invalid-transcript-output.json` and `hooks/claude/examples/runner-dry-run-cli.unsupported-hook-output.json`.
-53. Only then package a Codex skill or Claude hooks.
+53. Record and implement the first read-only `abk-runner scan --input --scanner` execution path for one scanner. Completed: `docs/hook-runner-read-only-execution-contract.md` and `benchmarks/scripts/check-abk-runner-scan.js`.
+54. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

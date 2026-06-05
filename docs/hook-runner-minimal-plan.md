@@ -14,6 +14,8 @@ The hook runner selection matrix is recorded in `docs/hook-runner-selection-matr
 
 The plan-only dry-run CLI contract is recorded in `docs/hook-runner-dry-run-cli-contract.md`. Its local implementation is `bin/abk-runner.js`.
 
+The first read-only execution contract is recorded in `docs/hook-runner-read-only-execution-contract.md`. Its local implementation is `bin/abk-runner.js`, limited to executing `legacy-surface-retention-scan` from explicit runner input and changed file paths.
+
 ## Boundary
 
 The runner must preserve the same boundary recorded in `docs/hook-scanner-contracts.md` and `docs/scanner-coverage-matrix.md`.
@@ -106,6 +108,7 @@ node benchmarks/scripts/check-hook-runner-dry-run-spec.js
 node benchmarks/scripts/check-hook-runner-selection-matrix.js
 node benchmarks/scripts/check-hook-runner-dry-run-cli-contract.js
 node benchmarks/scripts/check-abk-runner-dry-run.js
+node benchmarks/scripts/check-abk-runner-scan.js
 npm run bench:check
 npm run bench:check:red
 ```

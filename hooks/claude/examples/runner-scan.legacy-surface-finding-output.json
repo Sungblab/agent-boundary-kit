@@ -1,0 +1,21 @@
+{
+  "hookId": "post_edit_scope_check",
+  "scanner": "legacy-surface-retention-scan",
+  "status": "finding",
+  "exitCode": 1,
+  "blocked": true,
+  "reason": "stale public surface term found",
+  "inputsUsed": [
+    "repoRoot",
+    "changedFiles",
+    "staleTerms"
+  ],
+  "findings": [
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/legacy-finding/docs/surface.md",
+      "line": 3,
+      "rule": "stale-public-surface",
+      "detail": "stale mindmap surface matched /mindmap|LegacyMindmap/: The replaced surface still exports LegacyMindmap in public docs."
+    }
+  ]
+}

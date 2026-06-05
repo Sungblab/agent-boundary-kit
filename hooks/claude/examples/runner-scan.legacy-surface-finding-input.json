@@ -1,0 +1,20 @@
+{
+  "hookId": "post_edit_scope_check",
+  "repoRoot": "hooks/claude/examples/runner-scan-fixtures/legacy-finding",
+  "task": {
+    "type": "replacement",
+    "declaredBy": "agent",
+    "summary": "Check declared replacement docs for stale public surface references."
+  },
+  "inputs": {
+    "changedFiles": [
+      "docs/surface.md"
+    ],
+    "approvedScope": [
+      "docs/**"
+    ],
+    "staleTerms": [
+      "LegacyMindmap"
+    ]
+  }
+}
