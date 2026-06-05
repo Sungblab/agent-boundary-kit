@@ -153,7 +153,10 @@ Each benchmark fixture should include:
 24. Record red/green evidence for the next named-tool scanner. Completed for LaTeX renderer fallback: `docs/scanner-validation-latex-renderer-boundary.md`.
 25. Implement `latex-renderer-boundary-scan` only after reviewing the validation note. Keep it limited to named-LaTeX renderer fallback activation and selected-renderer bypass. Completed: `benchmarks/scripts/scan-latex-renderer-boundary.js`.
 26. Apply `latex-renderer-boundary-scan` to future named-renderer runs before adding another fallback scanner. Completed for the current fixture/run sweep: `docs/scanner-application-latex-renderer-boundary.md`.
-27. Select the next scanner candidate from another non-test-integrity fixture only after red/green evidence is recorded.
+27. Record red/green evidence for the next env/config scanner. Completed for hardcoded credential fallback: `docs/scanner-validation-hardcoded-credential-fallback.md`.
+28. Implement `hardcoded-credential-fallback-scan` only after reviewing the validation note. Keep it limited to source-level credential fallback activation. Completed: `benchmarks/scripts/scan-hardcoded-credential-fallback.js`.
+29. Apply `hardcoded-credential-fallback-scan` to future env/config runs before adding another credential scanner. Completed for the current fixture/run sweep: `docs/scanner-application-hardcoded-credential-fallback.md`.
+30. Select the next scanner candidate from another non-test-integrity fixture only after red/green evidence is recorded.
 
 ## Not Yet
 

@@ -89,6 +89,8 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `docs/scanner-application-parser-fallback-boundary.md`: application sweep for the parser fallback boundary scanner
 - `docs/scanner-validation-latex-renderer-boundary.md`: red/green evidence for the LaTeX renderer boundary scanner
 - `docs/scanner-application-latex-renderer-boundary.md`: application sweep for the LaTeX renderer boundary scanner
+- `docs/scanner-validation-hardcoded-credential-fallback.md`: red/green evidence for the hardcoded credential fallback scanner
+- `docs/scanner-application-hardcoded-credential-fallback.md`: application sweep for the hardcoded credential fallback scanner
 - `docs/manual-evaluation-protocol.md`: how to run, score, and publish manual agent evaluations
 - `docs/first-scored-run.md`: first public-derived closed-rubric runbook
 - `docs/calibration-runs.md`: non-scored self-smoke notes for fixture and protocol validation
@@ -99,6 +101,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/scan-test-fake-contract.js`: read-only scanner for fake/production contract mismatch
 - `benchmarks/scripts/scan-parser-fallback-boundary.js`: read-only scanner for named-parser fallback activation
 - `benchmarks/scripts/scan-latex-renderer-boundary.js`: read-only scanner for named-LaTeX renderer fallback activation
+- `benchmarks/scripts/scan-hardcoded-credential-fallback.js`: read-only scanner for source-level credential fallback activation
 - `benchmarks/fixtures/`: runnable benchmark fixtures
 - `benchmarks/results/`: reviewed result summary template and publication rules
 - `templates/AGENTS.boundary.md`: repository instruction template for Codex-style agents

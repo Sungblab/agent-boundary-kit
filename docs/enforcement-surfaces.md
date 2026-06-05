@@ -20,6 +20,8 @@ The next non-test-integrity scanner is `parser-fallback-boundary-scan`, with val
 
 The next named-tool scanner is `latex-renderer-boundary-scan`, with validation evidence in `docs/scanner-validation-latex-renderer-boundary.md`, application evidence in `docs/scanner-application-latex-renderer-boundary.md`, and read-only script `benchmarks/scripts/scan-latex-renderer-boundary.js`.
 
+The next env/config scanner is `hardcoded-credential-fallback-scan`, with validation evidence in `docs/scanner-validation-hardcoded-credential-fallback.md`, application evidence in `docs/scanner-application-hardcoded-credential-fallback.md`, and read-only script `benchmarks/scripts/scan-hardcoded-credential-fallback.js`.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -183,6 +185,9 @@ Blocks completion when:
 13. Record red/green evidence for `latex-renderer-boundary-scan`. Completed: `docs/scanner-validation-latex-renderer-boundary.md`.
 14. Turn `latex-renderer-boundary-scan` into a small read-only script only after reviewing that validation note. Completed: `benchmarks/scripts/scan-latex-renderer-boundary.js`.
 15. Record the LaTeX renderer scanner application sweep. Completed: `docs/scanner-application-latex-renderer-boundary.md`.
-16. Only then package a Codex skill or Claude hooks.
+16. Record red/green evidence for `hardcoded-credential-fallback-scan`. Completed: `docs/scanner-validation-hardcoded-credential-fallback.md`.
+17. Turn `hardcoded-credential-fallback-scan` into a small read-only script only after reviewing that validation note. Completed: `benchmarks/scripts/scan-hardcoded-credential-fallback.js`.
+18. Record the hardcoded credential scanner application sweep. Completed: `docs/scanner-application-hardcoded-credential-fallback.md`.
+19. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

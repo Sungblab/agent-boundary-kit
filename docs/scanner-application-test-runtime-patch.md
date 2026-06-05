@@ -25,7 +25,7 @@ Observed source fixture results:
 | `e2e-test-runtime-patch` | exit 1; flagged `onButtonClick\s*=` and `state\.open\s*=` | True positive target red state. |
 | `bad-test-fake-precedence` | exit 0 | Correct non-match; fake precedence is a separate scanner class. |
 | `wrong-cause-rate-limit-noise` | exit 0 | Correct non-match; fallback/root-cause issue is a separate scanner class. |
-| `hardcoded-fallback-secret` | exit 0 | Correct non-match; credential fallback is a separate scanner class. |
+| `hardcoded-fallback-secret` | exit 0 | Correct non-match; credential fallback is covered by `docs/scanner-application-hardcoded-credential-fallback.md`. |
 | `latex-pdf-tool-boundary` | exit 0 | Correct non-match; renderer fallback is covered by `docs/scanner-application-latex-renderer-boundary.md`. |
 | `parser-fallback-before-root-cause` | exit 0 | Correct non-match; parser fallback is covered by `docs/scanner-application-parser-fallback-boundary.md`. |
 | `replacement-leaves-legacy-paths` | exit 0 | Correct non-match; stale surface cleanup is a separate scanner class. |
