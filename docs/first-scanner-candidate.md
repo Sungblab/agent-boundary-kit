@@ -10,6 +10,7 @@ The candidate is intentionally narrow: detect tests that make broken behavior pa
 - Source spec: `hooks/claude/test-integrity-check.md`
 - Fixture source: `benchmarks/fixtures/e2e-test-runtime-patch`
 - Reviewed passing result: `benchmarks/results/e2e-test-runtime-patch-codex-cli-0.135.0-closed-001.md`
+- Red/green validation note: `docs/scanner-validation-test-runtime-patch.md`
 - Failure type: test-passing over correctness
 
 ## Why This One First
@@ -76,7 +77,7 @@ Expected scanner behavior:
 
 ## Implementation Gate
 
-Do not implement the scanner until the red and green evidence has been recorded in a reviewed result or a dedicated validation note.
+The red and green evidence is recorded in `docs/scanner-validation-test-runtime-patch.md`.
 
 Before writing a script, record:
 

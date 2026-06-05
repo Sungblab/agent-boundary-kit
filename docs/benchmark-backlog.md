@@ -140,7 +140,8 @@ Each benchmark fixture should include:
 11. Synthesize the first ten reviewed results into enforcement-surface gaps before adding new hooks or packaging. Completed: `docs/first-ten-result-synthesis.md`.
 12. Refine `skills/boundary-check/SKILL.md`, `templates/AGENTS.boundary.md`, `templates/CLAUDE.boundary.md`, and `hooks/claude/*` only where the synthesis identifies a concrete fixture-backed gap. Completed.
 13. Select one narrow scanner candidate from the refined hook specs and define its red/green validation path before implementing any script. Completed: `docs/first-scanner-candidate.md`.
-14. Record red/green evidence for `test-runtime-patch-scan` before writing a scanner script.
+14. Record red/green evidence for `test-runtime-patch-scan` before writing a scanner script. Completed: `docs/scanner-validation-test-runtime-patch.md`.
+15. Implement the first read-only `test-runtime-patch-scan` script against the recorded red/green evidence. Keep it limited to explicit test file or fixture repo inputs.
 
 ## Not Yet
 

@@ -10,7 +10,7 @@ The first ten reviewed summaries have been synthesized in `docs/first-ten-result
 
 That synthesis identifies the next refinement target: make the boundary inventory, root-cause proof, test integrity checks, replacement stale-surface checks, ordered completion gate, and untrusted-context quarantine more explicit across the existing templates, skill draft, and hook specs.
 
-The first scanner candidate is `test-runtime-patch-scan`, defined in `docs/first-scanner-candidate.md`. It still needs recorded red/green validation evidence before implementation.
+The first scanner candidate is `test-runtime-patch-scan`, defined in `docs/first-scanner-candidate.md`. Its red/green evidence is recorded in `docs/scanner-validation-test-runtime-patch.md`.
 
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
@@ -164,8 +164,8 @@ Blocks completion when:
 2. Run the 10 fixtures manually against at least one agent.
 3. Synthesize reviewed results into enforcement-surface gaps.
 4. Refine templates, skill draft, and hook specs from those gaps.
-5. Record red/green evidence for `docs/first-scanner-candidate.md`.
-6. Turn repeated checks into small scripts only after a fixture-backed red/green path exists.
+5. Record red/green evidence for `docs/first-scanner-candidate.md`. Completed: `docs/scanner-validation-test-runtime-patch.md`.
+6. Turn `test-runtime-patch-scan` into a small read-only script that checks explicit test file or fixture repo inputs.
 7. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.
