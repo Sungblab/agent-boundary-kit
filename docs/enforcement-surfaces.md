@@ -42,7 +42,7 @@ The hook runner input contract is recorded in `docs/hook-runner-input-contract.m
 
 The hook runner output contract is recorded in `docs/hook-runner-output-contract.md`. It adds a JSON schema plus valid and invalid examples for bounded scanner results, rejected final-response fields, and rejected transcript fields.
 
-The hook runner dry-run spec is recorded in `docs/hook-runner-dry-run-spec.md`. It adds fixture-like scanner selection examples for all four hook ids and covers finding, clear, and configuration-error output states without implementing a runner.
+The hook runner dry-run spec is recorded in `docs/hook-runner-dry-run-spec.md`. It adds fixture-like scanner selection examples for all four hook ids and covers finding, clear, configuration-error, and scanner fan-out output states without implementing a runner.
 
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
@@ -238,6 +238,7 @@ Blocks completion when:
 44. Record a hook runner dry-run spec before implementation. Completed: `docs/hook-runner-dry-run-spec.md`.
 45. Add a hook runner dry-run check covering one bounded selection path for each hook id. Completed: `benchmarks/scripts/check-hook-runner-dry-run-spec.js`.
 46. Add clear and configuration-error dry-run coverage before implementation. Completed: `hooks/claude/examples/runner-dry-run.post-edit-scope-clear.json` and `hooks/claude/examples/runner-dry-run.pre-write-config-error.json`.
-47. Only then package a Codex skill or Claude hooks.
+47. Add post-edit scanner fan-out dry-run coverage before implementation. Completed: `hooks/claude/examples/runner-dry-run.post-edit-scope-fanout.json`.
+48. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

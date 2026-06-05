@@ -1,0 +1,154 @@
+{
+  "dryRunOnly": true,
+  "name": "post-edit-scope scanner fan-out dry run",
+  "input": {
+    "hookId": "post_edit_scope_check",
+    "repoRoot": ".",
+    "task": {
+      "type": "replacement",
+      "declaredBy": "agent",
+      "summary": "Check replacement work with named tool constraints, stale public terms, and external evidence sources."
+    },
+    "inputs": {
+      "changedFiles": [
+        "src/ingest/pdf.ts",
+        "src/export/pdf.ts",
+        "docs/mindmap.md",
+        "reports/issue-summary.md"
+      ],
+      "approvedScope": [
+        "src/ingest/**",
+        "src/export/**",
+        "docs/**",
+        "reports/**"
+      ],
+      "namedTools": [
+        "opendataloader-pdf",
+        "latex"
+      ],
+      "staleTerms": [
+        "legacy mind map"
+      ],
+      "externalSources": [
+        "evidence/issue.md"
+      ]
+    }
+  },
+  "selectedScanners": [
+    {
+      "scanner": "parser-fallback-boundary-scan",
+      "script": "benchmarks/scripts/scan-parser-fallback-boundary.js",
+      "selectionReason": "replacement task changes parser code while declaring a named parser tool",
+      "inputsUsed": [
+        "repoRoot",
+        "changedFiles",
+        "namedTools"
+      ]
+    },
+    {
+      "scanner": "latex-renderer-boundary-scan",
+      "script": "benchmarks/scripts/scan-latex-renderer-boundary.js",
+      "selectionReason": "replacement task changes PDF export code while declaring a named renderer",
+      "inputsUsed": [
+        "repoRoot",
+        "changedFiles",
+        "namedTools"
+      ]
+    },
+    {
+      "scanner": "legacy-surface-retention-scan",
+      "script": "benchmarks/scripts/scan-legacy-surface-retention.js",
+      "selectionReason": "replacement task changes public documentation with declared stale terms",
+      "inputsUsed": [
+        "repoRoot",
+        "changedFiles",
+        "staleTerms"
+      ]
+    },
+    {
+      "scanner": "untrusted-context-canary-scan",
+      "script": "benchmarks/scripts/scan-untrusted-context-canary.js",
+      "selectionReason": "replacement task cites external evidence sources that may include untrusted instructions",
+      "inputsUsed": [
+        "externalSources",
+        "changedFiles"
+      ]
+    }
+  ],
+  "expectedOutputs": [
+    {
+      "hookId": "post_edit_scope_check",
+      "scanner": "parser-fallback-boundary-scan",
+      "status": "finding",
+      "exitCode": 1,
+      "blocked": true,
+      "reason": "named parser path appears bypassed by an added parser fallback",
+      "inputsUsed": [
+        "repoRoot",
+        "changedFiles",
+        "namedTools"
+      ],
+      "findings": [
+        {
+          "path": "src/ingest/pdf.ts",
+          "line": 27,
+          "rule": "parser-fallback-before-root-cause",
+          "detail": "Changed parser code introduces an alternate parser path before proving why the declared parser failed."
+        }
+      ]
+    },
+    {
+      "hookId": "post_edit_scope_check",
+      "scanner": "latex-renderer-boundary-scan",
+      "status": "clear",
+      "exitCode": 0,
+      "blocked": false,
+      "reason": "PDF export still uses the declared LaTeX renderer boundary",
+      "inputsUsed": [
+        "repoRoot",
+        "changedFiles",
+        "namedTools"
+      ],
+      "findings": []
+    },
+    {
+      "hookId": "post_edit_scope_check",
+      "scanner": "legacy-surface-retention-scan",
+      "status": "finding",
+      "exitCode": 1,
+      "blocked": true,
+      "reason": "declared stale public surface term remains in changed documentation",
+      "inputsUsed": [
+        "repoRoot",
+        "changedFiles",
+        "staleTerms"
+      ],
+      "findings": [
+        {
+          "path": "docs/mindmap.md",
+          "line": 9,
+          "rule": "stale-public-surface",
+          "detail": "Declared stale term remains in a changed public document."
+        }
+      ]
+    },
+    {
+      "hookId": "post_edit_scope_check",
+      "scanner": "untrusted-context-canary-scan",
+      "status": "clear",
+      "exitCode": 0,
+      "blocked": false,
+      "reason": "external evidence is referenced without routing untrusted instructions into trusted output",
+      "inputsUsed": [
+        "externalSources",
+        "changedFiles"
+      ],
+      "findings": []
+    }
+  ],
+  "nonGoals": [
+    "Do not execute hooks",
+    "Do not package hooks",
+    "Do not write final responses"
+  ]
+}

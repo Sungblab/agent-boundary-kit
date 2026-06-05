@@ -10,6 +10,7 @@ It is not an installed hook and not a runner implementation. It only shows how a
 - `hooks/claude/examples/runner-dry-run.pre-write-config-error.json`: dry-run example for missing declared metadata as configuration error.
 - `hooks/claude/examples/runner-dry-run.post-edit-scope.json`: dry-run example for a replacement task with stale public surface terms.
 - `hooks/claude/examples/runner-dry-run.post-edit-scope-clear.json`: dry-run example for replacement work with no stale public surface finding.
+- `hooks/claude/examples/runner-dry-run.post-edit-scope-fanout.json`: dry-run example for a replacement task that selects several post-edit scanners from the same declared input.
 - `hooks/claude/examples/runner-dry-run.test-integrity.json`: dry-run example for a test repair task with test-side runtime patching.
 - `hooks/claude/examples/runner-dry-run.completion-evidence.json`: dry-run example for completion artifacts before final gate evidence.
 - `docs/hook-runner-input-contract.md`: input shape for the dry-run input block.
@@ -35,7 +36,7 @@ The dry run is a fixture for selection behavior. It is supporting evidence, not 
 
 ## Example Mappings
 
-The current dry-run examples cover one bounded selection path for each hook id.
+The current dry-run examples cover one bounded single-scanner selection path for each hook id, plus one scanner fan-out path for `post_edit_scope_check`.
 
 | Dry-run example | Hook id | Expected scanner | Scanner script | Bounded inputs |
 | --- | --- | --- | --- | --- |
@@ -43,6 +44,7 @@ The current dry-run examples cover one bounded selection path for each hook id.
 | `hooks/claude/examples/runner-dry-run.pre-write-config-error.json` | `pre_write_boundary_check` | `phase-gate-plan-scan` | `benchmarks/scripts/scan-phase-gate-plan.js` | `task`, `metadataFiles` |
 | `hooks/claude/examples/runner-dry-run.post-edit-scope.json` | `post_edit_scope_check` | `legacy-surface-retention-scan` | `benchmarks/scripts/scan-legacy-surface-retention.js` | `repoRoot`, `changedFiles`, `staleTerms` |
 | `hooks/claude/examples/runner-dry-run.post-edit-scope-clear.json` | `post_edit_scope_check` | `legacy-surface-retention-scan` | `benchmarks/scripts/scan-legacy-surface-retention.js` | `repoRoot`, `changedFiles`, `staleTerms` |
+| `hooks/claude/examples/runner-dry-run.post-edit-scope-fanout.json` | `post_edit_scope_check` | `parser-fallback-boundary-scan`; `latex-renderer-boundary-scan`; `legacy-surface-retention-scan`; `untrusted-context-canary-scan` | `benchmarks/scripts/scan-parser-fallback-boundary.js`; `benchmarks/scripts/scan-latex-renderer-boundary.js`; `benchmarks/scripts/scan-legacy-surface-retention.js`; `benchmarks/scripts/scan-untrusted-context-canary.js` | `repoRoot`, `changedFiles`, `namedTools`, `staleTerms`, `externalSources` |
 | `hooks/claude/examples/runner-dry-run.test-integrity.json` | `test_integrity_check` | `test-runtime-patch-scan` | `benchmarks/scripts/scan-test-runtime-patch.js` | `testFiles`, `productionFiles`, `behaviorContract` |
 | `hooks/claude/examples/runner-dry-run.completion-evidence.json` | `completion_evidence_check` | `completion-evidence-gate-scan` | `benchmarks/scripts/scan-completion-evidence-gate.js` | `completionDraft`, `commandLog`, `finalGate` |
 
@@ -52,7 +54,9 @@ The dry-run outputs now cover:
 - `status: "finding"` with `exitCode: 1`, `blocked: true`, and one finding with path, line, rule, and detail.
 - `status: "error"` with `exitCode: 2`, `blocked: true`, and no findings.
 
-These examples intentionally do not select every scanner mapped to each hook. They prove one bounded selection path per hook id before runner implementation exists.
+The fan-out example intentionally remains read-only. It defines scanner selection and bounded output mapping only; it does not define execution order, install hooks, or implement a runner.
+
+These examples intentionally do not select every scanner mapped to each hook. They prove one bounded selection path per hook id and one bounded multi-scanner path before runner implementation exists.
 
 ## Validation
 
@@ -64,7 +68,7 @@ npm run bench:check
 npm run bench:check:red
 ```
 
-The check verifies the dry-run document, the dry-run JSON example, selected scanner identity, bounded inputs, bounded output shape, and links from the runner plan and hook README.
+The check verifies the dry-run document, the dry-run JSON examples, selected scanner identities, bounded inputs, bounded output shape, and links from the runner plan and hook README.
 
 ## Packaging Boundary
 

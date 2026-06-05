@@ -61,6 +61,50 @@ const dryRunScenarios = [
     findingsLength: 0,
   },
   {
+    file: "hooks/claude/examples/runner-dry-run.post-edit-scope-fanout.json",
+    name: "post-edit-scope scanner fan-out dry run",
+    hookId: "post_edit_scope_check",
+    taskType: "replacement",
+    scanners: [
+      {
+        scanner: "parser-fallback-boundary-scan",
+        script: "benchmarks/scripts/scan-parser-fallback-boundary.js",
+        inputsUsed: ["repoRoot", "changedFiles", "namedTools"],
+        status: "finding",
+        exitCode: 1,
+        blocked: true,
+        findingsLength: 1,
+      },
+      {
+        scanner: "latex-renderer-boundary-scan",
+        script: "benchmarks/scripts/scan-latex-renderer-boundary.js",
+        inputsUsed: ["repoRoot", "changedFiles", "namedTools"],
+        status: "clear",
+        exitCode: 0,
+        blocked: false,
+        findingsLength: 0,
+      },
+      {
+        scanner: "legacy-surface-retention-scan",
+        script: "benchmarks/scripts/scan-legacy-surface-retention.js",
+        inputsUsed: ["repoRoot", "changedFiles", "staleTerms"],
+        status: "finding",
+        exitCode: 1,
+        blocked: true,
+        findingsLength: 1,
+      },
+      {
+        scanner: "untrusted-context-canary-scan",
+        script: "benchmarks/scripts/scan-untrusted-context-canary.js",
+        inputsUsed: ["externalSources", "changedFiles"],
+        status: "clear",
+        exitCode: 0,
+        blocked: false,
+        findingsLength: 0,
+      },
+    ],
+  },
+  {
     file: "hooks/claude/examples/runner-dry-run.test-integrity.json",
     name: "test-integrity runtime patch dry run",
     hookId: "test_integrity_check",
@@ -165,44 +209,65 @@ function readDryRunScenario(scenario) {
 function assertDryRunScenario(scenario, dryRun) {
   const forbiddenKey = findForbiddenKey(dryRun);
   assert(!forbiddenKey, `${scenario.file} includes forbidden field ${forbiddenKey}`);
+  const expectedScanners = scenario.scanners ?? [
+    {
+      scanner: scenario.scanner,
+      script: scenario.script,
+      inputsUsed: scenario.inputsUsed,
+      status: scenario.status,
+      exitCode: scenario.exitCode,
+      blocked: scenario.blocked,
+      findingsLength: scenario.findingsLength,
+    },
+  ];
 
   assert(dryRun.dryRunOnly === true, `${scenario.file}: must set dryRunOnly true`);
   assert(dryRun.name === scenario.name, `${scenario.file}: must name the scenario`);
   assert(dryRun.input && dryRun.input.hookId === scenario.hookId, `${scenario.file}: input hookId mismatch`);
   assert(dryRun.input.task && dryRun.input.task.type === scenario.taskType, `${scenario.file}: input task type mismatch`);
   assert(Array.isArray(dryRun.selectedScanners), `${scenario.file}: must include selectedScanners`);
-  assert(dryRun.selectedScanners.length === 1, `${scenario.file}: should select exactly one scanner`);
-
-  const selected = dryRun.selectedScanners[0];
-  assert(selected.scanner === scenario.scanner, `${scenario.file}: selected scanner mismatch`);
-  assert(selected.script === scenario.script, `${scenario.file}: selected scanner script mismatch`);
-  assert(fs.existsSync(path.join(root, selected.script)), `${scenario.file}: selected scanner script does not exist`);
   assert(
-    JSON.stringify(selected.inputsUsed) === JSON.stringify(scenario.inputsUsed),
-    `${scenario.file}: selected scanner must name bounded inputs`
+    dryRun.selectedScanners.length === expectedScanners.length,
+    `${scenario.file}: selected scanner count mismatch`
   );
+
+  expectedScanners.forEach((expectedScanner, index) => {
+    const selected = dryRun.selectedScanners[index];
+    assert(selected.scanner === expectedScanner.scanner, `${scenario.file}: selected scanner mismatch at ${index}`);
+    assert(selected.script === expectedScanner.script, `${scenario.file}: selected scanner script mismatch at ${index}`);
+    assert(fs.existsSync(path.join(root, selected.script)), `${scenario.file}: selected scanner script does not exist`);
+    assert(
+      JSON.stringify(selected.inputsUsed) === JSON.stringify(expectedScanner.inputsUsed),
+      `${scenario.file}: selected scanner must name bounded inputs at ${index}`
+    );
+  });
 
   assert(Array.isArray(dryRun.expectedOutputs), `${scenario.file}: must include expectedOutputs`);
-  assert(dryRun.expectedOutputs.length === 1, `${scenario.file}: should include one expected output`);
-  const output = dryRun.expectedOutputs[0];
-  assert(output.hookId === scenario.hookId, `${scenario.file}: expected output hookId mismatch`);
-  assert(output.scanner === scenario.scanner, `${scenario.file}: expected output scanner mismatch`);
-  assert(output.status === scenario.status, `${scenario.file}: expected output status mismatch`);
-  assert(output.exitCode === scenario.exitCode, `${scenario.file}: expected output exitCode mismatch`);
-  assert(output.blocked === scenario.blocked, `${scenario.file}: expected output blocked mismatch`);
-  for (const inputName of scenario.inputsUsed) {
-    assert(output.inputsUsed.includes(inputName), `${scenario.file}: expected output missing input ${inputName}`);
-  }
   assert(
-    Array.isArray(output.findings) && output.findings.length === scenario.findingsLength,
-    `${scenario.file}: expected findings length ${scenario.findingsLength}`
+    dryRun.expectedOutputs.length === expectedScanners.length,
+    `${scenario.file}: expected output count mismatch`
   );
-  if (scenario.findingsLength > 0) {
-    assert(typeof output.findings[0].path === "string", `${scenario.file}: finding must include path`);
-    assert(Number.isInteger(output.findings[0].line), `${scenario.file}: finding must include line`);
-    assert(typeof output.findings[0].rule === "string", `${scenario.file}: finding must include rule`);
-    assert(typeof output.findings[0].detail === "string", `${scenario.file}: finding must include detail`);
-  }
+  expectedScanners.forEach((expectedScanner, index) => {
+    const output = dryRun.expectedOutputs[index];
+    assert(output.hookId === scenario.hookId, `${scenario.file}: expected output hookId mismatch at ${index}`);
+    assert(output.scanner === expectedScanner.scanner, `${scenario.file}: expected output scanner mismatch at ${index}`);
+    assert(output.status === expectedScanner.status, `${scenario.file}: expected output status mismatch at ${index}`);
+    assert(output.exitCode === expectedScanner.exitCode, `${scenario.file}: expected output exitCode mismatch at ${index}`);
+    assert(output.blocked === expectedScanner.blocked, `${scenario.file}: expected output blocked mismatch at ${index}`);
+    for (const inputName of expectedScanner.inputsUsed) {
+      assert(output.inputsUsed.includes(inputName), `${scenario.file}: expected output missing input ${inputName}`);
+    }
+    assert(
+      Array.isArray(output.findings) && output.findings.length === expectedScanner.findingsLength,
+      `${scenario.file}: expected findings length ${expectedScanner.findingsLength} at ${index}`
+    );
+    if (expectedScanner.findingsLength > 0) {
+      assert(typeof output.findings[0].path === "string", `${scenario.file}: finding must include path at ${index}`);
+      assert(Number.isInteger(output.findings[0].line), `${scenario.file}: finding must include line at ${index}`);
+      assert(typeof output.findings[0].rule === "string", `${scenario.file}: finding must include rule at ${index}`);
+      assert(typeof output.findings[0].detail === "string", `${scenario.file}: finding must include detail at ${index}`);
+    }
+  });
 
   assert(Array.isArray(dryRun.nonGoals), `${scenario.file}: must include nonGoals`);
   for (const phrase of ["Do not execute hooks", "Do not package hooks", "Do not write final responses"]) {
@@ -232,13 +297,20 @@ function main() {
     "No final responses",
     "status: \"clear\"",
     "status: \"error\"",
+    "scanner fan-out",
   ]) {
     assert(spec.includes(phrase), `dry-run spec missing phrase: ${phrase}`);
   }
 
   for (const scenario of dryRunScenarios) {
-    for (const phrase of [scenario.file, scenario.hookId, scenario.scanner, scenario.script]) {
+    const expectedScanners = scenario.scanners ?? [{ scanner: scenario.scanner, script: scenario.script }];
+    for (const phrase of [scenario.file, scenario.hookId]) {
       assert(spec.includes(phrase), `dry-run spec missing scenario phrase: ${phrase}`);
+    }
+    for (const expectedScanner of expectedScanners) {
+      for (const phrase of [expectedScanner.scanner, expectedScanner.script]) {
+        assert(spec.includes(phrase), `dry-run spec missing scenario phrase: ${phrase}`);
+      }
     }
   }
 
