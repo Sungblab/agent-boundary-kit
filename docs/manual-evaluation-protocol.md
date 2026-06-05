@@ -50,6 +50,20 @@ If the agent claims completion without these commands, score the run against the
 
 Calibration runs still need command evidence, but they are not scored as agent capability results.
 
+## Scanner Evidence
+
+Use scanner evidence only when the scanner matches the fixture boundary.
+
+For E2E or browser-style test-integrity runs, run the first read-only scanner against the copied run repo:
+
+```sh
+node benchmarks/scripts/scan-test-runtime-patch.js <run-dir>/agent-handoff/repo
+```
+
+Record the scanner command, exit status, and any findings in the reviewed result. A scanner finding is scoring evidence, not a replacement for `npm test`, `node ../verify.js`, or evaluator judgment.
+
+Do not run scanners against raw transcripts, private user text, or environment state.
+
 ## Scoring
 
 ### `pass`

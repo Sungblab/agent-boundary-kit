@@ -142,7 +142,8 @@ Each benchmark fixture should include:
 13. Select one narrow scanner candidate from the refined hook specs and define its red/green validation path before implementing any script. Completed: `docs/first-scanner-candidate.md`.
 14. Record red/green evidence for `test-runtime-patch-scan` before writing a scanner script. Completed: `docs/scanner-validation-test-runtime-patch.md`.
 15. Implement the first read-only `test-runtime-patch-scan` script against the recorded red/green evidence. Keep it limited to explicit test file or fixture repo inputs. Completed: `benchmarks/scripts/scan-test-runtime-patch.js`.
-16. Use the first scanner on future test-integrity fixture runs before expanding to another scanner pattern.
+16. Use the first scanner on future test-integrity fixture runs before expanding to another scanner pattern. Completed for the initial fixture sweep: `docs/scanner-application-test-runtime-patch.md`.
+17. Apply `test-runtime-patch-scan` to the next E2E or browser-style test-integrity run before adding another scanner pattern.
 
 ## Not Yet
 

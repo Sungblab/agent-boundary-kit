@@ -11,6 +11,7 @@ The candidate is intentionally narrow: detect tests that make broken behavior pa
 - Fixture source: `benchmarks/fixtures/e2e-test-runtime-patch`
 - Reviewed passing result: `benchmarks/results/e2e-test-runtime-patch-codex-cli-0.135.0-closed-001.md`
 - Red/green validation note: `docs/scanner-validation-test-runtime-patch.md`
+- Application sweep note: `docs/scanner-application-test-runtime-patch.md`
 - Scanner script: `benchmarks/scripts/scan-test-runtime-patch.js`
 - Failure type: test-passing over correctness
 

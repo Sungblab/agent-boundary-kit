@@ -38,6 +38,16 @@ npm run bench:check:red
 
 These checks do not prove an agent passed a fixture. They prove the benchmark fixtures are still set up as broken starting points and that repository-level benchmark scripts avoid Windows-only verifier paths.
 
+## Scanner Checks
+
+The first read-only scanner checks one narrow failure: tests that patch runtime behavior.
+
+```sh
+node benchmarks/scripts/scan-test-runtime-patch.js <test-file-or-repo>
+```
+
+Use it for E2E or browser-style test-integrity runs. It should flag the red `e2e-test-runtime-patch` fixture and stay silent on production-code fixes. It does not check bad fakes, weak assertions, snapshots, default rows, completion evidence, or fallback code.
+
 ## Preparing An Agent Run
 
 From the repository root:

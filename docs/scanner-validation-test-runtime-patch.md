@@ -100,9 +100,10 @@ The scanner should match patterns such as:
 - `page\.evaluate`
 - `addInitScript`
 - `monkeypatch`
-- broad mock wording when it replaces shipped behavior
 
 The scanner should not flag production code that implements the real behavior, and it should not become a broad test-quality linter.
+
+Broad mock, fake-shape, weak-assertion, snapshot, and default-row patterns stay out of this first scanner. They need separate fixture-backed red/green validation.
 
 ## Implemented Script
 
