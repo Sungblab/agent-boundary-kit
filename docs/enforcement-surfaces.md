@@ -18,6 +18,8 @@ The combined test-integrity scanner sweep is recorded in `docs/scanner-applicati
 
 The next non-test-integrity scanner is `parser-fallback-boundary-scan`, with validation evidence in `docs/scanner-validation-parser-fallback-boundary.md`, application evidence in `docs/scanner-application-parser-fallback-boundary.md`, and read-only script `benchmarks/scripts/scan-parser-fallback-boundary.js`.
 
+The next named-tool scanner is `latex-renderer-boundary-scan`, with validation evidence in `docs/scanner-validation-latex-renderer-boundary.md`, application evidence in `docs/scanner-application-latex-renderer-boundary.md`, and read-only script `benchmarks/scripts/scan-latex-renderer-boundary.js`.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -178,6 +180,9 @@ Blocks completion when:
 10. Record red/green evidence for `parser-fallback-boundary-scan`. Completed: `docs/scanner-validation-parser-fallback-boundary.md`.
 11. Turn `parser-fallback-boundary-scan` into a small read-only script only after reviewing that validation note. Completed: `benchmarks/scripts/scan-parser-fallback-boundary.js`.
 12. Record the parser fallback scanner application sweep. Completed: `docs/scanner-application-parser-fallback-boundary.md`.
-13. Only then package a Codex skill or Claude hooks.
+13. Record red/green evidence for `latex-renderer-boundary-scan`. Completed: `docs/scanner-validation-latex-renderer-boundary.md`.
+14. Turn `latex-renderer-boundary-scan` into a small read-only script only after reviewing that validation note. Completed: `benchmarks/scripts/scan-latex-renderer-boundary.js`.
+15. Record the LaTeX renderer scanner application sweep. Completed: `docs/scanner-application-latex-renderer-boundary.md`.
+16. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

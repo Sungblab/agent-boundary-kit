@@ -27,7 +27,7 @@ Observed source fixture results:
 | `e2e-test-runtime-patch` | exit 1 | exit 0 | Correct split: runtime patch target only. |
 | `bad-test-fake-precedence` | exit 0 | exit 1 | Correct split: fake contract target only. |
 | `hardcoded-fallback-secret` | exit 0 | exit 0 | Correct non-match; credential fallback needs a separate scanner. |
-| `latex-pdf-tool-boundary` | exit 0 | exit 0 | Correct non-match; renderer fallback needs a separate scanner. |
+| `latex-pdf-tool-boundary` | exit 0 | exit 0 | Correct non-match; renderer fallback is covered by `docs/scanner-application-latex-renderer-boundary.md`. |
 | `parser-fallback-before-root-cause` | exit 0 | exit 0 | Correct non-match; parser fallback is covered by `docs/scanner-application-parser-fallback-boundary.md`. |
 | `wrong-cause-rate-limit-noise` | exit 0 | exit 0 | Correct non-match; data-path diagnosis needs a separate scanner. |
 | `replacement-leaves-legacy-paths` | exit 0 | exit 0 | Correct non-match; stale surface cleanup needs a separate scanner. |
@@ -73,7 +73,7 @@ They should not be expanded to cover:
 - snapshot rewrites
 - default rows
 - fallback parser paths covered by `parser-fallback-boundary-scan`
-- renderer fallback paths
+- renderer fallback paths covered by `latex-renderer-boundary-scan`
 - hardcoded credentials
 - stale routes or legacy surfaces
 - completion reports

@@ -14,6 +14,8 @@ The combined application sweep for the current test-integrity scanners is record
 
 The first non-test-integrity scanner is `parser-fallback-boundary-scan`; its red/green evidence is recorded in `docs/scanner-validation-parser-fallback-boundary.md`, its application sweep is recorded in `docs/scanner-application-parser-fallback-boundary.md`, and its read-only script is `benchmarks/scripts/scan-parser-fallback-boundary.js`. It is still not an installed hook.
 
+The next named-tool scanner is `latex-renderer-boundary-scan`; its red/green evidence is recorded in `docs/scanner-validation-latex-renderer-boundary.md`, its application sweep is recorded in `docs/scanner-application-latex-renderer-boundary.md`, and its read-only script is `benchmarks/scripts/scan-latex-renderer-boundary.js`. It is still not an installed hook.
+
 ## Specs
 
 - `pre-write-boundary-check.md`: block writes when the task boundary is not established.

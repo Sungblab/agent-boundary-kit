@@ -150,7 +150,10 @@ Each benchmark fixture should include:
 21. Select the next scanner candidate only after reviewing a non-test-integrity fixture with red/green evidence. Completed for parser fallback: `docs/scanner-validation-parser-fallback-boundary.md`.
 22. Implement `parser-fallback-boundary-scan` only after reviewing the validation note. Keep it limited to named-parser fallback activation and selected-parser bypass. Completed: `benchmarks/scripts/scan-parser-fallback-boundary.js`.
 23. Apply `parser-fallback-boundary-scan` to future named-parser runs before adding another fallback scanner. Completed for the current fixture/run sweep: `docs/scanner-application-parser-fallback-boundary.md`.
-24. Select the next scanner candidate from another non-test-integrity fixture only after red/green evidence is recorded.
+24. Record red/green evidence for the next named-tool scanner. Completed for LaTeX renderer fallback: `docs/scanner-validation-latex-renderer-boundary.md`.
+25. Implement `latex-renderer-boundary-scan` only after reviewing the validation note. Keep it limited to named-LaTeX renderer fallback activation and selected-renderer bypass. Completed: `benchmarks/scripts/scan-latex-renderer-boundary.js`.
+26. Apply `latex-renderer-boundary-scan` to future named-renderer runs before adding another fallback scanner. Completed for the current fixture/run sweep: `docs/scanner-application-latex-renderer-boundary.md`.
+27. Select the next scanner candidate from another non-test-integrity fixture only after red/green evidence is recorded.
 
 ## Not Yet
 
