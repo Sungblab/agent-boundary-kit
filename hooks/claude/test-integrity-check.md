@@ -23,6 +23,8 @@ After edits to tests, test utilities, fakes, snapshots, browser tests, or produc
 - Test fakes match the production contract.
 - Production code does not accept impossible fake-only shapes.
 - Assertions are not weakened, skipped, or deleted.
+- Tests do not accept empty or placeholder output when the user reported missing data.
+- Snapshot or expected-output changes include a behavior-contract reason.
 
 ## Flag Conditions
 
@@ -30,10 +32,11 @@ After edits to tests, test utilities, fakes, snapshots, browser tests, or produc
 - Snapshot or expected output changes without behavior-contract explanation.
 - Production code starts reading fake-only structures such as `contact.email`.
 - Tests accept empty output where the user reported missing data.
+- Assertions are changed from exact behavior to broad length, stringification, existence-only, or not-equal checks.
+- Tests introduce default rows, mock records, or fixture data that hide the missing real data path.
 
 ## Related Fixtures
 
 - `e2e-test-runtime-patch`
 - `bad-test-fake-precedence`
 - `wrong-cause-rate-limit-noise`
-

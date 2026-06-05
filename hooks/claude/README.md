@@ -4,12 +4,23 @@ These are hook specifications, not installed hooks.
 
 They map benchmark-proven boundary rules to future Claude Code hooks. Keep them as specs until the fixture runs show which checks are worth automating.
 
+The current specs were refined from `docs/first-ten-result-synthesis.md`. They are still not executable hooks.
+
 ## Specs
 
 - `pre-write-boundary-check.md`: block writes when the task boundary is not established.
 - `post-edit-scope-check.md`: flag stale public surfaces, out-of-scope edits, and hardcoded credentials.
 - `test-integrity-check.md`: flag tests that make broken behavior pass.
 - `completion-evidence-check.md`: block completion claims without the required gate evidence.
+
+## Automation Rule
+
+Do not add hook scripts until a spec has:
+
+- a fixture-backed failure pattern
+- a red fixture state that demonstrates the pattern
+- a passing fixture state that demonstrates the intended allowed behavior
+- a narrow scanner rule that can be checked without reading raw private transcripts
 
 ## Fixture Coverage
 
@@ -23,4 +34,3 @@ They map benchmark-proven boundary rules to future Claude Code hooks. Keep them 
 - `hardcoded-fallback-secret`
 - `bad-test-fake-precedence`
 - `untrusted-issue-comment-canary`
-
