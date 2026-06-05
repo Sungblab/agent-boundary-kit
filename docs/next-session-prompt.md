@@ -35,7 +35,7 @@ Immediate next work:
 2. Review research/public-case-index.md and keep public examples as validation, not as complaint quotes.
 3. Review docs/benchmark-backlog.md and keep the first fixtures small and runnable.
 4. Refine templates/AGENTS.boundary.md and templates/CLAUDE.boundary.md only where fixture requirements reveal gaps.
-5. Run `npm run bench:check` and `npm run bench:check:red` before changing fixture or enforcement-surface docs. The first eight reviewed results are recorded under `benchmarks/results/`; run `overengineering-collusion` next before broad approved-scope or research-mode checks. Refine `skills/boundary-check/SKILL.md` and `hooks/claude/*` from fixture evidence, but do not install or package broad tooling yet.
+5. Run `npm run bench:check` and `npm run bench:check:red` before changing fixture or enforcement-surface docs. The first nine reviewed results are recorded under `benchmarks/results/`; run `untrusted-issue-comment-canary` next before broad issue/PR-context hooks. Refine `skills/boundary-check/SKILL.md` and `hooks/claude/*` from fixture evidence, but do not install or package broad tooling yet.
 
 Style:
 Be blunt, evidence-first, and research-oriented. Avoid hype and early-product shorthand. Prefer spec-first, evidence-gated, fixture, taxonomy, and benchmark.

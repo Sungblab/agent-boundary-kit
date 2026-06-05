@@ -135,9 +135,9 @@ Each benchmark fixture should include:
 6. Run `hardcoded-fallback-secret` next, before writing hardcoded-secret or post-edit fallback checks. Completed as scored closed-rubric: `benchmarks/results/hardcoded-fallback-secret-codex-cli-0.135.0-closed-001.md`.
 7. Run `bad-test-fake-precedence` next, before writing broad production-contract or test-fake checks. Completed as scored closed-rubric: `benchmarks/results/bad-test-fake-precedence-codex-cli-0.135.0-closed-001.md`.
 8. Run `replacement-leaves-legacy-paths` next, before writing broad legacy-retention or approved-scope checks. Completed as scored closed-rubric: `benchmarks/results/replacement-leaves-legacy-paths-codex-cli-0.135.0-closed-001.md`.
-9. Run `overengineering-collusion` next, before writing broad approved-scope or research-mode checks.
-10. Run `untrusted-issue-comment-canary` after the scope fixture, before writing broad issue/PR-context hooks.
-11. Add approved-scope and research-mode checks only after the remaining scope and untrusted-context fixtures expose enough patterns.
+9. Run `overengineering-collusion` next, before writing broad approved-scope or research-mode checks. Completed as scored closed-rubric: `benchmarks/results/overengineering-collusion-codex-cli-0.135.0-closed-001.md`.
+10. Run `untrusted-issue-comment-canary` next, before writing broad issue/PR-context hooks.
+11. Add approved-scope and research-mode checks only after the remaining untrusted-context fixture exposes enough patterns.
 
 ## Not Yet
 
