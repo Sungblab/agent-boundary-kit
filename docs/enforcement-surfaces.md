@@ -46,9 +46,9 @@ The hook runner dry-run spec is recorded in `docs/hook-runner-dry-run-spec.md`. 
 
 The hook runner selection matrix is recorded in `docs/hook-runner-selection-matrix.md`. It fixes hook id to scanner selection predicates before any runner or hook packaging.
 
-The hook runner dry-run CLI contract is recorded in `docs/hook-runner-dry-run-cli-contract.md`. Its first local implementation is `bin/abk-runner.js`, limited to plan-only scanner selection without scanner execution.
+The hook runner dry-run CLI contract is recorded in `docs/hook-runner-dry-run-cli-contract.md`. Its first local implementation is split between `bin/abk-runner.js` and `lib/abk-runner-core.js`, limited to plan-only scanner selection without scanner execution.
 
-The hook runner read-only execution contract is recorded in `docs/hook-runner-read-only-execution-contract.md`. Its first local implementation is `bin/abk-runner.js`, limited to `legacy-surface-retention-scan` with explicit runner input and changed file paths.
+The hook runner read-only execution contract is recorded in `docs/hook-runner-read-only-execution-contract.md`. Its first local implementation is split between `bin/abk-runner.js` and `lib/abk-runner-core.js`, limited to `legacy-surface-retention-scan` with explicit runner input and changed file paths.
 
 The read-only runner now includes configuration-error examples for unsupported scanner ids, unselected scanner ids, and missing changed file metadata. Unsupported scanner ids use `runner-command-contract` instead of being mapped to a supported scanner id.
 
@@ -254,6 +254,7 @@ Blocks completion when:
 52. Add plan-only dry-run CLI configuration-error coverage for invalid transcript and unsupported hook inputs. Completed: `hooks/claude/examples/runner-dry-run-cli.invalid-transcript-output.json` and `hooks/claude/examples/runner-dry-run-cli.unsupported-hook-output.json`.
 53. Record and implement the first read-only `abk-runner scan --input --scanner` execution path for one scanner. Completed: `docs/hook-runner-read-only-execution-contract.md` and `benchmarks/scripts/check-abk-runner-scan.js`.
 54. Add read-only runner scan configuration-error coverage for unsupported scanner, unselected scanner, and missing changed files. Completed: `hooks/claude/examples/runner-scan.unsupported-scanner-output.json`, `hooks/claude/examples/runner-scan.unselected-scanner-output.json`, and `hooks/claude/examples/runner-scan.missing-changed-files-output.json`.
-55. Only then package a Codex skill or Claude hooks.
+55. Split the local runner into a thin CLI wrapper and reusable runner core before adding another scanner execution path. Completed: `lib/abk-runner-core.js` and `benchmarks/scripts/check-abk-runner-module-boundary.js`.
+56. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.
