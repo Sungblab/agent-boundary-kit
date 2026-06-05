@@ -162,7 +162,10 @@ Each benchmark fixture should include:
 33. Record red/green evidence for the next completion artifact scanner. Completed for release gate evidence: `docs/scanner-validation-completion-evidence-gate.md`.
 34. Implement `completion-evidence-gate-scan` only after reviewing the validation note. Keep it limited to named completion artifacts and gate evidence files. Completed: `benchmarks/scripts/scan-completion-evidence-gate.js`.
 35. Apply `completion-evidence-gate-scan` to future release or finish-gate runs before adding another completion scanner. Completed for the current fixture/run sweep: `docs/scanner-application-completion-evidence-gate.md`.
-36. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
+36. Record red/green evidence for the next untrusted-context scanner. Completed for issue canary leakage: `docs/scanner-validation-untrusted-context-canary.md`.
+37. Implement `untrusted-context-canary-scan` only after reviewing the validation note. Keep it limited to trusted output receiving untrusted directives or canary values. Completed: `benchmarks/scripts/scan-untrusted-context-canary.js`.
+38. Apply `untrusted-context-canary-scan` to future issue, PR, log, or web-context runs before adding another untrusted-context scanner. Completed for the current fixture/run sweep: `docs/scanner-application-untrusted-context-canary.md`.
+39. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet
 

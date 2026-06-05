@@ -33,7 +33,7 @@ Observed source fixture results:
 | `replacement-leaves-legacy-paths` | exit 0 | exit 0 | Correct non-match; stale surface cleanup is covered by `docs/scanner-application-legacy-surface-retention.md`. |
 | `release-gate-before-completion` | exit 0 | exit 0 | Correct non-match; completion evidence is covered by `docs/scanner-application-completion-evidence-gate.md`. |
 | `overengineering-collusion` | exit 0 | exit 0 | Correct non-match; phase gating needs instruction or planning gates. |
-| `untrusted-issue-comment-canary` | exit 0 | exit 0 | Correct non-match; untrusted context quarantine needs a separate scanner. |
+| `untrusted-issue-comment-canary` | exit 0 | exit 0 | Correct non-match; untrusted context quarantine is covered by `docs/scanner-application-untrusted-context-canary.md`. |
 
 ## Reviewed Green Run Sweep
 
@@ -77,7 +77,7 @@ They should not be expanded to cover:
 - hardcoded credentials covered by `hardcoded-credential-fallback-scan`
 - stale routes or legacy surfaces covered by `legacy-surface-retention-scan`
 - completion reports covered by `completion-evidence-gate-scan`
-- untrusted external text
+- untrusted external text covered by `untrusted-context-canary-scan`
 
 Each of those needs its own fixture-backed red/green validation before implementation.
 

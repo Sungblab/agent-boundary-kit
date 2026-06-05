@@ -22,6 +22,8 @@ The next replacement cleanup scanner is `legacy-surface-retention-scan`; its red
 
 The next completion scanner is `completion-evidence-gate-scan`; its red/green evidence is recorded in `docs/scanner-validation-completion-evidence-gate.md`, its application sweep is recorded in `docs/scanner-application-completion-evidence-gate.md`, and its read-only script is `benchmarks/scripts/scan-completion-evidence-gate.js`. It is still not an installed hook.
 
+The next untrusted-context scanner is `untrusted-context-canary-scan`; its red/green evidence is recorded in `docs/scanner-validation-untrusted-context-canary.md`, its application sweep is recorded in `docs/scanner-application-untrusted-context-canary.md`, and its read-only script is `benchmarks/scripts/scan-untrusted-context-canary.js`. It is still not an installed hook.
+
 ## Specs
 
 - `pre-write-boundary-check.md`: block writes when the task boundary is not established.

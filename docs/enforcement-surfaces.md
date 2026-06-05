@@ -26,6 +26,8 @@ The next replacement cleanup scanner is `legacy-surface-retention-scan`, with va
 
 The next completion scanner is `completion-evidence-gate-scan`, with validation evidence in `docs/scanner-validation-completion-evidence-gate.md`, application evidence in `docs/scanner-application-completion-evidence-gate.md`, and read-only script `benchmarks/scripts/scan-completion-evidence-gate.js`.
 
+The next untrusted-context scanner is `untrusted-context-canary-scan`, with validation evidence in `docs/scanner-validation-untrusted-context-canary.md`, application evidence in `docs/scanner-application-untrusted-context-canary.md`, and read-only script `benchmarks/scripts/scan-untrusted-context-canary.js`.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -198,6 +200,9 @@ Blocks completion when:
 22. Record red/green evidence for `completion-evidence-gate-scan`. Completed: `docs/scanner-validation-completion-evidence-gate.md`.
 23. Turn `completion-evidence-gate-scan` into a small read-only script only after reviewing that validation note. Completed: `benchmarks/scripts/scan-completion-evidence-gate.js`.
 24. Record the completion evidence gate scanner application sweep. Completed: `docs/scanner-application-completion-evidence-gate.md`.
-25. Only then package a Codex skill or Claude hooks.
+25. Record red/green evidence for `untrusted-context-canary-scan`. Completed: `docs/scanner-validation-untrusted-context-canary.md`.
+26. Turn `untrusted-context-canary-scan` into a small read-only script only after reviewing that validation note. Completed: `benchmarks/scripts/scan-untrusted-context-canary.js`.
+27. Record the untrusted context scanner application sweep. Completed: `docs/scanner-application-untrusted-context-canary.md`.
+28. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

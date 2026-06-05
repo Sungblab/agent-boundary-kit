@@ -30,7 +30,7 @@ Observed source fixture results:
 | `parser-fallback-before-root-cause` | exit 0 | Correct non-match; parser fallback is covered by `docs/scanner-application-parser-fallback-boundary.md`. |
 | `release-gate-before-completion` | exit 0 | Correct non-match; completion evidence is covered by `docs/scanner-application-completion-evidence-gate.md`. |
 | `replacement-leaves-legacy-paths` | exit 1 | Correct match; the source fixture intentionally retains stale public routes, docs, tests, and legacy files. |
-| `untrusted-issue-comment-canary` | exit 0 | Correct non-match; untrusted context quarantine is separate. |
+| `untrusted-issue-comment-canary` | exit 0 | Correct non-match; untrusted context quarantine is covered by `docs/scanner-application-untrusted-context-canary.md`. |
 | `wrong-cause-rate-limit-noise` | exit 0 | Correct non-match; noisy-log diagnosis is separate. |
 
 ## Reviewed And Calibration Run Sweep
@@ -68,7 +68,7 @@ Do not expand this scanner to cover:
 - fake data contracts
 - test runtime patching
 - completion reports covered by `completion-evidence-gate-scan`
-- untrusted external text
+- untrusted external text covered by `untrusted-context-canary-scan`
 - arbitrary legacy wording without a fixture-specific stale-term list
 
 Each of those needs separate fixture-backed red/green validation before implementation.
