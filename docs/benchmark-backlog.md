@@ -144,6 +144,8 @@ Each benchmark fixture should include:
 15. Implement the first read-only `test-runtime-patch-scan` script against the recorded red/green evidence. Keep it limited to explicit test file or fixture repo inputs. Completed: `benchmarks/scripts/scan-test-runtime-patch.js`.
 16. Use the first scanner on future test-integrity fixture runs before expanding to another scanner pattern. Completed for the initial fixture sweep: `docs/scanner-application-test-runtime-patch.md`.
 17. Apply `test-runtime-patch-scan` to the next E2E or browser-style test-integrity run before adding another scanner pattern.
+18. Record red/green validation evidence for the next test-integrity scanner candidate. Completed: `docs/scanner-validation-test-fake-contract.md`.
+19. Implement `test-fake-contract-scan` only after reviewing `docs/scanner-validation-test-fake-contract.md`; keep it limited to explicit production and fake file inputs.
 
 ## Not Yet
 

@@ -83,6 +83,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `docs/first-scanner-candidate.md`: first narrow scanner candidate and red/green validation path
 - `docs/scanner-validation-test-runtime-patch.md`: recorded red/green evidence for the first scanner
 - `docs/scanner-application-test-runtime-patch.md`: first application sweep for the runtime-patch scanner
+- `docs/scanner-validation-test-fake-contract.md`: red/green evidence for the next test-integrity scanner candidate
 - `docs/manual-evaluation-protocol.md`: how to run, score, and publish manual agent evaluations
 - `docs/first-scored-run.md`: first public-derived closed-rubric runbook
 - `docs/calibration-runs.md`: non-scored self-smoke notes for fixture and protocol validation
