@@ -16,6 +16,23 @@ const dryRunScenarios = [
     scanner: "phase-gate-plan-scan",
     script: "benchmarks/scripts/scan-phase-gate-plan.js",
     inputsUsed: ["task", "metadataFiles"],
+    status: "finding",
+    exitCode: 1,
+    blocked: true,
+    findingsLength: 1,
+  },
+  {
+    file: "hooks/claude/examples/runner-dry-run.pre-write-config-error.json",
+    name: "pre-write configuration error dry run",
+    hookId: "pre_write_boundary_check",
+    taskType: "planning-only",
+    scanner: "phase-gate-plan-scan",
+    script: "benchmarks/scripts/scan-phase-gate-plan.js",
+    inputsUsed: ["task", "metadataFiles"],
+    status: "error",
+    exitCode: 2,
+    blocked: true,
+    findingsLength: 0,
   },
   {
     file: "hooks/claude/examples/runner-dry-run.post-edit-scope.json",
@@ -25,6 +42,23 @@ const dryRunScenarios = [
     scanner: "legacy-surface-retention-scan",
     script: "benchmarks/scripts/scan-legacy-surface-retention.js",
     inputsUsed: ["repoRoot", "changedFiles", "staleTerms"],
+    status: "finding",
+    exitCode: 1,
+    blocked: true,
+    findingsLength: 1,
+  },
+  {
+    file: "hooks/claude/examples/runner-dry-run.post-edit-scope-clear.json",
+    name: "post-edit-scope clear dry run",
+    hookId: "post_edit_scope_check",
+    taskType: "replacement",
+    scanner: "legacy-surface-retention-scan",
+    script: "benchmarks/scripts/scan-legacy-surface-retention.js",
+    inputsUsed: ["repoRoot", "changedFiles", "staleTerms"],
+    status: "clear",
+    exitCode: 0,
+    blocked: false,
+    findingsLength: 0,
   },
   {
     file: "hooks/claude/examples/runner-dry-run.test-integrity.json",
@@ -34,6 +68,10 @@ const dryRunScenarios = [
     scanner: "test-runtime-patch-scan",
     script: "benchmarks/scripts/scan-test-runtime-patch.js",
     inputsUsed: ["testFiles", "productionFiles", "behaviorContract"],
+    status: "finding",
+    exitCode: 1,
+    blocked: true,
+    findingsLength: 1,
   },
   {
     file: "hooks/claude/examples/runner-dry-run.completion-evidence.json",
@@ -43,6 +81,10 @@ const dryRunScenarios = [
     scanner: "completion-evidence-gate-scan",
     script: "benchmarks/scripts/scan-completion-evidence-gate.js",
     inputsUsed: ["completionDraft", "commandLog", "finalGate"],
+    status: "finding",
+    exitCode: 1,
+    blocked: true,
+    findingsLength: 1,
   },
 ];
 
@@ -145,17 +187,22 @@ function assertDryRunScenario(scenario, dryRun) {
   const output = dryRun.expectedOutputs[0];
   assert(output.hookId === scenario.hookId, `${scenario.file}: expected output hookId mismatch`);
   assert(output.scanner === scenario.scanner, `${scenario.file}: expected output scanner mismatch`);
-  assert(output.status === "finding", `${scenario.file}: expected output should show a finding`);
-  assert(output.exitCode === 1, `${scenario.file}: expected output should use exitCode 1`);
-  assert(output.blocked === true, `${scenario.file}: expected output should block`);
+  assert(output.status === scenario.status, `${scenario.file}: expected output status mismatch`);
+  assert(output.exitCode === scenario.exitCode, `${scenario.file}: expected output exitCode mismatch`);
+  assert(output.blocked === scenario.blocked, `${scenario.file}: expected output blocked mismatch`);
   for (const inputName of scenario.inputsUsed) {
     assert(output.inputsUsed.includes(inputName), `${scenario.file}: expected output missing input ${inputName}`);
   }
-  assert(Array.isArray(output.findings) && output.findings.length === 1, `${scenario.file}: expected one finding`);
-  assert(typeof output.findings[0].path === "string", `${scenario.file}: finding must include path`);
-  assert(Number.isInteger(output.findings[0].line), `${scenario.file}: finding must include line`);
-  assert(typeof output.findings[0].rule === "string", `${scenario.file}: finding must include rule`);
-  assert(typeof output.findings[0].detail === "string", `${scenario.file}: finding must include detail`);
+  assert(
+    Array.isArray(output.findings) && output.findings.length === scenario.findingsLength,
+    `${scenario.file}: expected findings length ${scenario.findingsLength}`
+  );
+  if (scenario.findingsLength > 0) {
+    assert(typeof output.findings[0].path === "string", `${scenario.file}: finding must include path`);
+    assert(Number.isInteger(output.findings[0].line), `${scenario.file}: finding must include line`);
+    assert(typeof output.findings[0].rule === "string", `${scenario.file}: finding must include rule`);
+    assert(typeof output.findings[0].detail === "string", `${scenario.file}: finding must include detail`);
+  }
 
   assert(Array.isArray(dryRun.nonGoals), `${scenario.file}: must include nonGoals`);
   for (const phrase of ["Do not execute hooks", "Do not package hooks", "Do not write final responses"]) {
@@ -183,6 +230,8 @@ function main() {
     "docs/scanner-coverage-matrix.md",
     "No raw private transcripts",
     "No final responses",
+    "status: \"clear\"",
+    "status: \"error\"",
   ]) {
     assert(spec.includes(phrase), `dry-run spec missing phrase: ${phrase}`);
   }

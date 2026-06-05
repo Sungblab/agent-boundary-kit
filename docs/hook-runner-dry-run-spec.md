@@ -7,7 +7,9 @@ It is not an installed hook and not a runner implementation. It only shows how a
 ## Files
 
 - `hooks/claude/examples/runner-dry-run.pre-write-boundary.json`: dry-run example for a planning task without a first phase gate.
+- `hooks/claude/examples/runner-dry-run.pre-write-config-error.json`: dry-run example for missing declared metadata as configuration error.
 - `hooks/claude/examples/runner-dry-run.post-edit-scope.json`: dry-run example for a replacement task with stale public surface terms.
+- `hooks/claude/examples/runner-dry-run.post-edit-scope-clear.json`: dry-run example for replacement work with no stale public surface finding.
 - `hooks/claude/examples/runner-dry-run.test-integrity.json`: dry-run example for a test repair task with test-side runtime patching.
 - `hooks/claude/examples/runner-dry-run.completion-evidence.json`: dry-run example for completion artifacts before final gate evidence.
 - `docs/hook-runner-input-contract.md`: input shape for the dry-run input block.
@@ -38,16 +40,17 @@ The current dry-run examples cover one bounded selection path for each hook id.
 | Dry-run example | Hook id | Expected scanner | Scanner script | Bounded inputs |
 | --- | --- | --- | --- | --- |
 | `hooks/claude/examples/runner-dry-run.pre-write-boundary.json` | `pre_write_boundary_check` | `phase-gate-plan-scan` | `benchmarks/scripts/scan-phase-gate-plan.js` | `task`, `metadataFiles` |
+| `hooks/claude/examples/runner-dry-run.pre-write-config-error.json` | `pre_write_boundary_check` | `phase-gate-plan-scan` | `benchmarks/scripts/scan-phase-gate-plan.js` | `task`, `metadataFiles` |
 | `hooks/claude/examples/runner-dry-run.post-edit-scope.json` | `post_edit_scope_check` | `legacy-surface-retention-scan` | `benchmarks/scripts/scan-legacy-surface-retention.js` | `repoRoot`, `changedFiles`, `staleTerms` |
+| `hooks/claude/examples/runner-dry-run.post-edit-scope-clear.json` | `post_edit_scope_check` | `legacy-surface-retention-scan` | `benchmarks/scripts/scan-legacy-surface-retention.js` | `repoRoot`, `changedFiles`, `staleTerms` |
 | `hooks/claude/examples/runner-dry-run.test-integrity.json` | `test_integrity_check` | `test-runtime-patch-scan` | `benchmarks/scripts/scan-test-runtime-patch.js` | `testFiles`, `productionFiles`, `behaviorContract` |
 | `hooks/claude/examples/runner-dry-run.completion-evidence.json` | `completion_evidence_check` | `completion-evidence-gate-scan` | `benchmarks/scripts/scan-completion-evidence-gate.js` | `completionDraft`, `commandLog`, `finalGate` |
 
-Each expected bounded output uses:
+The dry-run outputs now cover:
 
-- `status: "finding"`
-- `exitCode: 1`
-- `blocked: true`
-- one finding with path, line, rule, and detail
+- `status: "clear"` with `exitCode: 0`, `blocked: false`, and no findings.
+- `status: "finding"` with `exitCode: 1`, `blocked: true`, and one finding with path, line, rule, and detail.
+- `status: "error"` with `exitCode: 2`, `blocked: true`, and no findings.
 
 These examples intentionally do not select every scanner mapped to each hook. They prove one bounded selection path per hook id before runner implementation exists.
 
@@ -67,4 +70,4 @@ The check verifies the dry-run document, the dry-run JSON example, selected scan
 
 Do not package hooks yet.
 
-Do not implement a runner from these four dry-run examples. Add more dry-run examples for scanner fan-out, clear outputs, and configuration errors before executable packaging.
+Do not implement a runner from these dry-run examples. Add more dry-run examples for scanner fan-out and additional configuration errors before executable packaging.

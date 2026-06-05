@@ -1,0 +1,59 @@
+{
+  "dryRunOnly": true,
+  "name": "post-edit-scope clear dry run",
+  "input": {
+    "hookId": "post_edit_scope_check",
+    "repoRoot": ".",
+    "task": {
+      "type": "replacement",
+      "declaredBy": "agent",
+      "summary": "Check replacement work after stale public surface terms were removed."
+    },
+    "inputs": {
+      "changedFiles": [
+        "docs/mindmap.md",
+        "src/mindmap/new-surface.ts"
+      ],
+      "approvedScope": [
+        "docs/**",
+        "src/mindmap/**"
+      ],
+      "staleTerms": [
+        "legacy mind map"
+      ]
+    }
+  },
+  "selectedScanners": [
+    {
+      "scanner": "legacy-surface-retention-scan",
+      "script": "benchmarks/scripts/scan-legacy-surface-retention.js",
+      "selectionReason": "replacement task with changed files and declared staleTerms",
+      "inputsUsed": [
+        "repoRoot",
+        "changedFiles",
+        "staleTerms"
+      ]
+    }
+  ],
+  "expectedOutputs": [
+    {
+      "hookId": "post_edit_scope_check",
+      "scanner": "legacy-surface-retention-scan",
+      "status": "clear",
+      "exitCode": 0,
+      "blocked": false,
+      "reason": "no stale public surface term found for declared inputs",
+      "inputsUsed": [
+        "repoRoot",
+        "changedFiles",
+        "staleTerms"
+      ],
+      "findings": []
+    }
+  ],
+  "nonGoals": [
+    "Do not execute hooks",
+    "Do not package hooks",
+    "Do not write final responses"
+  ]
+}

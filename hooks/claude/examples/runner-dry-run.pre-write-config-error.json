@@ -1,0 +1,47 @@
+{
+  "dryRunOnly": true,
+  "name": "pre-write configuration error dry run",
+  "input": {
+    "hookId": "pre_write_boundary_check",
+    "repoRoot": ".",
+    "task": {
+      "type": "planning-only",
+      "declaredBy": "agent",
+      "summary": "Check that missing declared plan metadata is treated as configuration error."
+    },
+    "inputs": {
+      "metadataFiles": []
+    }
+  },
+  "selectedScanners": [
+    {
+      "scanner": "phase-gate-plan-scan",
+      "script": "benchmarks/scripts/scan-phase-gate-plan.js",
+      "selectionReason": "planning-only task declares no usable plan metadata path",
+      "inputsUsed": [
+        "task",
+        "metadataFiles"
+      ]
+    }
+  ],
+  "expectedOutputs": [
+    {
+      "hookId": "pre_write_boundary_check",
+      "scanner": "phase-gate-plan-scan",
+      "status": "error",
+      "exitCode": 2,
+      "blocked": true,
+      "reason": "missing required plan metadata path",
+      "inputsUsed": [
+        "task",
+        "metadataFiles"
+      ],
+      "findings": []
+    }
+  ],
+  "nonGoals": [
+    "Do not execute hooks",
+    "Do not package hooks",
+    "Do not write final responses"
+  ]
+}
