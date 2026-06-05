@@ -175,7 +175,9 @@ Each benchmark fixture should include:
 46. Add a matrix check so scanner coverage cannot silently drop a fixture. Completed: `benchmarks/scripts/check-scanner-coverage-matrix.js`.
 47. Record hook scanner input/output contracts before packaging hooks. Completed: `docs/hook-scanner-contracts.md`.
 48. Add a hook contract check so hook specs cannot omit scanner inputs, outputs, or transcript boundaries. Completed: `benchmarks/scripts/check-hook-scanner-contracts.js`.
-49. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
+49. Record a minimal hook runner plan before packaging hooks. Completed: `docs/hook-runner-minimal-plan.md`.
+50. Add a hook runner plan check so runner inputs stay limited to explicit paths and declared metadata. Completed: `benchmarks/scripts/check-hook-runner-minimal-plan.js`.
+51. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet
 

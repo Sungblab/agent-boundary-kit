@@ -8,6 +8,8 @@ The current specs were refined from `docs/first-ten-result-synthesis.md`. They a
 
 Scanner input and output contracts are recorded in `docs/hook-scanner-contracts.md`. That document defines the read-only scanner inputs, exit code meaning, and transcript boundary for future hook packaging.
 
+The minimal runner plan is recorded in `docs/hook-runner-minimal-plan.md`. It defines how future hook packaging may pass explicit file or repo paths and declared metadata to the scanners. It is still not an installed hook.
+
 The first narrow scanner candidate is defined in `docs/first-scanner-candidate.md`. It targets only test runtime patching. Its red/green evidence is recorded in `docs/scanner-validation-test-runtime-patch.md`, its first application sweep is recorded in `docs/scanner-application-test-runtime-patch.md`, and its read-only script is `benchmarks/scripts/scan-test-runtime-patch.js`.
 
 The next scanner candidate is `test-fake-contract-scan`; its red/green evidence is recorded in `docs/scanner-validation-test-fake-contract.md`, and its read-only script is `benchmarks/scripts/scan-test-fake-contract.js`. It is still not an installed hook.

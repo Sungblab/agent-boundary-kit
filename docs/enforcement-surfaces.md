@@ -36,6 +36,8 @@ The current fixture-to-scanner coverage is summarized in `docs/scanner-coverage-
 
 Future Claude hook scanner contracts are recorded in `docs/hook-scanner-contracts.md`. The contracts require explicit file or repo paths, declared metadata, read-only scanner execution, and no raw private transcripts.
 
+The minimal future hook runner plan is recorded in `docs/hook-runner-minimal-plan.md`. It keeps the runner limited to explicit file or repo paths, declared metadata, scanner selection from `docs/scanner-coverage-matrix.md`, and output handling from `docs/hook-scanner-contracts.md`.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -221,6 +223,8 @@ Blocks completion when:
 35. Add a coverage matrix check. Completed: `benchmarks/scripts/check-scanner-coverage-matrix.js`.
 36. Record hook scanner input/output contracts. Completed: `docs/hook-scanner-contracts.md`.
 37. Add a hook scanner contract check. Completed: `benchmarks/scripts/check-hook-scanner-contracts.js`.
-38. Only then package a Codex skill or Claude hooks.
+38. Record a minimal hook runner plan before packaging hooks. Completed: `docs/hook-runner-minimal-plan.md`.
+39. Add a hook runner plan check. Completed: `benchmarks/scripts/check-hook-runner-minimal-plan.js`.
+40. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.
