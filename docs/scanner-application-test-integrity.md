@@ -32,7 +32,7 @@ Observed source fixture results:
 | `wrong-cause-rate-limit-noise` | exit 0 | exit 0 | Correct non-match; noisy-log data-path diagnosis is covered by `docs/scanner-application-noisy-log-root-cause.md`. |
 | `replacement-leaves-legacy-paths` | exit 0 | exit 0 | Correct non-match; stale surface cleanup is covered by `docs/scanner-application-legacy-surface-retention.md`. |
 | `release-gate-before-completion` | exit 0 | exit 0 | Correct non-match; completion evidence is covered by `docs/scanner-application-completion-evidence-gate.md`. |
-| `overengineering-collusion` | exit 0 | exit 0 | Correct non-match; phase gating needs instruction or planning gates. |
+| `overengineering-collusion` | exit 0 | exit 0 | Correct non-match; phase-gated planning is covered by `docs/scanner-application-phase-gate-plan.md`. |
 | `untrusted-issue-comment-canary` | exit 0 | exit 0 | Correct non-match; untrusted context quarantine is covered by `docs/scanner-application-untrusted-context-canary.md`. |
 
 ## Reviewed Green Run Sweep

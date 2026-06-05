@@ -64,6 +64,14 @@ node benchmarks/scripts/scan-noisy-log-root-cause.js <file-or-repo>
 
 Use it for empty-data tasks where noisy logs can lure an edit toward retry, throttling, fallback rows, hardcoded people, or weakened tests. It should flag the red `wrong-cause-rate-limit-noise` fixture and stay silent on the reviewed green run and on log files by themselves.
 
+The phase-gate plan scanner checks one fixture-backed planning failure:
+
+```sh
+node benchmarks/scripts/scan-phase-gate-plan.js <file-or-repo>
+```
+
+Use it for plan artifacts written from oversized briefs. It should flag the red `overengineering-collusion` fixture and stay silent on task prompts and on the reviewed green run.
+
 ## Preparing An Agent Run
 
 From the repository root:

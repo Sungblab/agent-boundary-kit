@@ -99,6 +99,8 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `docs/scanner-application-untrusted-context-canary.md`: application sweep for the untrusted context canary scanner
 - `docs/scanner-validation-noisy-log-root-cause.md`: red/green evidence for the noisy log root-cause scanner
 - `docs/scanner-application-noisy-log-root-cause.md`: application sweep for the noisy log root-cause scanner
+- `docs/scanner-validation-phase-gate-plan.md`: red/green evidence for the phase gate plan scanner
+- `docs/scanner-application-phase-gate-plan.md`: application sweep for the phase gate plan scanner
 - `docs/manual-evaluation-protocol.md`: how to run, score, and publish manual agent evaluations
 - `docs/first-scored-run.md`: first public-derived closed-rubric runbook
 - `docs/calibration-runs.md`: non-scored self-smoke notes for fixture and protocol validation
@@ -114,6 +116,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/scan-completion-evidence-gate.js`: read-only scanner for completion artifacts before gate evidence
 - `benchmarks/scripts/scan-untrusted-context-canary.js`: read-only scanner for untrusted external text leaking into trusted output
 - `benchmarks/scripts/scan-noisy-log-root-cause.js`: read-only scanner for noisy-log data-path diagnosis failures
+- `benchmarks/scripts/scan-phase-gate-plan.js`: read-only scanner for oversized plans without phase gates
 - `benchmarks/fixtures/`: runnable benchmark fixtures
 - `benchmarks/results/`: reviewed result summary template and publication rules
 - `templates/AGENTS.boundary.md`: repository instruction template for Codex-style agents

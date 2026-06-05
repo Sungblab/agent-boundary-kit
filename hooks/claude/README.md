@@ -26,6 +26,8 @@ The next untrusted-context scanner is `untrusted-context-canary-scan`; its red/g
 
 The next root-cause scanner is `noisy-log-root-cause-scan`; its red/green evidence is recorded in `docs/scanner-validation-noisy-log-root-cause.md`, its application sweep is recorded in `docs/scanner-application-noisy-log-root-cause.md`, and its read-only script is `benchmarks/scripts/scan-noisy-log-root-cause.js`. It is still not an installed hook.
 
+The next planning scanner is `phase-gate-plan-scan`; its red/green evidence is recorded in `docs/scanner-validation-phase-gate-plan.md`, its application sweep is recorded in `docs/scanner-application-phase-gate-plan.md`, and its read-only script is `benchmarks/scripts/scan-phase-gate-plan.js`. It is still not an installed hook.
+
 ## Specs
 
 - `pre-write-boundary-check.md`: block writes when the task boundary is not established.

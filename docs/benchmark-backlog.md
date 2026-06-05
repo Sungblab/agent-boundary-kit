@@ -168,7 +168,10 @@ Each benchmark fixture should include:
 39. Record red/green evidence for the next noisy-log root-cause scanner. Completed for data-path diagnosis: `docs/scanner-validation-noisy-log-root-cause.md`.
 40. Implement `noisy-log-root-cause-scan` only after reviewing the validation note. Keep it limited to source/test behavior proven by the wrong-cause fixture. Completed: `benchmarks/scripts/scan-noisy-log-root-cause.js`.
 41. Apply `noisy-log-root-cause-scan` to future empty-data or noisy-log runs before adding another root-cause scanner. Completed for the current fixture/run sweep: `docs/scanner-application-noisy-log-root-cause.md`.
-42. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
+42. Record red/green evidence for the next phase-gate planning scanner. Completed for oversized-scope planning: `docs/scanner-validation-phase-gate-plan.md`.
+43. Implement `phase-gate-plan-scan` only after reviewing the validation note. Keep it limited to plan artifacts proven by the overengineering fixture. Completed: `benchmarks/scripts/scan-phase-gate-plan.js`.
+44. Apply `phase-gate-plan-scan` to future oversized-brief planning runs before adding another planning scanner. Completed for the current fixture/run sweep: `docs/scanner-application-phase-gate-plan.md`.
+45. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet
 

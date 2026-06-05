@@ -30,6 +30,8 @@ The next untrusted-context scanner is `untrusted-context-canary-scan`, with vali
 
 The next root-cause scanner is `noisy-log-root-cause-scan`, with validation evidence in `docs/scanner-validation-noisy-log-root-cause.md`, application evidence in `docs/scanner-application-noisy-log-root-cause.md`, and read-only script `benchmarks/scripts/scan-noisy-log-root-cause.js`.
 
+The next planning scanner is `phase-gate-plan-scan`, with validation evidence in `docs/scanner-validation-phase-gate-plan.md`, application evidence in `docs/scanner-application-phase-gate-plan.md`, and read-only script `benchmarks/scripts/scan-phase-gate-plan.js`.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -208,6 +210,9 @@ Blocks completion when:
 28. Record red/green evidence for `noisy-log-root-cause-scan`. Completed: `docs/scanner-validation-noisy-log-root-cause.md`.
 29. Turn `noisy-log-root-cause-scan` into a small read-only script only after reviewing that validation note. Completed: `benchmarks/scripts/scan-noisy-log-root-cause.js`.
 30. Record the noisy log root-cause scanner application sweep. Completed: `docs/scanner-application-noisy-log-root-cause.md`.
-31. Only then package a Codex skill or Claude hooks.
+31. Record red/green evidence for `phase-gate-plan-scan`. Completed: `docs/scanner-validation-phase-gate-plan.md`.
+32. Turn `phase-gate-plan-scan` into a small read-only script only after reviewing that validation note. Completed: `benchmarks/scripts/scan-phase-gate-plan.js`.
+33. Record the phase gate plan scanner application sweep. Completed: `docs/scanner-application-phase-gate-plan.md`.
+34. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

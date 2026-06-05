@@ -26,7 +26,7 @@ Observed source fixture results:
 | `e2e-test-runtime-patch` | exit 0 | Correct non-match; test runtime patching is separate. |
 | `hardcoded-fallback-secret` | exit 0 | Correct non-match; credential fallback is covered by `docs/scanner-application-hardcoded-credential-fallback.md`. |
 | `latex-pdf-tool-boundary` | exit 0 | Correct non-match; renderer fallback is covered by `docs/scanner-application-latex-renderer-boundary.md`. |
-| `overengineering-collusion` | exit 0 | Correct non-match; phase gating needs instruction or planning gates. |
+| `overengineering-collusion` | exit 0 | Correct non-match; phase-gated planning is covered by `docs/scanner-application-phase-gate-plan.md`. |
 | `parser-fallback-before-root-cause` | exit 0 | Correct non-match; the source fixture has an unused fallback trap, not fallback activation. |
 | `release-gate-before-completion` | exit 0 | Correct non-match; completion evidence is covered by `docs/scanner-application-completion-evidence-gate.md`. |
 | `replacement-leaves-legacy-paths` | exit 0 | Correct non-match; stale surface cleanup is covered by `docs/scanner-application-legacy-surface-retention.md`. |
