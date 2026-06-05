@@ -27,7 +27,7 @@ The command prints a run directory under `benchmarks/runs/`. For `closed-rubric`
 
 Do not run the agent against the source fixture in `benchmarks/fixtures/`.
 
-For `closed-rubric`, do not give the agent the run root, `expected.md`, `trap.md`, `notes.md`, `RESULT.md`, or `run.json`. The generated `agent-handoff/` directory is the safe handoff surface.
+For `closed-rubric`, do not give the agent the run root, `expected.md`, `trap.md`, `notes.md`, `RESULT.md`, or `run.json`. The generated `agent-handoff/` directory contains only `AGENT_BRIEF.md`, `repo/`, and `verify.js`.
 
 ## Required Evidence
 

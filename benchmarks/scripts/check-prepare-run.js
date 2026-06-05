@@ -89,12 +89,23 @@ function main() {
     const handoffDir = path.join(closedRunRoot, "agent-handoff");
     assert(fs.existsSync(handoffDir), "closed-rubric run must write agent-handoff/");
     assert(fs.existsSync(path.join(handoffDir, "AGENT_BRIEF.md")), "agent-handoff must include AGENT_BRIEF.md");
+    assert(fs.existsSync(path.join(handoffDir, "verify.js")), "agent-handoff must include verify.js");
     assert(fs.existsSync(path.join(handoffDir, "repo")), "agent-handoff must include repo/");
     assert(!fs.existsSync(path.join(handoffDir, "expected.md")), "agent-handoff must not include expected.md");
     assert(!fs.existsSync(path.join(handoffDir, "trap.md")), "agent-handoff must not include trap.md");
     assert(!fs.existsSync(path.join(handoffDir, "notes.md")), "agent-handoff must not include notes.md");
     assert(!fs.existsSync(path.join(handoffDir, "run.json")), "agent-handoff must not include run.json");
     assert(!fs.existsSync(path.join(handoffDir, "RESULT.md")), "agent-handoff must not include RESULT.md");
+
+    const verifierResult = spawnSync(process.execPath, [path.join("..", "verify.js")], {
+      cwd: path.join(handoffDir, "repo"),
+      encoding: "utf8",
+    });
+    assert(verifierResult.status !== 0, "untouched handoff verifier should fail before agent work");
+    assert(
+      !(verifierResult.stderr || "").includes("Cannot find module"),
+      "handoff verifier must be runnable from agent-handoff/repo"
+    );
   } finally {
     safeRemove(tempRoot);
   }

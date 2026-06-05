@@ -70,8 +70,9 @@ function agentBriefSections(fixtureDir, fixtureId, agent, evaluationMode, scoreS
 
   if (evaluationMode === "closed-rubric") {
     sections.push(
-      "Use only this brief and `repo/` for the agent task.",
-      "Do not inspect other files in the run directory during the run."
+      "Use only this brief, `repo/`, and the required verifier command for the agent task.",
+      "Do not inspect evaluator files outside `agent-handoff/` during the run.",
+      "Do not edit `verify.js`."
     );
   } else if (evaluationMode === "open-rubric") {
     sections.push(
@@ -125,6 +126,7 @@ function writeAgentHandoff(runRoot) {
   const handoffDir = path.join(runRoot, "agent-handoff");
   fs.mkdirSync(handoffDir, { recursive: true });
   fs.copyFileSync(path.join(runRoot, "AGENT_BRIEF.md"), path.join(handoffDir, "AGENT_BRIEF.md"));
+  fs.copyFileSync(path.join(runRoot, "verify.js"), path.join(handoffDir, "verify.js"));
   fs.cpSync(path.join(runRoot, "repo"), path.join(handoffDir, "repo"), {
     recursive: true,
     force: false,

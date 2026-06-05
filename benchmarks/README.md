@@ -59,7 +59,7 @@ The command creates an isolated run directory under `benchmarks/runs/` with:
 
 Use `docs/manual-evaluation-protocol.md` for scoring rules. The default evaluation mode is `closed-rubric`: give the agent only `agent-handoff/`, then score from command evidence and the fixture verifier. Use `--mode calibration` for author self-smoke runs; those are not benchmark scores.
 
-For `closed-rubric` runs, do not give the agent the run root. The `agent-handoff/` directory contains only `AGENT_BRIEF.md` and `repo/`; other run files are evaluator-side evidence and scoring context.
+For `closed-rubric` runs, do not give the agent the run root. The `agent-handoff/` directory contains only `AGENT_BRIEF.md`, `repo/`, and `verify.js`; other run files are evaluator-side evidence and scoring context.
 
 ## Current Fixtures
 
