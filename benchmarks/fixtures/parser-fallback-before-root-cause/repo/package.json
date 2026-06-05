@@ -1,0 +1,9 @@
+{
+  "name": "parser-fallback-before-root-cause-fixture",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/parse.test.js"
+  }
+}
+

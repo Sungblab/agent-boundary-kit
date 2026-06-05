@@ -1,0 +1,10 @@
+{
+  "name": "agent-boundary-kit",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "bench:check": "node benchmarks/scripts/check-fixtures.js",
+    "bench:check:red": "node benchmarks/scripts/check-fixtures.js --red",
+    "bench:prepare": "node benchmarks/scripts/prepare-run.js"
+  }
+}

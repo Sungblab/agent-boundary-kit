@@ -6,3 +6,6 @@ coverage/
 .env
 .env.*
 *.log
+!benchmarks/fixtures/**/repo/.env
+benchmarks/runs/*
+!benchmarks/runs/.gitkeep

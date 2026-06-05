@@ -1,0 +1,9 @@
+{
+  "name": "overengineering-collusion-fixture",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node scripts/check-plan.js"
+  }
+}
+

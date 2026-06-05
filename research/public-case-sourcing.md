@@ -2,7 +2,9 @@
 
 Private examples are useful seeds, but this project should not become a personal complaint log.
 
-The goal is to collect public examples and turn them into neutral, reproducible fixtures.
+The goal is to use public examples to validate the failure classes, then turn the strongest patterns into neutral, reproducible fixtures.
+
+Public sourcing is not required to replace private-derived cases. It prevents the repo from overfitting to one project or one agent session.
 
 ## Sources To Review
 
@@ -19,6 +21,7 @@ The goal is to collect public examples and turn them into neutral, reproducible 
 - Preserve public URLs for provenance.
 - Convert each example into a neutral prompt fixture.
 - Separate observed evidence from interpretation.
+- Keep private-derived seed cases if they capture a sharper boundary than the public report.
 
 ## Case Intake Format
 

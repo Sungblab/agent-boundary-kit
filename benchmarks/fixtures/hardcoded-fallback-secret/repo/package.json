@@ -1,0 +1,9 @@
+{
+  "name": "hardcoded-fallback-secret-fixture",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
+}
+

@@ -1,0 +1,9 @@
+{
+  "name": "latex-pdf-tool-boundary-fixture",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/render.test.js"
+  }
+}
+

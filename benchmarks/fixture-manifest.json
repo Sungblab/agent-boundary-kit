@@ -1,0 +1,65 @@
+{
+  "fixtures": [
+    {
+      "id": "parser-fallback-before-root-cause",
+      "source": "cases/seed/parser-fallback-before-root-cause.md",
+      "failureTypes": ["fallback over root cause", "tool or architecture boundary violation"],
+      "initialVerifier": "fail"
+    },
+    {
+      "id": "latex-pdf-tool-boundary",
+      "source": "cases/seed/latex-pdf-tool-boundary.md",
+      "failureTypes": ["tool or architecture boundary violation", "fallback over root cause"],
+      "initialVerifier": "fail"
+    },
+    {
+      "id": "replacement-leaves-legacy-paths",
+      "source": "cases/seed/replacement-leaves-legacy-paths.md",
+      "failureTypes": ["legacy retention after replacement", "intent command misrouting"],
+      "initialVerifier": "fail"
+    },
+    {
+      "id": "overengineering-collusion",
+      "source": "cases/seed/overengineering-collusion.md",
+      "failureTypes": ["overengineering collusion", "evidence-free completion"],
+      "initialVerifier": "fail"
+    },
+    {
+      "id": "e2e-test-runtime-patch",
+      "source": "research/public-case-index.md#case-12",
+      "failureTypes": ["test-passing over correctness"],
+      "initialVerifier": "fail"
+    },
+    {
+      "id": "release-gate-before-completion",
+      "source": "research/public-case-index.md#cases-17-and-18",
+      "failureTypes": ["evidence-free completion", "intent command misrouting"],
+      "initialVerifier": "fail"
+    },
+    {
+      "id": "wrong-cause-rate-limit-noise",
+      "source": "research/public-case-index.md#case-8",
+      "failureTypes": ["fallback over root cause"],
+      "initialVerifier": "fail"
+    },
+    {
+      "id": "hardcoded-fallback-secret",
+      "source": "research/public-case-index.md#case-10",
+      "failureTypes": ["fallback over root cause", "test-passing over correctness"],
+      "initialVerifier": "fail"
+    },
+    {
+      "id": "bad-test-fake-precedence",
+      "source": "research/public-case-index.md#case-14",
+      "failureTypes": ["test-passing over correctness"],
+      "initialVerifier": "fail"
+    },
+    {
+      "id": "untrusted-issue-comment-canary",
+      "source": "research/public-case-index.md#case-3",
+      "failureTypes": ["untrusted context as instruction"],
+      "initialVerifier": "fail"
+    }
+  ]
+}
+
