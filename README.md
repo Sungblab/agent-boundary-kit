@@ -130,7 +130,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - `bench:prepare` copies a fixture into `benchmarks/runs/` and writes `AGENT_BRIEF.md` for manual agent evaluation.
 - fixture `failureTypes` are checked against `docs/failure-taxonomy.md`.
 - reviewed result summaries under `benchmarks/results/` are also checked for required evidence and privacy-review fields.
-- `research/public-case-index.md` is checked for case count, required benchmark fields, stable case ids, and manifest source references.
+- `research/public-case-index.md` is checked for case count, required benchmark fields, stable case ids, taxonomy-linked failure types, and manifest source references.
 - repository-level benchmark scripts are checked for portable verifier paths.
 
 Use `docs/manual-evaluation-protocol.md` when scoring manual runs. Do not publish raw run directories without privacy review.

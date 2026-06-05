@@ -4,6 +4,7 @@ const path = require("node:path");
 const root = path.resolve(__dirname, "..", "..");
 const publicCaseIndexPath = path.join(root, "research", "public-case-index.md");
 const manifestPath = path.join(root, "benchmarks", "fixture-manifest.json");
+const taxonomyPath = path.join(root, "docs", "failure-taxonomy.md");
 
 const requiredFields = [
   "- Source URL:",
@@ -32,6 +33,23 @@ function caseSections(markdown) {
       body: markdown.slice(match.index, next ? next.index : markdown.length),
     };
   });
+}
+
+function normalize(value) {
+  return value
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function taxonomyTypes() {
+  const markdown = fs.readFileSync(taxonomyPath, "utf8");
+  return [...markdown.matchAll(/^## \d+\. (.+)$/gm)].map((match) => normalize(match[1]));
+}
+
+function likelyFailureType(section) {
+  const match = section.body.match(/^- Likely failure type:\s*(.+)$/m);
+  return match ? normalize(match[1]) : "";
 }
 
 function publicSourceCaseRefs() {
@@ -65,8 +83,10 @@ function publicSourceCaseRefs() {
 
 function main() {
   assert(fs.existsSync(publicCaseIndexPath), "research/public-case-index.md is missing");
+  assert(fs.existsSync(taxonomyPath), "docs/failure-taxonomy.md is missing");
 
   const markdown = fs.readFileSync(publicCaseIndexPath, "utf8");
+  const knownTypes = taxonomyTypes();
   const sections = caseSections(markdown);
   assert(sections.length >= 15, `public case index has too few cases: ${sections.length}`);
   assert(sections.length <= 25, `public case index has too many cases: ${sections.length}`);
@@ -88,6 +108,12 @@ function main() {
     for (const field of requiredFields) {
       assert(section.body.includes(field), `${section.heading}: missing ${field}`);
     }
+
+    const likelyType = likelyFailureType(section);
+    assert(
+      knownTypes.some((type) => likelyType.includes(type)),
+      `${section.heading}: Likely failure type must reference at least one taxonomy type`
+    );
   }
 
   for (const ref of publicSourceCaseRefs()) {
