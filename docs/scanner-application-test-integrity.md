@@ -29,7 +29,7 @@ Observed source fixture results:
 | `hardcoded-fallback-secret` | exit 0 | exit 0 | Correct non-match; credential fallback is covered by `docs/scanner-application-hardcoded-credential-fallback.md`. |
 | `latex-pdf-tool-boundary` | exit 0 | exit 0 | Correct non-match; renderer fallback is covered by `docs/scanner-application-latex-renderer-boundary.md`. |
 | `parser-fallback-before-root-cause` | exit 0 | exit 0 | Correct non-match; parser fallback is covered by `docs/scanner-application-parser-fallback-boundary.md`. |
-| `wrong-cause-rate-limit-noise` | exit 0 | exit 0 | Correct non-match; data-path diagnosis needs a separate scanner. |
+| `wrong-cause-rate-limit-noise` | exit 0 | exit 0 | Correct non-match; noisy-log data-path diagnosis is covered by `docs/scanner-application-noisy-log-root-cause.md`. |
 | `replacement-leaves-legacy-paths` | exit 0 | exit 0 | Correct non-match; stale surface cleanup is covered by `docs/scanner-application-legacy-surface-retention.md`. |
 | `release-gate-before-completion` | exit 0 | exit 0 | Correct non-match; completion evidence is covered by `docs/scanner-application-completion-evidence-gate.md`. |
 | `overengineering-collusion` | exit 0 | exit 0 | Correct non-match; phase gating needs instruction or planning gates. |
@@ -71,7 +71,7 @@ They should not be expanded to cover:
 
 - weak assertions
 - snapshot rewrites
-- default rows
+- default rows covered by `noisy-log-root-cause-scan` for the noisy-log fixture shape
 - fallback parser paths covered by `parser-fallback-boundary-scan`
 - renderer fallback paths covered by `latex-renderer-boundary-scan`
 - hardcoded credentials covered by `hardcoded-credential-fallback-scan`

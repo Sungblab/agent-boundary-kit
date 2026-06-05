@@ -31,7 +31,7 @@ Observed source fixture results:
 | `release-gate-before-completion` | exit 0 | Correct non-match; completion evidence is covered by `docs/scanner-application-completion-evidence-gate.md`. |
 | `replacement-leaves-legacy-paths` | exit 0 | Correct non-match; stale surface cleanup is covered by `docs/scanner-application-legacy-surface-retention.md`. |
 | `untrusted-issue-comment-canary` | exit 0 | Correct non-match; untrusted context quarantine is covered by `docs/scanner-application-untrusted-context-canary.md`. |
-| `wrong-cause-rate-limit-noise` | exit 0 | Correct non-match; noisy-log diagnosis is separate. |
+| `wrong-cause-rate-limit-noise` | exit 0 | Correct non-match; noisy-log data-path diagnosis is covered by `docs/scanner-application-noisy-log-root-cause.md`. |
 
 ## Reviewed And Calibration Run Sweep
 
@@ -63,7 +63,7 @@ Use this scanner only when the run involves a named LaTeX renderer boundary and 
 Do not expand this scanner to cover:
 
 - parser fallback paths
-- retry or throttle fallback
+- retry or throttle fallback covered by `noisy-log-root-cause-scan` for the noisy-log fixture shape
 - hardcoded credentials covered by `hardcoded-credential-fallback-scan`
 - fake data contracts
 - test runtime patching

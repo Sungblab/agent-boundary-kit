@@ -28,6 +28,8 @@ The next completion scanner is `completion-evidence-gate-scan`, with validation 
 
 The next untrusted-context scanner is `untrusted-context-canary-scan`, with validation evidence in `docs/scanner-validation-untrusted-context-canary.md`, application evidence in `docs/scanner-application-untrusted-context-canary.md`, and read-only script `benchmarks/scripts/scan-untrusted-context-canary.js`.
 
+The next root-cause scanner is `noisy-log-root-cause-scan`, with validation evidence in `docs/scanner-validation-noisy-log-root-cause.md`, application evidence in `docs/scanner-application-noisy-log-root-cause.md`, and read-only script `benchmarks/scripts/scan-noisy-log-root-cause.js`.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -203,6 +205,9 @@ Blocks completion when:
 25. Record red/green evidence for `untrusted-context-canary-scan`. Completed: `docs/scanner-validation-untrusted-context-canary.md`.
 26. Turn `untrusted-context-canary-scan` into a small read-only script only after reviewing that validation note. Completed: `benchmarks/scripts/scan-untrusted-context-canary.js`.
 27. Record the untrusted context scanner application sweep. Completed: `docs/scanner-application-untrusted-context-canary.md`.
-28. Only then package a Codex skill or Claude hooks.
+28. Record red/green evidence for `noisy-log-root-cause-scan`. Completed: `docs/scanner-validation-noisy-log-root-cause.md`.
+29. Turn `noisy-log-root-cause-scan` into a small read-only script only after reviewing that validation note. Completed: `benchmarks/scripts/scan-noisy-log-root-cause.js`.
+30. Record the noisy log root-cause scanner application sweep. Completed: `docs/scanner-application-noisy-log-root-cause.md`.
+31. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

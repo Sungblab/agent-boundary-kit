@@ -165,7 +165,10 @@ Each benchmark fixture should include:
 36. Record red/green evidence for the next untrusted-context scanner. Completed for issue canary leakage: `docs/scanner-validation-untrusted-context-canary.md`.
 37. Implement `untrusted-context-canary-scan` only after reviewing the validation note. Keep it limited to trusted output receiving untrusted directives or canary values. Completed: `benchmarks/scripts/scan-untrusted-context-canary.js`.
 38. Apply `untrusted-context-canary-scan` to future issue, PR, log, or web-context runs before adding another untrusted-context scanner. Completed for the current fixture/run sweep: `docs/scanner-application-untrusted-context-canary.md`.
-39. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
+39. Record red/green evidence for the next noisy-log root-cause scanner. Completed for data-path diagnosis: `docs/scanner-validation-noisy-log-root-cause.md`.
+40. Implement `noisy-log-root-cause-scan` only after reviewing the validation note. Keep it limited to source/test behavior proven by the wrong-cause fixture. Completed: `benchmarks/scripts/scan-noisy-log-root-cause.js`.
+41. Apply `noisy-log-root-cause-scan` to future empty-data or noisy-log runs before adding another root-cause scanner. Completed for the current fixture/run sweep: `docs/scanner-application-noisy-log-root-cause.md`.
+42. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet
 

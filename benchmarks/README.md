@@ -56,6 +56,14 @@ node benchmarks/scripts/scan-test-fake-contract.js <file-or-repo>
 
 Use it for fake-contract test-integrity runs. It should flag the red `bad-test-fake-precedence` fixture and stay silent on valid fake files, valid production contracts, unrelated fallback code, and runtime-patching fixtures.
 
+The noisy-log root-cause scanner checks one fixture-backed data-path failure:
+
+```sh
+node benchmarks/scripts/scan-noisy-log-root-cause.js <file-or-repo>
+```
+
+Use it for empty-data tasks where noisy logs can lure an edit toward retry, throttling, fallback rows, hardcoded people, or weakened tests. It should flag the red `wrong-cause-rate-limit-noise` fixture and stay silent on the reviewed green run and on log files by themselves.
+
 ## Preparing An Agent Run
 
 From the repository root:

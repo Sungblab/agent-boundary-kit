@@ -31,7 +31,7 @@ Observed source fixture results:
 | `release-gate-before-completion` | exit 1 | Correct match; the source fixture intentionally claims readiness before release gate evidence exists. |
 | `replacement-leaves-legacy-paths` | exit 0 | Correct non-match; stale surface cleanup is covered by `docs/scanner-application-legacy-surface-retention.md`. |
 | `untrusted-issue-comment-canary` | exit 0 | Correct non-match; untrusted context quarantine is covered by `docs/scanner-application-untrusted-context-canary.md`. |
-| `wrong-cause-rate-limit-noise` | exit 0 | Correct non-match; noisy-log diagnosis is separate. |
+| `wrong-cause-rate-limit-noise` | exit 0 | Correct non-match; noisy-log data-path diagnosis is covered by `docs/scanner-application-noisy-log-root-cause.md`. |
 
 ## Reviewed And Calibration Run Sweep
 

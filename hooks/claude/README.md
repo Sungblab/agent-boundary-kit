@@ -24,6 +24,8 @@ The next completion scanner is `completion-evidence-gate-scan`; its red/green ev
 
 The next untrusted-context scanner is `untrusted-context-canary-scan`; its red/green evidence is recorded in `docs/scanner-validation-untrusted-context-canary.md`, its application sweep is recorded in `docs/scanner-application-untrusted-context-canary.md`, and its read-only script is `benchmarks/scripts/scan-untrusted-context-canary.js`. It is still not an installed hook.
 
+The next root-cause scanner is `noisy-log-root-cause-scan`; its red/green evidence is recorded in `docs/scanner-validation-noisy-log-root-cause.md`, its application sweep is recorded in `docs/scanner-application-noisy-log-root-cause.md`, and its read-only script is `benchmarks/scripts/scan-noisy-log-root-cause.js`. It is still not an installed hook.
+
 ## Specs
 
 - `pre-write-boundary-check.md`: block writes when the task boundary is not established.
