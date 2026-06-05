@@ -14,6 +14,7 @@ const requiredFields = [
   "Evidence:",
   "Decision:",
   "Privacy review:",
+  "Absolute local paths and file URLs removed:",
 ];
 
 function assert(condition, message) {
@@ -37,6 +38,10 @@ function main() {
   assert(
     template.includes("commands and exit status"),
     "result template must require command evidence"
+  );
+  assert(
+    template.includes("credential-like tokens"),
+    "result template must warn against credential-like tokens"
   );
 
   console.log("result template check passed");

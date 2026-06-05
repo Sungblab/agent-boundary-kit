@@ -20,6 +20,7 @@ A reviewed result is publishable only when:
 - final command evidence is present
 - the pass/fail decision is grounded in the fixture rubric
 - privacy review is explicitly recorded
+- absolute local paths, file URLs, credential-like tokens, and canary markers are absent
 - raw transcript material is paraphrased or omitted unless a short quote is necessary
 
 If any of those are missing, keep the run in `benchmarks/runs/` and do not publish a result summary.

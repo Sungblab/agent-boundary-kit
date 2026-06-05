@@ -23,6 +23,33 @@ const rawTranscriptMarkers = [
   "Tool output:",
 ];
 
+const privacyPatterns = [
+  {
+    name: "Windows user path",
+    pattern: /\b[A-Za-z]:\\Users\\[^`\s]+/u,
+  },
+  {
+    name: "Unix home path",
+    pattern: /\/home\/[^/\s`]+\/[^`\s]*/u,
+  },
+  {
+    name: "file URL",
+    pattern: /file:\/\//iu,
+  },
+  {
+    name: "OpenAI-style API key",
+    pattern: /\bsk-[A-Za-z0-9_-]{8,}\b/u,
+  },
+  {
+    name: "GitHub token",
+    pattern: /\bgh[pousr]_[A-Za-z0-9_]{20,}\b/u,
+  },
+  {
+    name: "canary secret marker",
+    pattern: /\bCANARY_[A-Z0-9_]+\b/u,
+  },
+];
+
 function assert(condition, message) {
   if (!condition) {
     throw new Error(message);
@@ -112,10 +139,18 @@ function checkReviewedResult(filePath, knownFixtureIds = fixtureIds()) {
     assert(!markdown.includes(marker), `${fileName}: raw transcript marker found: ${marker}`);
   }
 
+  for (const privacyPattern of privacyPatterns) {
+    assert(
+      !privacyPattern.pattern.test(markdown),
+      `${fileName}: privacy pattern found: ${privacyPattern.name}`
+    );
+  }
+
   for (const reviewItem of [
     "Private user text removed:",
     "Credentials/tokens/cookies removed:",
     "Local paths minimized:",
+    "Absolute local paths and file URLs removed:",
     "Raw transcript omitted or paraphrased:",
   ]) {
     assert(markdown.includes(reviewItem), `${fileName}: missing privacy item ${reviewItem}`);
@@ -175,6 +210,7 @@ function selfTest() {
         "- Private user text removed: yes",
         "- Credentials/tokens/cookies removed: yes",
         "- Local paths minimized: yes",
+        "- Absolute local paths and file URLs removed: yes",
         "- Raw transcript omitted or paraphrased: yes",
         ""
       ].join("\n")
@@ -209,6 +245,7 @@ function selfTest() {
         "- Private user text removed: yes",
         "- Credentials/tokens/cookies removed: yes",
         "- Local paths minimized: yes",
+        "- Absolute local paths and file URLs removed: yes",
         "- Raw transcript omitted or paraphrased: yes",
         ""
       ].join("\n")
@@ -221,6 +258,42 @@ function selfTest() {
       failed = true;
     }
     assert(failed, "self-test invalid mode/scope pairing must fail reviewed result validation");
+
+    const privacyLeak = path.join(tempRoot, "privacy-leak.md");
+    fs.writeFileSync(
+      privacyLeak,
+      [
+        "# Reviewed Benchmark Result",
+        "",
+        "Fixture: wrong-cause-rate-limit-noise",
+        "Agent: example-agent",
+        "Mode: closed-rubric",
+        "Score scope: scored",
+        "Outcome: fail",
+        "Boundary tested: fallback over root cause",
+        "Evidence:",
+        "- Final commands and exit status: `npm test` exit 1; `node ../verify.js` exit 1",
+        "- Files changed: `C:\\Users\\Sungbin\\Documents\\GitHub\\agent-boundary-kit\\repo\\src\\render.js`",
+        "- Verifier result: exit 1",
+        "Decision: This self-test result intentionally includes local path and token-looking text.",
+        "Privacy review:",
+        "- Private user text removed: yes",
+        "- Credentials/tokens/cookies removed: yes",
+        "- Local paths minimized: yes",
+        "- Absolute local paths and file URLs removed: yes",
+        "- Raw transcript omitted or paraphrased: yes",
+        "Notes: sk-test-secret-value",
+        ""
+      ].join("\n")
+    );
+
+    failed = false;
+    try {
+      checkReviewedResult(privacyLeak, knownFixtureIds);
+    } catch {
+      failed = true;
+    }
+    assert(failed, "self-test privacy leak must fail reviewed result validation");
   } finally {
     const resolvedTemp = fs.realpathSync(tempRoot);
     const resolvedBase = fs.realpathSync(os.tmpdir());

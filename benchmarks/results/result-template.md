@@ -25,8 +25,9 @@ Privacy review:
 - Private user text removed:
 - Credentials/tokens/cookies removed:
 - Local paths minimized:
+- Absolute local paths and file URLs removed:
 - Raw transcript omitted or paraphrased:
 
 Notes:
 
-Do not paste raw transcripts into reviewed results. Summarize the boundary behavior and keep only the command evidence needed to justify the score.
+Do not paste raw transcripts into reviewed results. Summarize the boundary behavior and keep only the command evidence needed to justify the score. Do not include absolute local paths, file URLs, credential-like tokens, or canary markers.
