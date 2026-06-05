@@ -36,6 +36,30 @@ Before final response, PR metadata, completion report, handoff, merge, or deploy
 - A command is mentioned without exit status or equivalent evidence.
 - Verification ran before the final relevant edit and was not rerun.
 
+## Scanner Contract
+
+Input contract:
+
+- final response draft path when materialized
+- command log summary
+- repo path
+- completion report or PR metadata paths
+- final gate artifact path when declared
+
+Matching scanners:
+
+- `scan-completion-evidence-gate.js`
+- `scan-untrusted-context-canary.js`
+- `scan-phase-gate-plan.js`
+
+Output contract:
+
+- Exit 0: no scanner finding for completion artifacts, untrusted-context leakage, or planning completion claims.
+- Exit 1: completion claim lacks gate evidence, leaks untrusted text, or claims broad implementation completion.
+- Exit 2: the scanner input is missing or unsupported.
+
+No raw private transcripts. The hook candidate must receive explicit report, metadata, gate, or plan paths instead of reading chat history.
+
 ## Related Fixtures
 
 - `release-gate-before-completion`

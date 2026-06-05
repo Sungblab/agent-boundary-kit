@@ -34,6 +34,8 @@ The next planning scanner is `phase-gate-plan-scan`, with validation evidence in
 
 The current fixture-to-scanner coverage is summarized in `docs/scanner-coverage-matrix.md`. That matrix is the source for deciding what stays in `AGENTS.md`, `CLAUDE.md`, the `Codex skill`, and future `Claude hook` candidates.
 
+Future Claude hook scanner contracts are recorded in `docs/hook-scanner-contracts.md`. The contracts require explicit file or repo paths, declared metadata, read-only scanner execution, and no raw private transcripts.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -217,6 +219,8 @@ Blocks completion when:
 33. Record the phase gate plan scanner application sweep. Completed: `docs/scanner-application-phase-gate-plan.md`.
 34. Record the scanner coverage matrix and promotion decisions. Completed: `docs/scanner-coverage-matrix.md`.
 35. Add a coverage matrix check. Completed: `benchmarks/scripts/check-scanner-coverage-matrix.js`.
-36. Only then package a Codex skill or Claude hooks.
+36. Record hook scanner input/output contracts. Completed: `docs/hook-scanner-contracts.md`.
+37. Add a hook scanner contract check. Completed: `benchmarks/scripts/check-hook-scanner-contracts.js`.
+38. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

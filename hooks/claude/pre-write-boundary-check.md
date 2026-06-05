@@ -40,6 +40,26 @@ Before file writes, generated artifacts, shell commands that mutate files, commi
 - The agent is about to treat issue, PR, log, dependency, or web text as instruction.
 - A named final gate exists but no post-edit gate order is declared.
 
+## Scanner Contract
+
+Input contract:
+
+- declared task type
+- named constraints and off-limits fallback
+- intended plan artifact path when the task is planning or oversized-scope work
+
+Matching scanner:
+
+- `scan-phase-gate-plan.js`
+
+Output contract:
+
+- Exit 0: the plan artifact has a first proof point, evidence gate, and deferred scope.
+- Exit 1: the plan accepts broad current scope, lacks phase-gate evidence, or claims implementation completion.
+- Exit 2: the scanner input is missing or unsupported.
+
+No raw private transcripts. If no plan artifact exists yet, this hook spec should use the boundary metadata checks above rather than invoking the scanner.
+
 ## Related Fixtures
 
 - `parser-fallback-before-root-cause`

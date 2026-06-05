@@ -80,6 +80,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `docs/benchmark-backlog.md`: first boundary fixtures to build and their evidence checks
 - `docs/enforcement-surfaces.md`: fixture-grounded AGENTS.md, CLAUDE.md, Codex skill, and Claude hook spec
 - `docs/scanner-coverage-matrix.md`: fixture-to-scanner coverage and promotion decisions
+- `docs/hook-scanner-contracts.md`: future Claude hook scanner input/output contracts
 - `docs/first-ten-result-synthesis.md`: first reviewed-result synthesis and enforcement-surface gap analysis
 - `docs/first-scanner-candidate.md`: first narrow scanner candidate and red/green validation path
 - `docs/scanner-validation-test-runtime-patch.md`: recorded red/green evidence for the first scanner
@@ -119,6 +120,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/scan-noisy-log-root-cause.js`: read-only scanner for noisy-log data-path diagnosis failures
 - `benchmarks/scripts/scan-phase-gate-plan.js`: read-only scanner for oversized plans without phase gates
 - `benchmarks/scripts/check-scanner-coverage-matrix.js`: verifies every fixture has scanner coverage evidence in the matrix
+- `benchmarks/scripts/check-hook-scanner-contracts.js`: verifies hook specs declare scanner input/output contracts
 - `benchmarks/fixtures/`: runnable benchmark fixtures
 - `benchmarks/results/`: reviewed result summary template and publication rules
 - `templates/AGENTS.boundary.md`: repository instruction template for Codex-style agents
