@@ -8,7 +8,7 @@ The JSON input contract and examples are recorded in `docs/hook-runner-input-con
 
 The JSON output contract and examples are recorded in `docs/hook-runner-output-contract.md`.
 
-The dry-run scanner selection example is recorded in `docs/hook-runner-dry-run-spec.md`.
+The dry-run scanner selection examples are recorded in `docs/hook-runner-dry-run-spec.md`.
 
 ## Boundary
 

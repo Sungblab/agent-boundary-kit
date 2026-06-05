@@ -42,7 +42,7 @@ The hook runner input contract is recorded in `docs/hook-runner-input-contract.m
 
 The hook runner output contract is recorded in `docs/hook-runner-output-contract.md`. It adds a JSON schema plus valid and invalid examples for bounded scanner results, rejected final-response fields, and rejected transcript fields.
 
-The hook runner dry-run spec is recorded in `docs/hook-runner-dry-run-spec.md`. It adds one fixture-like scanner selection example that maps declared runner input to a bounded legacy-surface scanner output without implementing a runner.
+The hook runner dry-run spec is recorded in `docs/hook-runner-dry-run-spec.md`. It adds fixture-like scanner selection examples for all four hook ids without implementing a runner.
 
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
@@ -236,7 +236,7 @@ Blocks completion when:
 42. Record a hook runner JSON output contract with valid and invalid examples. Completed: `docs/hook-runner-output-contract.md`.
 43. Add a hook runner output contract check. Completed: `benchmarks/scripts/check-hook-runner-output-contract.js`.
 44. Record a hook runner dry-run spec before implementation. Completed: `docs/hook-runner-dry-run-spec.md`.
-45. Add a hook runner dry-run check. Completed: `benchmarks/scripts/check-hook-runner-dry-run-spec.js`.
+45. Add a hook runner dry-run check covering one bounded selection path for each hook id. Completed: `benchmarks/scripts/check-hook-runner-dry-run-spec.js`.
 46. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

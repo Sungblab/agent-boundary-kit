@@ -181,8 +181,8 @@ Each benchmark fixture should include:
 52. Add a hook runner input contract check so transcript fields and missing metadata cannot pass as runner input. Completed: `benchmarks/scripts/check-hook-runner-input-contract.js`.
 53. Record a hook runner output contract with valid and invalid JSON examples. Completed: `docs/hook-runner-output-contract.md`.
 54. Add a hook runner output contract check so final-response fields and transcript fields cannot pass as runner output. Completed: `benchmarks/scripts/check-hook-runner-output-contract.js`.
-55. Record a hook runner dry-run spec that maps one declared input to one bounded scanner output. Completed: `docs/hook-runner-dry-run-spec.md`.
-56. Add a hook runner dry-run check so scanner selection examples stay bounded and non-executable. Completed: `benchmarks/scripts/check-hook-runner-dry-run-spec.js`.
+55. Record a hook runner dry-run spec that maps declared inputs to bounded scanner outputs. Completed: `docs/hook-runner-dry-run-spec.md`.
+56. Add a hook runner dry-run check so one selection example per hook id stays bounded and non-executable. Completed: `benchmarks/scripts/check-hook-runner-dry-run-spec.js`.
 57. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet

@@ -14,7 +14,7 @@ The runner JSON input contract is recorded in `docs/hook-runner-input-contract.m
 
 The runner JSON output contract is recorded in `docs/hook-runner-output-contract.md`. It includes `hooks/claude/runner-output.schema.json`, clear and finding examples, and invalid examples for final-copy generation and transcript leakage.
 
-The runner dry-run spec is recorded in `docs/hook-runner-dry-run-spec.md`. It uses `hooks/claude/examples/runner-dry-run.post-edit-scope.json` to show one scanner selection path. It is still not an installed hook.
+The runner dry-run spec is recorded in `docs/hook-runner-dry-run-spec.md`. It uses `runner-dry-run.pre-write-boundary.json`, `runner-dry-run.post-edit-scope.json`, `runner-dry-run.test-integrity.json`, and `runner-dry-run.completion-evidence.json` to show one scanner selection path for each hook id. It is still not an installed hook.
 
 The first narrow scanner candidate is defined in `docs/first-scanner-candidate.md`. It targets only test runtime patching. Its red/green evidence is recorded in `docs/scanner-validation-test-runtime-patch.md`, its first application sweep is recorded in `docs/scanner-application-test-runtime-patch.md`, and its read-only script is `benchmarks/scripts/scan-test-runtime-patch.js`.
 

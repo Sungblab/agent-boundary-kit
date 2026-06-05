@@ -6,7 +6,10 @@ It is not an installed hook and not a runner implementation. It only shows how a
 
 ## Files
 
+- `hooks/claude/examples/runner-dry-run.pre-write-boundary.json`: dry-run example for a planning task without a first phase gate.
 - `hooks/claude/examples/runner-dry-run.post-edit-scope.json`: dry-run example for a replacement task with stale public surface terms.
+- `hooks/claude/examples/runner-dry-run.test-integrity.json`: dry-run example for a test repair task with test-side runtime patching.
+- `hooks/claude/examples/runner-dry-run.completion-evidence.json`: dry-run example for completion artifacts before final gate evidence.
 - `docs/hook-runner-input-contract.md`: input shape for the dry-run input block.
 - `docs/hook-runner-output-contract.md`: output shape for the dry-run expected output block.
 - `docs/hook-scanner-contracts.md`: scanner input/output rules.
@@ -28,24 +31,25 @@ The dry run must not:
 
 The dry run is a fixture for selection behavior. It is supporting evidence, not an automation surface.
 
-## Example Mapping
+## Example Mappings
 
-The current dry-run example uses `post_edit_scope_check` on replacement work where changed files and `staleTerms` are declared.
+The current dry-run examples cover one bounded selection path for each hook id.
 
-Expected scanner selection:
+| Dry-run example | Hook id | Expected scanner | Scanner script | Bounded inputs |
+| --- | --- | --- | --- | --- |
+| `hooks/claude/examples/runner-dry-run.pre-write-boundary.json` | `pre_write_boundary_check` | `phase-gate-plan-scan` | `benchmarks/scripts/scan-phase-gate-plan.js` | `task`, `metadataFiles` |
+| `hooks/claude/examples/runner-dry-run.post-edit-scope.json` | `post_edit_scope_check` | `legacy-surface-retention-scan` | `benchmarks/scripts/scan-legacy-surface-retention.js` | `repoRoot`, `changedFiles`, `staleTerms` |
+| `hooks/claude/examples/runner-dry-run.test-integrity.json` | `test_integrity_check` | `test-runtime-patch-scan` | `benchmarks/scripts/scan-test-runtime-patch.js` | `testFiles`, `productionFiles`, `behaviorContract` |
+| `hooks/claude/examples/runner-dry-run.completion-evidence.json` | `completion_evidence_check` | `completion-evidence-gate-scan` | `benchmarks/scripts/scan-completion-evidence-gate.js` | `completionDraft`, `commandLog`, `finalGate` |
 
-- `legacy-surface-retention-scan`
-- `benchmarks/scripts/scan-legacy-surface-retention.js`
-- bounded inputs: `repoRoot`, `changedFiles`, `staleTerms`
-
-Expected bounded output:
+Each expected bounded output uses:
 
 - `status: "finding"`
 - `exitCode: 1`
 - `blocked: true`
 - one finding with path, line, rule, and detail
 
-This example intentionally does not select every scanner mapped to `post_edit_scope_check`. It proves one bounded selection path before runner implementation exists.
+These examples intentionally do not select every scanner mapped to each hook. They prove one bounded selection path per hook id before runner implementation exists.
 
 ## Validation
 
@@ -63,4 +67,4 @@ The check verifies the dry-run document, the dry-run JSON example, selected scan
 
 Do not package hooks yet.
 
-Do not implement a runner from this single dry-run example. Add more dry-run examples for other hook ids and scanner paths before executable packaging.
+Do not implement a runner from these four dry-run examples. Add more dry-run examples for scanner fan-out, clear outputs, and configuration errors before executable packaging.

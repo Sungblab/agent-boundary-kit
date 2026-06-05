@@ -1,0 +1,56 @@
+{
+  "dryRunOnly": true,
+  "name": "pre-write phase gate dry run",
+  "input": {
+    "hookId": "pre_write_boundary_check",
+    "repoRoot": ".",
+    "task": {
+      "type": "planning-only",
+      "declaredBy": "agent",
+      "summary": "Check an oversized plan for a declared first phase gate."
+    },
+    "inputs": {
+      "metadataFiles": [
+        "plans/agent-plan.md"
+      ]
+    }
+  },
+  "selectedScanners": [
+    {
+      "scanner": "phase-gate-plan-scan",
+      "script": "benchmarks/scripts/scan-phase-gate-plan.js",
+      "selectionReason": "planning-only task with declared plan metadata",
+      "inputsUsed": [
+        "task",
+        "metadataFiles"
+      ]
+    }
+  ],
+  "expectedOutputs": [
+    {
+      "hookId": "pre_write_boundary_check",
+      "scanner": "phase-gate-plan-scan",
+      "status": "finding",
+      "exitCode": 1,
+      "blocked": true,
+      "reason": "oversized plan lacks a first verifiable phase gate",
+      "inputsUsed": [
+        "task",
+        "metadataFiles"
+      ],
+      "findings": [
+        {
+          "path": "plans/agent-plan.md",
+          "line": 4,
+          "rule": "missing-phase-gate",
+          "detail": "Planning artifact names broad implementation before a first evidence gate."
+        }
+      ]
+    }
+  ],
+  "nonGoals": [
+    "Do not execute hooks",
+    "Do not package hooks",
+    "Do not write final responses"
+  ]
+}

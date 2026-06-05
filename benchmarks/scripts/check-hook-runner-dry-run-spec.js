@@ -4,9 +4,47 @@ const path = require("node:path");
 const root = path.resolve(__dirname, "..", "..");
 
 const specPath = path.join(root, "docs", "hook-runner-dry-run-spec.md");
-const dryRunExamplePath = path.join(root, "hooks", "claude", "examples", "runner-dry-run.post-edit-scope.json");
 const planDocPath = path.join(root, "docs", "hook-runner-minimal-plan.md");
 const hookReadmePath = path.join(root, "hooks", "claude", "README.md");
+
+const dryRunScenarios = [
+  {
+    file: "hooks/claude/examples/runner-dry-run.pre-write-boundary.json",
+    name: "pre-write phase gate dry run",
+    hookId: "pre_write_boundary_check",
+    taskType: "planning-only",
+    scanner: "phase-gate-plan-scan",
+    script: "benchmarks/scripts/scan-phase-gate-plan.js",
+    inputsUsed: ["task", "metadataFiles"],
+  },
+  {
+    file: "hooks/claude/examples/runner-dry-run.post-edit-scope.json",
+    name: "post-edit-scope legacy surface dry run",
+    hookId: "post_edit_scope_check",
+    taskType: "replacement",
+    scanner: "legacy-surface-retention-scan",
+    script: "benchmarks/scripts/scan-legacy-surface-retention.js",
+    inputsUsed: ["repoRoot", "changedFiles", "staleTerms"],
+  },
+  {
+    file: "hooks/claude/examples/runner-dry-run.test-integrity.json",
+    name: "test-integrity runtime patch dry run",
+    hookId: "test_integrity_check",
+    taskType: "test-repair",
+    scanner: "test-runtime-patch-scan",
+    script: "benchmarks/scripts/scan-test-runtime-patch.js",
+    inputsUsed: ["testFiles", "productionFiles", "behaviorContract"],
+  },
+  {
+    file: "hooks/claude/examples/runner-dry-run.completion-evidence.json",
+    name: "completion evidence gate dry run",
+    hookId: "completion_evidence_check",
+    taskType: "completion",
+    scanner: "completion-evidence-gate-scan",
+    script: "benchmarks/scripts/scan-completion-evidence-gate.js",
+    inputsUsed: ["completionDraft", "commandLog", "finalGate"],
+  },
+];
 
 const linkedDocs = [
   "README.md",
@@ -76,50 +114,62 @@ function isStringArray(value) {
   return Array.isArray(value) && value.every((item) => typeof item === "string" && item.trim().length > 0);
 }
 
+function readDryRunScenario(scenario) {
+  const filePath = path.join(root, scenario.file);
+  assert(fs.existsSync(filePath), `${scenario.file} is missing`);
+  return readJson(filePath);
+}
+
+function assertDryRunScenario(scenario, dryRun) {
+  const forbiddenKey = findForbiddenKey(dryRun);
+  assert(!forbiddenKey, `${scenario.file} includes forbidden field ${forbiddenKey}`);
+
+  assert(dryRun.dryRunOnly === true, `${scenario.file}: must set dryRunOnly true`);
+  assert(dryRun.name === scenario.name, `${scenario.file}: must name the scenario`);
+  assert(dryRun.input && dryRun.input.hookId === scenario.hookId, `${scenario.file}: input hookId mismatch`);
+  assert(dryRun.input.task && dryRun.input.task.type === scenario.taskType, `${scenario.file}: input task type mismatch`);
+  assert(Array.isArray(dryRun.selectedScanners), `${scenario.file}: must include selectedScanners`);
+  assert(dryRun.selectedScanners.length === 1, `${scenario.file}: should select exactly one scanner`);
+
+  const selected = dryRun.selectedScanners[0];
+  assert(selected.scanner === scenario.scanner, `${scenario.file}: selected scanner mismatch`);
+  assert(selected.script === scenario.script, `${scenario.file}: selected scanner script mismatch`);
+  assert(fs.existsSync(path.join(root, selected.script)), `${scenario.file}: selected scanner script does not exist`);
+  assert(
+    JSON.stringify(selected.inputsUsed) === JSON.stringify(scenario.inputsUsed),
+    `${scenario.file}: selected scanner must name bounded inputs`
+  );
+
+  assert(Array.isArray(dryRun.expectedOutputs), `${scenario.file}: must include expectedOutputs`);
+  assert(dryRun.expectedOutputs.length === 1, `${scenario.file}: should include one expected output`);
+  const output = dryRun.expectedOutputs[0];
+  assert(output.hookId === scenario.hookId, `${scenario.file}: expected output hookId mismatch`);
+  assert(output.scanner === scenario.scanner, `${scenario.file}: expected output scanner mismatch`);
+  assert(output.status === "finding", `${scenario.file}: expected output should show a finding`);
+  assert(output.exitCode === 1, `${scenario.file}: expected output should use exitCode 1`);
+  assert(output.blocked === true, `${scenario.file}: expected output should block`);
+  for (const inputName of scenario.inputsUsed) {
+    assert(output.inputsUsed.includes(inputName), `${scenario.file}: expected output missing input ${inputName}`);
+  }
+  assert(Array.isArray(output.findings) && output.findings.length === 1, `${scenario.file}: expected one finding`);
+  assert(typeof output.findings[0].path === "string", `${scenario.file}: finding must include path`);
+  assert(Number.isInteger(output.findings[0].line), `${scenario.file}: finding must include line`);
+  assert(typeof output.findings[0].rule === "string", `${scenario.file}: finding must include rule`);
+  assert(typeof output.findings[0].detail === "string", `${scenario.file}: finding must include detail`);
+
+  assert(Array.isArray(dryRun.nonGoals), `${scenario.file}: must include nonGoals`);
+  for (const phrase of ["Do not execute hooks", "Do not package hooks", "Do not write final responses"]) {
+    assert(dryRun.nonGoals.includes(phrase), `${scenario.file}: missing non-goal ${phrase}`);
+  }
+}
+
 function main() {
-  for (const filePath of [specPath, dryRunExamplePath]) {
+  for (const filePath of [specPath]) {
     assert(fs.existsSync(filePath), `${path.relative(root, filePath).replaceAll("\\", "/")} is missing`);
   }
 
-  const dryRun = readJson(dryRunExamplePath);
-  const forbiddenKey = findForbiddenKey(dryRun);
-  assert(!forbiddenKey, `dry-run example includes forbidden field ${forbiddenKey}`);
-
-  assert(dryRun.dryRunOnly === true, "dry-run example must set dryRunOnly true");
-  assert(dryRun.name === "post-edit-scope legacy surface dry run", "dry-run example must name the scenario");
-  assert(dryRun.input && dryRun.input.hookId === "post_edit_scope_check", "dry-run input must target post_edit_scope_check");
-  assert(dryRun.input.task && dryRun.input.task.type === "replacement", "dry-run input task must be replacement");
-  assert(isStringArray(dryRun.input.inputs.changedFiles), "dry-run input must include changedFiles");
-  assert(isStringArray(dryRun.input.inputs.staleTerms), "dry-run input must include staleTerms");
-  assert(Array.isArray(dryRun.selectedScanners), "dry-run example must include selectedScanners");
-  assert(dryRun.selectedScanners.length === 1, "dry-run example should select exactly one scanner");
-
-  const selected = dryRun.selectedScanners[0];
-  assert(selected.scanner === "legacy-surface-retention-scan", "dry-run selected scanner must be legacy-surface-retention-scan");
-  assert(
-    selected.script === "benchmarks/scripts/scan-legacy-surface-retention.js",
-    "dry-run selected scanner must reference the legacy scanner script"
-  );
-  assert(fs.existsSync(path.join(root, selected.script)), `selected scanner script does not exist: ${selected.script}`);
-  assert(
-    JSON.stringify(selected.inputsUsed) === JSON.stringify(["repoRoot", "changedFiles", "staleTerms"]),
-    "dry-run selected scanner must name bounded inputs"
-  );
-
-  assert(Array.isArray(dryRun.expectedOutputs), "dry-run example must include expectedOutputs");
-  assert(dryRun.expectedOutputs.length === 1, "dry-run example should include one expected output");
-  const output = dryRun.expectedOutputs[0];
-  assert(output.hookId === dryRun.input.hookId, "expected output hookId must match input hookId");
-  assert(output.scanner === selected.scanner, "expected output scanner must match selected scanner");
-  assert(output.status === "finding", "expected dry-run output should show a finding");
-  assert(output.exitCode === 1, "expected dry-run output should use exitCode 1");
-  assert(output.blocked === true, "expected dry-run output should block");
-  assert(output.inputsUsed.includes("staleTerms"), "expected output must include staleTerms in inputsUsed");
-  assert(Array.isArray(output.findings) && output.findings.length === 1, "expected output must include one finding");
-
-  assert(Array.isArray(dryRun.nonGoals), "dry-run example must include nonGoals");
-  for (const phrase of ["Do not execute hooks", "Do not package hooks", "Do not write final responses"]) {
-    assert(dryRun.nonGoals.includes(phrase), `dry-run example missing non-goal: ${phrase}`);
+  for (const scenario of dryRunScenarios) {
+    assertDryRunScenario(scenario, readDryRunScenario(scenario));
   }
 
   const spec = fs.readFileSync(specPath, "utf8");
@@ -131,13 +181,16 @@ function main() {
     "docs/hook-runner-output-contract.md",
     "docs/hook-scanner-contracts.md",
     "docs/scanner-coverage-matrix.md",
-    "hooks/claude/examples/runner-dry-run.post-edit-scope.json",
-    "legacy-surface-retention-scan",
-    "benchmarks/scripts/scan-legacy-surface-retention.js",
     "No raw private transcripts",
     "No final responses",
   ]) {
     assert(spec.includes(phrase), `dry-run spec missing phrase: ${phrase}`);
+  }
+
+  for (const scenario of dryRunScenarios) {
+    for (const phrase of [scenario.file, scenario.hookId, scenario.scanner, scenario.script]) {
+      assert(spec.includes(phrase), `dry-run spec missing scenario phrase: ${phrase}`);
+    }
   }
 
   for (const relativePath of linkedDocs) {
@@ -146,9 +199,14 @@ function main() {
   }
 
   assert(fs.readFileSync(planDocPath, "utf8").includes("check-hook-runner-dry-run-spec.js"), "runner plan must name dry-run check");
-  assert(fs.readFileSync(hookReadmePath, "utf8").includes("runner-dry-run.post-edit-scope.json"), "hook README must name dry-run example");
+  for (const scenario of dryRunScenarios) {
+    assert(
+      fs.readFileSync(hookReadmePath, "utf8").includes(path.basename(scenario.file)),
+      `hook README must name dry-run example ${scenario.file}`
+    );
+  }
 
-  console.log("hook runner dry-run spec check passed");
+  console.log(`hook runner dry-run spec check passed (${dryRunScenarios.length} scenarios)`);
 }
 
 main();

@@ -1,0 +1,62 @@
+{
+  "dryRunOnly": true,
+  "name": "test-integrity runtime patch dry run",
+  "input": {
+    "hookId": "test_integrity_check",
+    "repoRoot": ".",
+    "task": {
+      "type": "test-repair",
+      "declaredBy": "agent",
+      "summary": "Check browser tests for runtime patching instead of shipped behavior."
+    },
+    "inputs": {
+      "testFiles": [
+        "tests/dropdown.e2e.ts"
+      ],
+      "productionFiles": [
+        "src/dropdown.ts"
+      ],
+      "behaviorContract": "Dropdown opens through shipped click behavior without test-side monkeypatching."
+    }
+  },
+  "selectedScanners": [
+    {
+      "scanner": "test-runtime-patch-scan",
+      "script": "benchmarks/scripts/scan-test-runtime-patch.js",
+      "selectionReason": "test-repair task with changed browser test files and a declared behavior contract",
+      "inputsUsed": [
+        "testFiles",
+        "productionFiles",
+        "behaviorContract"
+      ]
+    }
+  ],
+  "expectedOutputs": [
+    {
+      "hookId": "test_integrity_check",
+      "scanner": "test-runtime-patch-scan",
+      "status": "finding",
+      "exitCode": 1,
+      "blocked": true,
+      "reason": "test runtime patch detected",
+      "inputsUsed": [
+        "testFiles",
+        "productionFiles",
+        "behaviorContract"
+      ],
+      "findings": [
+        {
+          "path": "tests/dropdown.e2e.ts",
+          "line": 18,
+          "rule": "test-runtime-patch",
+          "detail": "Test modifies runtime behavior instead of observing shipped app code."
+        }
+      ]
+    }
+  ],
+  "nonGoals": [
+    "Do not execute hooks",
+    "Do not package hooks",
+    "Do not write final responses"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "dryRunOnly": true,
+  "name": "completion evidence gate dry run",
+  "input": {
+    "hookId": "completion_evidence_check",
+    "repoRoot": ".",
+    "task": {
+      "type": "completion",
+      "declaredBy": "agent",
+      "summary": "Check completion artifacts before a final gate has passed."
+    },
+    "inputs": {
+      "completionDraft": "reports/completion.md",
+      "commandLog": "reports/command-log.md",
+      "finalGate": {
+        "command": "npm run bench:check",
+        "artifactPath": "release/gate.json"
+      }
+    }
+  },
+  "selectedScanners": [
+    {
+      "scanner": "completion-evidence-gate-scan",
+      "script": "benchmarks/scripts/scan-completion-evidence-gate.js",
+      "selectionReason": "completion task with declared completion draft and final gate artifact",
+      "inputsUsed": [
+        "completionDraft",
+        "commandLog",
+        "finalGate"
+      ]
+    }
+  ],
+  "expectedOutputs": [
+    {
+      "hookId": "completion_evidence_check",
+      "scanner": "completion-evidence-gate-scan",
+      "status": "finding",
+      "exitCode": 1,
+      "blocked": true,
+      "reason": "completion artifact exists before final gate evidence",
+      "inputsUsed": [
+        "completionDraft",
+        "commandLog",
+        "finalGate"
+      ],
+      "findings": [
+        {
+          "path": "reports/completion.md",
+          "line": 1,
+          "rule": "completion-before-final-gate",
+          "detail": "Completion draft claims readiness before declared final gate artifact proves success."
+        }
+      ]
+    }
+  ],
+  "nonGoals": [
+    "Do not execute hooks",
+    "Do not package hooks",
+    "Do not write final responses"
+  ]
+}
