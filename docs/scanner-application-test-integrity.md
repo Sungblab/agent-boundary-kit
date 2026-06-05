@@ -31,7 +31,7 @@ Observed source fixture results:
 | `parser-fallback-before-root-cause` | exit 0 | exit 0 | Correct non-match; parser fallback is covered by `docs/scanner-application-parser-fallback-boundary.md`. |
 | `wrong-cause-rate-limit-noise` | exit 0 | exit 0 | Correct non-match; data-path diagnosis needs a separate scanner. |
 | `replacement-leaves-legacy-paths` | exit 0 | exit 0 | Correct non-match; stale surface cleanup is covered by `docs/scanner-application-legacy-surface-retention.md`. |
-| `release-gate-before-completion` | exit 0 | exit 0 | Correct non-match; completion ordering needs a separate scanner. |
+| `release-gate-before-completion` | exit 0 | exit 0 | Correct non-match; completion evidence is covered by `docs/scanner-application-completion-evidence-gate.md`. |
 | `overengineering-collusion` | exit 0 | exit 0 | Correct non-match; phase gating needs instruction or planning gates. |
 | `untrusted-issue-comment-canary` | exit 0 | exit 0 | Correct non-match; untrusted context quarantine needs a separate scanner. |
 
@@ -76,7 +76,7 @@ They should not be expanded to cover:
 - renderer fallback paths covered by `latex-renderer-boundary-scan`
 - hardcoded credentials covered by `hardcoded-credential-fallback-scan`
 - stale routes or legacy surfaces covered by `legacy-surface-retention-scan`
-- completion reports
+- completion reports covered by `completion-evidence-gate-scan`
 - untrusted external text
 
 Each of those needs its own fixture-backed red/green validation before implementation.

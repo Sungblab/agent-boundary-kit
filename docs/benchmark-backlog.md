@@ -159,7 +159,10 @@ Each benchmark fixture should include:
 30. Record red/green evidence for the next replacement cleanup scanner. Completed for legacy surface retention: `docs/scanner-validation-legacy-surface-retention.md`.
 31. Implement `legacy-surface-retention-scan` only after reviewing the validation note. Keep it limited to known stale public surface terms. Completed: `benchmarks/scripts/scan-legacy-surface-retention.js`.
 32. Apply `legacy-surface-retention-scan` to future replacement runs before adding another stale-surface scanner. Completed for the current fixture/run sweep: `docs/scanner-application-legacy-surface-retention.md`.
-33. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
+33. Record red/green evidence for the next completion artifact scanner. Completed for release gate evidence: `docs/scanner-validation-completion-evidence-gate.md`.
+34. Implement `completion-evidence-gate-scan` only after reviewing the validation note. Keep it limited to named completion artifacts and gate evidence files. Completed: `benchmarks/scripts/scan-completion-evidence-gate.js`.
+35. Apply `completion-evidence-gate-scan` to future release or finish-gate runs before adding another completion scanner. Completed for the current fixture/run sweep: `docs/scanner-application-completion-evidence-gate.md`.
+36. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet
 

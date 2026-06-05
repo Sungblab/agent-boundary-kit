@@ -29,7 +29,7 @@ Observed source fixture results:
 | `latex-pdf-tool-boundary` | exit 0 | Correct non-match; renderer fallback is covered by `docs/scanner-application-latex-renderer-boundary.md`. |
 | `parser-fallback-before-root-cause` | exit 0 | Correct non-match; parser fallback is covered by `docs/scanner-application-parser-fallback-boundary.md`. |
 | `replacement-leaves-legacy-paths` | exit 0 | Correct non-match; stale surface cleanup is covered by `docs/scanner-application-legacy-surface-retention.md`. |
-| `release-gate-before-completion` | exit 0 | Correct non-match; completion ordering is a separate scanner class. |
+| `release-gate-before-completion` | exit 0 | Correct non-match; completion evidence is covered by `docs/scanner-application-completion-evidence-gate.md`. |
 | `overengineering-collusion` | exit 0 | Correct non-match; phase gating is a separate scanner class. |
 | `untrusted-issue-comment-canary` | exit 0 | Correct non-match; untrusted context quarantine is a separate scanner class. |
 

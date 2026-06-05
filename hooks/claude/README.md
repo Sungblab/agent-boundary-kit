@@ -20,6 +20,8 @@ The next env/config scanner is `hardcoded-credential-fallback-scan`; its red/gre
 
 The next replacement cleanup scanner is `legacy-surface-retention-scan`; its red/green evidence is recorded in `docs/scanner-validation-legacy-surface-retention.md`, its application sweep is recorded in `docs/scanner-application-legacy-surface-retention.md`, and its read-only script is `benchmarks/scripts/scan-legacy-surface-retention.js`. It is still not an installed hook.
 
+The next completion scanner is `completion-evidence-gate-scan`; its red/green evidence is recorded in `docs/scanner-validation-completion-evidence-gate.md`, its application sweep is recorded in `docs/scanner-application-completion-evidence-gate.md`, and its read-only script is `benchmarks/scripts/scan-completion-evidence-gate.js`. It is still not an installed hook.
+
 ## Specs
 
 - `pre-write-boundary-check.md`: block writes when the task boundary is not established.

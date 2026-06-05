@@ -24,6 +24,8 @@ The next env/config scanner is `hardcoded-credential-fallback-scan`, with valida
 
 The next replacement cleanup scanner is `legacy-surface-retention-scan`, with validation evidence in `docs/scanner-validation-legacy-surface-retention.md`, application evidence in `docs/scanner-application-legacy-surface-retention.md`, and read-only script `benchmarks/scripts/scan-legacy-surface-retention.js`.
 
+The next completion scanner is `completion-evidence-gate-scan`, with validation evidence in `docs/scanner-validation-completion-evidence-gate.md`, application evidence in `docs/scanner-application-completion-evidence-gate.md`, and read-only script `benchmarks/scripts/scan-completion-evidence-gate.js`.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -193,6 +195,9 @@ Blocks completion when:
 19. Record red/green evidence for `legacy-surface-retention-scan`. Completed: `docs/scanner-validation-legacy-surface-retention.md`.
 20. Turn `legacy-surface-retention-scan` into a small read-only script only after reviewing that validation note. Completed: `benchmarks/scripts/scan-legacy-surface-retention.js`.
 21. Record the legacy surface retention scanner application sweep. Completed: `docs/scanner-application-legacy-surface-retention.md`.
-22. Only then package a Codex skill or Claude hooks.
+22. Record red/green evidence for `completion-evidence-gate-scan`. Completed: `docs/scanner-validation-completion-evidence-gate.md`.
+23. Turn `completion-evidence-gate-scan` into a small read-only script only after reviewing that validation note. Completed: `benchmarks/scripts/scan-completion-evidence-gate.js`.
+24. Record the completion evidence gate scanner application sweep. Completed: `docs/scanner-application-completion-evidence-gate.md`.
+25. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.
