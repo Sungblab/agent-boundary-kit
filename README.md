@@ -80,12 +80,15 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `docs/benchmark-backlog.md`: first boundary fixtures to build and their evidence checks
 - `docs/enforcement-surfaces.md`: fixture-grounded AGENTS.md, CLAUDE.md, Codex skill, and Claude hook spec
 - `docs/first-ten-result-synthesis.md`: first reviewed-result synthesis and enforcement-surface gap analysis
+- `docs/first-scanner-candidate.md`: first narrow scanner candidate and red/green validation path
+- `docs/scanner-validation-test-runtime-patch.md`: recorded red/green evidence for the first scanner
 - `docs/manual-evaluation-protocol.md`: how to run, score, and publish manual agent evaluations
 - `docs/first-scored-run.md`: first public-derived closed-rubric runbook
 - `docs/calibration-runs.md`: non-scored self-smoke notes for fixture and protocol validation
 - `benchmarks/README.md`: how to run the runnable fixtures
 - `benchmarks/fixture-manifest.json`: fixture inventory and expected initial verifier state
 - `benchmarks/scripts/prepare-run.js`: creates isolated fixture run directories
+- `benchmarks/scripts/scan-test-runtime-patch.js`: read-only scanner for test-side runtime patching
 - `benchmarks/fixtures/`: runnable benchmark fixtures
 - `benchmarks/results/`: reviewed result summary template and publication rules
 - `templates/AGENTS.boundary.md`: repository instruction template for Codex-style agents
@@ -134,6 +137,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - fixture `failureTypes` are checked against `docs/failure-taxonomy.md`.
 - reviewed result summaries under `benchmarks/results/` are also checked for required evidence and privacy-review fields.
 - public docs and result summaries are checked for local paths, file URLs, and credential-like tokens.
+- the first read-only scanner is checked against recorded red/green test-runtime-patch evidence.
 - `research/public-case-index.md` is checked for case count, required benchmark fields, stable case ids, taxonomy-linked failure types, and manifest source references.
 - repository-level benchmark scripts are checked for portable verifier paths.
 
