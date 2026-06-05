@@ -6,6 +6,8 @@ They map benchmark-proven boundary rules to future Claude Code hooks. Keep them 
 
 The current specs were refined from `docs/first-ten-result-synthesis.md`. They are still not executable hooks.
 
+The first narrow scanner candidate is defined in `docs/first-scanner-candidate.md`. It targets only test runtime patching and still needs recorded red/green evidence before any script is added.
+
 ## Specs
 
 - `pre-write-boundary-check.md`: block writes when the task boundary is not established.

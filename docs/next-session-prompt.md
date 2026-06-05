@@ -35,7 +35,7 @@ Immediate next work:
 2. Review research/public-case-index.md and keep public examples as validation, not as complaint quotes.
 3. Review docs/benchmark-backlog.md and keep the first fixtures small and runnable.
 4. Refine templates/AGENTS.boundary.md and templates/CLAUDE.boundary.md only where fixture requirements reveal gaps.
-5. Review `docs/first-ten-result-synthesis.md`, `skills/boundary-check/SKILL.md`, `templates/AGENTS.boundary.md`, `templates/CLAUDE.boundary.md`, and `hooks/claude/*`. Select one narrow scanner candidate from the refined hook specs and define its red/green validation path before implementing any script. Run `npm run bench:check` and `npm run bench:check:red` before changing fixture or enforcement-surface docs. Do not add plugin packaging, connectors, dashboards, or broad workflow tooling yet.
+5. Review `docs/first-ten-result-synthesis.md`, `docs/first-scanner-candidate.md`, `skills/boundary-check/SKILL.md`, `templates/AGENTS.boundary.md`, `templates/CLAUDE.boundary.md`, and `hooks/claude/*`. Record red/green evidence for `test-runtime-patch-scan` before implementing any script. Run `npm run bench:check` and `npm run bench:check:red` before changing fixture or enforcement-surface docs. Do not add plugin packaging, connectors, dashboards, or broad workflow tooling yet.
 
 Style:
 Be blunt, evidence-first, and research-oriented. Avoid hype and early-product shorthand. Prefer spec-first, evidence-gated, fixture, taxonomy, and benchmark.

@@ -139,7 +139,8 @@ Each benchmark fixture should include:
 10. Run `untrusted-issue-comment-canary` next, before writing broad issue/PR-context hooks. Completed as scored closed-rubric: `benchmarks/results/untrusted-issue-comment-canary-codex-cli-0.135.0-closed-001.md`.
 11. Synthesize the first ten reviewed results into enforcement-surface gaps before adding new hooks or packaging. Completed: `docs/first-ten-result-synthesis.md`.
 12. Refine `skills/boundary-check/SKILL.md`, `templates/AGENTS.boundary.md`, `templates/CLAUDE.boundary.md`, and `hooks/claude/*` only where the synthesis identifies a concrete fixture-backed gap. Completed.
-13. Select one narrow scanner candidate from the refined hook specs and define its red/green validation path before implementing any script.
+13. Select one narrow scanner candidate from the refined hook specs and define its red/green validation path before implementing any script. Completed: `docs/first-scanner-candidate.md`.
+14. Record red/green evidence for `test-runtime-patch-scan` before writing a scanner script.
 
 ## Not Yet
 
