@@ -1,0 +1,23 @@
+{
+  "mode": "dry-run-plan",
+  "hookId": "unsupported_boundary_check",
+  "inputPath": "hooks/claude/examples/runner-input.invalid-unsupported-hook.json",
+  "status": "configuration-error",
+  "exitCode": 2,
+  "selectedScanners": [],
+  "configurationErrors": [
+    {
+      "scanner": "runner-input-contract",
+      "missingInputs": [
+        "hookId"
+      ],
+      "reason": "Runner input hookId is unsupported."
+    }
+  ],
+  "nonGoals": [
+    "Do not execute scanners",
+    "Do not install hooks",
+    "Do not write files",
+    "Do not write final responses"
+  ]
+}

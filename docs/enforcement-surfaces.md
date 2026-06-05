@@ -247,6 +247,7 @@ Blocks completion when:
 49. Record a plan-only dry-run CLI contract before implementation. Completed: `docs/hook-runner-dry-run-cli-contract.md`.
 50. Add plan-only dry-run CLI output fixtures before implementation. Completed: `hooks/claude/examples/runner-dry-run-cli.planned-output.json` and `hooks/claude/examples/runner-dry-run-cli.configuration-error-output.json`.
 51. Implement the first plan-only `abk-runner dry-run --input` command without scanner execution. Completed: `bin/abk-runner.js`.
-52. Only then package a Codex skill or Claude hooks.
+52. Add plan-only dry-run CLI configuration-error coverage for invalid transcript and unsupported hook inputs. Completed: `hooks/claude/examples/runner-dry-run-cli.invalid-transcript-output.json` and `hooks/claude/examples/runner-dry-run-cli.unsupported-hook-output.json`.
+53. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

@@ -19,6 +19,18 @@ const cases = [
     expected: "hooks/claude/examples/runner-dry-run-cli.configuration-error-output.json",
     exitCode: 2,
   },
+  {
+    name: "invalid transcript configuration error",
+    input: "hooks/claude/examples/runner-input.invalid-transcript.json",
+    expected: "hooks/claude/examples/runner-dry-run-cli.invalid-transcript-output.json",
+    exitCode: 2,
+  },
+  {
+    name: "unsupported hook configuration error",
+    input: "hooks/claude/examples/runner-input.invalid-unsupported-hook.json",
+    expected: "hooks/claude/examples/runner-dry-run-cli.unsupported-hook-output.json",
+    exitCode: 2,
+  },
 ];
 
 function readJson(relativePath) {

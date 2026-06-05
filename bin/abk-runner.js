@@ -23,6 +23,13 @@ const forbiddenKeys = [
   "password",
 ];
 
+const hookIds = [
+  "pre_write_boundary_check",
+  "post_edit_scope_check",
+  "test_integrity_check",
+  "completion_evidence_check",
+];
+
 const scannerCatalog = {
   "parser-fallback-boundary-scan": {
     script: "benchmarks/scripts/scan-parser-fallback-boundary.js",
@@ -244,6 +251,16 @@ function dryRun(inputPath) {
       "runner-input-contract",
       ["task"],
       "Runner input task metadata is missing."
+    );
+  }
+
+  if (!hookIds.includes(hookId)) {
+    return configurationOutput(
+      hookId,
+      inputPath,
+      "runner-input-contract",
+      ["hookId"],
+      "Runner input hookId is unsupported."
     );
   }
 

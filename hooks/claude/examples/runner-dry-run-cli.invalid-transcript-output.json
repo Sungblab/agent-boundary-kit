@@ -1,0 +1,23 @@
+{
+  "mode": "dry-run-plan",
+  "hookId": "completion_evidence_check",
+  "inputPath": "hooks/claude/examples/runner-input.invalid-transcript.json",
+  "status": "configuration-error",
+  "exitCode": 2,
+  "selectedScanners": [],
+  "configurationErrors": [
+    {
+      "scanner": "runner-input-contract",
+      "missingInputs": [
+        "rawPrivateTranscript"
+      ],
+      "reason": "Runner input includes forbidden private or credential-like metadata."
+    }
+  ],
+  "nonGoals": [
+    "Do not execute scanners",
+    "Do not install hooks",
+    "Do not write files",
+    "Do not write final responses"
+  ]
+}

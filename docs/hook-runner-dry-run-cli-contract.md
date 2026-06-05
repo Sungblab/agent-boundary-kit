@@ -37,6 +37,7 @@ The input must match the runner input contract. Existing examples:
 - `hooks/claude/examples/runner-input.valid.json`
 - `hooks/claude/examples/runner-input.invalid-transcript.json`
 - `hooks/claude/examples/runner-input.invalid-missing-metadata.json`
+- `hooks/claude/examples/runner-input.invalid-unsupported-hook.json`
 - `hooks/claude/examples/runner-dry-run.post-edit-scope-fanout.json`
 
 The plan-only dry run must reject transcript fields and missing required metadata. It must not infer missing metadata from private chat context, issue text, PR text, logs, or broad workspace files.
@@ -49,6 +50,8 @@ Output examples:
 
 - `hooks/claude/examples/runner-dry-run-cli.planned-output.json`
 - `hooks/claude/examples/runner-dry-run-cli.configuration-error-output.json`
+- `hooks/claude/examples/runner-dry-run-cli.invalid-transcript-output.json`
+- `hooks/claude/examples/runner-dry-run-cli.unsupported-hook-output.json`
 
 Required output fields:
 
@@ -159,6 +162,8 @@ The implementation currently supports:
 - `abk-runner dry-run --input <runner-input.json>`
 - fan-out planning for `hooks/claude/examples/runner-dry-run.post-edit-scope-fanout.json`
 - configuration-error output for `hooks/claude/examples/runner-input.invalid-missing-metadata.json`
+- configuration-error output for `hooks/claude/examples/runner-input.invalid-transcript.json`
+- configuration-error output for `hooks/claude/examples/runner-input.invalid-unsupported-hook.json`
 
 It still does not execute scanner scripts or install hooks.
 

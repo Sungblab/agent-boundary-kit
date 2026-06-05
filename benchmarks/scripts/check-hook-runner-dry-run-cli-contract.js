@@ -19,6 +19,7 @@ const requiredExamples = [
   "hooks/claude/examples/runner-input.valid.json",
   "hooks/claude/examples/runner-input.invalid-transcript.json",
   "hooks/claude/examples/runner-input.invalid-missing-metadata.json",
+  "hooks/claude/examples/runner-input.invalid-unsupported-hook.json",
   "hooks/claude/examples/runner-dry-run.post-edit-scope-fanout.json",
 ];
 
@@ -32,6 +33,20 @@ const outputExamples = [
   },
   {
     path: "hooks/claude/examples/runner-dry-run-cli.configuration-error-output.json",
+    status: "configuration-error",
+    exitCode: 2,
+    selectedScannersLength: 0,
+    configurationErrorsLength: 1,
+  },
+  {
+    path: "hooks/claude/examples/runner-dry-run-cli.invalid-transcript-output.json",
+    status: "configuration-error",
+    exitCode: 2,
+    selectedScannersLength: 0,
+    configurationErrorsLength: 1,
+  },
+  {
+    path: "hooks/claude/examples/runner-dry-run-cli.unsupported-hook-output.json",
     status: "configuration-error",
     exitCode: 2,
     selectedScannersLength: 0,
@@ -109,7 +124,7 @@ function assertOutputExample(example) {
   const referencedInput = readJson(output.inputPath);
   const runnerInput = referencedInput.input ?? referencedInput;
   assert(
-    runnerInput.hookId === output.hookId,
+    typeof runnerInput.hookId === "string" && runnerInput.hookId === output.hookId,
     `${example.path}: hookId must match referenced input hookId`
   );
 

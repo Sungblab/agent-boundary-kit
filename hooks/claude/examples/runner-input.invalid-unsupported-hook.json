@@ -1,0 +1,17 @@
+{
+  "hookId": "unsupported_boundary_check",
+  "repoRoot": ".",
+  "task": {
+    "type": "implementation",
+    "declaredBy": "agent",
+    "summary": "This input intentionally names an unsupported hook id."
+  },
+  "inputs": {
+    "changedFiles": [
+      "src/app.ts"
+    ],
+    "approvedScope": [
+      "src/**"
+    ]
+  }
+}
