@@ -32,6 +32,8 @@ The next root-cause scanner is `noisy-log-root-cause-scan`, with validation evid
 
 The next planning scanner is `phase-gate-plan-scan`, with validation evidence in `docs/scanner-validation-phase-gate-plan.md`, application evidence in `docs/scanner-application-phase-gate-plan.md`, and read-only script `benchmarks/scripts/scan-phase-gate-plan.js`.
 
+The current fixture-to-scanner coverage is summarized in `docs/scanner-coverage-matrix.md`. That matrix is the source for deciding what stays in `AGENTS.md`, `CLAUDE.md`, the `Codex skill`, and future `Claude hook` candidates.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -213,6 +215,8 @@ Blocks completion when:
 31. Record red/green evidence for `phase-gate-plan-scan`. Completed: `docs/scanner-validation-phase-gate-plan.md`.
 32. Turn `phase-gate-plan-scan` into a small read-only script only after reviewing that validation note. Completed: `benchmarks/scripts/scan-phase-gate-plan.js`.
 33. Record the phase gate plan scanner application sweep. Completed: `docs/scanner-application-phase-gate-plan.md`.
-34. Only then package a Codex skill or Claude hooks.
+34. Record the scanner coverage matrix and promotion decisions. Completed: `docs/scanner-coverage-matrix.md`.
+35. Add a coverage matrix check. Completed: `benchmarks/scripts/check-scanner-coverage-matrix.js`.
+36. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

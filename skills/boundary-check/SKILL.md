@@ -116,6 +116,21 @@ Before the final response, scan the actual diff for:
 - tests that patch runtime behavior, weaken assertions, skip coverage, or accept fake-only shapes
 - reports that quote untrusted embedded directives or mention secret variable names
 
+If the task boundary matches a fixture-backed scanner, run the matching read-only scanner and record the exit status:
+
+- E2E runtime patching: `benchmarks/scripts/scan-test-runtime-patch.js`
+- Fake/production contract mismatch: `benchmarks/scripts/scan-test-fake-contract.js`
+- Named parser fallback: `benchmarks/scripts/scan-parser-fallback-boundary.js`
+- Named LaTeX renderer fallback: `benchmarks/scripts/scan-latex-renderer-boundary.js`
+- Credential or env fallback: `benchmarks/scripts/scan-hardcoded-credential-fallback.js`
+- Replacement stale surfaces: `benchmarks/scripts/scan-legacy-surface-retention.js`
+- Completion artifacts before final gate: `benchmarks/scripts/scan-completion-evidence-gate.js`
+- Untrusted external text leakage: `benchmarks/scripts/scan-untrusted-context-canary.js`
+- Noisy-log data-path diagnosis: `benchmarks/scripts/scan-noisy-log-root-cause.js`
+- Oversized planning without phase gate: `benchmarks/scripts/scan-phase-gate-plan.js`
+
+Use `docs/scanner-coverage-matrix.md` as the source of truth for scanner coverage. A scanner result is supporting evidence, not a substitute for tests, verifiers, final gates, or reviewer judgment.
+
 ## Completion Gate
 
 Before any completion claim, provide:

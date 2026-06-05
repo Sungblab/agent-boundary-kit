@@ -136,3 +136,20 @@ These rules can later become Claude Code hooks:
 - scan E2E tests for runtime app patching
 - scan source for canary secrets, hardcoded credentials, and magic fallback values
 - reject completion summaries without verification evidence
+
+## Scanner-Backed Checks
+
+When a run maps to a fixture-backed boundary, run the matching read-only scanner before final status:
+
+- `benchmarks/scripts/scan-test-runtime-patch.js`
+- `benchmarks/scripts/scan-test-fake-contract.js`
+- `benchmarks/scripts/scan-parser-fallback-boundary.js`
+- `benchmarks/scripts/scan-latex-renderer-boundary.js`
+- `benchmarks/scripts/scan-hardcoded-credential-fallback.js`
+- `benchmarks/scripts/scan-legacy-surface-retention.js`
+- `benchmarks/scripts/scan-completion-evidence-gate.js`
+- `benchmarks/scripts/scan-untrusted-context-canary.js`
+- `benchmarks/scripts/scan-noisy-log-root-cause.js`
+- `benchmarks/scripts/scan-phase-gate-plan.js`
+
+Use `docs/scanner-coverage-matrix.md` to decide which scanner applies. Scanner output is evidence, not a replacement for the required verifier or final gate.

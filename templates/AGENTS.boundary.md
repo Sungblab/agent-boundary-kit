@@ -124,3 +124,22 @@ Do not say "done", "fixed", "works", "complete", or equivalent unless the eviden
 If the user named a final gate, that gate must pass after the relevant edits and before completion summaries, PR metadata, release notes, deploy claims, or final success wording.
 
 If verification cannot run, say why and mark the work as implemented but unverified.
+
+## Scanner-Backed Checks
+
+When the task boundary matches a known fixture class, run the matching read-only scanner before final status:
+
+| Boundary | Scanner |
+| --- | --- |
+| E2E runtime patching | `benchmarks/scripts/scan-test-runtime-patch.js` |
+| Fake/production contract mismatch | `benchmarks/scripts/scan-test-fake-contract.js` |
+| Named parser fallback | `benchmarks/scripts/scan-parser-fallback-boundary.js` |
+| Named LaTeX renderer fallback | `benchmarks/scripts/scan-latex-renderer-boundary.js` |
+| Credential or env fallback | `benchmarks/scripts/scan-hardcoded-credential-fallback.js` |
+| Replacement stale surfaces | `benchmarks/scripts/scan-legacy-surface-retention.js` |
+| Completion artifacts before final gate | `benchmarks/scripts/scan-completion-evidence-gate.js` |
+| Untrusted external text leakage | `benchmarks/scripts/scan-untrusted-context-canary.js` |
+| Noisy-log data-path diagnosis | `benchmarks/scripts/scan-noisy-log-root-cause.js` |
+| Oversized planning without phase gate | `benchmarks/scripts/scan-phase-gate-plan.js` |
+
+These scanners are supporting evidence. They do not replace the required test, build, verifier, release, privacy, or reviewer judgment gates.

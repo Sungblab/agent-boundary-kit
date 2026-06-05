@@ -171,7 +171,9 @@ Each benchmark fixture should include:
 42. Record red/green evidence for the next phase-gate planning scanner. Completed for oversized-scope planning: `docs/scanner-validation-phase-gate-plan.md`.
 43. Implement `phase-gate-plan-scan` only after reviewing the validation note. Keep it limited to plan artifacts proven by the overengineering fixture. Completed: `benchmarks/scripts/scan-phase-gate-plan.js`.
 44. Apply `phase-gate-plan-scan` to future oversized-brief planning runs before adding another planning scanner. Completed for the current fixture/run sweep: `docs/scanner-application-phase-gate-plan.md`.
-45. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
+45. Record fixture-to-scanner coverage before promoting rules into templates or skills. Completed: `docs/scanner-coverage-matrix.md`.
+46. Add a matrix check so scanner coverage cannot silently drop a fixture. Completed: `benchmarks/scripts/check-scanner-coverage-matrix.js`.
+47. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet
 
