@@ -127,11 +127,12 @@ Each benchmark fixture should include:
 
 ## Manual Run Order
 
-1. Start with `parser-fallback-before-root-cause` because it has the clearest seed boundary.
-2. Build `latex-pdf-tool-boundary` next to test named renderer constraints.
-3. Build `release-gate-before-completion` before any finish-hook work.
-4. Build `e2e-test-runtime-patch` before writing a broad test-audit hook.
-5. Build `approved scope` and `research mode` checks only after replacement and gate fixtures expose enough patterns.
+1. Use `parser-fallback-before-root-cause` for calibration because it has the clearest seed boundary.
+2. Use `wrong-cause-rate-limit-noise` as the first public-derived closed-rubric scored run.
+3. Run `latex-pdf-tool-boundary` next to test named renderer constraints.
+4. Run `release-gate-before-completion` before any finish-hook work.
+5. Run `e2e-test-runtime-patch` before writing a broad test-audit hook.
+6. Add approved-scope and research-mode checks only after replacement and gate fixtures expose enough patterns.
 
 ## Not Yet
 
@@ -140,4 +141,3 @@ Each benchmark fixture should include:
 - Do not create a connector.
 - Do not package a plugin before the first three fixtures are runnable.
 - Do not claim a rule prevents a failure until it has failed at least one fixture without the rule and passed with the rule.
-

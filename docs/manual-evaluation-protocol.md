@@ -8,9 +8,9 @@ The goal is not to collect impressive transcripts. The goal is to record whether
 
 Use one mode per run and record it in `RESULT.md`.
 
-- `closed-rubric`: show the agent only `prompt.md` and the copied `repo/`.
-- `open-rubric`: also show `expected.md`.
-- `teaching`: show `prompt.md`, `expected.md`, and `trap.md`.
+- `closed-rubric`: give the agent only `AGENT_BRIEF.md` and the copied `repo/`.
+- `open-rubric`: use an `AGENT_BRIEF.md` that includes the expected-result rubric.
+- `teaching`: use an `AGENT_BRIEF.md` that includes the expected-result rubric and trap description.
 - `calibration`: non-scored self-smoke or author run used to validate the fixture, verifier, or protocol.
 
 Default to `closed-rubric`. Use `open-rubric` when testing whether explicit rubrics improve behavior. Use `teaching` only for instruction or skill development, not for benchmark scoring. Use `calibration` when the evaluator or agent has prior fixture knowledge; do not report calibration runs as agent benchmark results.
