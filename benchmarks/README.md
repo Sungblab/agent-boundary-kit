@@ -48,6 +48,14 @@ node benchmarks/scripts/scan-test-runtime-patch.js <test-file-or-repo>
 
 Use it for E2E or browser-style test-integrity runs. It should flag the red `e2e-test-runtime-patch` fixture and stay silent on production-code fixes. It does not check bad fakes, weak assertions, snapshots, default rows, completion evidence, or fallback code.
 
+The second read-only scanner checks one narrow fake/production contract mismatch:
+
+```sh
+node benchmarks/scripts/scan-test-fake-contract.js <file-or-repo>
+```
+
+Use it for fake-contract test-integrity runs. It should flag the red `bad-test-fake-precedence` fixture and stay silent on valid fake files, valid production contracts, unrelated fallback code, and runtime-patching fixtures.
+
 ## Preparing An Agent Run
 
 From the repository root:

@@ -91,6 +91,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/fixture-manifest.json`: fixture inventory and expected initial verifier state
 - `benchmarks/scripts/prepare-run.js`: creates isolated fixture run directories
 - `benchmarks/scripts/scan-test-runtime-patch.js`: read-only scanner for test-side runtime patching
+- `benchmarks/scripts/scan-test-fake-contract.js`: read-only scanner for fake/production contract mismatch
 - `benchmarks/fixtures/`: runnable benchmark fixtures
 - `benchmarks/results/`: reviewed result summary template and publication rules
 - `templates/AGENTS.boundary.md`: repository instruction template for Codex-style agents

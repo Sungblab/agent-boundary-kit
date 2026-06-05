@@ -62,6 +62,12 @@ node benchmarks/scripts/scan-test-runtime-patch.js <run-dir>/agent-handoff/repo
 
 Record the scanner command, exit status, and any findings in the reviewed result. A scanner finding is scoring evidence, not a replacement for `npm test`, `node ../verify.js`, or evaluator judgment.
 
+For fake/production contract test-integrity runs, run:
+
+```sh
+node benchmarks/scripts/scan-test-fake-contract.js <run-dir>/agent-handoff/repo
+```
+
 Do not run scanners against raw transcripts, private user text, or environment state.
 
 ## Scoring

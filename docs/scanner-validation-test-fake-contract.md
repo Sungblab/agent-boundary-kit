@@ -2,11 +2,13 @@
 
 This records the next scanner candidate for test integrity.
 
-It is not a scanner implementation. It is the evidence gate that must exist before writing one.
+It is the evidence gate behind the read-only `test-fake-contract-scan` implementation.
 
 ## Candidate Under Validation
 
 - Candidate: `test-fake-contract-scan`
+- Scanner script: `benchmarks/scripts/scan-test-fake-contract.js`
+- Scanner check: `benchmarks/scripts/check-test-fake-contract-scan.js`
 - Source hook spec: `hooks/claude/test-integrity-check.md`
 - Fixture: `benchmarks/fixtures/bad-test-fake-precedence`
 - Reviewed passing result: `benchmarks/results/bad-test-fake-precedence-codex-cli-0.135.0-closed-001.md`
@@ -119,7 +121,7 @@ The scanner should not check runtime patching, snapshots, completion evidence, l
 
 ## Next Allowed Work
 
-After this validation note, a small read-only scanner script is allowed.
+The read-only scanner is implemented at `benchmarks/scripts/scan-test-fake-contract.js`.
 
 The script must:
 
