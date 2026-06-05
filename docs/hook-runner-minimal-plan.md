@@ -10,6 +10,8 @@ The JSON output contract and examples are recorded in `docs/hook-runner-output-c
 
 The dry-run scanner selection examples are recorded in `docs/hook-runner-dry-run-spec.md`.
 
+The hook runner selection matrix is recorded in `docs/hook-runner-selection-matrix.md`.
+
 ## Boundary
 
 The runner must preserve the same boundary recorded in `docs/hook-scanner-contracts.md` and `docs/scanner-coverage-matrix.md`.
@@ -45,7 +47,7 @@ The runner must reject missing required inputs for a scanner instead of broadeni
 
 1. Read declared metadata.
 2. Resolve only the explicit file or repo paths.
-3. Select matching scanners from `docs/scanner-coverage-matrix.md`.
+3. Select matching scanners from `docs/hook-runner-selection-matrix.md` and `docs/scanner-coverage-matrix.md`.
 4. Apply scanner input and output rules from `docs/hook-scanner-contracts.md`.
 5. Run the selected read-only scanners.
 6. Interpret scanner exit status.
@@ -99,6 +101,7 @@ node benchmarks/scripts/check-hook-runner-minimal-plan.js
 node benchmarks/scripts/check-hook-runner-input-contract.js
 node benchmarks/scripts/check-hook-runner-output-contract.js
 node benchmarks/scripts/check-hook-runner-dry-run-spec.js
+node benchmarks/scripts/check-hook-runner-selection-matrix.js
 npm run bench:check
 npm run bench:check:red
 ```

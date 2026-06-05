@@ -44,6 +44,8 @@ The hook runner output contract is recorded in `docs/hook-runner-output-contract
 
 The hook runner dry-run spec is recorded in `docs/hook-runner-dry-run-spec.md`. It adds fixture-like scanner selection examples for all four hook ids and covers finding, clear, configuration-error, and scanner fan-out output states without implementing a runner.
 
+The hook runner selection matrix is recorded in `docs/hook-runner-selection-matrix.md`. It fixes hook id to scanner selection predicates before any runner or hook packaging.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -239,6 +241,7 @@ Blocks completion when:
 45. Add a hook runner dry-run check covering one bounded selection path for each hook id. Completed: `benchmarks/scripts/check-hook-runner-dry-run-spec.js`.
 46. Add clear and configuration-error dry-run coverage before implementation. Completed: `hooks/claude/examples/runner-dry-run.post-edit-scope-clear.json` and `hooks/claude/examples/runner-dry-run.pre-write-config-error.json`.
 47. Add post-edit scanner fan-out dry-run coverage before implementation. Completed: `hooks/claude/examples/runner-dry-run.post-edit-scope-fanout.json`.
-48. Only then package a Codex skill or Claude hooks.
+48. Record hook runner scanner selection rules before implementation. Completed: `docs/hook-runner-selection-matrix.md`.
+49. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

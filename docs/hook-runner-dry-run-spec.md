@@ -15,6 +15,7 @@ It is not an installed hook and not a runner implementation. It only shows how a
 - `hooks/claude/examples/runner-dry-run.completion-evidence.json`: dry-run example for completion artifacts before final gate evidence.
 - `docs/hook-runner-input-contract.md`: input shape for the dry-run input block.
 - `docs/hook-runner-output-contract.md`: output shape for the dry-run expected output block.
+- `docs/hook-runner-selection-matrix.md`: hook id to scanner selection rules.
 - `docs/hook-scanner-contracts.md`: scanner input/output rules.
 - `docs/scanner-coverage-matrix.md`: fixture-to-scanner source of truth.
 

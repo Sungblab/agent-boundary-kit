@@ -16,6 +16,8 @@ The runner JSON output contract is recorded in `docs/hook-runner-output-contract
 
 The runner dry-run spec is recorded in `docs/hook-runner-dry-run-spec.md`. It uses `runner-dry-run.pre-write-boundary.json`, `runner-dry-run.pre-write-config-error.json`, `runner-dry-run.post-edit-scope.json`, `runner-dry-run.post-edit-scope-clear.json`, `runner-dry-run.post-edit-scope-fanout.json`, `runner-dry-run.test-integrity.json`, and `runner-dry-run.completion-evidence.json` to cover finding, clear, configuration-error, and scanner fan-out output states. It is still not an installed hook.
 
+The hook runner selection matrix is recorded in `docs/hook-runner-selection-matrix.md`. It defines which declared input predicates select which scanner scripts. It is still not an installed hook.
+
 The first narrow scanner candidate is defined in `docs/first-scanner-candidate.md`. It targets only test runtime patching. Its red/green evidence is recorded in `docs/scanner-validation-test-runtime-patch.md`, its first application sweep is recorded in `docs/scanner-application-test-runtime-patch.md`, and its read-only script is `benchmarks/scripts/scan-test-runtime-patch.js`.
 
 The next scanner candidate is `test-fake-contract-scan`; its red/green evidence is recorded in `docs/scanner-validation-test-fake-contract.md`, and its read-only script is `benchmarks/scripts/scan-test-fake-contract.js`. It is still not an installed hook.
