@@ -1,14 +1,14 @@
 # Hook Runner Dry-Run CLI Contract
 
-This is a command contract for a future plan-only dry run. It is not an installed hook and not a runner implementation.
+This is a command contract for the local plan-only dry run. It is not an installed hook and not a scanner runner.
 
-The candidate command shape is:
+The implemented command shape is:
 
 ```sh
 abk-runner dry-run --input <runner-input.json>
 ```
 
-The command name is a contract label, not an implemented binary.
+The command prints scanner selection plans only.
 
 ## Boundary
 
@@ -99,16 +99,16 @@ No PR description, release note, product copy, or completion claim field.
 ```json
 {
   "mode": "dry-run-plan",
-  "hookId": "pre_write_boundary_check",
+  "hookId": "post_edit_scope_check",
   "inputPath": "hooks/claude/examples/runner-input.invalid-missing-metadata.json",
   "status": "configuration-error",
   "exitCode": 2,
   "selectedScanners": [],
   "configurationErrors": [
     {
-      "scanner": "phase-gate-plan-scan",
-      "missingInputs": ["metadataFiles"],
-      "reason": "Required declared metadata is missing."
+      "scanner": "runner-input-contract",
+      "missingInputs": ["task"],
+      "reason": "Runner input task metadata is missing."
     }
   ],
   "nonGoals": [
@@ -147,6 +147,20 @@ npm run bench:check:red
 ```
 
 The check verifies the command label, boundary rules, example links, output fields, exit codes, and links from runner documentation.
+
+## Current Implementation
+
+The local implementation is `bin/abk-runner.js`.
+
+It is checked by `benchmarks/scripts/check-abk-runner-dry-run.js`.
+
+The implementation currently supports:
+
+- `abk-runner dry-run --input <runner-input.json>`
+- fan-out planning for `hooks/claude/examples/runner-dry-run.post-edit-scope-fanout.json`
+- configuration-error output for `hooks/claude/examples/runner-input.invalid-missing-metadata.json`
+
+It still does not execute scanner scripts or install hooks.
 
 ## Non-Goals
 

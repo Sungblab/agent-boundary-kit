@@ -105,6 +105,14 @@ function assertOutputExample(example) {
   );
   assert(Array.isArray(output.nonGoals), `${example.path}: nonGoals must be an array`);
 
+  assert(fs.existsSync(path.join(root, output.inputPath)), `${example.path}: inputPath target is missing`);
+  const referencedInput = readJson(output.inputPath);
+  const runnerInput = referencedInput.input ?? referencedInput;
+  assert(
+    runnerInput.hookId === output.hookId,
+    `${example.path}: hookId must match referenced input hookId`
+  );
+
   for (const phrase of ["Do not execute scanners", "Do not install hooks", "Do not write files", "Do not write final responses"]) {
     assert(output.nonGoals.includes(phrase), `${example.path}: missing non-goal ${phrase}`);
   }
@@ -131,7 +139,7 @@ function main() {
   for (const phrase of [
     "# Hook Runner Dry-Run CLI Contract",
     "not an installed hook",
-    "not a runner implementation",
+    "not a scanner runner",
     "plan-only dry run",
     "abk-runner dry-run --input <runner-input.json>",
     "does not execute scanners",
@@ -149,6 +157,8 @@ function main() {
     "Exit 2",
     "Exit 1 is reserved",
     "Do not package hooks yet",
+    "bin/abk-runner.js",
+    "benchmarks/scripts/check-abk-runner-dry-run.js",
   ]) {
     assert(markdown.includes(phrase), `dry-run CLI contract missing phrase: ${phrase}`);
   }

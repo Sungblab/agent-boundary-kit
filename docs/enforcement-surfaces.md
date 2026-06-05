@@ -46,7 +46,7 @@ The hook runner dry-run spec is recorded in `docs/hook-runner-dry-run-spec.md`. 
 
 The hook runner selection matrix is recorded in `docs/hook-runner-selection-matrix.md`. It fixes hook id to scanner selection predicates before any runner or hook packaging.
 
-The hook runner dry-run CLI contract is recorded in `docs/hook-runner-dry-run-cli-contract.md`. It fixes a plan-only command shape before any executable runner exists.
+The hook runner dry-run CLI contract is recorded in `docs/hook-runner-dry-run-cli-contract.md`. Its first local implementation is `bin/abk-runner.js`, limited to plan-only scanner selection without scanner execution.
 
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
@@ -246,6 +246,7 @@ Blocks completion when:
 48. Record hook runner scanner selection rules before implementation. Completed: `docs/hook-runner-selection-matrix.md`.
 49. Record a plan-only dry-run CLI contract before implementation. Completed: `docs/hook-runner-dry-run-cli-contract.md`.
 50. Add plan-only dry-run CLI output fixtures before implementation. Completed: `hooks/claude/examples/runner-dry-run-cli.planned-output.json` and `hooks/claude/examples/runner-dry-run-cli.configuration-error-output.json`.
-51. Only then package a Codex skill or Claude hooks.
+51. Implement the first plan-only `abk-runner dry-run --input` command without scanner execution. Completed: `bin/abk-runner.js`.
+52. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.
