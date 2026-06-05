@@ -22,6 +22,8 @@ The next named-tool scanner is `latex-renderer-boundary-scan`, with validation e
 
 The next env/config scanner is `hardcoded-credential-fallback-scan`, with validation evidence in `docs/scanner-validation-hardcoded-credential-fallback.md`, application evidence in `docs/scanner-application-hardcoded-credential-fallback.md`, and read-only script `benchmarks/scripts/scan-hardcoded-credential-fallback.js`.
 
+The next replacement cleanup scanner is `legacy-surface-retention-scan`, with validation evidence in `docs/scanner-validation-legacy-surface-retention.md`, application evidence in `docs/scanner-application-legacy-surface-retention.md`, and read-only script `benchmarks/scripts/scan-legacy-surface-retention.js`.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -188,6 +190,9 @@ Blocks completion when:
 16. Record red/green evidence for `hardcoded-credential-fallback-scan`. Completed: `docs/scanner-validation-hardcoded-credential-fallback.md`.
 17. Turn `hardcoded-credential-fallback-scan` into a small read-only script only after reviewing that validation note. Completed: `benchmarks/scripts/scan-hardcoded-credential-fallback.js`.
 18. Record the hardcoded credential scanner application sweep. Completed: `docs/scanner-application-hardcoded-credential-fallback.md`.
-19. Only then package a Codex skill or Claude hooks.
+19. Record red/green evidence for `legacy-surface-retention-scan`. Completed: `docs/scanner-validation-legacy-surface-retention.md`.
+20. Turn `legacy-surface-retention-scan` into a small read-only script only after reviewing that validation note. Completed: `benchmarks/scripts/scan-legacy-surface-retention.js`.
+21. Record the legacy surface retention scanner application sweep. Completed: `docs/scanner-application-legacy-surface-retention.md`.
+22. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

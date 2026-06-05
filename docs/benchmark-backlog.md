@@ -156,7 +156,10 @@ Each benchmark fixture should include:
 27. Record red/green evidence for the next env/config scanner. Completed for hardcoded credential fallback: `docs/scanner-validation-hardcoded-credential-fallback.md`.
 28. Implement `hardcoded-credential-fallback-scan` only after reviewing the validation note. Keep it limited to source-level credential fallback activation. Completed: `benchmarks/scripts/scan-hardcoded-credential-fallback.js`.
 29. Apply `hardcoded-credential-fallback-scan` to future env/config runs before adding another credential scanner. Completed for the current fixture/run sweep: `docs/scanner-application-hardcoded-credential-fallback.md`.
-30. Select the next scanner candidate from another non-test-integrity fixture only after red/green evidence is recorded.
+30. Record red/green evidence for the next replacement cleanup scanner. Completed for legacy surface retention: `docs/scanner-validation-legacy-surface-retention.md`.
+31. Implement `legacy-surface-retention-scan` only after reviewing the validation note. Keep it limited to known stale public surface terms. Completed: `benchmarks/scripts/scan-legacy-surface-retention.js`.
+32. Apply `legacy-surface-retention-scan` to future replacement runs before adding another stale-surface scanner. Completed for the current fixture/run sweep: `docs/scanner-application-legacy-surface-retention.md`.
+33. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet
 

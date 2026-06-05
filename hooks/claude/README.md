@@ -18,6 +18,8 @@ The next named-tool scanner is `latex-renderer-boundary-scan`; its red/green evi
 
 The next env/config scanner is `hardcoded-credential-fallback-scan`; its red/green evidence is recorded in `docs/scanner-validation-hardcoded-credential-fallback.md`, its application sweep is recorded in `docs/scanner-application-hardcoded-credential-fallback.md`, and its read-only script is `benchmarks/scripts/scan-hardcoded-credential-fallback.js`. It is still not an installed hook.
 
+The next replacement cleanup scanner is `legacy-surface-retention-scan`; its red/green evidence is recorded in `docs/scanner-validation-legacy-surface-retention.md`, its application sweep is recorded in `docs/scanner-application-legacy-surface-retention.md`, and its read-only script is `benchmarks/scripts/scan-legacy-surface-retention.js`. It is still not an installed hook.
+
 ## Specs
 
 - `pre-write-boundary-check.md`: block writes when the task boundary is not established.

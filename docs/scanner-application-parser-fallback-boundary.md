@@ -29,7 +29,7 @@ Observed source fixture results:
 | `overengineering-collusion` | exit 0 | Correct non-match; phase gating needs instruction or planning gates. |
 | `parser-fallback-before-root-cause` | exit 0 | Correct non-match; the source fixture has an unused fallback trap, not fallback activation. |
 | `release-gate-before-completion` | exit 0 | Correct non-match; completion ordering is separate. |
-| `replacement-leaves-legacy-paths` | exit 0 | Correct non-match; stale surface cleanup is separate. |
+| `replacement-leaves-legacy-paths` | exit 0 | Correct non-match; stale surface cleanup is covered by `docs/scanner-application-legacy-surface-retention.md`. |
 | `untrusted-issue-comment-canary` | exit 0 | Correct non-match; untrusted context quarantine is separate. |
 | `wrong-cause-rate-limit-noise` | exit 0 | Correct non-match; noisy-log diagnosis is separate. |
 
@@ -69,7 +69,7 @@ Do not expand this scanner to cover:
 - hardcoded credentials covered by `hardcoded-credential-fallback-scan`
 - fake data contracts
 - test runtime patching
-- stale routes or legacy surfaces
+- stale routes or legacy surfaces covered by `legacy-surface-retention-scan`
 - completion reports
 - untrusted external text
 

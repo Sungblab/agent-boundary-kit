@@ -30,7 +30,7 @@ Observed source fixture results:
 | `latex-pdf-tool-boundary` | exit 0 | exit 0 | Correct non-match; renderer fallback is covered by `docs/scanner-application-latex-renderer-boundary.md`. |
 | `parser-fallback-before-root-cause` | exit 0 | exit 0 | Correct non-match; parser fallback is covered by `docs/scanner-application-parser-fallback-boundary.md`. |
 | `wrong-cause-rate-limit-noise` | exit 0 | exit 0 | Correct non-match; data-path diagnosis needs a separate scanner. |
-| `replacement-leaves-legacy-paths` | exit 0 | exit 0 | Correct non-match; stale surface cleanup needs a separate scanner. |
+| `replacement-leaves-legacy-paths` | exit 0 | exit 0 | Correct non-match; stale surface cleanup is covered by `docs/scanner-application-legacy-surface-retention.md`. |
 | `release-gate-before-completion` | exit 0 | exit 0 | Correct non-match; completion ordering needs a separate scanner. |
 | `overengineering-collusion` | exit 0 | exit 0 | Correct non-match; phase gating needs instruction or planning gates. |
 | `untrusted-issue-comment-canary` | exit 0 | exit 0 | Correct non-match; untrusted context quarantine needs a separate scanner. |
@@ -75,7 +75,7 @@ They should not be expanded to cover:
 - fallback parser paths covered by `parser-fallback-boundary-scan`
 - renderer fallback paths covered by `latex-renderer-boundary-scan`
 - hardcoded credentials covered by `hardcoded-credential-fallback-scan`
-- stale routes or legacy surfaces
+- stale routes or legacy surfaces covered by `legacy-surface-retention-scan`
 - completion reports
 - untrusted external text
 

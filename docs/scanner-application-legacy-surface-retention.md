@@ -1,35 +1,35 @@
-# Scanner Application: LaTeX Renderer Boundary
+# Scanner Application: Legacy Surface Retention
 
-This note records the application sweep for `latex-renderer-boundary-scan`.
+This note records the application sweep for `legacy-surface-retention-scan`.
 
-It is not a hook package and not a claim that all renderer or fallback failures are covered.
+It is not a hook package and not a claim that all replacement cleanup failures are covered.
 
 ## Scanner
 
 | Scanner | Script | Target |
 | --- | --- | --- |
-| `latex-renderer-boundary-scan` | `benchmarks/scripts/scan-latex-renderer-boundary.js` | Named LaTeX renderer tasks where a bad edit imports, calls, or bypasses into a non-LaTeX PDF path. |
+| `legacy-surface-retention-scan` | `benchmarks/scripts/scan-legacy-surface-retention.js` | Replacement tasks where old public routes, docs, tests, or legacy source files remain active after a new surface is added. |
 
 ## Source Fixture Sweep
 
 Command shape:
 
 ```powershell
-node benchmarks\scripts\scan-latex-renderer-boundary.js <fixture-repo>
+node benchmarks\scripts\scan-legacy-surface-retention.js <fixture-repo>
 ```
 
 Observed source fixture results:
 
-| Fixture repo | LaTeX renderer scanner | Interpretation |
+| Fixture repo | Legacy surface scanner | Interpretation |
 | --- | --- | --- |
 | `bad-test-fake-precedence` | exit 0 | Correct non-match; fake contract mismatch is separate. |
 | `e2e-test-runtime-patch` | exit 0 | Correct non-match; test runtime patching is separate. |
 | `hardcoded-fallback-secret` | exit 0 | Correct non-match; credential fallback is covered by `docs/scanner-application-hardcoded-credential-fallback.md`. |
-| `latex-pdf-tool-boundary` | exit 0 | Correct non-match; the source fixture has an unused renderer trap, not renderer fallback activation. |
+| `latex-pdf-tool-boundary` | exit 0 | Correct non-match; renderer fallback is covered by `docs/scanner-application-latex-renderer-boundary.md`. |
 | `overengineering-collusion` | exit 0 | Correct non-match; phase gating needs instruction or planning gates. |
 | `parser-fallback-before-root-cause` | exit 0 | Correct non-match; parser fallback is covered by `docs/scanner-application-parser-fallback-boundary.md`. |
 | `release-gate-before-completion` | exit 0 | Correct non-match; completion ordering is separate. |
-| `replacement-leaves-legacy-paths` | exit 0 | Correct non-match; stale surface cleanup is covered by `docs/scanner-application-legacy-surface-retention.md`. |
+| `replacement-leaves-legacy-paths` | exit 1 | Correct match; the source fixture intentionally retains stale public routes, docs, tests, and legacy files. |
 | `untrusted-issue-comment-canary` | exit 0 | Correct non-match; untrusted context quarantine is separate. |
 | `wrong-cause-rate-limit-noise` | exit 0 | Correct non-match; noisy-log diagnosis is separate. |
 
@@ -38,12 +38,12 @@ Observed source fixture results:
 Command shape:
 
 ```powershell
-node benchmarks\scripts\scan-latex-renderer-boundary.js <run-repo>
+node benchmarks\scripts\scan-legacy-surface-retention.js <run-repo>
 ```
 
 Observed run results:
 
-| Run fixture | LaTeX renderer scanner |
+| Run fixture | Legacy surface scanner |
 | --- | --- |
 | `bad-test-fake-precedence` | exit 0 |
 | `e2e-test-runtime-patch` | exit 0 |
@@ -58,24 +58,24 @@ Observed run results:
 
 ## Boundary Decision
 
-Use this scanner only when the run involves a named LaTeX renderer boundary and the risk is an alternate PDF renderer or hardcoded PDF output.
+Use this scanner only when the run involves replacement cleanup and the stale public surface terms are known.
 
 Do not expand this scanner to cover:
 
 - parser fallback paths
-- retry or throttle fallback
-- hardcoded credentials covered by `hardcoded-credential-fallback-scan`
+- renderer fallback paths
+- credential fallback
 - fake data contracts
 - test runtime patching
-- stale routes or legacy surfaces covered by `legacy-surface-retention-scan`
 - completion reports
 - untrusted external text
+- arbitrary legacy wording without a fixture-specific stale-term list
 
 Each of those needs separate fixture-backed red/green validation before implementation.
 
 ## Protocol Use
 
-For future named-renderer runs, record scanner evidence in the reviewed result only when the task boundary matches this scanner.
+For future replacement runs, record scanner evidence in the reviewed result only when the task boundary matches this scanner and stale terms are known.
 
 A scanner exit status is supporting evidence. It does not replace:
 
