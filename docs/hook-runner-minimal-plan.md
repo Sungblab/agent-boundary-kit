@@ -12,6 +12,8 @@ The dry-run scanner selection examples are recorded in `docs/hook-runner-dry-run
 
 The hook runner selection matrix is recorded in `docs/hook-runner-selection-matrix.md`.
 
+The plan-only dry-run CLI contract is recorded in `docs/hook-runner-dry-run-cli-contract.md`.
+
 ## Boundary
 
 The runner must preserve the same boundary recorded in `docs/hook-scanner-contracts.md` and `docs/scanner-coverage-matrix.md`.
@@ -102,6 +104,7 @@ node benchmarks/scripts/check-hook-runner-input-contract.js
 node benchmarks/scripts/check-hook-runner-output-contract.js
 node benchmarks/scripts/check-hook-runner-dry-run-spec.js
 node benchmarks/scripts/check-hook-runner-selection-matrix.js
+node benchmarks/scripts/check-hook-runner-dry-run-cli-contract.js
 npm run bench:check
 npm run bench:check:red
 ```

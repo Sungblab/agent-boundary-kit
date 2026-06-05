@@ -16,6 +16,7 @@ It is not an installed hook and not a runner implementation. It only shows how a
 - `docs/hook-runner-input-contract.md`: input shape for the dry-run input block.
 - `docs/hook-runner-output-contract.md`: output shape for the dry-run expected output block.
 - `docs/hook-runner-selection-matrix.md`: hook id to scanner selection rules.
+- `docs/hook-runner-dry-run-cli-contract.md`: plan-only CLI contract for scanner selection without execution.
 - `docs/hook-scanner-contracts.md`: scanner input/output rules.
 - `docs/scanner-coverage-matrix.md`: fixture-to-scanner source of truth.
 

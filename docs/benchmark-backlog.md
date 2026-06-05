@@ -186,7 +186,8 @@ Each benchmark fixture should include:
 57. Add clear and configuration-error dry-run examples so runner output states are not finding-only. Completed: `hooks/claude/examples/runner-dry-run.post-edit-scope-clear.json` and `hooks/claude/examples/runner-dry-run.pre-write-config-error.json`.
 58. Add post-edit scanner fan-out dry-run coverage before implementation. Completed: `hooks/claude/examples/runner-dry-run.post-edit-scope-fanout.json`.
 59. Record hook runner scanner selection rules before implementation. Completed: `docs/hook-runner-selection-matrix.md`.
-60. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
+60. Record a plan-only dry-run CLI contract before implementation. Completed: `docs/hook-runner-dry-run-cli-contract.md`.
+61. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet
 
