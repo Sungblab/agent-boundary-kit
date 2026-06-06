@@ -57,6 +57,7 @@ Before any adapter implementation or manual install instruction is described as 
 ```sh
 node benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js
 node benchmarks/scripts/check-claude-hook-command-adapter-contract.js
+node benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js
 node benchmarks/scripts/check-claude-hook-event-mapper-contract.js
 node benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js
 node benchmarks/scripts/check-abk-runner-map-event.js
@@ -88,4 +89,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a bounded adapter implementation contract for a command entrypoint that reads stdin and writes only temporary runner input files under explicit test control.
+The next gate is `docs/claude-hook-command-adapter-implementation-contract.md` and `benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js`.

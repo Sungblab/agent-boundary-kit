@@ -51,6 +51,8 @@ ABK references:
 
 - `docs/claude-hook-packaging-contract.md`
 - `docs/claude-hook-manual-install-contract.md`
+- `docs/claude-hook-command-adapter-fixtures.md`
+- `docs/claude-hook-command-adapter-implementation-contract.md`
 - `docs/claude-hook-event-mapper-contract.md`
 - `docs/claude-hook-event-mapper-output-fixtures.md`
 - `docs/hook-runner-read-only-execution-contract.md`
@@ -104,6 +106,7 @@ Before any adapter, hook package, or manual install document is described as rea
 ```sh
 node benchmarks/scripts/check-claude-hook-command-adapter-contract.js
 node benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js
+node benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js
 node benchmarks/scripts/check-claude-hook-manual-install-contract.js
 node benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js
 node benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js
@@ -124,6 +127,7 @@ The evidence must show:
 - no Claude configuration file is created in this repository
 - the stdin-to-runner-input bridge is specified before manual install instructions
 - red/green stdin adapter fixtures exist before adapter implementation
+- the adapter implementation contract is specified before entrypoint code
 - runner execution remains gated by `abk-runner map-event --input <hook-event.json>`
 
 ## Non-Goals
@@ -148,6 +152,6 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is `docs/claude-hook-command-adapter-fixtures.md` and `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`.
+The next gate is `docs/claude-hook-command-adapter-implementation-contract.md` and `benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js`.
 
-Only after those fixtures stay green should the repo consider a bounded adapter implementation contract.
+Only after that contract stays green should the repo consider a bounded adapter entrypoint fixture.
