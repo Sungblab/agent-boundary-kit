@@ -40,6 +40,8 @@ The user-approved install language source is `docs/claude-hook-user-approved-ins
 
 The settings-fragment review source is `docs/claude-hook-settings-fragment-review.md`.
 
+The application boundary chain source is `docs/claude-hook-application-boundary-chain.md`.
+
 This contract does not identify a user settings path.
 
 This contract does not apply settings for the user.
@@ -101,6 +103,7 @@ node benchmarks/scripts/check-claude-hook-user-execution-authorization-review-co
 node benchmarks/scripts/check-claude-hook-user-execution-packet-review-contract.js
 node benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js
 node benchmarks/scripts/check-claude-hook-final-apply-request-contract.js
+node benchmarks/scripts/check-claude-hook-application-boundary-chain.js
 npm run bench:check
 npm run bench:check:red
 ```

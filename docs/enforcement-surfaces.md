@@ -114,6 +114,8 @@ The Claude hook user execution authorization review contract is recorded in `doc
 
 The Claude hook user-performed application boundary contract is recorded in `docs/claude-hook-user-performed-application-boundary-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-user-performed-application-boundary-contract.js`, which records the terminal boundary without external completion or verification claims.
 
+The Claude hook application boundary chain is recorded in `docs/claude-hook-application-boundary-chain.md`. Its check is `benchmarks/scripts/check-claude-hook-application-boundary-chain.js`, which verifies the ordered non-mutating chain through terminal boundary.
+
 The Claude hook carrier source contract is recorded in `docs/claude-hook-carrier-source-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`, which keeps the carrier source user-owned and not consumed by the current command entrypoint.
 
 The Claude hook wrapper input contract is recorded in `docs/claude-hook-wrapper-input-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-wrapper-input-contract.js`, which keeps wrapper input contract-only and preserves carrier path rejection in the current command entrypoint.
@@ -436,5 +438,7 @@ Blocks completion when:
 138. Add a Claude hook user execution authorization review contract check. Completed: `benchmarks/scripts/check-claude-hook-user-execution-authorization-review-contract.js`.
 139. Add a Claude hook user-performed application boundary contract. Completed: `docs/claude-hook-user-performed-application-boundary-contract.md`.
 140. Add a Claude hook user-performed application boundary contract check. Completed: `benchmarks/scripts/check-claude-hook-user-performed-application-boundary-contract.js`.
+141. Add a Claude hook application boundary chain summary. Completed: `docs/claude-hook-application-boundary-chain.md`.
+142. Add a Claude hook application boundary chain check. Completed: `benchmarks/scripts/check-claude-hook-application-boundary-chain.js`.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.
