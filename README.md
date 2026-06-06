@@ -93,6 +93,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `docs/claude-hook-package-manifest-fixtures.md`: fixture-only package manifest shape for future Claude hook packaging
 - `docs/claude-hook-manual-install-doc-fixture.md`: documentation-only manual install fixture for future Claude hook packaging
 - `docs/claude-hook-manual-install-contract.md`: contract for future user-approved Claude hook manual install language
+- `docs/claude-hook-manual-install-language-fixtures.md`: bounded language fixtures for user-approved Claude hook manual install text
 - `docs/claude-hook-command-adapter-contract.md`: contract for the stdin-to-runner-input bridge required before live Claude hooks
 - `docs/claude-hook-command-adapter-fixtures.md`: red/green fixtures for the Claude hook stdin adapter
 - `docs/claude-hook-command-adapter-implementation-contract.md`: implementation contract for the bounded stdin adapter entrypoint
@@ -154,6 +155,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js`: verifies future Claude hook package manifests stay fixture-only and manual-review-only
 - `benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js`: verifies future Claude hook manual install docs remain documentation-only and non-mutating
 - `benchmarks/scripts/check-claude-hook-manual-install-contract.js`: verifies future Claude hook manual install language stays user-approved and non-mutating until install docs exist
+- `benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js`: verifies Claude hook manual install language names `abk-claude-hook` without shell copy commands or repository mutation
 - `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`: verifies live Claude hook docs stay blocked until stdin event input can bridge to explicit runner files
 - `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`: verifies Claude hook stdin adapter fixtures map to explicit runner input and reject transcript input
 - `benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js`: verifies the adapter entrypoint contract stays bounded
@@ -226,6 +228,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - future Claude hook package manifests are checked against fixture-only, manual-review-only constraints before any install documentation.
 - future Claude hook manual install documentation is checked as non-mutating documentation before any install contract.
 - future Claude hook manual install language is checked against `docs/claude-hook-manual-install-contract.md` before any install instructions.
+- Claude hook manual install language fixtures are checked against `docs/claude-hook-manual-install-language-fixtures.md` before any user-approved settings fragment is published.
 - future Claude hook command adapters are checked against `docs/claude-hook-command-adapter-contract.md` before any live hook instructions.
 - Claude hook stdin adapter fixtures are checked against `docs/claude-hook-command-adapter-fixtures.md`.
 - Claude hook adapter implementation is checked against `docs/claude-hook-command-adapter-implementation-contract.md`.

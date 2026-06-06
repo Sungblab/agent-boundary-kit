@@ -44,6 +44,8 @@ The Claude hook manual install documentation fixture is recorded in `docs/claude
 
 The Claude hook manual install contract is recorded in `docs/claude-hook-manual-install-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-manual-install-contract.js` and keeps future install language user-approved and non-mutating until install instructions exist.
 
+The Claude hook manual install language fixtures are recorded in `docs/claude-hook-manual-install-language-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js` and name `abk-claude-hook` without shell copy commands, repository mutation, or automatic setup.
+
 The Claude hook command adapter contract is recorded in `docs/claude-hook-command-adapter-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-command-adapter-contract.js` and records the stdin-to-runner-input bridge required before live hook instructions.
 
 The Claude hook command adapter fixtures are recorded in `docs/claude-hook-command-adapter-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js` and keep the stdin bridge fixture-backed.

@@ -80,6 +80,8 @@ The Claude hook manual install documentation fixture is recorded in `docs/claude
 
 The Claude hook manual install contract is recorded in `docs/claude-hook-manual-install-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-manual-install-contract.js`, which keeps future install language user-approved and non-mutating until install instructions exist.
 
+The Claude hook manual install language fixtures are recorded in `docs/claude-hook-manual-install-language-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js`, which names the bounded `abk-claude-hook` command without shell copy commands, repository mutation, or automatic setup.
+
 The Claude hook command adapter contract is recorded in `docs/claude-hook-command-adapter-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`, which records the stdin-to-runner-input bridge required before live hook instructions.
 
 The Claude hook command adapter fixtures are recorded in `docs/claude-hook-command-adapter-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`, which keeps the stdin bridge fixture-backed.
@@ -328,16 +330,18 @@ Blocks completion when:
 88. Add a Claude hook manual install documentation fixture check. Completed: `benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js`.
 89. Add a Claude hook manual install contract. Completed: `docs/claude-hook-manual-install-contract.md`.
 90. Add a Claude hook manual install contract check. Completed: `benchmarks/scripts/check-claude-hook-manual-install-contract.js`.
-91. Add a Claude hook command adapter contract. Completed: `docs/claude-hook-command-adapter-contract.md`.
-92. Add a Claude hook command adapter contract check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`.
-93. Add Claude hook command adapter red/green fixtures. Completed: `docs/claude-hook-command-adapter-fixtures.md`.
-94. Add a Claude hook command adapter fixture check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`.
-95. Add a Claude hook command adapter implementation contract. Completed: `docs/claude-hook-command-adapter-implementation-contract.md`.
-96. Add a Claude hook command adapter implementation contract check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js`.
-97. Add Claude hook command adapter entrypoint fixtures. Completed: `docs/claude-hook-command-adapter-entrypoint-fixtures.md`.
-98. Add a Claude hook command adapter entrypoint fixture check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js`.
-99. Add a Claude hook command adapter entrypoint contract. Completed: `docs/claude-hook-command-adapter-entrypoint.md`.
-100. Add a Claude hook command adapter entrypoint check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js`.
-101. Claude hooks remain specs until manual install language is checked against the bounded adapter entrypoint.
+91. Add Claude hook manual install language fixtures. Completed: `docs/claude-hook-manual-install-language-fixtures.md`.
+92. Add a Claude hook manual install language fixture check. Completed: `benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js`.
+93. Add a Claude hook command adapter contract. Completed: `docs/claude-hook-command-adapter-contract.md`.
+94. Add a Claude hook command adapter contract check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`.
+95. Add Claude hook command adapter red/green fixtures. Completed: `docs/claude-hook-command-adapter-fixtures.md`.
+96. Add a Claude hook command adapter fixture check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`.
+97. Add a Claude hook command adapter implementation contract. Completed: `docs/claude-hook-command-adapter-implementation-contract.md`.
+98. Add a Claude hook command adapter implementation contract check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js`.
+99. Add Claude hook command adapter entrypoint fixtures. Completed: `docs/claude-hook-command-adapter-entrypoint-fixtures.md`.
+100. Add a Claude hook command adapter entrypoint fixture check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js`.
+101. Add a Claude hook command adapter entrypoint contract. Completed: `docs/claude-hook-command-adapter-entrypoint.md`.
+102. Add a Claude hook command adapter entrypoint check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js`.
+103. Claude hooks remain specs until a user-approved manual install document is checked against the bounded language fixtures.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

@@ -12,6 +12,7 @@ const requiredPhrases = [
   "# Claude Hook Manual Install Documentation Fixture",
   "docs/claude-hook-package-manifest-fixtures.md",
   "docs/claude-hook-packaging-contract.md",
+  "docs/claude-hook-manual-install-language-fixtures.md",
   "hooks/claude/examples/package-manifest.valid.json",
   "hooks/claude/examples/manual-install-doc.valid.md",
   "hooks/claude/examples/manual-install-doc.invalid-mutating.md",
@@ -27,6 +28,7 @@ const requiredPhrases = [
   "Do not execute scanners before map-event succeeds",
   "Do not generate final copy",
   "node benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js",
+  "node benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js",
   "node benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js",
   "npm run bench:check",
   "npm run bench:check:red",
@@ -39,6 +41,7 @@ const linkedDocs = [
   "docs/packaging-readiness.md",
   "docs/claude-hook-packaging-contract.md",
   "docs/claude-hook-package-manifest-fixtures.md",
+  "docs/claude-hook-manual-install-language-fixtures.md",
   "hooks/claude/README.md",
 ];
 

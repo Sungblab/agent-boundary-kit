@@ -4,6 +4,8 @@ This fixture defines the only allowed documentation shape before any Claude hook
 
 It extends `docs/claude-hook-package-manifest-fixtures.md` and `docs/claude-hook-packaging-contract.md`.
 
+The later bounded language fixture is recorded in `docs/claude-hook-manual-install-language-fixtures.md`.
+
 It is documentation fixture only, not an installer, not an installed hook, and not hook setup guidance.
 
 ## Boundary
@@ -51,6 +53,7 @@ Before any Claude hook manual install documentation is described as ready, run:
 ```sh
 node benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js
 node benchmarks/scripts/check-claude-hook-manual-install-contract.js
+node benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js
 node benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js
 node benchmarks/scripts/check-claude-hook-packaging-contract.js
 node benchmarks/scripts/check-abk-runner-map-event.js
@@ -63,6 +66,8 @@ npm run bench:check:red
 The check verifies that manual install documentation remains documentation-only, references the package manifest fixture, disables automatic installation, avoids repository mutation, and rejects copy/config-edit instructions.
 
 The manual install contract is recorded in `docs/claude-hook-manual-install-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-manual-install-contract.js`.
+
+The manual install language fixture is recorded in `docs/claude-hook-manual-install-language-fixtures.md`. Its check is `benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js`.
 
 ## Non-Goals
 
@@ -86,4 +91,4 @@ Do not generate final copy, PR metadata, release notes, product copy, or complet
 
 ## Next Gate
 
-The next gate is a user-approved manual install document that can define bounded installation and uninstall instructions without changing this repository into an installer.
+The next gate is a user-approved manual install document that can show a reviewed settings fragment without changing this repository into an installer.

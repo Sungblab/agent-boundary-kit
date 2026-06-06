@@ -27,10 +27,12 @@ const requiredPhrases = [
   "docs/claude-hook-packaging-contract.md",
   "docs/claude-hook-package-manifest-fixtures.md",
   "docs/claude-hook-manual-install-doc-fixture.md",
+  "docs/claude-hook-manual-install-language-fixtures.md",
   "docs/claude-hook-command-adapter-fixtures.md",
   "docs/packaging-readiness.md",
   "hooks/claude/examples/package-manifest.valid.json",
   "benchmarks/scripts/check-claude-hook-manual-install-contract.js",
+  "benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js",
   "benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js",
   "benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js",
   "benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js",
@@ -62,6 +64,7 @@ const linkedDocs = [
   "docs/claude-hook-packaging-contract.md",
   "docs/claude-hook-package-manifest-fixtures.md",
   "docs/claude-hook-manual-install-doc-fixture.md",
+  "docs/claude-hook-manual-install-language-fixtures.md",
   "hooks/claude/README.md",
 ];
 

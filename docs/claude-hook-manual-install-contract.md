@@ -42,6 +42,7 @@ The contract depends on:
 - `docs/claude-hook-packaging-contract.md`
 - `docs/claude-hook-package-manifest-fixtures.md`
 - `docs/claude-hook-manual-install-doc-fixture.md`
+- `docs/claude-hook-manual-install-language-fixtures.md`
 - `docs/claude-hook-command-adapter-contract.md`
 - `docs/claude-hook-command-adapter-fixtures.md`
 - `hooks/claude/examples/package-manifest.valid.json`
@@ -61,6 +62,8 @@ Allowed future language may describe:
 - required review gates before installation instructions are published
 - explicit user approval before any hook setup is attempted
 - a bounded manifest source: `hooks/claude/examples/package-manifest.valid.json`
+- the bounded command source: `docs/claude-hook-command-adapter-entrypoint.md`
+- the manual install language fixture: `docs/claude-hook-manual-install-language-fixtures.md`
 - the stop condition when `map-event`, `dry-run`, or `scan` returns a configuration or boundary finding
 - the fact that scanner output is evidence, not final copy
 
@@ -86,6 +89,7 @@ Before any Claude hook manual install contract or install documentation is descr
 
 ```sh
 node benchmarks/scripts/check-claude-hook-manual-install-contract.js
+node benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js
 node benchmarks/scripts/check-claude-hook-command-adapter-contract.js
 node benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js
@@ -103,7 +107,7 @@ The evidence must show:
 - this contract remains documentation-only
 - no install scripts or setup scripts exist in `hooks/claude/`
 - no repository-level Claude hook configuration exists
-- manual install documentation still rejects copy and configuration-edit instructions until a later user-approved install document is written
+- manual install language fixtures reject copy and configuration-edit instructions until a later user-approved install document is written
 - the command adapter contract records the stdin-to-runner-input bridge required before live hooks
 - the command adapter fixtures prove the stdin payload maps to explicit runner input before live hooks
 - scanner execution remains gated by `abk-runner map-event --input <hook-event.json>`
@@ -132,4 +136,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a bounded adapter implementation contract for a command entrypoint that reads stdin without installing hooks.
+The next gate is a user-approved manual install document checked against `docs/claude-hook-manual-install-language-fixtures.md`.
