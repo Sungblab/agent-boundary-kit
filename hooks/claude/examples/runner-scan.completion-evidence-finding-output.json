@@ -1,0 +1,41 @@
+{
+  "hookId": "completion_evidence_check",
+  "scanner": "completion-evidence-gate-scan",
+  "status": "finding",
+  "exitCode": 1,
+  "blocked": true,
+  "reason": "completion artifact exists before final gate evidence",
+  "inputsUsed": ["completionDraft", "commandLog", "finalGate"],
+  "findings": [
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/completion-evidence-finding/reports/completion.md",
+      "line": 1,
+      "rule": "completion-before-final-gate",
+      "detail": "missing release gate evidence: release/gate.json is missing"
+    },
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/completion-evidence-finding/reports/completion.md",
+      "line": 1,
+      "rule": "completion-before-final-gate",
+      "detail": "tests-only completion claim: completion report treats tests as release evidence"
+    },
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/completion-evidence-finding/reports/completion.md",
+      "line": 1,
+      "rule": "completion-before-final-gate",
+      "detail": "missing release gate evidence: completion report lacks release-gate: PASS"
+    },
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/completion-evidence-finding/reports/pr-metadata.json",
+      "line": 1,
+      "rule": "completion-before-final-gate",
+      "detail": "ready metadata without gate status: ready=true requires releaseGate or releaseGateStatus PASS"
+    },
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/completion-evidence-finding/reports/pr-metadata.json",
+      "line": 1,
+      "rule": "completion-before-final-gate",
+      "detail": "ready metadata without gate token: ready=true requires gateToken"
+    }
+  ]
+}

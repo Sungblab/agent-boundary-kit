@@ -8,7 +8,7 @@ The implemented command shape is:
 abk-runner scan --input <runner-input.json> --scanner <scanner-id>
 ```
 
-The supported scanner ids are `parser-fallback-boundary-scan`, `latex-renderer-boundary-scan`, `hardcoded-credential-fallback-scan`, `legacy-surface-retention-scan`, `test-runtime-patch-scan`, and `test-fake-contract-scan`.
+The supported scanner ids are `parser-fallback-boundary-scan`, `latex-renderer-boundary-scan`, `hardcoded-credential-fallback-scan`, `legacy-surface-retention-scan`, `test-runtime-patch-scan`, `test-fake-contract-scan`, and `completion-evidence-gate-scan`.
 
 ## Boundary
 
@@ -56,6 +56,8 @@ Execution examples:
 - `hooks/claude/examples/runner-scan.test-runtime-clear-input.json`
 - `hooks/claude/examples/runner-scan.test-fake-finding-input.json`
 - `hooks/claude/examples/runner-scan.test-fake-clear-input.json`
+- `hooks/claude/examples/runner-scan.completion-evidence-finding-input.json`
+- `hooks/claude/examples/runner-scan.completion-evidence-clear-input.json`
 - `hooks/claude/examples/runner-scan.unselected-scanner-input.json`
 - `hooks/claude/examples/runner-scan.missing-changed-files-input.json`
 
@@ -77,6 +79,8 @@ Output examples:
 - `hooks/claude/examples/runner-scan.test-runtime-clear-output.json`
 - `hooks/claude/examples/runner-scan.test-fake-finding-output.json`
 - `hooks/claude/examples/runner-scan.test-fake-clear-output.json`
+- `hooks/claude/examples/runner-scan.completion-evidence-finding-output.json`
+- `hooks/claude/examples/runner-scan.completion-evidence-clear-output.json`
 - `hooks/claude/examples/runner-scan.unsupported-scanner-output.json`
 - `hooks/claude/examples/runner-scan.unselected-scanner-output.json`
 - `hooks/claude/examples/runner-scan.missing-changed-files-output.json`
@@ -95,7 +99,7 @@ Exit 2 means invalid input, rejected transcript fields, unsupported hook id, uns
 
 ## Current Implementation Scope
 
-The current implementation may execute only `parser-fallback-boundary-scan`, `latex-renderer-boundary-scan`, `hardcoded-credential-fallback-scan`, `legacy-surface-retention-scan`, `test-runtime-patch-scan`, and `test-fake-contract-scan`.
+The current implementation may execute only `parser-fallback-boundary-scan`, `latex-renderer-boundary-scan`, `hardcoded-credential-fallback-scan`, `legacy-surface-retention-scan`, `test-runtime-patch-scan`, `test-fake-contract-scan`, and `completion-evidence-gate-scan`.
 
 For `parser-fallback-boundary-scan`, it must pass changed files from the declared `repoRoot` and `inputs.changedFiles` fields. `inputs.namedTools` is used to select the scanner, not to infer alternate parser files. If required declared fields are missing, it must return `exitCode: 2`.
 
@@ -108,6 +112,8 @@ For `legacy-surface-retention-scan`, it must pass changed files from the declare
 For `test-runtime-patch-scan`, it must pass explicit test files from `inputs.testFiles`, resolved under the declared `repoRoot` when present. It must not scan production files, infer related tests, or fan out to `test-fake-contract-scan`.
 
 For `test-fake-contract-scan`, it must pass explicit files from `inputs.testFiles` and `inputs.productionFiles`, resolved under the declared `repoRoot` when present. It must not infer fake files, scan broad directories, or fan out to `test-runtime-patch-scan`.
+
+For `completion-evidence-gate-scan`, it must pass only the declared `repoRoot` as the bounded repo directory after `inputs.completionDraft`, `inputs.commandLog`, and `inputs.finalGate` select the scanner. It must not infer completion drafts, command logs, or final gate artifacts from private chat context.
 
 For pre-execution command errors, the output may use `runner-command-contract` as the bounded `scanner` value. It must not map an unknown scanner request to a supported scanner id.
 

@@ -1,0 +1,6 @@
+{
+  "ready": true,
+  "releaseGate": "PASS",
+  "gateToken": "abc123gate456def",
+  "summary": "Release gate passed."
+}
