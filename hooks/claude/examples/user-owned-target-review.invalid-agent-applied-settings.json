@@ -1,0 +1,18 @@
+{
+  "fixtureKind": "claude-hook-user-owned-target-review-evidence",
+  "status": "blocked",
+  "sourceTextRole": "explicit-install-request",
+  "explicitInstallRequest": true,
+  "userOwnedTargetProvided": true,
+  "targetInsideRepository": false,
+  "targetScopeReviewed": true,
+  "backupEvidenceRecorded": true,
+  "preflightEvidenceRecorded": true,
+  "settingsMutationAttempted": true,
+  "agentMayApplySettings": false,
+  "reason": "review evidence must not apply settings",
+  "allowedNextActions": [
+    "revert settings mutation",
+    "record review-only evidence"
+  ]
+}

@@ -30,6 +30,8 @@ The native command input contract is `docs/claude-hook-native-command-input-cont
 
 The later user-owned target checklist source is `docs/claude-hook-user-owned-target-checklist.md`.
 
+The later target review evidence source is `docs/claude-hook-user-owned-target-review-evidence.md`.
+
 This language must not tell an agent to apply the settings.
 
 This language must not include shell copy commands.
@@ -118,3 +120,5 @@ The next gate is recorded in `docs/claude-hook-install-application-contract.md`:
 That gate is checked by `benchmarks/scripts/check-claude-hook-install-application-contract.js`.
 
 The later target-review gate is recorded in `docs/claude-hook-user-owned-target-checklist.md` and checked by `benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js`.
+
+The target evidence-record gate is recorded in `docs/claude-hook-user-owned-target-review-evidence.md` and checked by `benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js`.

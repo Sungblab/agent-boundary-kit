@@ -1,0 +1,21 @@
+{
+  "fixtureKind": "claude-hook-user-owned-target-review-evidence",
+  "status": "review-evidence-recorded",
+  "sourceTextRole": "explicit-install-request",
+  "explicitInstallRequest": true,
+  "userOwnedTargetProvided": true,
+  "targetInsideRepository": false,
+  "targetScopeReviewed": true,
+  "backupEvidenceRecorded": true,
+  "preflightEvidenceRecorded": true,
+  "settingsMutationAttempted": false,
+  "agentMayApplySettings": false,
+  "reviewOnly": true,
+  "requiredEvidence": [
+    "node benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js",
+    "node benchmarks/scripts/check-claude-hook-install-application-contract.js",
+    "node benchmarks/scripts/check-claude-hook-user-approved-install-language.js",
+    "node benchmarks/scripts/check-claude-hook-settings-fragment-review.js",
+    "node benchmarks/scripts/check-claude-hook-wrapper-wiring-review.js"
+  ]
+}

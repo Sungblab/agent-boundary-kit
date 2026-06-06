@@ -20,6 +20,8 @@ The settings-fragment review source is `docs/claude-hook-settings-fragment-revie
 
 The wrapper wiring evidence is `docs/claude-hook-wrapper-wiring-review.md`.
 
+The target review evidence source is `docs/claude-hook-user-owned-target-review-evidence.md`.
+
 This checklist does not identify a user settings path.
 
 This checklist does not apply settings for the user.
@@ -65,6 +67,7 @@ Before this checklist is described as ready, run:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js
+node benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js
 node benchmarks/scripts/check-claude-hook-install-application-contract.js
 node benchmarks/scripts/check-claude-hook-user-approved-install-language.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-review.js
@@ -108,4 +111,6 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is evidence recording for a future user-owned target review. It still does not apply settings, install hooks, or mutate Claude configuration.
+The next gate is recorded in `docs/claude-hook-user-owned-target-review-evidence.md`: evidence recording for a future user-owned target review. It still does not apply settings, install hooks, or mutate Claude configuration.
+
+That gate is checked by `benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js`.

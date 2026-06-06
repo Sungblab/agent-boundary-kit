@@ -1,0 +1,14 @@
+{
+  "fixtureKind": "claude-hook-user-owned-target-review-evidence",
+  "status": "blocked",
+  "sourceTextRole": "workflow-command",
+  "explicitInstallRequest": false,
+  "userOwnedTargetProvided": false,
+  "settingsMutationAttempted": false,
+  "agentMayApplySettings": false,
+  "reason": "explicit install request required before target review evidence",
+  "allowedNextActions": [
+    "stay at language review",
+    "ask for explicit installation request"
+  ]
+}

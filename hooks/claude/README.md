@@ -62,6 +62,8 @@ The Claude hook install application contract is recorded in `docs/claude-hook-in
 
 The Claude hook user-owned target checklist is recorded in `docs/claude-hook-user-owned-target-checklist.md`. It is checked by `benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js` and blocks repository targets, missing backup evidence, and agent-applied settings even after an explicit install request.
 
+The Claude hook user-owned target review evidence is recorded in `docs/claude-hook-user-owned-target-review-evidence.md`. It is checked by `benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js` and keeps target review evidence separate from settings application while blocking generic continuation text.
+
 The Claude hook carrier source contract is recorded in `docs/claude-hook-carrier-source-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-carrier-source-contract.js` and keeps the carrier source user-owned and not consumed by the current command entrypoint.
 
 The Claude hook wrapper input contract is recorded in `docs/claude-hook-wrapper-input-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-wrapper-input-contract.js` and keeps wrapper input contract-only while preserving current carrier path rejection.

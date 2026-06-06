@@ -108,6 +108,8 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/check-claude-hook-install-application-contract.js`: verifies generic continuation text cannot authorize Claude settings mutation
 - `docs/claude-hook-user-owned-target-checklist.md`: checklist contract for user-owned target review before any future settings application
 - `benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js`: verifies target review blocks repository targets, missing backup evidence, and agent-applied settings
+- `docs/claude-hook-user-owned-target-review-evidence.md`: evidence-record contract for user-owned target review without settings application
+- `benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js`: verifies target review evidence blocks generic continuation text, missing scope review, and settings mutation
 - `docs/claude-hook-carrier-source-contract.md`: contract-only carrier source shape for future user-owned Claude hook configuration
 - `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`: verifies carrier sources stay user-owned, not entrypoint-consumed, and separate from settings mutation
 - `docs/claude-hook-wrapper-input-contract.md`: contract-only wrapper input shape for combining native stdin with user-owned carrier metadata
@@ -275,6 +277,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - Claude hook user-approved manual install language is checked against `docs/claude-hook-user-approved-install-language.md` and remains language-only until the user explicitly requests application.
 - Claude hook install application contracts are checked against `docs/claude-hook-install-application-contract.md` and block generic continuation commands from authorizing settings mutation.
 - Claude hook user-owned target checklists are checked against `docs/claude-hook-user-owned-target-checklist.md` and block repository targets, missing backup evidence, and agent-applied settings.
+- Claude hook user-owned target review evidence is checked against `docs/claude-hook-user-owned-target-review-evidence.md` and remains review-only without settings mutation.
 - Claude hook carrier source contracts are checked against `docs/claude-hook-carrier-source-contract.md` and remain separate from the current command entrypoint until a wrapper input contract exists.
 - Claude hook wrapper input contracts are checked against `docs/claude-hook-wrapper-input-contract.md` and remain contract-only until output fixtures exist.
 - Claude hook wrapper output fixtures are checked against `docs/claude-hook-wrapper-output-fixtures.md` and remain expected-output-only until a wrapper implementation contract exists.
