@@ -48,7 +48,7 @@ The hook runner selection matrix is recorded in `docs/hook-runner-selection-matr
 
 The hook runner dry-run CLI contract is recorded in `docs/hook-runner-dry-run-cli-contract.md`. Its first local implementation is split between `bin/abk-runner.js` and `lib/abk-runner-core.js`, limited to plan-only scanner selection without scanner execution.
 
-The hook runner read-only execution contract is recorded in `docs/hook-runner-read-only-execution-contract.md`. Its local implementation is split between `bin/abk-runner.js` and `lib/abk-runner-core.js`, limited to `parser-fallback-boundary-scan`, `latex-renderer-boundary-scan`, and `legacy-surface-retention-scan` with explicit runner input and changed file paths, `test-runtime-patch-scan` with explicit runner input and test file paths, and `test-fake-contract-scan` with explicit runner input plus test and production file paths.
+The hook runner read-only execution contract is recorded in `docs/hook-runner-read-only-execution-contract.md`. Its local implementation is split between `bin/abk-runner.js` and `lib/abk-runner-core.js`, limited to `parser-fallback-boundary-scan`, `latex-renderer-boundary-scan`, `hardcoded-credential-fallback-scan`, and `legacy-surface-retention-scan` with explicit runner input and changed file paths, `test-runtime-patch-scan` with explicit runner input and test file paths, and `test-fake-contract-scan` with explicit runner input plus test and production file paths.
 
 The read-only runner now includes configuration-error examples for unsupported scanner ids, unselected scanner ids, and missing changed file metadata. Unsupported scanner ids use `runner-command-contract` instead of being mapped to a supported scanner id.
 
@@ -259,6 +259,7 @@ Blocks completion when:
 57. Add read-only runner scan execution for `test-fake-contract-scan`. Completed: `hooks/claude/examples/runner-scan.test-fake-finding-input.json`, `hooks/claude/examples/runner-scan.test-fake-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
 58. Add read-only runner scan execution for `parser-fallback-boundary-scan`. Completed: `hooks/claude/examples/runner-scan.parser-fallback-finding-input.json`, `hooks/claude/examples/runner-scan.parser-fallback-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
 59. Add read-only runner scan execution for `latex-renderer-boundary-scan`. Completed: `hooks/claude/examples/runner-scan.latex-renderer-finding-input.json`, `hooks/claude/examples/runner-scan.latex-renderer-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
-60. Only then package a Codex skill or Claude hooks.
+60. Add read-only runner scan execution for `hardcoded-credential-fallback-scan`. Completed: `hooks/claude/examples/runner-scan.hardcoded-credential-finding-input.json`, `hooks/claude/examples/runner-scan.hardcoded-credential-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
+61. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.
