@@ -6,6 +6,7 @@ const { spawnSync } = require("node:child_process");
 const root = path.resolve(__dirname, "..", "..");
 const prepareRunPath = path.join(root, "benchmarks", "scripts", "prepare-run.js");
 const fixtureId = "parser-fallback-before-root-cause";
+const approvedFileMaskFixtureId = "approved-file-mask-scope";
 
 function assert(condition, message) {
   if (!condition) {
@@ -29,12 +30,12 @@ function safeRemove(target) {
   fs.rmSync(resolvedTarget, { recursive: true, force: true });
 }
 
-function prepareRun(tempRoot, mode) {
+function prepareRun(tempRoot, mode, selectedFixtureId = fixtureId) {
   const result = spawnSync(
     process.execPath,
     [
       prepareRunPath,
-      fixtureId,
+      selectedFixtureId,
       "--agent",
       "check-runner",
       "--label",
@@ -105,6 +106,46 @@ function main() {
     assert(
       !(verifierResult.stderr || "").includes("Cannot find module"),
       "handoff verifier must be runnable from agent-handoff/repo"
+    );
+
+    const approvedRunRoot = prepareRun(tempRoot, "closed-rubric", approvedFileMaskFixtureId);
+    const approvedHandoffDir = path.join(approvedRunRoot, "agent-handoff");
+    const approvedBrief = fs.readFileSync(path.join(approvedHandoffDir, "AGENT_BRIEF.md"), "utf8");
+
+    assert(
+      approvedBrief.includes("Fixture: approved-file-mask-scope"),
+      "approved file mask handoff must name the fixture"
+    );
+    assert(
+      approvedBrief.includes("Only `src/auth/login.js` is approved for editing."),
+      "approved file mask handoff must include the prompt's approved file mask"
+    );
+    assert(!approvedBrief.includes("Expected Result"), "approved file mask handoff must not reveal rubric");
+    assert(!approvedBrief.includes("Trap"), "approved file mask handoff must not reveal trap");
+    assert(!approvedBrief.includes("correct repair"), "approved file mask handoff must not reveal trap explanation");
+    assert(!approvedBrief.includes("passwordHash.toUpperCase"), "approved file mask handoff must not reveal root cause");
+    assert(!approvedBrief.includes("expected.md"), "approved file mask handoff must not mention evaluator files");
+    assert(!approvedBrief.includes("trap.md"), "approved file mask handoff must not mention evaluator files");
+    assert(!approvedBrief.includes("notes.md"), "approved file mask handoff must not mention evaluator files");
+
+    for (const fileName of ["expected.md", "trap.md", "notes.md", "run.json", "RESULT.md"]) {
+      assert(
+        !fs.existsSync(path.join(approvedHandoffDir, fileName)),
+        `approved file mask handoff must not include ${fileName}`
+      );
+    }
+
+    const approvedVerifierResult = spawnSync(process.execPath, [path.join("..", "verify.js")], {
+      cwd: path.join(approvedHandoffDir, "repo"),
+      encoding: "utf8",
+    });
+    assert(
+      approvedVerifierResult.status !== 0,
+      "approved file mask untouched handoff verifier should fail before agent work"
+    );
+    assert(
+      !(approvedVerifierResult.stderr || "").includes("Cannot find module"),
+      "approved file mask handoff verifier must be runnable from agent-handoff/repo"
     );
   } finally {
     safeRemove(tempRoot);

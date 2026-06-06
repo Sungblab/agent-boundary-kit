@@ -22,6 +22,8 @@ Give the agent only `agent-handoff/`.
 
 Use `docs/approved-file-mask-scope-agent-prompt.md` only when launching a fresh agent that has not read the fixture, verifier, trap, or evaluator files.
 
+`benchmarks/scripts/check-prepare-run.js` verifies that the generated closed-rubric handoff omits evaluator files and keeps the verifier runnable from `agent-handoff/repo/`.
+
 Do not give the agent `expected.md`, `trap.md`, `notes.md`, `RESULT.md`, or `run.json`.
 
 Do not use the existing calibration run as scored evidence.
