@@ -149,4 +149,6 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 The fixture-like event mapping example set is recorded in `docs/claude-hook-event-mapping-examples.md` and checked by `benchmarks/scripts/check-claude-hook-event-mapping-examples.js`.
 
-Only after those examples stay green should the repo consider an executable event mapper.
+The future event mapper command contract is recorded in `docs/claude-hook-event-mapper-contract.md` and checked by `benchmarks/scripts/check-claude-hook-event-mapper-contract.js`.
+
+Only after those contracts stay green should the repo consider implementing `abk-runner map-event --input <hook-event.json>`.

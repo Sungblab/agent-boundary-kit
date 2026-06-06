@@ -45,6 +45,7 @@ These examples are checked by:
 ```sh
 node benchmarks/scripts/check-claude-hook-event-mapping-examples.js
 node benchmarks/scripts/check-claude-hook-event-input-contract.js
+node benchmarks/scripts/check-claude-hook-event-mapper-contract.js
 npm run bench:check
 npm run bench:check:red
 ```
@@ -60,3 +61,7 @@ Do not execute scanners.
 Do not implement an event mapper yet.
 
 Do not generate final responses, PR metadata, release notes, product copy, or completion claims from hook event data.
+
+## Next Gate
+
+The future event mapper command contract is `docs/claude-hook-event-mapper-contract.md`. It must pass before implementing `abk-runner map-event --input <hook-event.json>`.
