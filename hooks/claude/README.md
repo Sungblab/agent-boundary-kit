@@ -52,6 +52,8 @@ The Claude hook native payload mapping fixtures are recorded in `docs/claude-hoo
 
 The Claude hook native metadata carrier fixtures are recorded in `docs/claude-hook-native-metadata-carrier-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js` and prove native payload plus explicit carrier metadata can produce an ABK hook event without reading transcripts.
 
+The Claude hook native adapter is recorded in `docs/claude-hook-native-adapter.md`. It is checked by `benchmarks/scripts/check-claude-hook-native-adapter.js` and maps native payload plus explicit carrier metadata into an ABK hook event without reading transcripts, installing hooks, or editing Claude configuration.
+
 The Claude hook command adapter contract is recorded in `docs/claude-hook-command-adapter-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-command-adapter-contract.js` and records the stdin-to-runner-input bridge required before live hook instructions.
 
 The Claude hook command adapter fixtures are recorded in `docs/claude-hook-command-adapter-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js` and keep the stdin bridge fixture-backed.

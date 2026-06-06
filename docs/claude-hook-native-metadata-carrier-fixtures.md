@@ -4,6 +4,8 @@ These fixtures define the explicit metadata carrier required before native Claud
 
 They extend `docs/claude-hook-native-payload-mapping-fixtures.md`, `docs/claude-hook-event-input-contract.md`, and `docs/claude-hook-command-adapter-entrypoint.md`.
 
+The bounded adapter implementation is recorded in `docs/claude-hook-native-adapter.md`.
+
 They are fixture-only. They are not installed hooks, not installers, and not live settings fragments.
 
 ## Source Evidence
@@ -74,6 +76,7 @@ Before metadata carrier mapping is described as ready, run:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js
+node benchmarks/scripts/check-claude-hook-native-adapter.js
 node benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js
 node benchmarks/scripts/check-claude-hook-event-input-contract.js
 node benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js
@@ -91,8 +94,6 @@ The evidence must show:
 
 ## Non-Goals
 
-Do not implement native payload carrier mapping in this fixture step.
-
 Do not install Claude hooks.
 
 Do not publish live settings fragments.
@@ -109,4 +110,4 @@ Do not read transcripts, prompt text, message arrays, issue bodies, PR text, log
 
 ## Next Gate
 
-The next gate is a bounded adapter contract for reading a native payload plus an explicit metadata carrier without installing hooks or reading transcript files.
+The next gate is `docs/claude-hook-native-adapter.md` and `benchmarks/scripts/check-claude-hook-native-adapter.js`.

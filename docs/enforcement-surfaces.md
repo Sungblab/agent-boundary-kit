@@ -88,6 +88,8 @@ The Claude hook native payload mapping fixtures are recorded in `docs/claude-hoo
 
 The Claude hook native metadata carrier fixtures are recorded in `docs/claude-hook-native-metadata-carrier-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js`, which requires `hookId`, `repoRoot`, and `task` to stay explicit when native payloads become ABK hook events.
 
+The Claude hook native adapter is recorded in `docs/claude-hook-native-adapter.md`. Its check is `benchmarks/scripts/check-claude-hook-native-adapter.js`, which maps native payload plus explicit carrier metadata into an ABK hook event without reading transcripts, installing hooks, or editing Claude configuration.
+
 The Claude hook command adapter contract is recorded in `docs/claude-hook-command-adapter-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`, which records the stdin-to-runner-input bridge required before live hook instructions.
 
 The Claude hook command adapter fixtures are recorded in `docs/claude-hook-command-adapter-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`, which keeps the stdin bridge fixture-backed.
@@ -354,6 +356,8 @@ Blocks completion when:
 106. Add a Claude hook command adapter entrypoint fixture check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js`.
 107. Add a Claude hook command adapter entrypoint contract. Completed: `docs/claude-hook-command-adapter-entrypoint.md`.
 108. Add a Claude hook command adapter entrypoint check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js`.
-109. Claude hooks remain specs until a bounded adapter accepts native payload plus explicit carrier metadata.
+109. Add a Claude hook native adapter. Completed: `docs/claude-hook-native-adapter.md` and `lib/abk-claude-native-payload-adapter.js`.
+110. Add a Claude hook native adapter check. Completed: `benchmarks/scripts/check-claude-hook-native-adapter.js`.
+111. Claude hooks remain specs until a command-entrypoint input contract accepts explicit carrier metadata without reading transcripts or publishing live settings fragments.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.
