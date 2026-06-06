@@ -71,6 +71,8 @@ The wrapper output fixtures must stay green before any wrapper implementation ex
 
 The wrapper implementation fixtures are recorded in `docs/claude-hook-wrapper-implementation-fixtures.md`.
 
+The local wrapper implementation is recorded in `docs/claude-hook-wrapper-implementation.md`.
+
 ## Allowed Wrapper Shape
 
 The future wrapper may:
@@ -147,6 +149,7 @@ Before wrapper implementation language is described as ready, run:
 ```sh
 node benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-implementation-fixtures.js
+node benchmarks/scripts/check-claude-hook-wrapper-implementation.js
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
@@ -190,4 +193,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is local wrapper module implementation against `docs/claude-hook-wrapper-implementation-fixtures.md`, still without hook installation or live settings guidance.
+The next gate is wrapper wiring review against `docs/claude-hook-wrapper-implementation.md`, still without hook installation or live settings guidance.

@@ -52,7 +52,7 @@ const packagePath = path.join(root, "package.json");
 const requiredDocPhrases = [
   "# Claude Hook Wrapper Implementation Fixtures",
   "fixture-only",
-  "not implemented in this gate",
+  "local wrapper implementation is recorded in `docs/claude-hook-wrapper-implementation.md`",
   "not an installed hook",
   "not an installer",
   "not live settings guidance",
@@ -70,6 +70,7 @@ const requiredDocPhrases = [
   "user-owned sidecar JSON",
   "Do not infer task metadata from native stdin",
   "Do not make `abk-claude-hook` accept carrierPath or metadataCarrierPath",
+  "docs/claude-hook-wrapper-implementation.md",
   "docs/claude-hook-wrapper-implementation-contract.md",
   "docs/claude-hook-wrapper-output-fixtures.md",
   "docs/claude-hook-wrapper-input-contract.md",
@@ -90,6 +91,7 @@ const requiredDocPhrases = [
   "Do not create or edit Claude configuration files",
   "Do not publish shell copy commands",
   "node benchmarks/scripts/check-claude-hook-wrapper-implementation-fixtures.js",
+  "node benchmarks/scripts/check-claude-hook-wrapper-implementation.js",
   "node benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js",
   "node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js",
   "npm run bench:check",
@@ -157,8 +159,6 @@ const linkedDocs = [
 
 const forbiddenRepoPaths = [
   ".claude",
-  "bin/abk-claude-hook-wrapper.js",
-  "lib/abk-claude-hook-wrapper.js",
   "hooks/claude/install.ps1",
   "hooks/claude/install.sh",
   "hooks/claude/setup.ps1",
@@ -303,7 +303,7 @@ function main() {
   assert.equal(findKey(missingCarrierOutput, forbiddenOutputKeys), null, "missing carrier output contains forbidden key");
 
   for (const forbiddenPath of forbiddenRepoPaths) {
-    assert.ok(!existsRelative(forbiddenPath), `forbidden wrapper/install path exists before implementation: ${forbiddenPath}`);
+    assert.ok(!existsRelative(forbiddenPath), `forbidden install/configuration path exists: ${forbiddenPath}`);
   }
 
   for (const relativePath of linkedDocs) {

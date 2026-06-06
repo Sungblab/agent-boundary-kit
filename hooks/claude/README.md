@@ -64,6 +64,8 @@ The Claude hook wrapper implementation contract is recorded in `docs/claude-hook
 
 The Claude hook wrapper implementation fixtures are recorded in `docs/claude-hook-wrapper-implementation-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-wrapper-implementation-fixtures.js` and fix valid and rejected wrapper inputs before local wrapper code exists.
 
+The Claude hook wrapper implementation is recorded in `docs/claude-hook-wrapper-implementation.md`. It is checked by `benchmarks/scripts/check-claude-hook-wrapper-implementation.js` and verifies the local wrapper command emits the expected envelope without installing hooks, running scanners, or editing Claude configuration.
+
 The Claude hook native payload mapping fixtures are recorded in `docs/claude-hook-native-payload-mapping-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js` and prove native Claude Code payload alone is insufficient because ABK task metadata must remain explicit.
 
 The Claude hook native metadata carrier fixtures are recorded in `docs/claude-hook-native-metadata-carrier-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js` and prove native payload plus explicit carrier metadata can produce an ABK hook event without reading transcripts.

@@ -1,10 +1,10 @@
 # Claude Hook Wrapper Implementation Fixtures
 
-These fixtures define the first valid and rejected inputs for the future Claude hook wrapper.
+These fixtures define the first valid and rejected inputs for the Claude hook wrapper.
 
 They are fixture-only.
 
-They are not implemented in this gate.
+The local wrapper implementation is recorded in `docs/claude-hook-wrapper-implementation.md`.
 
 They are not an installed hook, not an installer, and not live settings guidance.
 
@@ -26,7 +26,7 @@ The candidate command is `abk-claude-hook-wrapper`.
 
 The candidate module is `lib/abk-claude-hook-wrapper.js`.
 
-The wrapper remains unimplemented in this gate.
+The local wrapper implementation is recorded in `docs/claude-hook-wrapper-implementation.md`.
 
 The fixture models native stdin plus user-owned sidecar JSON.
 
@@ -62,6 +62,7 @@ Do not publish shell copy commands.
 
 These fixtures extend:
 
+- `docs/claude-hook-wrapper-implementation.md`
 - `docs/claude-hook-wrapper-implementation-contract.md`
 - `docs/claude-hook-wrapper-output-fixtures.md`
 - `docs/claude-hook-wrapper-input-contract.md`
@@ -120,6 +121,7 @@ Before wrapper implementation fixtures are described as ready, run:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-wrapper-implementation-fixtures.js
+node benchmarks/scripts/check-claude-hook-wrapper-implementation.js
 node benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
@@ -132,17 +134,17 @@ npm run bench:check:red
 The evidence must show:
 
 - the fixtures are fixture-only
-- the wrapper is not implemented in this gate
+- the local wrapper implementation is recorded in `docs/claude-hook-wrapper-implementation.md`
 - the valid stdin fixture includes common native fields
 - the expected envelope omits `session_id` and `transcript_path`
 - the expected envelope matches the wrapper output fixture
 - transcript-derived carrier metadata is rejected
 - missing carrier input is rejected
-- no wrapper implementation, hook setup file, or repository-level Claude configuration exists
+- no hook setup file or repository-level Claude configuration exists
 
 ## Non-Goals
 
-Do not implement the wrapper in this gate.
+Do not install or configure the wrapper in this gate.
 
 Do not install Claude hooks.
 
@@ -162,4 +164,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is local wrapper module implementation against these fixtures, still without hook installation or live settings guidance.
+The next gate is wrapper wiring review, still without hook installation or live settings guidance.

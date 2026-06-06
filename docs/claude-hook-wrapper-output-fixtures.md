@@ -40,6 +40,8 @@ The wrapper implementation contract is `docs/claude-hook-wrapper-implementation-
 
 The wrapper implementation fixtures are `docs/claude-hook-wrapper-implementation-fixtures.md`.
 
+The wrapper implementation is `docs/claude-hook-wrapper-implementation.md`.
+
 The carrier fixture contract is `docs/claude-hook-native-metadata-carrier-fixtures.md`.
 
 The current entrypoint boundary is unchanged.
@@ -98,6 +100,7 @@ Before wrapper output fixture language is described as ready, run:
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
 node benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-implementation-fixtures.js
+node benchmarks/scripts/check-claude-hook-wrapper-implementation.js
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js
