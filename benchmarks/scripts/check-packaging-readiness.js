@@ -50,6 +50,7 @@ const scanners = [
   "completion-evidence-gate-scan",
   "noisy-log-root-cause-scan",
   "hardcoded-credential-fallback-scan",
+  "guidance-to-code-leakage-scan",
   "test-fake-contract-scan",
   "untrusted-context-canary-scan",
 ];

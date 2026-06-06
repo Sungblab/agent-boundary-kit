@@ -1,0 +1,41 @@
+{
+  "hookId": "post_edit_scope_check",
+  "scanner": "guidance-to-code-leakage-scan",
+  "status": "finding",
+  "exitCode": 1,
+  "blocked": true,
+  "reason": "repository guidance leaked into product behavior",
+  "inputsUsed": ["repoRoot", "changedFiles"],
+  "findings": [
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/guidance-to-code-finding/src/model-settings.js",
+      "line": 1,
+      "rule": "guidance-to-code-leakage",
+      "detail": "concrete guidance-derived model id matched /gpt-5-codex|claude|sonnet|opus/: const AGENT_RECOMMENDED_MODEL = \"claude-sonnet\";"
+    },
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/guidance-to-code-finding/src/model-settings.js",
+      "line": 1,
+      "rule": "guidance-to-code-leakage",
+      "detail": "agent recommendation drives product behavior matched /AGENT_RECOMMENDED_MODEL|agentRecommendedModel|recommended model/: const AGENT_RECOMMENDED_MODEL = \"claude-sonnet\";"
+    },
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/guidance-to-code-finding/src/model-settings.js",
+      "line": 4,
+      "rule": "guidance-to-code-leakage",
+      "detail": "agent recommendation drives product behavior matched /AGENT_RECOMMENDED_MODEL|agentRecommendedModel|recommended model/: return AGENT_RECOMMENDED_MODEL;"
+    },
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/guidance-to-code-finding/src/model-settings.js",
+      "line": 8,
+      "rule": "guidance-to-code-leakage",
+      "detail": "agent recommendation drives product behavior matched /AGENT_RECOMMENDED_MODEL|agentRecommendedModel|recommended model/: return \"Uses the current recommended model family\";"
+    },
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/guidance-to-code-finding/src/model-settings.js",
+      "line": 8,
+      "rule": "guidance-to-code-leakage",
+      "detail": "repository guidance leaked into product copy matched /current recommended model family|agent guidance|prefer the current recommended/: return \"Uses the current recommended model family\";"
+    }
+  ]
+}

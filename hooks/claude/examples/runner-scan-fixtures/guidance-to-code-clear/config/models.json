@@ -1,0 +1,4 @@
+{
+  "defaultModel": "model-basic",
+  "availableModels": ["model-basic", "claude-sonnet"]
+}

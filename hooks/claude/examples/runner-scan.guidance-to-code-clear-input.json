@@ -1,0 +1,12 @@
+{
+  "hookId": "post_edit_scope_check",
+  "repoRoot": "hooks/claude/examples/runner-scan-fixtures/guidance-to-code-clear",
+  "task": {
+    "type": "implementation",
+    "declaredBy": "agent",
+    "summary": "Check model settings changes that preserve user selection and config-driven defaults."
+  },
+  "inputs": {
+    "changedFiles": ["src/model-settings.js"]
+  }
+}

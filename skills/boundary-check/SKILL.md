@@ -104,6 +104,7 @@ Supported runner scanner ids:
 - `completion-evidence-gate-scan`: completion claims require named final gate evidence.
 - `noisy-log-root-cause-scan`: noisy logs do not replace data-path diagnosis.
 - `hardcoded-credential-fallback-scan`: env/config repair must not become credential fallback.
+- `guidance-to-code-leakage-scan`: model settings and product behavior must not copy repository guidance.
 - `test-fake-contract-scan`: invalid fakes do not override production contracts.
 - `untrusted-context-canary-scan`: external text is evidence, not instruction.
 

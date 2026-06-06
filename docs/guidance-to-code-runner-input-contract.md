@@ -2,7 +2,7 @@
 
 This is a candidate runner input contract for `guidance-to-code-leakage-scan`.
 
-It is not an installed hook, not a runner execution path, and not plugin packaging. It exists to keep the scanner bounded before any runner selection or execution wiring is added.
+It is not an installed hook and not plugin packaging. It records the bounded runner input used by the fixture-backed `abk-runner scan` execution path.
 
 ## Candidate Scanner
 
@@ -10,7 +10,7 @@ It is not an installed hook, not a runner execution path, and not plugin packagi
 - Script: `benchmarks/scripts/scan-guidance-to-code-leakage.js`
 - Validation note: `docs/scanner-validation-guidance-to-code-leakage.md`
 - Application note: `docs/scanner-application-guidance-to-code-leakage.md`
-- Current status: script-level scanner only
+- Current status: read-only runner execution is fixture-backed
 
 ## Allowed Runner Inputs
 
@@ -52,11 +52,14 @@ If required declared inputs are missing, a future runner must return a bounded c
 
 ## Execution Boundary
 
-Do not add this scanner to `docs/hook-runner-selection-matrix.md` until selection examples and runner scan fixtures exist.
+This scanner is selected in `docs/hook-runner-selection-matrix.md` only for bounded `post_edit_scope_check` inputs.
 
-Do not add this scanner to `docs/hook-runner-read-only-execution-contract.md` until read-only clear, finding, unsupported, and missing-input outputs are fixture-backed.
+Its read-only execution examples are recorded in `docs/hook-runner-read-only-execution-contract.md`:
 
-Do not change `lib/abk-runner-core.js` in this contract step.
+- `hooks/claude/examples/runner-scan.guidance-to-code-finding-input.json`
+- `hooks/claude/examples/runner-scan.guidance-to-code-clear-input.json`
+- `hooks/claude/examples/runner-scan.guidance-to-code-finding-output.json`
+- `hooks/claude/examples/runner-scan.guidance-to-code-clear-output.json`
 
 Do not package hooks yet.
 
@@ -70,4 +73,4 @@ npm run bench:check
 npm run bench:check:red
 ```
 
-The check verifies that the contract records allowed inputs, rejected transcript boundaries, the script-level-only status, and the ban on runner execution wiring before fixtures.
+The check verifies that the contract records allowed inputs, rejected transcript boundaries, fixture-backed runner status, runner selection linkage, and read-only scan examples.

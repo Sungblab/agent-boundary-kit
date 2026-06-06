@@ -8,7 +8,7 @@ The implemented command shape is:
 abk-runner scan --input <runner-input.json> --scanner <scanner-id>
 ```
 
-The supported scanner ids are `parser-fallback-boundary-scan`, `latex-renderer-boundary-scan`, `hardcoded-credential-fallback-scan`, `legacy-surface-retention-scan`, `test-runtime-patch-scan`, `test-fake-contract-scan`, `completion-evidence-gate-scan`, `untrusted-context-canary-scan`, `noisy-log-root-cause-scan`, and `phase-gate-plan-scan`.
+The supported scanner ids are `parser-fallback-boundary-scan`, `latex-renderer-boundary-scan`, `hardcoded-credential-fallback-scan`, `guidance-to-code-leakage-scan`, `legacy-surface-retention-scan`, `test-runtime-patch-scan`, `test-fake-contract-scan`, `completion-evidence-gate-scan`, `untrusted-context-canary-scan`, `noisy-log-root-cause-scan`, and `phase-gate-plan-scan`.
 
 ## Boundary
 
@@ -52,6 +52,8 @@ Execution examples:
 - `hooks/claude/examples/runner-scan.latex-renderer-clear-input.json`
 - `hooks/claude/examples/runner-scan.hardcoded-credential-finding-input.json`
 - `hooks/claude/examples/runner-scan.hardcoded-credential-clear-input.json`
+- `hooks/claude/examples/runner-scan.guidance-to-code-finding-input.json`
+- `hooks/claude/examples/runner-scan.guidance-to-code-clear-input.json`
 - `hooks/claude/examples/runner-scan.test-runtime-finding-input.json`
 - `hooks/claude/examples/runner-scan.test-runtime-clear-input.json`
 - `hooks/claude/examples/runner-scan.test-fake-finding-input.json`
@@ -87,6 +89,8 @@ Output examples:
 - `hooks/claude/examples/runner-scan.latex-renderer-clear-output.json`
 - `hooks/claude/examples/runner-scan.hardcoded-credential-finding-output.json`
 - `hooks/claude/examples/runner-scan.hardcoded-credential-clear-output.json`
+- `hooks/claude/examples/runner-scan.guidance-to-code-finding-output.json`
+- `hooks/claude/examples/runner-scan.guidance-to-code-clear-output.json`
 - `hooks/claude/examples/runner-scan.test-runtime-finding-output.json`
 - `hooks/claude/examples/runner-scan.test-runtime-clear-output.json`
 - `hooks/claude/examples/runner-scan.test-fake-finding-output.json`
@@ -123,13 +127,15 @@ Exit 2 means invalid input, rejected transcript fields, unsupported hook id, uns
 
 ## Current Implementation Scope
 
-The current implementation may execute only `parser-fallback-boundary-scan`, `latex-renderer-boundary-scan`, `hardcoded-credential-fallback-scan`, `legacy-surface-retention-scan`, `test-runtime-patch-scan`, `test-fake-contract-scan`, `completion-evidence-gate-scan`, `untrusted-context-canary-scan`, `noisy-log-root-cause-scan`, and `phase-gate-plan-scan`.
+The current implementation may execute only `parser-fallback-boundary-scan`, `latex-renderer-boundary-scan`, `hardcoded-credential-fallback-scan`, `guidance-to-code-leakage-scan`, `legacy-surface-retention-scan`, `test-runtime-patch-scan`, `test-fake-contract-scan`, `completion-evidence-gate-scan`, `untrusted-context-canary-scan`, `noisy-log-root-cause-scan`, and `phase-gate-plan-scan`.
 
 For `parser-fallback-boundary-scan`, it must pass changed files from the declared `repoRoot` and `inputs.changedFiles` fields. `inputs.namedTools` is used to select the scanner, not to infer alternate parser files. If required declared fields are missing, it must return `exitCode: 2`.
 
 For `latex-renderer-boundary-scan`, it must pass changed files from the declared `repoRoot` and `inputs.changedFiles` fields. `inputs.namedTools` is used to select the scanner, not to infer alternate renderer files. If required declared fields are missing, it must return `exitCode: 2`.
 
 For `hardcoded-credential-fallback-scan`, it must pass changed files from the declared `repoRoot` and `inputs.changedFiles` fields. It must not inspect `.env`, notes, tests, or broad workspace files to infer credential material. If required declared fields are missing, it must return `exitCode: 2`.
+
+For `guidance-to-code-leakage-scan`, it must pass changed files from the declared `repoRoot` and `inputs.changedFiles` fields. `task` metadata selects the scanner and records the model-settings or product-behavior boundary; it must not scan raw transcripts, repository guidance prose, docs, config files, tests, or broad workspace files to infer model preferences. If required declared fields are missing, it must return `exitCode: 2`.
 
 For `legacy-surface-retention-scan`, it must pass changed files from the declared `repoRoot` and `inputs.changedFiles` fields. If those fields are missing, it must return `exitCode: 2`.
 

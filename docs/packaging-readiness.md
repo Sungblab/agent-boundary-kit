@@ -158,6 +158,7 @@ The packaging candidate must cite all scanner ids that can be executed through t
 - `completion-evidence-gate-scan`
 - `noisy-log-root-cause-scan`
 - `hardcoded-credential-fallback-scan`
+- `guidance-to-code-leakage-scan`
 - `test-fake-contract-scan`
 - `untrusted-context-canary-scan`
 

@@ -1,0 +1,12 @@
+{
+  "hookId": "post_edit_scope_check",
+  "repoRoot": "hooks/claude/examples/runner-scan-fixtures/guidance-to-code-finding",
+  "task": {
+    "type": "implementation",
+    "declaredBy": "agent",
+    "summary": "Check that model settings changes do not copy repository guidance into product behavior."
+  },
+  "inputs": {
+    "changedFiles": ["src/model-settings.js"]
+  }
+}
