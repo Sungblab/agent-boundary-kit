@@ -1,0 +1,43 @@
+{
+  "mode": "adapter-entrypoint-fixture",
+  "inputSource": "stdin",
+  "hookId": "post_edit_scope_check",
+  "status": "planned",
+  "exitCode": 0,
+  "runnerChain": [
+    {
+      "command": "map-event",
+      "exitCode": 0
+    },
+    {
+      "command": "dry-run",
+      "exitCode": 0
+    }
+  ],
+  "scanExecuted": false,
+  "selectedScanners": [
+    {
+      "scanner": "legacy-surface-retention-scan",
+      "willExecute": false
+    },
+    {
+      "scanner": "untrusted-context-canary-scan",
+      "willExecute": false
+    }
+  ],
+  "temporaryFiles": {
+    "root": "<explicit-temp-dir>",
+    "created": [
+      "hook-event.json",
+      "runner-input.json"
+    ],
+    "deletedBeforeExit": true,
+    "repositoryWrites": []
+  },
+  "nonGoals": [
+    "Do not install hooks",
+    "Do not write final responses",
+    "Do not preserve stdin payloads",
+    "Do not execute scanners in this fixture"
+  ]
+}

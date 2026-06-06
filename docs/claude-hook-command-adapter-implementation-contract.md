@@ -42,6 +42,7 @@ The implementation contract depends on:
 
 - `docs/claude-hook-command-adapter-contract.md`
 - `docs/claude-hook-command-adapter-fixtures.md`
+- `docs/claude-hook-command-adapter-entrypoint-fixtures.md`
 - `docs/claude-hook-event-mapper-contract.md`
 - `docs/claude-hook-event-mapper-output-fixtures.md`
 - `docs/hook-runner-read-only-execution-contract.md`
@@ -111,6 +112,7 @@ Before any adapter implementation is described as ready, run:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js
+node benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js
 node benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js
 node benchmarks/scripts/check-claude-hook-command-adapter-contract.js
 node benchmarks/scripts/check-claude-hook-event-mapper-contract.js
@@ -129,6 +131,7 @@ The evidence must show:
 - no hook setup files exist
 - no Claude configuration file is created in this repository
 - adapter fixtures map valid stdin payloads to explicit runner input
+- adapter entrypoint fixtures preserve runner exit codes and cleanup traces
 - adapter fixtures reject transcript-bearing stdin payloads
 
 ## Non-Goals
@@ -155,4 +158,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a bounded adapter entrypoint fixture that proves stdin parsing, temporary file cleanup, runner exit-code preservation, and rejection of private-context fields.
+The next gate is `docs/claude-hook-command-adapter-entrypoint-fixtures.md` and `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js`.

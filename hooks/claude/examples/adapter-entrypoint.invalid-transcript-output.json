@@ -1,0 +1,32 @@
+{
+  "mode": "adapter-entrypoint-fixture",
+  "inputSource": "stdin",
+  "hookId": "completion_evidence_check",
+  "status": "error",
+  "exitCode": 2,
+  "blocked": true,
+  "reason": "rejected event field rawPrivateTranscript",
+  "runnerChain": [
+    {
+      "command": "map-event",
+      "exitCode": 2
+    }
+  ],
+  "scanExecuted": false,
+  "inputsUsed": [],
+  "findings": [],
+  "temporaryFiles": {
+    "root": "<explicit-temp-dir>",
+    "created": [
+      "hook-event.json"
+    ],
+    "deletedBeforeExit": true,
+    "repositoryWrites": []
+  },
+  "nonGoals": [
+    "Do not install hooks",
+    "Do not write final responses",
+    "Do not echo private transcript text",
+    "Do not execute scanners"
+  ]
+}

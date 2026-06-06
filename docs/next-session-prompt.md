@@ -40,6 +40,7 @@ Immediate next work:
 7. Review `docs/claude-hook-command-adapter-contract.md` and run `node benchmarks/scripts/check-claude-hook-command-adapter-contract.js` before adding live hook or manual install instructions.
 8. Review `docs/claude-hook-command-adapter-fixtures.md` and run `node benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js` before implementing any adapter entrypoint.
 9. Review `docs/claude-hook-command-adapter-implementation-contract.md` and run `node benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js` before adding adapter entrypoint code.
+10. Review `docs/claude-hook-command-adapter-entrypoint-fixtures.md` and run `node benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js` before implementing the adapter entrypoint.
 
 Style:
 Be blunt, evidence-first, and research-oriented. Avoid hype and early-product shorthand. Prefer spec-first, evidence-gated, fixture, taxonomy, and benchmark.

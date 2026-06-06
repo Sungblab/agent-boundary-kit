@@ -86,6 +86,8 @@ The Claude hook command adapter fixtures are recorded in `docs/claude-hook-comma
 
 The Claude hook command adapter implementation contract is recorded in `docs/claude-hook-command-adapter-implementation-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js`, which bounds the future stdin entrypoint before implementation.
 
+The Claude hook command adapter entrypoint fixtures are recorded in `docs/claude-hook-command-adapter-entrypoint-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js`, which fixes stdin parsing, cleanup, exit-code, and rejection expectations before adapter code.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -330,6 +332,8 @@ Blocks completion when:
 94. Add a Claude hook command adapter fixture check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`.
 95. Add a Claude hook command adapter implementation contract. Completed: `docs/claude-hook-command-adapter-implementation-contract.md`.
 96. Add a Claude hook command adapter implementation contract check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js`.
-97. Claude hooks remain specs until a bounded adapter entrypoint fixture exists.
+97. Add Claude hook command adapter entrypoint fixtures. Completed: `docs/claude-hook-command-adapter-entrypoint-fixtures.md`.
+98. Add a Claude hook command adapter entrypoint fixture check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js`.
+99. Claude hooks remain specs until a bounded adapter entrypoint implementation exists.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

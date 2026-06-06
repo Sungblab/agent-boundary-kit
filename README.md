@@ -96,6 +96,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `docs/claude-hook-command-adapter-contract.md`: contract for the stdin-to-runner-input bridge required before live Claude hooks
 - `docs/claude-hook-command-adapter-fixtures.md`: red/green fixtures for the future Claude hook stdin adapter
 - `docs/claude-hook-command-adapter-implementation-contract.md`: implementation contract for a future bounded stdin adapter entrypoint
+- `docs/claude-hook-command-adapter-entrypoint-fixtures.md`: fixture-only expected outputs for a future bounded stdin adapter entrypoint
 - `docs/packaging-readiness.md`: evidence gate for future Codex skill or Claude hook packaging
 - `docs/codex-skill-install-contract.md`: boundary contract for the first manual Codex skill install candidate
 - `docs/codex-skill-manual-install.md`: user-approved manual copy instructions for the boundary-check Codex skill candidate
@@ -155,6 +156,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`: verifies live Claude hook docs stay blocked until stdin event input can bridge to explicit runner files
 - `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`: verifies future Claude hook stdin adapter fixtures map to explicit runner input and reject transcript input
 - `benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js`: verifies the future adapter entrypoint contract stays bounded before implementation
+- `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js`: verifies future adapter entrypoint fixtures cover stdin parsing, cleanup, exit codes, and private-context rejection
 - `benchmarks/scripts/check-packaging-readiness.js`: verifies packaging stays tied to fixture-backed scanner evidence
 - `benchmarks/scripts/check-boundary-skill-readiness.js`: verifies the boundary-check Codex skill candidate stays tied to the packaging and read-only runner contracts
 - `benchmarks/scripts/check-codex-skill-install-contract.js`: verifies the Codex skill install contract does not widen into plugin, hook, connector, or watcher behavior
@@ -225,6 +227,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - future Claude hook command adapters are checked against `docs/claude-hook-command-adapter-contract.md` before any live hook instructions.
 - future Claude hook stdin adapter fixtures are checked against `docs/claude-hook-command-adapter-fixtures.md` before adapter implementation.
 - future Claude hook adapter implementation is checked against `docs/claude-hook-command-adapter-implementation-contract.md` before entrypoint code.
+- future Claude hook adapter entrypoint behavior is checked against `docs/claude-hook-command-adapter-entrypoint-fixtures.md` before adapter code.
 - the boundary-check skill candidate is checked against the packaging readiness contract and read-only runner evidence contract.
 - the Codex skill install contract is checked before any manual install instructions are published.
 - the boundary-check skill folder shape is checked before manual install instructions are published.
