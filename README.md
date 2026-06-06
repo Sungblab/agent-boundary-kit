@@ -85,6 +85,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `docs/hook-runner-input-contract.md`: JSON input contract and examples for the future hook runner
 - `docs/hook-runner-output-contract.md`: JSON output contract and examples for bounded runner results
 - `docs/hook-runner-dry-run-spec.md`: dry-run example for scanner selection and bounded result mapping
+- `docs/packaging-readiness.md`: evidence gate for future Codex skill or Claude hook packaging
 - `docs/first-ten-result-synthesis.md`: first reviewed-result synthesis and enforcement-surface gap analysis
 - `docs/first-scanner-candidate.md`: first narrow scanner candidate and red/green validation path
 - `docs/scanner-validation-test-runtime-patch.md`: recorded red/green evidence for the first scanner
@@ -129,6 +130,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/check-hook-runner-input-contract.js`: verifies the hook runner input schema and valid/invalid examples
 - `benchmarks/scripts/check-hook-runner-output-contract.js`: verifies the hook runner output schema and valid/invalid examples
 - `benchmarks/scripts/check-hook-runner-dry-run-spec.js`: verifies the dry-run scanner selection example
+- `benchmarks/scripts/check-packaging-readiness.js`: verifies packaging stays tied to fixture-backed scanner evidence
 - `benchmarks/fixtures/`: runnable benchmark fixtures
 - `benchmarks/results/`: reviewed result summary template and publication rules
 - `templates/AGENTS.boundary.md`: repository instruction template for Codex-style agents

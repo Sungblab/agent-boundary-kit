@@ -52,6 +52,8 @@ The hook runner read-only execution contract is recorded in `docs/hook-runner-re
 
 The read-only runner now includes configuration-error examples for unsupported scanner ids, unselected scanner ids, and missing changed file metadata. Unsupported scanner ids use `runner-command-contract` instead of being mapped to a supported scanner id.
 
+The packaging readiness contract is recorded in `docs/packaging-readiness.md`. It fixes the next allowed installable surface as a narrow Codex skill candidate and keeps Claude hooks, plugin packaging, connectors, dashboards, and broad workflow tooling out of scope until a separate evidence gate exists.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -264,6 +266,8 @@ Blocks completion when:
 62. Add read-only runner scan execution for `untrusted-context-canary-scan`. Completed: `hooks/claude/examples/runner-scan.untrusted-context-post-edit-finding-input.json`, `hooks/claude/examples/runner-scan.untrusted-context-completion-finding-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
 63. Add read-only runner scan execution for `noisy-log-root-cause-scan`. Completed: `hooks/claude/examples/runner-scan.noisy-log-post-edit-finding-input.json`, `hooks/claude/examples/runner-scan.noisy-log-test-integrity-finding-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
 64. Add read-only runner scan execution for `phase-gate-plan-scan`. Completed: `hooks/claude/examples/runner-scan.phase-gate-pre-write-finding-input.json`, `hooks/claude/examples/runner-scan.phase-gate-completion-finding-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
-65. Only then package a Codex skill or Claude hooks.
+65. Record a packaging readiness contract before any installable surface. Completed: `docs/packaging-readiness.md`.
+66. Add a packaging readiness check so packaging stays tied to fixture-backed scanner evidence. Completed: `benchmarks/scripts/check-packaging-readiness.js`.
+67. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.
