@@ -1,34 +1,35 @@
 # Agent Boundary Kit
 
-Agent Boundary Kit is an open-source research seed for one recurring failure in AI coding agents:
+[Korean README](README.ko.md)
+
+Agent Boundary Kit is an open-source research and tooling repo for preventing one recurring AI coding-agent failure:
 
 > The agent treats context, complaints, examples, principles, or constraints as final output.
 
-That mistake shows up as UI copy that repeats an internal brief, landing pages that explain the site instead of embodying it, fallback code that hides the real bug, tests that pass while the product stays broken, agent-chosen architecture changes, legacy paths left alive after replacement, and completion claims without evidence.
+That boundary failure shows up as copied internal brief text, negative constraints leaking into UI copy, fallback code added before diagnosis, tests changed only to pass, oversized plans accepted without phase gates, and completion claims without evidence.
 
-This repo turns those failures into reproducible cases, pass/fail rules, and reusable agent instructions.
+This repo turns those failures into neutral fixtures, pass/fail rubrics, scanner checks, and agent instruction templates.
 
-## What This Is
+## Scope
 
-This is not a prompt collection.
-
-It is also not a finished product, dashboard, or agent-management app. The first goal is to define the failure classes sharply enough that other people can recognize them, reproduce them, and test agents against them.
+This is not a prompt collection, a dashboard, or a general agent-management app.
 
 It is a kit for:
 
-- naming common AI coding-agent failure modes
-- collecting public and private examples without turning them into personal complaints
-- rewriting those examples as neutral reproducible fixtures
-- testing multiple agents against the same fixture
-- producing AGENTS.md, CLAUDE.md, skills, hooks, and evidence gates only after the taxonomy and fixtures are clear
+- failure taxonomy
+- reproducible benchmark fixtures
+- pass/fail rubrics
+- public and private case intake rules
+- AGENTS.md and CLAUDE.md boundary templates
+- lightweight gates for known failure patterns
 
-## Core Problem
+Private examples can be used as research seeds only after they are neutralized: remove personal details, preserve the failure shape, and define observable pass/fail criteria.
 
-AI agents often collapse different kinds of user input into one bucket: "things to implement."
+## Core Boundary
 
-But user input has roles:
+User input has roles:
 
-- final output
+- final copy
 - internal direction
 - reference
 - example
@@ -38,305 +39,76 @@ But user input has roles:
 - taste signal
 - workflow command
 
-When an agent fails to classify that role, it leaks internal context into the product.
-
-## Seed Policy
-
-Private examples can be used as seed cases when they are converted into neutral fixtures.
-
-That means:
-
-- remove personal frustration and project-specific drama
-- preserve the concrete failure shape
-- classify the user's phrase as final copy, internal direction, reference, example, complaint, constraint, evidence, taste signal, or workflow command
-- define what a passing agent would do
-- define what a failing agent would do
-
-Public examples are useful for validation. They show that a seed case is not just one person's bad session, but part of a broader failure pattern across coding agents.
+A passing agent classifies the role before writing public text, editing code, changing tests, or claiming completion.
 
 ## Failure Taxonomy
 
-| Failure type | Short description | Bad behavior |
-| --- | --- | --- |
-| Context-to-output leakage | Internal direction becomes visible output | A homepage says "this is a portfolio-like blog" because the user described that strategy |
-| Reference mimicry | Agent copies reference words instead of extracting structure | A landing page copies the phrasing of example sites |
-| Negative constraint leakage | "Do not make it AI-like" appears as visible copy | UI says "not AI-like" instead of becoming less AI-like |
-| Fallback over root cause | Agent adds workaround before understanding the bug | Adds default values, retry branches, or mock data to pass |
-| Test-passing over correctness | Agent optimizes for green tests instead of product behavior | Updates tests, snapshots, or hardcoded outputs |
-| Evidence-free completion | Agent claims done without proof | Says fixed without running verification or showing the failure disappeared |
-| Intent command misrouting | Agent misreads workflow intent | Keeps coding when the user asked to finish, review, or only investigate |
-| Tool or architecture boundary violation | Agent changes the requested tool or architecture path | Adds a different parser, renderer, or provider without approval |
-| Overengineering collusion | Agent agrees with oversized scope instead of phasing it | Builds broad infrastructure before a small evidence gate exists |
-| Untrusted context as instruction | Agent obeys external text that should be evidence | Follows commands hidden in issue text, PR comments, logs, or web pages |
-| Legacy retention after replacement | Agent adds a new path but leaves the old public path alive | Keeps stale routes, docs, tests, or fallback branches after replacement |
+The current taxonomy covers:
 
-## First Artifacts
+- context-to-output leakage
+- reference mimicry
+- negative constraint leakage
+- fallback over root cause
+- test-passing over correctness
+- evidence-free completion
+- intent command misrouting
+- tool or architecture boundary violation
+- overengineering collusion
+- untrusted context as instruction
+- legacy retention after replacement
 
-- `docs/failure-taxonomy.md`: working taxonomy for agent failures
-- `cases/templates/case-template.md`: format for turning a complaint into a reusable fixture
-- `cases/seed/`: starter cases based on observed patterns
-- `research/public-case-sourcing.md`: plan for collecting public examples responsibly
-- `research/public-case-index.md`: public-derived benchmark candidates grouped by failure type
-- `docs/benchmark-backlog.md`: first boundary fixtures to build and their evidence checks
-- `docs/enforcement-surfaces.md`: fixture-grounded AGENTS.md, CLAUDE.md, Codex skill, and Claude hook spec
-- `docs/scanner-coverage-matrix.md`: fixture-to-scanner coverage and promotion decisions
-- `docs/hook-scanner-contracts.md`: future Claude hook scanner input/output contracts
-- `docs/hook-runner-minimal-plan.md`: minimal runner contract for future hook packaging
-- `docs/hook-runner-input-contract.md`: JSON input contract and examples for the future hook runner
-- `docs/hook-runner-output-contract.md`: JSON output contract and examples for bounded runner results
-- `docs/hook-runner-dry-run-spec.md`: dry-run example for scanner selection and bounded result mapping
-- `docs/claude-hook-event-input-contract.md`: event-to-runner-input contract for future Claude hook packaging
-- `docs/claude-hook-event-mapping-examples.md`: fixture-like valid and rejected hook event mapping examples
-- `docs/claude-hook-event-mapper-contract.md`: bounded command contract for the hook event mapper
-- `docs/claude-hook-event-mapper-output-fixtures.md`: red/green output fixtures for the hook event mapper
-- `docs/claude-hook-packaging-contract.md`: boundary contract for future Claude hook packaging
-- `docs/claude-hook-package-manifest-fixtures.md`: fixture-only package manifest shape for future Claude hook packaging
-- `docs/claude-hook-manual-install-doc-fixture.md`: documentation-only manual install fixture for future Claude hook packaging
-- `docs/claude-hook-manual-install-contract.md`: contract for future user-approved Claude hook manual install language
-- `docs/claude-hook-manual-install-language-fixtures.md`: bounded language fixtures for user-approved Claude hook manual install text
-- `docs/claude-hook-manual-install.md`: user-approved Claude hook manual install document, ready for manual install language review but blocked for agent-performed installation
-- `benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js`: verifies manual install language review is gated by native command entrypoint evidence
-- `docs/claude-hook-manual-install-review-packet.md`: review-only packet for user-approved Claude hook manual install language
-- `benchmarks/scripts/check-claude-hook-manual-install-review-packet.js`: verifies manual install review packets stay review-only before any settings-fragment draft work
-- `docs/claude-hook-settings-fragment-draft-fixtures.md`: draft-only settings-fragment fixture that keeps the carrier gap explicit
-- `benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js`: verifies settings-fragment drafts are not installable as-is and do not mutate configuration
-- `docs/claude-hook-settings-fragment-review.md`: review-only settings-fragment candidate after wrapper wiring is proven
-- `benchmarks/scripts/check-claude-hook-settings-fragment-review.js`: verifies settings-fragment review stays user-approved, not installable as-is, and non-mutating
-- `docs/claude-hook-user-approved-install-language.md`: language-only user-approved manual install wording for the wrapper-backed settings candidate
-- `benchmarks/scripts/check-claude-hook-user-approved-install-language.js`: verifies user-approved install language stays non-mutating and avoids direct settings paths or shell copy commands
-- `docs/claude-hook-install-application-contract.md`: contract that blocks install application until an explicit user install request exists
-- `benchmarks/scripts/check-claude-hook-install-application-contract.js`: verifies generic continuation text cannot authorize Claude settings mutation
-- `docs/claude-hook-user-owned-target-checklist.md`: checklist contract for user-owned target review before any future settings application
-- `benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js`: verifies target review blocks repository targets, missing backup evidence, and agent-applied settings
-- `docs/claude-hook-user-owned-target-review-evidence.md`: evidence-record contract for user-owned target review without settings application
-- `benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js`: verifies target review evidence blocks generic continuation text, missing scope review, and settings mutation
-- `docs/claude-hook-user-owned-target-review-packet.md`: manual review packet for target review evidence without settings application
-- `benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js`: verifies target review packets stay review-only and reject agent-applied settings
-- `docs/claude-hook-user-owned-target-review-decision.md`: decision-fixture contract that defers settings application until a final user apply request exists
-- `benchmarks/scripts/check-claude-hook-user-owned-target-review-decision.js`: verifies target review decisions stay non-mutating and block generic continuation text
-- `docs/claude-hook-final-apply-request-contract.md`: contract that recognizes a final apply request without applying settings
-- `benchmarks/scripts/check-claude-hook-final-apply-request-contract.js`: verifies final apply requests advance only to application preflight review
-- `docs/claude-hook-application-preflight-review-contract.md`: contract that reviews application preflight evidence without applying settings
-- `benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js`: verifies application preflight review advances only to user execution packet review
-- `docs/claude-hook-user-execution-packet-review-contract.md`: contract that reviews a user execution packet without publishing executable commands
-- `benchmarks/scripts/check-claude-hook-user-execution-packet-review-contract.js`: verifies user execution packet review advances only to authorization review
-- `docs/claude-hook-user-execution-authorization-review-contract.md`: contract that reviews user execution authorization without agent-run commands
-- `benchmarks/scripts/check-claude-hook-user-execution-authorization-review-contract.js`: verifies authorization review advances only to user-performed application
-- `docs/claude-hook-user-performed-application-boundary-contract.md`: terminal boundary contract for user-performed application outside this repository
-- `benchmarks/scripts/check-claude-hook-user-performed-application-boundary-contract.js`: verifies the repo does not claim or verify external user-performed application
-- `docs/claude-hook-application-boundary-chain.md`: ordered summary of the non-mutating Claude hook application boundary chain
-- `benchmarks/scripts/check-claude-hook-application-boundary-chain.js`: verifies the chain order and terminal boundary are documented
-- `docs/claude-hook-carrier-source-contract.md`: contract-only carrier source shape for future user-owned Claude hook configuration
-- `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`: verifies carrier sources stay user-owned, not entrypoint-consumed, and separate from settings mutation
-- `docs/claude-hook-wrapper-input-contract.md`: contract-only wrapper input shape for combining native stdin with user-owned carrier metadata
-- `benchmarks/scripts/check-claude-hook-wrapper-input-contract.js`: verifies wrapper input stays contract-only and does not make `abk-claude-hook` read carrier paths
-- `docs/claude-hook-wrapper-output-fixtures.md`: expected-output-only wrapper envelope fixtures for native stdin plus user-owned carrier metadata
-- `benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js`: verifies wrapper output fixtures stay fixture-only and do not make `abk-claude-hook` read carrier paths
-- `docs/claude-hook-wrapper-implementation-contract.md`: contract-only boundary for a future wrapper command that emits native-payload-with-carrier envelopes
-- `benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js`: verifies wrapper implementation language stays contract-only and does not install hooks or widen `abk-claude-hook`
-- `docs/claude-hook-wrapper-implementation-fixtures.md`: fixture-only valid and rejected inputs for the future wrapper command
-- `benchmarks/scripts/check-claude-hook-wrapper-implementation-fixtures.js`: verifies wrapper implementation fixtures omit private native fields and stay non-executable
-- `docs/claude-hook-wrapper-implementation.md`: local wrapper implementation boundary for `abk-claude-hook-wrapper`
-- `benchmarks/scripts/check-claude-hook-wrapper-implementation.js`: verifies the wrapper emits the expected envelope without installing hooks, running scanners, or widening `abk-claude-hook`
-- `docs/claude-hook-wrapper-wiring-review.md`: review-only wrapper-to-entrypoint wiring evidence for the local wrapper command
-- `benchmarks/scripts/check-claude-hook-wrapper-wiring-review.js`: verifies wrapper output feeds `abk-claude-hook` without installing hooks, running scanners, or publishing live settings guidance
-- `docs/claude-hook-native-payload-mapping-fixtures.md`: native Claude Code hook payload fixtures proving native payload alone is insufficient
-- `docs/claude-hook-native-metadata-carrier-fixtures.md`: explicit metadata carrier fixtures for native Claude Code hook payloads
-- `docs/claude-hook-native-adapter.md`: bounded native payload plus carrier adapter for ABK hook event mapping
-- `docs/claude-hook-native-command-input-contract.md`: stdin envelope contract for native payload plus carrier input
-- `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js`: verifies `abk-claude-hook` accepts the native payload envelope without preserving private native payload fields
-- `docs/claude-hook-command-adapter-contract.md`: contract for the stdin-to-runner-input bridge required before live Claude hooks
-- `docs/claude-hook-command-adapter-fixtures.md`: red/green fixtures for the Claude hook stdin adapter
-- `docs/claude-hook-command-adapter-implementation-contract.md`: implementation contract for the bounded stdin adapter entrypoint
-- `docs/claude-hook-command-adapter-entrypoint-fixtures.md`: expected outputs for the bounded stdin adapter entrypoint
-- `docs/claude-hook-command-adapter-entrypoint.md`: local `abk-claude-hook` stdin adapter entrypoint contract
-- `docs/packaging-readiness.md`: evidence gate for future Codex skill or Claude hook packaging
-- `docs/codex-skill-install-contract.md`: boundary contract for the first manual Codex skill install candidate
-- `docs/codex-skill-manual-install.md`: user-approved manual copy instructions for the boundary-check Codex skill candidate
-- `docs/first-ten-result-synthesis.md`: first reviewed-result synthesis and enforcement-surface gap analysis
-- `docs/first-scanner-candidate.md`: first narrow scanner candidate and red/green validation path
-- `docs/scanner-validation-test-runtime-patch.md`: recorded red/green evidence for the first scanner
-- `docs/scanner-application-test-runtime-patch.md`: first application sweep for the runtime-patch scanner
-- `docs/scanner-validation-test-fake-contract.md`: red/green evidence for the next test-integrity scanner candidate
-- `docs/scanner-application-test-integrity.md`: combined application sweep for the current test-integrity scanners
-- `docs/scanner-validation-parser-fallback-boundary.md`: red/green evidence for the parser fallback boundary scanner
-- `docs/scanner-application-parser-fallback-boundary.md`: application sweep for the parser fallback boundary scanner
-- `docs/scanner-validation-latex-renderer-boundary.md`: red/green evidence for the LaTeX renderer boundary scanner
-- `docs/scanner-application-latex-renderer-boundary.md`: application sweep for the LaTeX renderer boundary scanner
-- `docs/scanner-validation-hardcoded-credential-fallback.md`: red/green evidence for the hardcoded credential fallback scanner
-- `docs/scanner-application-hardcoded-credential-fallback.md`: application sweep for the hardcoded credential fallback scanner
-- `docs/scanner-validation-legacy-surface-retention.md`: red/green evidence for the legacy surface retention scanner
-- `docs/scanner-application-legacy-surface-retention.md`: application sweep for the legacy surface retention scanner
-- `docs/scanner-validation-completion-evidence-gate.md`: red/green evidence for the completion evidence gate scanner
-- `docs/scanner-application-completion-evidence-gate.md`: application sweep for the completion evidence gate scanner
-- `docs/scanner-validation-untrusted-context-canary.md`: red/green evidence for the untrusted context canary scanner
-- `docs/scanner-application-untrusted-context-canary.md`: application sweep for the untrusted context canary scanner
-- `docs/scanner-validation-noisy-log-root-cause.md`: red/green evidence for the noisy log root-cause scanner
-- `docs/scanner-application-noisy-log-root-cause.md`: application sweep for the noisy log root-cause scanner
-- `docs/scanner-validation-phase-gate-plan.md`: red/green evidence for the phase gate plan scanner
-- `docs/scanner-application-phase-gate-plan.md`: application sweep for the phase gate plan scanner
-- `docs/manual-evaluation-protocol.md`: how to run, score, and publish manual agent evaluations
-- `docs/first-scored-run.md`: first public-derived closed-rubric runbook
-- `docs/calibration-runs.md`: non-scored self-smoke notes for fixture and protocol validation
-- `benchmarks/README.md`: how to run the runnable fixtures
-- `benchmarks/fixture-manifest.json`: fixture inventory and expected initial verifier state
-- `benchmarks/scripts/prepare-run.js`: creates isolated fixture run directories
-- `benchmarks/scripts/scan-test-runtime-patch.js`: read-only scanner for test-side runtime patching
-- `benchmarks/scripts/scan-test-fake-contract.js`: read-only scanner for fake/production contract mismatch
-- `benchmarks/scripts/scan-parser-fallback-boundary.js`: read-only scanner for named-parser fallback activation
-- `benchmarks/scripts/scan-latex-renderer-boundary.js`: read-only scanner for named-LaTeX renderer fallback activation
-- `benchmarks/scripts/scan-hardcoded-credential-fallback.js`: read-only scanner for source-level credential fallback activation
-- `benchmarks/scripts/scan-legacy-surface-retention.js`: read-only scanner for stale public surfaces after replacement
-- `benchmarks/scripts/scan-completion-evidence-gate.js`: read-only scanner for completion artifacts before gate evidence
-- `benchmarks/scripts/scan-untrusted-context-canary.js`: read-only scanner for untrusted external text leaking into trusted output
-- `benchmarks/scripts/scan-noisy-log-root-cause.js`: read-only scanner for noisy-log data-path diagnosis failures
-- `benchmarks/scripts/scan-phase-gate-plan.js`: read-only scanner for oversized plans without phase gates
-- `benchmarks/scripts/check-scanner-coverage-matrix.js`: verifies every fixture has scanner coverage evidence in the matrix
-- `benchmarks/scripts/check-hook-scanner-contracts.js`: verifies hook specs declare scanner input/output contracts
-- `benchmarks/scripts/check-hook-runner-minimal-plan.js`: verifies the future hook runner stays limited to explicit paths and declared metadata
-- `benchmarks/scripts/check-hook-runner-input-contract.js`: verifies the hook runner input schema and valid/invalid examples
-- `benchmarks/scripts/check-hook-runner-output-contract.js`: verifies the hook runner output schema and valid/invalid examples
-- `benchmarks/scripts/check-hook-runner-dry-run-spec.js`: verifies the dry-run scanner selection example
-- `benchmarks/scripts/check-claude-hook-event-input-contract.js`: verifies future Claude hook events map only explicit metadata into runner input
-- `benchmarks/scripts/check-claude-hook-event-mapping-examples.js`: verifies valid and rejected hook event mapping examples
-- `benchmarks/scripts/check-claude-hook-event-mapper-contract.js`: verifies the event mapper command remains bounded and non-executing
-- `benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js`: verifies mapper output fixtures before local execution checks
-- `benchmarks/scripts/check-abk-runner-map-event.js`: verifies the local `abk-runner map-event --input` command against valid, rejected transcript, missing-field, unknown-field, and invalid JSON output fixtures
-- `benchmarks/scripts/check-claude-hook-packaging-contract.js`: verifies future Claude hook packaging remains bounded to explicit events and runner commands
-- `benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js`: verifies future Claude hook package manifests stay fixture-only and manual-review-only
-- `benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js`: verifies future Claude hook manual install docs remain documentation-only and non-mutating
-- `benchmarks/scripts/check-claude-hook-manual-install-contract.js`: verifies future Claude hook manual install language stays user-approved and non-mutating until install docs exist
-- `benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js`: verifies Claude hook manual install language names `abk-claude-hook` without shell copy commands or repository mutation
-- `benchmarks/scripts/check-claude-hook-manual-install-document.js`: verifies the Claude hook manual install document remains blocked until native payload mapping is proven
-- `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js`: verifies native Claude Code hook payload fixtures reject transcript reads and missing ABK metadata
-- `benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js`: verifies native payload plus explicit metadata carrier fixtures omit transcripts and preserve explicit task metadata
-- `benchmarks/scripts/check-claude-hook-native-adapter.js`: verifies the native payload adapter maps explicit carrier metadata without reading transcripts or installing hooks
-- `benchmarks/scripts/check-claude-hook-native-command-input-contract.js`: verifies native payload command input stays a single explicit stdin envelope
-- `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`: verifies live Claude hook docs stay blocked until stdin event input can bridge to explicit runner files
-- `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`: verifies Claude hook stdin adapter fixtures map to explicit runner input and reject transcript input
-- `benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js`: verifies the adapter entrypoint contract stays bounded
-- `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js`: verifies adapter entrypoint fixtures cover stdin parsing, cleanup, exit codes, and private-context rejection
-- `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js`: verifies local `abk-claude-hook` stdin adapter execution against the entrypoint fixtures
-- `benchmarks/scripts/check-packaging-readiness.js`: verifies packaging stays tied to fixture-backed scanner evidence
-- `benchmarks/scripts/check-boundary-skill-readiness.js`: verifies the boundary-check Codex skill candidate stays tied to the packaging and read-only runner contracts
-- `benchmarks/scripts/check-codex-skill-install-contract.js`: verifies the Codex skill install contract does not widen into plugin, hook, connector, or watcher behavior
-- `benchmarks/scripts/check-boundary-skill-install-readiness.js`: verifies the boundary-check skill folder shape before manual install instructions
-- `benchmarks/scripts/check-codex-skill-manual-install-doc.js`: verifies manual install instructions stay bounded to user-approved copy commands
-- `benchmarks/fixtures/`: runnable benchmark fixtures
-- `benchmarks/results/`: reviewed result summary template and publication rules
-- `templates/AGENTS.boundary.md`: repository instruction template for Codex-style agents
-- `templates/CLAUDE.boundary.md`: Claude Code instruction template and hook candidates
-- `skills/boundary-check/SKILL.md`: repo-local draft Codex skill
-- `hooks/claude/`: fixture-grounded Claude hook specs
-- `docs/next-session-prompt.md`: handoff prompt for the next Codex or Claude session
+See [docs/failure-taxonomy.md](docs/failure-taxonomy.md).
 
-## Intended Outputs
+## Benchmarks
 
-The first useful version should produce research artifacts first:
+Runnable fixtures live under [benchmarks/fixtures](benchmarks/fixtures). Each fixture is a small broken repo with a prompt, trap, expected result, verifier, and source notes.
 
-- a clear taxonomy
-- private-derived seed fixtures
-- public-derived case candidates
-- pass/fail rubrics
-- a small benchmark backlog
-
-Reusable agent surfaces come after that:
-
-- an AGENTS.md template for Codex
-- a CLAUDE.md template for Claude Code
-- a Codex skill that runs boundary checks before and after work
-- Claude Code hooks that block known failure patterns
-- optional hooks or scripts that block evidence-free completion
-- integration notes for devflow-native as the execution/evidence layer
-
-Connectors or plugins are later-stage packaging. They should not be built before the fixtures prove which checks are worth enforcing.
-
-## Benchmark Checks
-
-The runnable fixtures intentionally start broken. A passing agent should repair one fixture repo, then run that fixture's verifier.
-
-Repository-level checks:
+Repository checks:
 
 ```sh
 npm run bench:check
 npm run bench:check:red
-npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 ```
 
-- `bench:check` verifies fixture structure against the manifest.
-- `bench:check:red` also confirms that each untouched fixture's verifier fails in its initial state.
-- `bench:prepare` copies a fixture into `benchmarks/runs/` and writes an `agent-handoff/` directory for manual agent evaluation.
-- fixture prompts, rubrics, traps, and notes are checked for minimum benchmark-contract fields.
-- fixture `failureTypes` are checked against `docs/failure-taxonomy.md`.
-- reviewed result summaries under `benchmarks/results/` are also checked for required evidence and privacy-review fields.
-- public docs and result summaries are checked for local paths, file URLs, and credential-like tokens.
-- the read-only scanners are checked against recorded red/green evidence.
-- future hook runner docs are checked for explicit input boundaries and scanner mapping.
-- fixture-to-scanner checks distinguish promoted scanner-backed fixtures from runnable fixtures still waiting for red/green scanner evidence.
-- future hook runner input examples are checked against a bounded JSON contract.
-- future hook runner output examples are checked against a bounded JSON contract.
-- future hook runner dry-run examples are checked for bounded scanner selection and output mapping.
-- future Claude hook event input is checked before hook packaging can map runtime events into runner input.
-- future Claude hook event mapping examples are checked before hook packaging.
-- Claude hook event mapper commands are checked against bounded implementation rules.
-- Claude hook event mapper output fixtures are checked against local `map-event` execution.
-- local `abk-runner map-event --input` execution is checked against valid, rejected transcript, missing-field, unknown-field, and invalid JSON output fixtures.
-- future Claude hook packaging is checked against `docs/claude-hook-packaging-contract.md` before any hook installation work.
-- future Claude hook package manifests are checked against fixture-only, manual-review-only constraints before any install documentation.
-- future Claude hook manual install documentation is checked as non-mutating documentation before any install contract.
-- future Claude hook manual install language is checked against `docs/claude-hook-manual-install-contract.md` before any install instructions.
-- Claude hook manual install language fixtures are checked against `docs/claude-hook-manual-install-language-fixtures.md` before any user-approved settings fragment is published.
-- the Claude hook manual install document is checked against `docs/claude-hook-manual-install.md` and stays blocked for agent-performed installation.
-- Claude hook manual install readiness is checked against native command entrypoint evidence before install language review can advance.
-- Claude hook manual install review packets are checked against `docs/claude-hook-manual-install-review-packet.md` before any settings-fragment draft work.
-- Claude hook settings-fragment draft fixtures are checked against `docs/claude-hook-settings-fragment-draft-fixtures.md` and remain not installable as-is until a carrier source contract exists.
-- Claude hook settings-fragment review is checked against `docs/claude-hook-settings-fragment-review.md` and remains review-only until user-approved manual installation language exists.
-- Claude hook user-approved manual install language is checked against `docs/claude-hook-user-approved-install-language.md` and remains language-only until the user explicitly requests application.
-- Claude hook install application contracts are checked against `docs/claude-hook-install-application-contract.md` and block generic continuation commands from authorizing settings mutation.
-- Claude hook user-owned target checklists are checked against `docs/claude-hook-user-owned-target-checklist.md` and block repository targets, missing backup evidence, and agent-applied settings.
-- Claude hook user-owned target review evidence is checked against `docs/claude-hook-user-owned-target-review-evidence.md` and remains review-only without settings mutation.
-- Claude hook user-owned target review packets are checked against `docs/claude-hook-user-owned-target-review-packet.md` and remain manual review packet only.
-- Claude hook user-owned target review decisions are checked against `docs/claude-hook-user-owned-target-review-decision.md` and defer settings application until a final user apply request exists.
-- Claude hook final apply requests are checked against `docs/claude-hook-final-apply-request-contract.md` and advance only to application preflight review.
-- Claude hook application preflight reviews are checked against `docs/claude-hook-application-preflight-review-contract.md` and advance only to user execution packet review.
-- Claude hook user execution packet reviews are checked against `docs/claude-hook-user-execution-packet-review-contract.md` and advance only to authorization review without executable commands.
-- Claude hook user execution authorization reviews are checked against `docs/claude-hook-user-execution-authorization-review-contract.md` and advance only to user-performed application without agent-run commands.
-- Claude hook user-performed application boundaries are checked against `docs/claude-hook-user-performed-application-boundary-contract.md` and prevent external completion or verification claims.
-- Claude hook application boundary chains are checked against `docs/claude-hook-application-boundary-chain.md` and keep the gate order non-mutating through terminal boundary.
-- Claude hook carrier source contracts are checked against `docs/claude-hook-carrier-source-contract.md` and remain separate from the current command entrypoint until a wrapper input contract exists.
-- Claude hook wrapper input contracts are checked against `docs/claude-hook-wrapper-input-contract.md` and remain contract-only until output fixtures exist.
-- Claude hook wrapper output fixtures are checked against `docs/claude-hook-wrapper-output-fixtures.md` and remain expected-output-only until a wrapper implementation contract exists.
-- Claude hook wrapper implementation contracts are checked against `docs/claude-hook-wrapper-implementation-contract.md` and remain contract-only until wrapper implementation fixtures exist.
-- Claude hook wrapper implementation fixtures are checked against `docs/claude-hook-wrapper-implementation-fixtures.md` and remain fixture-only until local wrapper implementation exists.
-- Claude hook wrapper implementation is checked against `docs/claude-hook-wrapper-implementation.md` and remains local-only until wrapper wiring review proves the next boundary.
-- Claude hook wrapper wiring review is checked against `docs/claude-hook-wrapper-wiring-review.md` and remains review-only until manual settings-fragment review is user-approved.
-- native Claude Code hook payload mapping fixtures are checked against `docs/claude-hook-native-payload-mapping-fixtures.md` before live settings fragments.
-- native Claude Code metadata carrier fixtures are checked against `docs/claude-hook-native-metadata-carrier-fixtures.md` before native payloads can become ABK hook events.
-- the native Claude Code payload adapter is checked against `docs/claude-hook-native-adapter.md` before live hook entrypoint input is widened.
-- native Claude Code command input is checked against `docs/claude-hook-native-command-input-contract.md` before `abk-claude-hook` accepts native payload envelopes.
-- native Claude Code command entrypoint execution is checked by `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js` before live hook install language can advance.
-- future Claude hook command adapters are checked against `docs/claude-hook-command-adapter-contract.md` before any live hook instructions.
-- Claude hook stdin adapter fixtures are checked against `docs/claude-hook-command-adapter-fixtures.md`.
-- Claude hook adapter implementation is checked against `docs/claude-hook-command-adapter-implementation-contract.md`.
-- Claude hook adapter entrypoint behavior is checked against `docs/claude-hook-command-adapter-entrypoint-fixtures.md` and `docs/claude-hook-command-adapter-entrypoint.md`.
-- the boundary-check skill candidate is checked against the packaging readiness contract and read-only runner evidence contract.
-- the Codex skill install contract is checked before any manual install instructions are published.
-- the boundary-check skill folder shape is checked before manual install instructions are published.
-- manual Codex skill install instructions are checked for user-approved copy-only scope.
-- `research/public-case-index.md` is checked for case count, required benchmark fields, stable case ids, taxonomy-linked failure types, and manifest source references.
-- repository-level benchmark scripts are checked for portable verifier paths.
+See [docs/benchmarks.md](docs/benchmarks.md) for the benchmark system, runner commands, scanner coverage, and publication rules.
 
-Use `docs/manual-evaluation-protocol.md` when scoring manual runs. Do not publish raw run directories without privacy review.
+## Main Artifacts
 
-## Relationship To devflow-native
+- [research/public-case-index.md](research/public-case-index.md): public case candidates converted into benchmark ideas
+- [docs/benchmark-backlog.md](docs/benchmark-backlog.md): first fixture queue and evidence gates
+- [benchmarks/README.md](benchmarks/README.md): runnable fixture layout and commands
+- [templates/AGENTS.boundary.md](templates/AGENTS.boundary.md): Codex-style repo instruction template
+- [templates/CLAUDE.boundary.md](templates/CLAUDE.boundary.md): Claude Code instruction template and hook candidates
+- [skills/boundary-check/SKILL.md](skills/boundary-check/SKILL.md): draft Codex skill
+- [hooks/claude](hooks/claude): fixture-grounded Claude hook specs
+- [docs/hook-runner-minimal-plan.md](docs/hook-runner-minimal-plan.md): minimal runner boundary before hook packaging
 
-`devflow-native` should remain the local execution and evidence engine.
+## Current Status
 
-Agent Boundary Kit should define the boundary rules, failure cases, and evaluation fixtures. Devflow can later enforce parts of those rules through finish gates, handoff prompts, and workflow evidence.
+The repo is in research-seed stage. It already contains runnable fixtures, scanner-backed checks, public case candidates, boundary templates, and manual packaging contracts.
+
+Connector or plugin packaging should come later, after fixture evidence shows which checks are worth enforcing.
+
+## Contract Index
+
+The detailed benchmark and hook contracts are kept out of the main overview:
+
+- Runner contracts: [docs/hook-runner-minimal-plan.md](docs/hook-runner-minimal-plan.md), [docs/hook-runner-input-contract.md](docs/hook-runner-input-contract.md), [docs/hook-runner-output-contract.md](docs/hook-runner-output-contract.md), [docs/hook-runner-dry-run-spec.md](docs/hook-runner-dry-run-spec.md), [docs/hook-runner-dry-run-cli-contract.md](docs/hook-runner-dry-run-cli-contract.md), [docs/hook-runner-selection-matrix.md](docs/hook-runner-selection-matrix.md)
+- Hook contracts: [docs/hook-scanner-contracts.md](docs/hook-scanner-contracts.md), [docs/enforcement-surfaces.md](docs/enforcement-surfaces.md), [docs/packaging-readiness.md](docs/packaging-readiness.md), [docs/claude-hook-packaging-contract.md](docs/claude-hook-packaging-contract.md), [docs/claude-hook-package-manifest-fixtures.md](docs/claude-hook-package-manifest-fixtures.md)
+- Claude event and adapter contracts: [docs/claude-hook-event-input-contract.md](docs/claude-hook-event-input-contract.md), [docs/claude-hook-event-mapping-examples.md](docs/claude-hook-event-mapping-examples.md), [docs/claude-hook-event-mapper-contract.md](docs/claude-hook-event-mapper-contract.md), [docs/claude-hook-event-mapper-output-fixtures.md](docs/claude-hook-event-mapper-output-fixtures.md), [docs/claude-hook-command-adapter-contract.md](docs/claude-hook-command-adapter-contract.md), [docs/claude-hook-command-adapter-fixtures.md](docs/claude-hook-command-adapter-fixtures.md), [docs/claude-hook-command-adapter-implementation-contract.md](docs/claude-hook-command-adapter-implementation-contract.md), [docs/claude-hook-command-adapter-entrypoint-fixtures.md](docs/claude-hook-command-adapter-entrypoint-fixtures.md), [docs/claude-hook-command-adapter-entrypoint.md](docs/claude-hook-command-adapter-entrypoint.md)
+- Claude native and wrapper contracts: [docs/claude-hook-native-payload-mapping-fixtures.md](docs/claude-hook-native-payload-mapping-fixtures.md), [docs/claude-hook-native-metadata-carrier-fixtures.md](docs/claude-hook-native-metadata-carrier-fixtures.md), [docs/claude-hook-native-adapter.md](docs/claude-hook-native-adapter.md), [docs/claude-hook-native-command-input-contract.md](docs/claude-hook-native-command-input-contract.md), [docs/claude-hook-carrier-source-contract.md](docs/claude-hook-carrier-source-contract.md), [docs/claude-hook-wrapper-input-contract.md](docs/claude-hook-wrapper-input-contract.md), [docs/claude-hook-wrapper-output-fixtures.md](docs/claude-hook-wrapper-output-fixtures.md), [docs/claude-hook-wrapper-implementation-contract.md](docs/claude-hook-wrapper-implementation-contract.md), [docs/claude-hook-wrapper-implementation-fixtures.md](docs/claude-hook-wrapper-implementation-fixtures.md), [docs/claude-hook-wrapper-implementation.md](docs/claude-hook-wrapper-implementation.md), [docs/claude-hook-wrapper-wiring-review.md](docs/claude-hook-wrapper-wiring-review.md)
+- Manual application boundary: [docs/claude-hook-manual-install-doc-fixture.md](docs/claude-hook-manual-install-doc-fixture.md), [docs/claude-hook-manual-install-contract.md](docs/claude-hook-manual-install-contract.md), [docs/claude-hook-manual-install-language-fixtures.md](docs/claude-hook-manual-install-language-fixtures.md), [docs/claude-hook-manual-install.md](docs/claude-hook-manual-install.md), [docs/claude-hook-manual-install-review-packet.md](docs/claude-hook-manual-install-review-packet.md), [docs/claude-hook-settings-fragment-draft-fixtures.md](docs/claude-hook-settings-fragment-draft-fixtures.md), [docs/claude-hook-settings-fragment-review.md](docs/claude-hook-settings-fragment-review.md), [docs/claude-hook-user-approved-install-language.md](docs/claude-hook-user-approved-install-language.md), [docs/claude-hook-install-application-contract.md](docs/claude-hook-install-application-contract.md), [docs/claude-hook-user-owned-target-checklist.md](docs/claude-hook-user-owned-target-checklist.md), [docs/claude-hook-user-owned-target-review-evidence.md](docs/claude-hook-user-owned-target-review-evidence.md), [docs/claude-hook-user-owned-target-review-packet.md](docs/claude-hook-user-owned-target-review-packet.md), [docs/claude-hook-user-owned-target-review-decision.md](docs/claude-hook-user-owned-target-review-decision.md), [docs/claude-hook-final-apply-request-contract.md](docs/claude-hook-final-apply-request-contract.md), [docs/claude-hook-application-preflight-review-contract.md](docs/claude-hook-application-preflight-review-contract.md), [docs/claude-hook-user-execution-packet-review-contract.md](docs/claude-hook-user-execution-packet-review-contract.md), [docs/claude-hook-user-execution-authorization-review-contract.md](docs/claude-hook-user-execution-authorization-review-contract.md), [docs/claude-hook-user-performed-application-boundary-contract.md](docs/claude-hook-user-performed-application-boundary-contract.md), [docs/claude-hook-application-boundary-chain.md](docs/claude-hook-application-boundary-chain.md)
+- Codex skill contracts: [docs/codex-skill-install-contract.md](docs/codex-skill-install-contract.md), [docs/codex-skill-manual-install.md](docs/codex-skill-manual-install.md), [docs/next-session-prompt.md](docs/next-session-prompt.md)
+- Contract checkers: [benchmarks/scripts/check-abk-runner-dry-run.js](benchmarks/scripts/check-abk-runner-dry-run.js), [benchmarks/scripts/check-abk-runner-scan.js](benchmarks/scripts/check-abk-runner-scan.js), [benchmarks/scripts/check-boundary-skill-readiness.js](benchmarks/scripts/check-boundary-skill-readiness.js), [benchmarks/scripts/check-boundary-skill-install-readiness.js](benchmarks/scripts/check-boundary-skill-install-readiness.js), [benchmarks/scripts/check-codex-skill-install-contract.js](benchmarks/scripts/check-codex-skill-install-contract.js), [benchmarks/scripts/check-codex-skill-manual-install-doc.js](benchmarks/scripts/check-codex-skill-manual-install-doc.js)
+- Claude contract checkers: [benchmarks/scripts/check-claude-hook-event-input-contract.js](benchmarks/scripts/check-claude-hook-event-input-contract.js), [benchmarks/scripts/check-claude-hook-event-mapping-examples.js](benchmarks/scripts/check-claude-hook-event-mapping-examples.js), [benchmarks/scripts/check-claude-hook-event-mapper-contract.js](benchmarks/scripts/check-claude-hook-event-mapper-contract.js), [benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js](benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js), [benchmarks/scripts/check-claude-hook-packaging-contract.js](benchmarks/scripts/check-claude-hook-packaging-contract.js), [benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js](benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js)
+- Claude adapter checkers: [benchmarks/scripts/check-claude-hook-command-adapter-contract.js](benchmarks/scripts/check-claude-hook-command-adapter-contract.js), [benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js](benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js), [benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js](benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js), [benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js](benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js), [benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js](benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js)
+- Claude native and wrapper checkers: [benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js](benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js), [benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js](benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js), [benchmarks/scripts/check-claude-hook-native-adapter.js](benchmarks/scripts/check-claude-hook-native-adapter.js), [benchmarks/scripts/check-claude-hook-native-command-input-contract.js](benchmarks/scripts/check-claude-hook-native-command-input-contract.js), [benchmarks/scripts/check-claude-hook-native-command-entrypoint.js](benchmarks/scripts/check-claude-hook-native-command-entrypoint.js), [benchmarks/scripts/check-claude-hook-carrier-source-contract.js](benchmarks/scripts/check-claude-hook-carrier-source-contract.js), [benchmarks/scripts/check-claude-hook-wrapper-input-contract.js](benchmarks/scripts/check-claude-hook-wrapper-input-contract.js), [benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js](benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js), [benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js](benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js), [benchmarks/scripts/check-claude-hook-wrapper-implementation-fixtures.js](benchmarks/scripts/check-claude-hook-wrapper-implementation-fixtures.js), [benchmarks/scripts/check-claude-hook-wrapper-implementation.js](benchmarks/scripts/check-claude-hook-wrapper-implementation.js), [benchmarks/scripts/check-claude-hook-wrapper-wiring-review.js](benchmarks/scripts/check-claude-hook-wrapper-wiring-review.js)
+- Claude manual boundary checkers: [benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js](benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js), [benchmarks/scripts/check-claude-hook-manual-install-contract.js](benchmarks/scripts/check-claude-hook-manual-install-contract.js), [benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js](benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js), [benchmarks/scripts/check-claude-hook-manual-install-document.js](benchmarks/scripts/check-claude-hook-manual-install-document.js), [benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js](benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js), [benchmarks/scripts/check-claude-hook-manual-install-review-packet.js](benchmarks/scripts/check-claude-hook-manual-install-review-packet.js), [benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js](benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js), [benchmarks/scripts/check-claude-hook-settings-fragment-review.js](benchmarks/scripts/check-claude-hook-settings-fragment-review.js), [benchmarks/scripts/check-claude-hook-user-approved-install-language.js](benchmarks/scripts/check-claude-hook-user-approved-install-language.js)
+- Claude application boundary checkers: [benchmarks/scripts/check-claude-hook-install-application-contract.js](benchmarks/scripts/check-claude-hook-install-application-contract.js), [benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js](benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js), [benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js](benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js), [benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js](benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js), [benchmarks/scripts/check-claude-hook-user-owned-target-review-decision.js](benchmarks/scripts/check-claude-hook-user-owned-target-review-decision.js), [benchmarks/scripts/check-claude-hook-final-apply-request-contract.js](benchmarks/scripts/check-claude-hook-final-apply-request-contract.js), [benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js](benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js), [benchmarks/scripts/check-claude-hook-user-execution-packet-review-contract.js](benchmarks/scripts/check-claude-hook-user-execution-packet-review-contract.js), [benchmarks/scripts/check-claude-hook-user-execution-authorization-review-contract.js](benchmarks/scripts/check-claude-hook-user-execution-authorization-review-contract.js), [benchmarks/scripts/check-claude-hook-user-performed-application-boundary-contract.js](benchmarks/scripts/check-claude-hook-user-performed-application-boundary-contract.js), [benchmarks/scripts/check-claude-hook-application-boundary-chain.js](benchmarks/scripts/check-claude-hook-application-boundary-chain.js)
 
 ## Principle
 
-The agent should not ask "what words did the user say?"
+The agent should not ask only, "What words did the user say?"
 
 It should ask:
 
@@ -344,4 +116,4 @@ It should ask:
 
 ## License
 
-MIT. See `LICENSE`.
+MIT. See [LICENSE](LICENSE).
