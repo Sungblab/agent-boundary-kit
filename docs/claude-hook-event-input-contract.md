@@ -119,6 +119,7 @@ This contract is checked by:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-event-input-contract.js
+node benchmarks/scripts/check-claude-hook-event-mapping-examples.js
 node benchmarks/scripts/check-hook-runner-input-contract.js
 node benchmarks/scripts/check-hook-runner-selection-matrix.js
 node benchmarks/scripts/check-abk-runner-scan.js
@@ -146,4 +147,6 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a fixture-like event mapping example set with one valid event and one rejected transcript event before any executable Claude hook packaging.
+The fixture-like event mapping example set is recorded in `docs/claude-hook-event-mapping-examples.md` and checked by `benchmarks/scripts/check-claude-hook-event-mapping-examples.js`.
+
+Only after those examples stay green should the repo consider an executable event mapper.

@@ -64,6 +64,8 @@ The Codex skill manual install document is recorded in `docs/codex-skill-manual-
 
 The Claude hook event input contract is recorded in `docs/claude-hook-event-input-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-event-input-contract.js`, which keeps future hook runtime events limited to explicit metadata before they become runner input.
 
+The Claude hook event mapping examples are recorded in `docs/claude-hook-event-mapping-examples.md`. Their check is `benchmarks/scripts/check-claude-hook-event-mapping-examples.js`, which verifies one valid event maps exactly to expected runner input and one transcript-bearing event is rejected.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -287,6 +289,8 @@ Blocks completion when:
 73. Add a manual install instruction check. Completed: `benchmarks/scripts/check-codex-skill-manual-install-doc.js`.
 74. Record a Claude hook event-to-runner-input contract before any executable hook packaging. Completed: `docs/claude-hook-event-input-contract.md`.
 75. Add a Claude hook event input contract check. Completed: `benchmarks/scripts/check-claude-hook-event-input-contract.js`.
-76. Claude hooks remain specs until fixture-like event mapping examples exist.
+76. Add fixture-like Claude hook event mapping examples. Completed: `docs/claude-hook-event-mapping-examples.md`.
+77. Add a Claude hook event mapping examples check. Completed: `benchmarks/scripts/check-claude-hook-event-mapping-examples.js`.
+78. Claude hooks remain specs until an executable event mapper has its own gate.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

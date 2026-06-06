@@ -28,6 +28,8 @@ The packaging readiness contract is recorded in `docs/packaging-readiness.md`. I
 
 The Claude hook event-to-runner-input contract is recorded in `docs/claude-hook-event-input-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-event-input-contract.js` and keeps future hook events limited to explicit metadata before they become runner input.
 
+The Claude hook event mapping examples are recorded in `docs/claude-hook-event-mapping-examples.md`. They are checked by `benchmarks/scripts/check-claude-hook-event-mapping-examples.js` and cover one valid event plus one rejected transcript event.
+
 The first narrow scanner candidate is defined in `docs/first-scanner-candidate.md`. It targets only test runtime patching. Its red/green evidence is recorded in `docs/scanner-validation-test-runtime-patch.md`, its first application sweep is recorded in `docs/scanner-application-test-runtime-patch.md`, and its read-only script is `benchmarks/scripts/scan-test-runtime-patch.js`.
 
 The next scanner candidate is `test-fake-contract-scan`; its red/green evidence is recorded in `docs/scanner-validation-test-fake-contract.md`, and its read-only script is `benchmarks/scripts/scan-test-fake-contract.js`. It is still not an installed hook.
