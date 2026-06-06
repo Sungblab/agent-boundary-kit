@@ -1,0 +1,7 @@
+{
+  "fixtureKind": "claude-hook-final-apply-request-contract",
+  "status": "blocked",
+  "priorDecisionReviewed": false,
+  "reason": "target review decision required before final apply request",
+  "agentMayApplySettings": false
+}

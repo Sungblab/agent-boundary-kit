@@ -24,6 +24,8 @@ The wrapper wiring evidence is `docs/claude-hook-wrapper-wiring-review.md`.
 
 The target review decision source is `docs/claude-hook-user-owned-target-review-decision.md`.
 
+The final apply request source is `docs/claude-hook-final-apply-request-contract.md`.
+
 This packet does not identify a user settings path.
 
 This packet does not apply settings for the user.
@@ -67,6 +69,7 @@ Before this review packet is described as ready, run:
 ```sh
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-decision.js
+node benchmarks/scripts/check-claude-hook-final-apply-request-contract.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js
 node benchmarks/scripts/check-claude-hook-install-application-contract.js

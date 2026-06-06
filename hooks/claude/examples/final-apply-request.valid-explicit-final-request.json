@@ -1,0 +1,18 @@
+{
+  "fixtureKind": "claude-hook-final-apply-request-contract",
+  "status": "eligible-for-application-preflight-review",
+  "sourceTextRole": "final-apply-request",
+  "finalUserApplyRequestPresent": true,
+  "priorDecisionReviewed": true,
+  "packetReviewed": true,
+  "targetReviewEvidenceReviewed": true,
+  "agentMayApplySettings": false,
+  "settingsMutationAttempted": false,
+  "nextGate": "application-preflight-review",
+  "requiredEvidence": [
+    "node benchmarks/scripts/check-claude-hook-user-owned-target-review-decision.js",
+    "node benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js",
+    "node benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js",
+    "node benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js"
+  ]
+}

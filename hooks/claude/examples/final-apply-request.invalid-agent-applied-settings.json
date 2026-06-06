@@ -1,0 +1,7 @@
+{
+  "fixtureKind": "claude-hook-final-apply-request-contract",
+  "status": "blocked",
+  "settingsMutationAttempted": true,
+  "agentMayApplySettings": false,
+  "reason": "final apply request must not apply settings"
+}

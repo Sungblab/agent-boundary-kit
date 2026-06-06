@@ -26,6 +26,8 @@ The user-approved install language source is `docs/claude-hook-user-approved-ins
 
 The settings-fragment review source is `docs/claude-hook-settings-fragment-review.md`.
 
+The final apply request source is `docs/claude-hook-final-apply-request-contract.md`.
+
 The wrapper wiring evidence is `docs/claude-hook-wrapper-wiring-review.md`.
 
 This decision does not identify a user settings path.
@@ -83,6 +85,7 @@ node benchmarks/scripts/check-claude-hook-user-owned-target-review-decision.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js
+node benchmarks/scripts/check-claude-hook-final-apply-request-contract.js
 node benchmarks/scripts/check-claude-hook-install-application-contract.js
 npm run bench:check
 npm run bench:check:red
@@ -125,4 +128,6 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a final apply request contract. It still does not apply settings, install hooks, or mutate Claude configuration.
+The next gate is recorded in `docs/claude-hook-final-apply-request-contract.md`: a final apply request contract. It still does not apply settings, install hooks, or mutate Claude configuration.
+
+That gate is checked by `benchmarks/scripts/check-claude-hook-final-apply-request-contract.js`.

@@ -78,6 +78,8 @@ The Claude hook user-owned target review packet is recorded in `docs/claude-hook
 
 The Claude hook user-owned target review decision is recorded in `docs/claude-hook-user-owned-target-review-decision.md`.
 
+The Claude hook final apply request contract is recorded in `docs/claude-hook-final-apply-request-contract.md`.
+
 The Claude hook carrier source contract is recorded in `docs/claude-hook-carrier-source-contract.md`.
 
 The Claude hook wrapper input contract is recorded in `docs/claude-hook-wrapper-input-contract.md`.
@@ -175,6 +177,7 @@ node benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-decision.js
+node benchmarks/scripts/check-claude-hook-final-apply-request-contract.js
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
@@ -272,6 +275,8 @@ The Claude hook user-owned target review evidence check is `benchmarks/scripts/c
 The Claude hook user-owned target review packet check is `benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js`. It verifies `docs/claude-hook-user-owned-target-review-packet.md` stays review-only and rejects agent-applied settings.
 
 The Claude hook user-owned target review decision check is `benchmarks/scripts/check-claude-hook-user-owned-target-review-decision.js`. It verifies `docs/claude-hook-user-owned-target-review-decision.md` stays non-mutating and deferred until a final user apply request exists.
+
+The Claude hook final apply request contract check is `benchmarks/scripts/check-claude-hook-final-apply-request-contract.js`. It verifies `docs/claude-hook-final-apply-request-contract.md` recognizes a final apply request without applying settings and advances only to application preflight review.
 
 The Claude hook carrier source contract check is `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`. It verifies `docs/claude-hook-carrier-source-contract.md` keeps the source user-owned and not consumed by the current command entrypoint.
 

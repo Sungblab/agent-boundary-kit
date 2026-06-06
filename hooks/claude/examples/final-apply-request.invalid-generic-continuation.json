@@ -1,0 +1,8 @@
+{
+  "fixtureKind": "claude-hook-final-apply-request-contract",
+  "status": "blocked",
+  "sourceTextRole": "workflow-command",
+  "finalUserApplyRequestPresent": false,
+  "reason": "generic continuation text is not a final apply request",
+  "agentMayApplySettings": false
+}
