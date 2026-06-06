@@ -1,0 +1,6 @@
+{
+  "carrierVersion": "abk-native-metadata-carrier/v1",
+  "hookId": "post_edit_scope_check",
+  "repoRoot": ".",
+  "taskSource": "infer-from-transcript_path"
+}

@@ -6,6 +6,8 @@ It is not an installed hook, not hook packaging, and not a runner implementation
 
 Native Claude Code hook payload fixture coverage is recorded in `docs/claude-hook-native-payload-mapping-fixtures.md` and checked by `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js`.
 
+Native Claude Code explicit metadata carrier fixtures are recorded in `docs/claude-hook-native-metadata-carrier-fixtures.md` and checked by `benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js`.
+
 ## Boundary
 
 Hook events may supply only explicit event metadata.

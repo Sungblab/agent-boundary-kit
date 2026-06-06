@@ -2,7 +2,7 @@
 
 These fixtures define the current native Claude Code command-hook payload mapping boundary.
 
-They extend `docs/claude-hook-manual-install.md`, `docs/claude-hook-event-input-contract.md`, and `docs/claude-hook-command-adapter-entrypoint.md`.
+They extend `docs/claude-hook-manual-install.md`, `docs/claude-hook-event-input-contract.md`, `docs/claude-hook-command-adapter-entrypoint.md`, and `docs/claude-hook-native-metadata-carrier-fixtures.md`.
 
 They are fixture-only. They are not installed hooks, not installers, and not live settings fragments.
 
@@ -72,6 +72,7 @@ Before native payload mapping is described as ready, run:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js
+node benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-document.js
 node benchmarks/scripts/check-claude-hook-event-input-contract.js
 node benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js
@@ -108,4 +109,4 @@ Do not read transcripts, prompt text, message arrays, issue bodies, PR text, log
 
 ## Next Gate
 
-The next gate is an explicit metadata carrier for native Claude Code hook events. That carrier must make `hookId`, `repoRoot`, and `task` explicit before `abk-claude-hook` can accept native payloads.
+The next gate is `docs/claude-hook-native-metadata-carrier-fixtures.md`. That carrier must make `hookId`, `repoRoot`, and `task` explicit before `abk-claude-hook` can accept native payloads.

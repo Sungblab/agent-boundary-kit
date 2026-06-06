@@ -96,6 +96,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `docs/claude-hook-manual-install-language-fixtures.md`: bounded language fixtures for user-approved Claude hook manual install text
 - `docs/claude-hook-manual-install.md`: user-approved Claude hook manual install document, blocked until native hook payload mapping is proven
 - `docs/claude-hook-native-payload-mapping-fixtures.md`: native Claude Code hook payload fixtures proving native payload alone is insufficient
+- `docs/claude-hook-native-metadata-carrier-fixtures.md`: explicit metadata carrier fixtures for native Claude Code hook payloads
 - `docs/claude-hook-command-adapter-contract.md`: contract for the stdin-to-runner-input bridge required before live Claude hooks
 - `docs/claude-hook-command-adapter-fixtures.md`: red/green fixtures for the Claude hook stdin adapter
 - `docs/claude-hook-command-adapter-implementation-contract.md`: implementation contract for the bounded stdin adapter entrypoint
@@ -160,6 +161,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js`: verifies Claude hook manual install language names `abk-claude-hook` without shell copy commands or repository mutation
 - `benchmarks/scripts/check-claude-hook-manual-install-document.js`: verifies the Claude hook manual install document remains blocked until native payload mapping is proven
 - `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js`: verifies native Claude Code hook payload fixtures reject transcript reads and missing ABK metadata
+- `benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js`: verifies native payload plus explicit metadata carrier fixtures omit transcripts and preserve explicit task metadata
 - `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`: verifies live Claude hook docs stay blocked until stdin event input can bridge to explicit runner files
 - `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`: verifies Claude hook stdin adapter fixtures map to explicit runner input and reject transcript input
 - `benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js`: verifies the adapter entrypoint contract stays bounded
@@ -235,6 +237,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - Claude hook manual install language fixtures are checked against `docs/claude-hook-manual-install-language-fixtures.md` before any user-approved settings fragment is published.
 - the Claude hook manual install document is checked against `docs/claude-hook-manual-install.md` and stays blocked until native hook payload mapping is proven.
 - native Claude Code hook payload mapping fixtures are checked against `docs/claude-hook-native-payload-mapping-fixtures.md` before live settings fragments.
+- native Claude Code metadata carrier fixtures are checked against `docs/claude-hook-native-metadata-carrier-fixtures.md` before native payloads can become ABK hook events.
 - future Claude hook command adapters are checked against `docs/claude-hook-command-adapter-contract.md` before any live hook instructions.
 - Claude hook stdin adapter fixtures are checked against `docs/claude-hook-command-adapter-fixtures.md`.
 - Claude hook adapter implementation is checked against `docs/claude-hook-command-adapter-implementation-contract.md`.

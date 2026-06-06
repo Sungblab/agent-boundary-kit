@@ -1,0 +1,15 @@
+{
+  "mode": "native-metadata-carrier-fixture",
+  "status": "error",
+  "exitCode": 2,
+  "blocked": true,
+  "reason": "metadata carrier must not derive task metadata from transcript_path",
+  "inputsUsed": [],
+  "findings": [],
+  "nonGoals": [
+    "Do not read transcripts",
+    "Do not infer task metadata",
+    "Do not install hooks",
+    "Do not execute scanners"
+  ]
+}
