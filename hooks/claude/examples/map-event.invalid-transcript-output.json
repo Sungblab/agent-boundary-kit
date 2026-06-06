@@ -1,0 +1,9 @@
+{
+  "hookId": "completion_evidence_check",
+  "status": "error",
+  "exitCode": 2,
+  "blocked": true,
+  "reason": "rejected event field rawPrivateTranscript",
+  "inputsUsed": [],
+  "findings": []
+}

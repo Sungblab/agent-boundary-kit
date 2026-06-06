@@ -68,6 +68,8 @@ The Claude hook event mapping examples are recorded in `docs/claude-hook-event-m
 
 The Claude hook event mapper contract is recorded in `docs/claude-hook-event-mapper-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-event-mapper-contract.js`, which fixes a bounded `abk-runner map-event --input <hook-event.json>` command before implementation.
 
+The Claude hook event mapper output fixtures are recorded in `docs/claude-hook-event-mapper-output-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js`, which fixes the valid runner-input output and rejected transcript configuration-error output before implementation.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -295,6 +297,9 @@ Blocks completion when:
 77. Add a Claude hook event mapping examples check. Completed: `benchmarks/scripts/check-claude-hook-event-mapping-examples.js`.
 78. Record a Claude hook event mapper command contract before implementation. Completed: `docs/claude-hook-event-mapper-contract.md`.
 79. Add a Claude hook event mapper contract check. Completed: `benchmarks/scripts/check-claude-hook-event-mapper-contract.js`.
-80. Claude hooks remain specs until the event mapper implementation has red/green output fixtures.
+80. Record Claude hook event mapper output fixtures before implementation. Completed: `docs/claude-hook-event-mapper-output-fixtures.md`.
+81. Add a Claude hook event mapper output fixture check. Completed: `benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js`.
+82. Only then implement the bounded `abk-runner map-event --input <hook-event.json>` command.
+83. Claude hooks remain specs until the event mapper implementation has passing red/green output fixture evidence.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

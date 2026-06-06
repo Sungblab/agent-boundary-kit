@@ -50,6 +50,11 @@ Fixture-like examples are recorded in `docs/claude-hook-event-mapping-examples.m
 - `hooks/claude/examples/hook-event.post-edit.expected-runner-input.json`
 - `hooks/claude/examples/hook-event.invalid-transcript.json`
 
+Output fixtures are recorded in `docs/claude-hook-event-mapper-output-fixtures.md`:
+
+- `hooks/claude/examples/map-event.valid-output.json`
+- `hooks/claude/examples/map-event.invalid-transcript-output.json`
+
 The input event may contain only explicit event metadata. Rejected transcript, prompt, message, credential, cookie, token, and password fields must produce a configuration error.
 
 ## Output
@@ -86,6 +91,7 @@ Before implementing the mapper command, run:
 node benchmarks/scripts/check-claude-hook-event-mapper-contract.js
 node benchmarks/scripts/check-claude-hook-event-input-contract.js
 node benchmarks/scripts/check-claude-hook-event-mapping-examples.js
+node benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js
 node benchmarks/scripts/check-hook-runner-input-contract.js
 npm run bench:check
 npm run bench:check:red
@@ -111,4 +117,6 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a red/green output example set for `abk-runner map-event --input <hook-event.json>` before implementation.
+The output fixture gate is `docs/claude-hook-event-mapper-output-fixtures.md` and `benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js`.
+
+Only after that gate passes should the repo implement the bounded `abk-runner map-event --input <hook-event.json>` command.
