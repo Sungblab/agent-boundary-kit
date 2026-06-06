@@ -66,6 +66,8 @@ The Claude hook settings-fragment draft fixtures are recorded in `docs/claude-ho
 
 The Claude hook carrier source contract is recorded in `docs/claude-hook-carrier-source-contract.md`.
 
+The Claude hook wrapper input contract is recorded in `docs/claude-hook-wrapper-input-contract.md`.
+
 The Claude hook native payload mapping fixtures are recorded in `docs/claude-hook-native-payload-mapping-fixtures.md`.
 
 The Claude hook native metadata carrier fixtures are recorded in `docs/claude-hook-native-metadata-carrier-fixtures.md`.
@@ -143,6 +145,7 @@ node benchmarks/scripts/check-claude-hook-manual-install-document.js
 node benchmarks/scripts/check-claude-hook-manual-install-review-packet.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
+node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js
 node benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js
 node benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js
@@ -222,6 +225,8 @@ The Claude hook settings-fragment draft fixture check is `benchmarks/scripts/che
 
 The Claude hook carrier source contract check is `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`. It verifies `docs/claude-hook-carrier-source-contract.md` keeps the source user-owned and not consumed by the current command entrypoint.
 
+The Claude hook wrapper input contract check is `benchmarks/scripts/check-claude-hook-wrapper-input-contract.js`. It verifies `docs/claude-hook-wrapper-input-contract.md` stays contract-only and does not make `abk-claude-hook` read carrier paths.
+
 The Claude hook native payload mapping fixture check is `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js`. It verifies `docs/claude-hook-native-payload-mapping-fixtures.md` rejects transcript reads and blocks native payloads that lack explicit ABK task metadata.
 
 The Claude hook native metadata carrier fixture check is `benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js`. It verifies `docs/claude-hook-native-metadata-carrier-fixtures.md` keeps `hookId`, `repoRoot`, and `task` explicit when native payloads become ABK hook events.
@@ -242,6 +247,6 @@ The Claude hook command adapter entrypoint fixture check is `benchmarks/scripts/
 
 The Claude hook command adapter entrypoint check is `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js`. It verifies `docs/claude-hook-command-adapter-entrypoint.md`, `bin/abk-claude-hook.js`, and `lib/abk-claude-hook-adapter.js` execute fixture-backed stdin mapping without installing hooks.
 
-Only after those checks pass should the repo consider a wrapper input contract for the bounded native command entrypoint.
+Only after those checks pass should the repo consider wrapper output fixtures for the bounded native command entrypoint.
 
 Claude hook installation remains later because packaging still needs red/green package manifest fixtures and must not read private transcripts.

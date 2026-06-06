@@ -1,0 +1,52 @@
+{
+  "fixtureKind": "claude-hook-wrapper-input-contract",
+  "status": "contract-only",
+  "userApprovalRequired": true,
+  "notInstallableAsIs": true,
+  "consumedByCurrentEntrypoint": false,
+  "wrapperMayReadTranscript": false,
+  "wrapperMayMutateConfiguration": false,
+  "currentEntrypointMustRejectCarrierPaths": true,
+  "sourceReferences": {
+    "hooks": "https://code.claude.com/docs/en/hooks",
+    "settings": "https://code.claude.com/docs/en/configuration"
+  },
+  "nativeInput": {
+    "source": "native-stdin",
+    "policy": "project-allowed-fields-only",
+    "allowedFields": [
+      "hook_event_name",
+      "tool_name",
+      "tool_input.file_path"
+    ]
+  },
+  "carrierSource": {
+    "kind": "user-owned-sidecar-json",
+    "sourceId": "abk-boundary-carrier",
+    "pathPlaceholder": "<user-owned-carrier-json>",
+    "readPolicy": "user-reviewed-only"
+  },
+  "outputEnvelope": {
+    "inputMode": "native-payload-with-carrier",
+    "requiredFields": [
+      "nativePayload",
+      "metadataCarrier"
+    ],
+    "contract": "docs/claude-hook-native-command-input-contract.md"
+  },
+  "evidenceGates": [
+    "node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js",
+    "node benchmarks/scripts/check-claude-hook-carrier-source-contract.js",
+    "node benchmarks/scripts/check-claude-hook-native-command-input-contract.js",
+    "npm run bench:check",
+    "npm run bench:check:red"
+  ],
+  "nonGoals": [
+    "No raw private transcripts",
+    "No automatic hook installation",
+    "No repository mutation",
+    "Do not create or edit Claude configuration files",
+    "Do not publish shell copy commands",
+    "Do not execute scanners from wrapper input language"
+  ]
+}

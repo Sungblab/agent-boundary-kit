@@ -1,0 +1,13 @@
+{
+  "fixtureKind": "claude-hook-wrapper-input-contract",
+  "status": "rejected",
+  "rejectedBecause": "wrapper derives carrier metadata from transcript_path",
+  "nativeInput": {
+    "source": "native-stdin",
+    "taskSource": "transcript_path"
+  },
+  "carrierSource": {
+    "kind": "transcript-derived",
+    "taskSource": "transcript_path"
+  }
+}

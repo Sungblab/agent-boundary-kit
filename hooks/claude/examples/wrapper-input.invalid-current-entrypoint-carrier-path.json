@@ -1,0 +1,14 @@
+{
+  "fixtureKind": "claude-hook-wrapper-input-contract",
+  "status": "rejected",
+  "rejectedBecause": "current entrypoint must reject carrier paths",
+  "inputMode": "native-payload-with-carrier",
+  "nativePayload": {
+    "tool_name": "Write",
+    "tool_input": {
+      "file_path": "src/mindmap/new-surface.ts"
+    }
+  },
+  "carrierPath": "<user-owned-carrier-json>",
+  "metadataCarrierPath": "<user-owned-carrier-json>"
+}

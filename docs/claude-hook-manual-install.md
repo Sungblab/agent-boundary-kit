@@ -40,6 +40,8 @@ Review `docs/claude-hook-settings-fragment-draft-fixtures.md` before drafting an
 
 Review `docs/claude-hook-carrier-source-contract.md` before drafting any carrier source language.
 
+Review `docs/claude-hook-wrapper-input-contract.md` before drafting any wrapper input language.
+
 Review `docs/claude-hook-command-adapter-entrypoint.md` before naming `abk-claude-hook` in install language.
 
 Review `docs/claude-hook-event-input-contract.md` before changing ABK hook event fields.
@@ -85,6 +87,7 @@ node benchmarks/scripts/check-claude-hook-manual-install-document.js
 node benchmarks/scripts/check-claude-hook-manual-install-review-packet.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
+node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js
 node benchmarks/scripts/check-claude-hook-native-command-entrypoint.js
 node benchmarks/scripts/check-claude-hook-native-command-input-contract.js
@@ -104,6 +107,7 @@ The evidence must show:
 - the manual install review packet is review-only
 - the settings-fragment draft fixture is not installable as-is
 - the carrier source contract is not consumed by the current entrypoint
+- the wrapper input contract is contract-only
 - the document is ready only for user-approved manual install language review
 - agent-performed installation remains blocked
 - no live hook settings fragment is published
@@ -135,4 +139,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a wrapper input contract, still without shell copy commands, live settings fragments, or agent-performed configuration mutation.
+The next gate is wrapper output fixtures, still without shell copy commands, live settings fragments, or agent-performed configuration mutation.

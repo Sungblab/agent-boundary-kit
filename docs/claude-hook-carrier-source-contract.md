@@ -36,6 +36,8 @@ The required carrier fields are `hookId`, `repoRoot`, and `task`.
 
 The command input contract is `docs/claude-hook-native-command-input-contract.md`.
 
+The wrapper input contract is `docs/claude-hook-wrapper-input-contract.md`.
+
 The carrier fixture contract is `docs/claude-hook-native-metadata-carrier-fixtures.md`.
 
 The settings-fragment draft fixture is `docs/claude-hook-settings-fragment-draft-fixtures.md`.
@@ -90,6 +92,7 @@ Before carrier source language is described as ready, run:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
+node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js
 node benchmarks/scripts/check-claude-hook-native-command-input-contract.js
 node benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js
@@ -104,6 +107,7 @@ The evidence must show:
 - user approval is required
 - the agent may not create or edit the carrier source
 - the current entrypoint does not consume the carrier source
+- the wrapper input contract is contract-only
 - the current entrypoint still rejects carrier paths
 - `native-payload-with-carrier` remains the command input mode
 - `metadataCarrier` remains required
@@ -131,4 +135,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a wrapper input contract that can combine native stdin with a user-owned carrier source without reading transcripts or mutating Claude configuration.
+The next gate is wrapper output fixtures that show the exact envelope produced from native stdin plus user-owned carrier metadata, still without implementation.

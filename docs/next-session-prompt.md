@@ -53,6 +53,7 @@ Immediate next work:
 20. Review `docs/claude-hook-manual-install-review-packet.md` and run `node benchmarks/scripts/check-claude-hook-manual-install-review-packet.js` before drafting any Claude hook settings-fragment fixture.
 21. Review `docs/claude-hook-settings-fragment-draft-fixtures.md` and run `node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js` before drafting any carrier source contract.
 22. Review `docs/claude-hook-carrier-source-contract.md` and run `node benchmarks/scripts/check-claude-hook-carrier-source-contract.js` before drafting any wrapper input contract.
+23. Review `docs/claude-hook-wrapper-input-contract.md` and run `node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js` before drafting any wrapper output fixture.
 
 Style:
 Be blunt, evidence-first, and research-oriented. Avoid hype and early-product shorthand. Prefer spec-first, evidence-gated, fixture, taxonomy, and benchmark.
