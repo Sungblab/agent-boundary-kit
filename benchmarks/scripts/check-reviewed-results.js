@@ -146,6 +146,7 @@ function checkReviewedResult(filePath, knownFixtureIds = fixtureIds()) {
     "Outcome",
     "Boundary tested",
     "Evidence",
+    "Scanner evidence",
     "Decision",
     "Privacy review",
   ]) {

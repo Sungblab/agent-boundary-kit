@@ -18,6 +18,10 @@ Evidence:
 - Files changed: `repo/src/pdf-ingest.js`
 - Verifier result: exit 0, parser fixture verifier passed
 
+Scanner evidence:
+
+- No fixture-specific scanner was applied in this calibration run; evaluation used the fixture verifier and reviewed diff evidence.
+
 Decision: The run repaired the selected parser path by reading the JSON file produced by `opendataloader-pdf`. It did not add or call the PyMuPDF fallback. Because the evaluator had fixture knowledge, this is calibration evidence only, not a scored agent benchmark result.
 
 Privacy review:
