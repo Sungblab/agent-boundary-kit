@@ -64,6 +64,8 @@ The Claude hook manual install review packet is recorded in `docs/claude-hook-ma
 
 The Claude hook settings-fragment draft fixtures are recorded in `docs/claude-hook-settings-fragment-draft-fixtures.md`.
 
+The Claude hook settings-fragment review is recorded in `docs/claude-hook-settings-fragment-review.md`.
+
 The Claude hook carrier source contract is recorded in `docs/claude-hook-carrier-source-contract.md`.
 
 The Claude hook wrapper input contract is recorded in `docs/claude-hook-wrapper-input-contract.md`.
@@ -154,6 +156,7 @@ node benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-document.js
 node benchmarks/scripts/check-claude-hook-manual-install-review-packet.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js
+node benchmarks/scripts/check-claude-hook-settings-fragment-review.js
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
@@ -237,6 +240,8 @@ The Claude hook manual install native entrypoint readiness check is `benchmarks/
 The Claude hook manual install review packet check is `benchmarks/scripts/check-claude-hook-manual-install-review-packet.js`. It verifies `docs/claude-hook-manual-install-review-packet.md` stays review-only and does not publish a live settings fragment or shell command.
 
 The Claude hook settings-fragment draft fixture check is `benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js`. It verifies `docs/claude-hook-settings-fragment-draft-fixtures.md` keeps the draft not installable as-is and records the carrier gap before any user-owned configuration path exists.
+
+The Claude hook settings-fragment review check is `benchmarks/scripts/check-claude-hook-settings-fragment-review.js`. It verifies `docs/claude-hook-settings-fragment-review.md` keeps the wrapper-backed settings candidate review-only, user-approved, and non-mutating.
 
 The Claude hook carrier source contract check is `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`. It verifies `docs/claude-hook-carrier-source-contract.md` keeps the source user-owned and not consumed by the current command entrypoint.
 

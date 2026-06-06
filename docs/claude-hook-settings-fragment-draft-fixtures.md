@@ -46,6 +46,8 @@ The wrapper output fixture contract is `docs/claude-hook-wrapper-output-fixtures
 
 The review packet is `docs/claude-hook-manual-install-review-packet.md`.
 
+The settings-fragment review is `docs/claude-hook-settings-fragment-review.md`.
+
 The draft fixture may contain a `settingsFragmentDraft` object for review.
 
 The draft fixture must not tell the user to paste, run, install, or apply it.
@@ -94,6 +96,7 @@ Before settings-fragment draft language is described as ready, run:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js
+node benchmarks/scripts/check-claude-hook-settings-fragment-review.js
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
@@ -139,4 +142,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a wrapper implementation contract that consumes `docs/claude-hook-wrapper-output-fixtures.md`, still without installation or live settings guidance.
+The next gate is `docs/claude-hook-settings-fragment-review.md`, still without installation or live settings guidance.

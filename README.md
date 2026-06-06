@@ -100,6 +100,8 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/check-claude-hook-manual-install-review-packet.js`: verifies manual install review packets stay review-only before any settings-fragment draft work
 - `docs/claude-hook-settings-fragment-draft-fixtures.md`: draft-only settings-fragment fixture that keeps the carrier gap explicit
 - `benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js`: verifies settings-fragment drafts are not installable as-is and do not mutate configuration
+- `docs/claude-hook-settings-fragment-review.md`: review-only settings-fragment candidate after wrapper wiring is proven
+- `benchmarks/scripts/check-claude-hook-settings-fragment-review.js`: verifies settings-fragment review stays user-approved, not installable as-is, and non-mutating
 - `docs/claude-hook-carrier-source-contract.md`: contract-only carrier source shape for future user-owned Claude hook configuration
 - `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`: verifies carrier sources stay user-owned, not entrypoint-consumed, and separate from settings mutation
 - `docs/claude-hook-wrapper-input-contract.md`: contract-only wrapper input shape for combining native stdin with user-owned carrier metadata
@@ -263,6 +265,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - Claude hook manual install readiness is checked against native command entrypoint evidence before install language review can advance.
 - Claude hook manual install review packets are checked against `docs/claude-hook-manual-install-review-packet.md` before any settings-fragment draft work.
 - Claude hook settings-fragment draft fixtures are checked against `docs/claude-hook-settings-fragment-draft-fixtures.md` and remain not installable as-is until a carrier source contract exists.
+- Claude hook settings-fragment review is checked against `docs/claude-hook-settings-fragment-review.md` and remains review-only until user-approved manual installation language exists.
 - Claude hook carrier source contracts are checked against `docs/claude-hook-carrier-source-contract.md` and remain separate from the current command entrypoint until a wrapper input contract exists.
 - Claude hook wrapper input contracts are checked against `docs/claude-hook-wrapper-input-contract.md` and remain contract-only until output fixtures exist.
 - Claude hook wrapper output fixtures are checked against `docs/claude-hook-wrapper-output-fixtures.md` and remain expected-output-only until a wrapper implementation contract exists.

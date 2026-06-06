@@ -1,0 +1,59 @@
+{
+  "fixtureKind": "claude-hook-settings-fragment-review",
+  "status": "review-only",
+  "userApprovalRequired": true,
+  "agentMayApplySettings": false,
+  "notInstallableAsIs": true,
+  "wrapperWiringReviewed": true,
+  "sourceReferences": {
+    "hooks": "https://code.claude.com/docs/en/hooks",
+    "settings": "https://code.claude.com/docs/en/settings"
+  },
+  "reviewSources": [
+    "docs/claude-hook-settings-fragment-review.md",
+    "docs/claude-hook-wrapper-wiring-review.md",
+    "docs/claude-hook-wrapper-implementation.md",
+    "docs/claude-hook-native-command-input-contract.md"
+  ],
+  "wrapperCommand": {
+    "command": "abk-claude-hook-wrapper --carrier <user-owned-carrier-json>",
+    "contract": "docs/claude-hook-wrapper-implementation.md",
+    "wiringEvidence": "docs/claude-hook-wrapper-wiring-review.md"
+  },
+  "requiredCarrier": {
+    "inputMode": "native-payload-with-carrier",
+    "field": "metadataCarrier",
+    "contract": "docs/claude-hook-native-command-input-contract.md",
+    "source": "user-owned-carrier-json"
+  },
+  "settingsFragmentReview": {
+    "hooks": {
+      "PostToolUse": [
+        {
+          "matcher": "Edit|MultiEdit|Write",
+          "hooks": [
+            {
+              "type": "command",
+              "command": "abk-claude-hook-wrapper --carrier <user-owned-carrier-json>"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "evidenceGates": [
+    "node benchmarks/scripts/check-claude-hook-settings-fragment-review.js",
+    "node benchmarks/scripts/check-claude-hook-wrapper-wiring-review.js",
+    "node benchmarks/scripts/check-claude-hook-wrapper-implementation.js",
+    "npm run bench:check",
+    "npm run bench:check:red"
+  ],
+  "nonGoals": [
+    "No raw private transcripts",
+    "No automatic hook installation",
+    "No repository mutation",
+    "Do not create or edit Claude configuration files",
+    "Do not publish shell copy commands",
+    "Do not execute scanners from review language"
+  ]
+}

@@ -100,4 +100,6 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is manual settings-fragment review, still user-approved and still separate from agent-performed installation.
+The next gate is recorded in `docs/claude-hook-settings-fragment-review.md`: manual settings-fragment review, still user-approved and still separate from agent-performed installation.
+
+That gate is checked by `benchmarks/scripts/check-claude-hook-settings-fragment-review.js`.

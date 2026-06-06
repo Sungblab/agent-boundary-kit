@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "abk-claude-hook-wrapper --carrier <user-owned-carrier-json>"
+          }
+        ]
+      }
+    ]
+  }
+}

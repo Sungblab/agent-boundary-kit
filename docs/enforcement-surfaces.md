@@ -90,6 +90,8 @@ The Claude hook manual install review packet is recorded in `docs/claude-hook-ma
 
 The Claude hook settings-fragment draft fixtures are recorded in `docs/claude-hook-settings-fragment-draft-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js`, which keeps the draft not installable as-is and records the explicit carrier gap.
 
+The Claude hook settings-fragment review is recorded in `docs/claude-hook-settings-fragment-review.md`. Its check is `benchmarks/scripts/check-claude-hook-settings-fragment-review.js`, which keeps the wrapper-backed settings candidate review-only, user-approved, and non-mutating.
+
 The Claude hook carrier source contract is recorded in `docs/claude-hook-carrier-source-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`, which keeps the carrier source user-owned and not consumed by the current command entrypoint.
 
 The Claude hook wrapper input contract is recorded in `docs/claude-hook-wrapper-input-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-wrapper-input-contract.js`, which keeps wrapper input contract-only and preserves carrier path rejection in the current command entrypoint.
