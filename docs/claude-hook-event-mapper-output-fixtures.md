@@ -1,12 +1,12 @@
 # Claude Hook Event Mapper Output Fixtures
 
-These fixtures define the first expected outputs for the future `abk-runner map-event --input <hook-event.json>` command.
+These fixtures define expected outputs for the `abk-runner map-event --input <hook-event.json>` command.
 
 They extend `docs/claude-hook-event-mapper-contract.md`. They are not an installed hook, not hook packaging, and not scanner execution.
 
 ## Boundary
 
-The future mapper may read one hook event JSON and emit one bounded JSON object to stdout.
+The mapper may read one hook event JSON and emit one bounded JSON object to stdout.
 
 Exit 0 emits a runner input object.
 
@@ -68,6 +68,42 @@ The error output must:
 
 The error output must not include the private transcript, prompt text, message arrays, credentials, final responses, PR metadata, release notes, product copy, or completion claims.
 
+## Missing Required Field Output
+
+Input fixture:
+
+- `hooks/claude/examples/hook-event.invalid-missing-task.json`
+
+Expected output fixture:
+
+- `hooks/claude/examples/map-event.invalid-missing-task-output.json`
+
+The event omits `task`, so the mapper must reject it as a configuration error instead of inferring task metadata from private chat or broad workspace files.
+
+## Unknown Field Output
+
+Input fixture:
+
+- `hooks/claude/examples/hook-event.invalid-unknown-field.json`
+
+Expected output fixture:
+
+- `hooks/claude/examples/map-event.invalid-unknown-field-output.json`
+
+The event includes `workspaceNotes`, so the mapper must reject it as a configuration error instead of passing non-contract context into runner input.
+
+## Invalid JSON Output
+
+Input fixture:
+
+- `hooks/claude/examples/hook-event.invalid-json.json`
+
+Expected output fixture:
+
+- `hooks/claude/examples/map-event.invalid-json-output.json`
+
+The event cannot be parsed as JSON, so the mapper must reject it with `hookId` set to `unknown`.
+
 ## Evidence Gate
 
 To verify the mapper command, run:
@@ -106,5 +142,8 @@ The current executable evidence covers only:
 
 - `abk-runner map-event --input hooks/claude/examples/hook-event.post-edit.valid.json`
 - `abk-runner map-event --input hooks/claude/examples/hook-event.invalid-transcript.json`
+- `abk-runner map-event --input hooks/claude/examples/hook-event.invalid-missing-task.json`
+- `abk-runner map-event --input hooks/claude/examples/hook-event.invalid-unknown-field.json`
+- `abk-runner map-event --input hooks/claude/examples/hook-event.invalid-json.json`
 
 The implementation must stay bounded to explicit event metadata and must not install hooks, execute scanners, select scanners, write files, or generate final copy.

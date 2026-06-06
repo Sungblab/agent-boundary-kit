@@ -1,0 +1,9 @@
+{
+  "hookId": "unknown",
+  "status": "error",
+  "exitCode": 2,
+  "blocked": true,
+  "reason": "hook event JSON could not be parsed",
+  "inputsUsed": [],
+  "findings": []
+}

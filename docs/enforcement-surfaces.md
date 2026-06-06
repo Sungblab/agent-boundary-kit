@@ -68,9 +68,9 @@ The Claude hook event mapping examples are recorded in `docs/claude-hook-event-m
 
 The Claude hook event mapper contract is recorded in `docs/claude-hook-event-mapper-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-event-mapper-contract.js`, which fixes a bounded `abk-runner map-event --input <hook-event.json>` command before implementation.
 
-The Claude hook event mapper output fixtures are recorded in `docs/claude-hook-event-mapper-output-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js`, which fixes the valid runner-input output and rejected transcript configuration-error output.
+The Claude hook event mapper output fixtures are recorded in `docs/claude-hook-event-mapper-output-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js`, which fixes the valid runner-input output plus rejected transcript, missing-field, unknown-field, and invalid JSON configuration-error outputs.
 
-The local Claude hook event mapper implementation is checked by `benchmarks/scripts/check-abk-runner-map-event.js`. It maps explicit event metadata into runner input and rejects transcript-bearing events without installing hooks, selecting scanners, or executing scanners.
+The local Claude hook event mapper implementation is checked by `benchmarks/scripts/check-abk-runner-map-event.js`. It maps explicit event metadata into runner input and rejects invalid hook events without installing hooks, selecting scanners, or executing scanners.
 
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 

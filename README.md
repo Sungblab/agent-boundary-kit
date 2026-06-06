@@ -140,7 +140,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/check-claude-hook-event-mapping-examples.js`: verifies valid and rejected hook event mapping examples
 - `benchmarks/scripts/check-claude-hook-event-mapper-contract.js`: verifies the event mapper command remains bounded and non-executing
 - `benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js`: verifies mapper output fixtures before local execution checks
-- `benchmarks/scripts/check-abk-runner-map-event.js`: verifies the local `abk-runner map-event --input` command against output fixtures
+- `benchmarks/scripts/check-abk-runner-map-event.js`: verifies the local `abk-runner map-event --input` command against valid, rejected transcript, missing-field, unknown-field, and invalid JSON output fixtures
 - `benchmarks/scripts/check-packaging-readiness.js`: verifies packaging stays tied to fixture-backed scanner evidence
 - `benchmarks/scripts/check-boundary-skill-readiness.js`: verifies the boundary-check Codex skill candidate stays tied to the packaging and read-only runner contracts
 - `benchmarks/scripts/check-codex-skill-install-contract.js`: verifies the Codex skill install contract does not widen into plugin, hook, connector, or watcher behavior
@@ -203,7 +203,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - future Claude hook event mapping examples are checked before hook packaging.
 - Claude hook event mapper commands are checked against bounded implementation rules.
 - Claude hook event mapper output fixtures are checked against local `map-event` execution.
-- local `abk-runner map-event --input` execution is checked against valid and rejected event output fixtures.
+- local `abk-runner map-event --input` execution is checked against valid, rejected transcript, missing-field, unknown-field, and invalid JSON output fixtures.
 - the boundary-check skill candidate is checked against the packaging readiness contract and read-only runner evidence contract.
 - the Codex skill install contract is checked before any manual install instructions are published.
 - the boundary-check skill folder shape is checked before manual install instructions are published.

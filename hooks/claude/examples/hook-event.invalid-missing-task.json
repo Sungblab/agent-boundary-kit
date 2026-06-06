@@ -1,0 +1,7 @@
+{
+  "hookId": "post_edit_scope_check",
+  "repoRoot": ".",
+  "changedFiles": [
+    "src/mindmap/new-surface.ts"
+  ]
+}

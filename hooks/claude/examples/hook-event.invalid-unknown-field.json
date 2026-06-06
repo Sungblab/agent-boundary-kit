@@ -1,0 +1,15 @@
+{
+  "hookId": "post_edit_scope_check",
+  "repoRoot": ".",
+  "task": {
+    "type": "replacement",
+    "declaredBy": "agent",
+    "summary": "Replace a public surface and remove stale references from declared files."
+  },
+  "changedFiles": [
+    "src/mindmap/new-surface.ts"
+  ],
+  "workspaceNotes": [
+    "This field is intentionally invalid. Hook events must use the explicit event contract."
+  ]
+}

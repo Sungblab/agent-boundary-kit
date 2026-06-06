@@ -32,7 +32,7 @@ The Claude hook event mapping examples are recorded in `docs/claude-hook-event-m
 
 The Claude hook event mapper contract is recorded in `docs/claude-hook-event-mapper-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-event-mapper-contract.js` and defines a bounded `abk-runner map-event --input <hook-event.json>` command without installing hooks or executing scanners.
 
-The Claude hook event mapper output fixtures are recorded in `docs/claude-hook-event-mapper-output-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js` and fix the valid runner-input output plus the rejected transcript configuration-error output.
+The Claude hook event mapper output fixtures are recorded in `docs/claude-hook-event-mapper-output-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js` and fix the valid runner-input output plus rejected transcript, missing-field, unknown-field, and invalid JSON configuration-error outputs.
 
 The local mapper implementation is checked by `benchmarks/scripts/check-abk-runner-map-event.js`. It maps explicit event metadata only and still does not install hooks, select scanners, or execute scanners.
 

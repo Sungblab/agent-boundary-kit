@@ -1,0 +1,9 @@
+{
+  "hookId": "post_edit_scope_check",
+  "status": "error",
+  "exitCode": 2,
+  "blocked": true,
+  "reason": "missing required event field task",
+  "inputsUsed": [],
+  "findings": []
+}

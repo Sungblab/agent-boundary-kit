@@ -19,6 +19,24 @@ const cases = [
     expected: "hooks/claude/examples/map-event.invalid-transcript-output.json",
     exitCode: 2,
   },
+  {
+    name: "missing required task hook event",
+    input: "hooks/claude/examples/hook-event.invalid-missing-task.json",
+    expected: "hooks/claude/examples/map-event.invalid-missing-task-output.json",
+    exitCode: 2,
+  },
+  {
+    name: "unknown field hook event",
+    input: "hooks/claude/examples/hook-event.invalid-unknown-field.json",
+    expected: "hooks/claude/examples/map-event.invalid-unknown-field-output.json",
+    exitCode: 2,
+  },
+  {
+    name: "invalid JSON hook event",
+    input: "hooks/claude/examples/hook-event.invalid-json.json",
+    expected: "hooks/claude/examples/map-event.invalid-json-output.json",
+    exitCode: 2,
+  },
 ];
 
 const forbiddenOutputKeys = [

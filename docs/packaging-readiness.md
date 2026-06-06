@@ -138,7 +138,7 @@ The Claude hook event input contract check is `benchmarks/scripts/check-claude-h
 
 The Claude hook event mapper contract check is `benchmarks/scripts/check-claude-hook-event-mapper-contract.js`. It verifies `docs/claude-hook-event-mapper-contract.md` keeps the `abk-runner map-event --input <hook-event.json>` command bounded to event-to-runner-input mapping without installing hooks or executing scanners.
 
-The Claude hook event mapper output fixture check is `benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js`. It verifies `docs/claude-hook-event-mapper-output-fixtures.md` fixes valid and rejected transcript outputs.
+The Claude hook event mapper output fixture check is `benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js`. It verifies `docs/claude-hook-event-mapper-output-fixtures.md` fixes valid, rejected transcript, missing-field, unknown-field, and invalid JSON outputs.
 
 The local mapper implementation check is `benchmarks/scripts/check-abk-runner-map-event.js`. It verifies `abk-runner map-event --input <hook-event.json>` emits those output fixtures exactly.
 

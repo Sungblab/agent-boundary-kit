@@ -49,11 +49,17 @@ Fixture-like examples are recorded in `docs/claude-hook-event-mapping-examples.m
 - `hooks/claude/examples/hook-event.post-edit.valid.json`
 - `hooks/claude/examples/hook-event.post-edit.expected-runner-input.json`
 - `hooks/claude/examples/hook-event.invalid-transcript.json`
+- `hooks/claude/examples/hook-event.invalid-missing-task.json`
+- `hooks/claude/examples/hook-event.invalid-unknown-field.json`
+- `hooks/claude/examples/hook-event.invalid-json.json`
 
 Output fixtures are recorded in `docs/claude-hook-event-mapper-output-fixtures.md`:
 
 - `hooks/claude/examples/map-event.valid-output.json`
 - `hooks/claude/examples/map-event.invalid-transcript-output.json`
+- `hooks/claude/examples/map-event.invalid-missing-task-output.json`
+- `hooks/claude/examples/map-event.invalid-unknown-field-output.json`
+- `hooks/claude/examples/map-event.invalid-json-output.json`
 
 The input event may contain only explicit event metadata. Rejected transcript, prompt, message, credential, cookie, token, and password fields must produce a configuration error.
 
@@ -104,7 +110,7 @@ The check verifies the command shape, input and output boundaries, error handlin
 
 The local implementation is split between `bin/abk-runner.js` and `lib/abk-runner-core.js`.
 
-It maps explicit hook event metadata into runner input and rejects transcript-bearing events with bounded configuration-error output.
+It maps explicit hook event metadata into runner input and rejects transcript-bearing, missing-field, unknown-field, and invalid JSON events with bounded configuration-error output.
 
 It is checked by `benchmarks/scripts/check-abk-runner-map-event.js`.
 
