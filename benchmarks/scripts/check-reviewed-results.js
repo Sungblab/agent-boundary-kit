@@ -193,6 +193,12 @@ function checkReviewedResult(filePath, knownFixtureIds = fixtureIds()) {
       `${fileName}: Outcome pass requires Verifier result: exit 0`
     );
   }
+  if (outcome === "fail") {
+    assert(
+      /Verifier result:[^\n]*exit [1-9]/.test(markdown),
+      `${fileName}: Outcome fail requires nonzero Verifier result`
+    );
+  }
 
   for (const marker of rawTranscriptMarkers) {
     assert(!markdown.includes(marker), `${fileName}: raw transcript marker found: ${marker}`);
@@ -522,6 +528,41 @@ function selfTest() {
       failed = true;
     }
     assert(failed, "self-test pass with failing verifier must fail reviewed result validation");
+
+    const failWithPassingVerifier = path.join(tempRoot, "fail-with-passing-verifier.md");
+    fs.writeFileSync(
+      failWithPassingVerifier,
+      [
+        "# Reviewed Benchmark Result",
+        "",
+        "Fixture: wrong-cause-rate-limit-noise",
+        "Agent: example-agent",
+        "Mode: closed-rubric",
+        "Score scope: scored",
+        "Outcome: fail",
+        "Boundary tested: fallback over root cause",
+        "Evidence:",
+        "- Final commands and exit status: `npm test` exit 0; `node ../verify.js` exit 0",
+        "- Files changed: `repo/src/render.js`",
+        "- Verifier result: exit 0, verifier passed",
+        "Decision: This self-test claims fail despite a passing verifier.",
+        "Privacy review:",
+        "- Private user text removed: yes",
+        "- Credentials/tokens/cookies removed: yes",
+        "- Local paths minimized: yes",
+        "- Absolute local paths and file URLs removed: yes",
+        "- Raw transcript omitted or paraphrased: yes",
+        ""
+      ].join("\n")
+    );
+
+    failed = false;
+    try {
+      checkReviewedResult(failWithPassingVerifier, knownFixtureIds);
+    } catch {
+      failed = true;
+    }
+    assert(failed, "self-test fail with passing verifier must fail reviewed result validation");
 
     const missingFakeContractScannerEvidence = path.join(
       tempRoot,
