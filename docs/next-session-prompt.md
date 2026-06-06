@@ -72,7 +72,7 @@ Immediate next work:
 39. Review `docs/claude-hook-user-execution-authorization-review-contract.md` and run `node benchmarks/scripts/check-claude-hook-user-execution-authorization-review-contract.js` before treating any user authorization as eligible for user-performed application.
 40. Review `docs/claude-hook-user-performed-application-boundary-contract.md` and run `node benchmarks/scripts/check-claude-hook-user-performed-application-boundary-contract.js` before treating user-performed application as a terminal boundary.
 41. Review `docs/claude-hook-application-boundary-chain.md` and run `node benchmarks/scripts/check-claude-hook-application-boundary-chain.js` before changing Claude hook application boundary order.
-42. Review `benchmarks/fixtures/approved-file-mask-scope`, `docs/calibration-runs.md`, and `docs/approved-file-mask-scope-evaluation.md` before deciding whether to build a scope-mask scanner. The fixture has calibration-only GREEN evidence, but still needs a scored closed-rubric run from an agent that has not inspected the trap or verifier.
+42. Review `benchmarks/fixtures/approved-file-mask-scope`, `docs/calibration-runs.md`, `docs/approved-file-mask-scope-evaluation.md`, and `docs/approved-file-mask-scope-agent-prompt.md` before deciding whether to build a scope-mask scanner. The fixture has calibration-only GREEN evidence, but still needs a scored closed-rubric run from an agent that has not inspected the trap or verifier.
 
 Style:
 Be blunt, evidence-first, and research-oriented. Avoid hype and early-product shorthand. Prefer spec-first, evidence-gated, fixture, taxonomy, and benchmark.

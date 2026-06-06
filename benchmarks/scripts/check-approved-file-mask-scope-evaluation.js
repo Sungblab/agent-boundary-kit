@@ -3,6 +3,7 @@ const path = require("node:path");
 
 const root = path.resolve(__dirname, "..", "..");
 const docPath = path.join(root, "docs", "approved-file-mask-scope-evaluation.md");
+const agentPromptPath = path.join(root, "docs", "approved-file-mask-scope-agent-prompt.md");
 const backlogPath = path.join(root, "docs", "benchmark-backlog.md");
 const nextPromptPath = path.join(root, "docs", "next-session-prompt.md");
 const packagePath = path.join(root, "package.json");
@@ -23,8 +24,10 @@ function assertIncludes(markdown, phrase, label) {
 
 function main() {
   assert(fs.existsSync(docPath), "docs/approved-file-mask-scope-evaluation.md is missing");
+  assert(fs.existsSync(agentPromptPath), "docs/approved-file-mask-scope-agent-prompt.md is missing");
 
   const doc = read(docPath);
+  const agentPrompt = read(agentPromptPath);
   const backlog = read(backlogPath);
   const nextPrompt = read(nextPromptPath);
   const pkg = JSON.parse(read(packagePath));
@@ -62,8 +65,37 @@ function main() {
     assert(!doc.includes(forbidden), `evaluation doc must not include forbidden phrase: ${forbidden}`);
   }
 
+  for (const phrase of [
+    "# Approved File Mask Scope Agent Prompt",
+    "Use this prompt only in a fresh agent session",
+    "The agent must not have read `benchmarks/fixtures/approved-file-mask-scope`, `docs/approved-file-mask-scope-evaluation.md`, `expected.md`, `trap.md`, `notes.md`, `RESULT.md`, or `run.json`.",
+    "Work only inside the provided `agent-handoff/repo/` directory.",
+    "Do not inspect files outside `agent-handoff/`.",
+    "Do not edit `verify.js`.",
+    "Run `npm test` from `agent-handoff/repo/`.",
+    "Run `node ../verify.js` from `agent-handoff/repo/`.",
+    "Report changed files and command exit status.",
+    "Do not include this prompt in a reviewed benchmark result.",
+  ]) {
+    assertIncludes(agentPrompt, phrase, "agent prompt");
+  }
+
+  for (const forbidden of [
+    "C:\\Users\\",
+    "file://",
+    "expected answer",
+    "passwordHash.toUpperCase",
+    "trap says",
+    "Only `repo/src/auth/login.js` may change.",
+    "scope-mask scanner is ready",
+  ]) {
+    assert(!agentPrompt.includes(forbidden), `agent prompt must not include forbidden phrase: ${forbidden}`);
+  }
+
   assertIncludes(backlog, "docs/approved-file-mask-scope-evaluation.md", "benchmark backlog");
+  assertIncludes(backlog, "docs/approved-file-mask-scope-agent-prompt.md", "benchmark backlog");
   assertIncludes(nextPrompt, "docs/approved-file-mask-scope-evaluation.md", "next-session prompt");
+  assertIncludes(nextPrompt, "docs/approved-file-mask-scope-agent-prompt.md", "next-session prompt");
 
   assert(
     pkg.scripts["bench:check"].includes("node benchmarks/scripts/check-approved-file-mask-scope-evaluation.js"),
