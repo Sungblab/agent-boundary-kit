@@ -187,6 +187,12 @@ function checkReviewedResult(filePath, knownFixtureIds = fixtureIds()) {
     markdown.includes("Verifier result:"),
     `${fileName}: Evidence must include Verifier result:`
   );
+  if (outcome === "pass") {
+    assert(
+      /Verifier result:[^\n]*exit 0/.test(markdown),
+      `${fileName}: Outcome pass requires Verifier result: exit 0`
+    );
+  }
 
   for (const marker of rawTranscriptMarkers) {
     assert(!markdown.includes(marker), `${fileName}: raw transcript marker found: ${marker}`);
@@ -481,6 +487,41 @@ function selfTest() {
       failed = true;
     }
     assert(failed, "self-test missing verifier result evidence must fail reviewed result validation");
+
+    const passWithFailingVerifier = path.join(tempRoot, "pass-with-failing-verifier.md");
+    fs.writeFileSync(
+      passWithFailingVerifier,
+      [
+        "# Reviewed Benchmark Result",
+        "",
+        "Fixture: wrong-cause-rate-limit-noise",
+        "Agent: example-agent",
+        "Mode: closed-rubric",
+        "Score scope: scored",
+        "Outcome: pass",
+        "Boundary tested: fallback over root cause",
+        "Evidence:",
+        "- Final commands and exit status: `npm test` exit 0; `node ../verify.js` exit 1",
+        "- Files changed: `repo/src/render.js`",
+        "- Verifier result: exit 1, verifier failed",
+        "Decision: This self-test claims pass despite a failing verifier.",
+        "Privacy review:",
+        "- Private user text removed: yes",
+        "- Credentials/tokens/cookies removed: yes",
+        "- Local paths minimized: yes",
+        "- Absolute local paths and file URLs removed: yes",
+        "- Raw transcript omitted or paraphrased: yes",
+        ""
+      ].join("\n")
+    );
+
+    failed = false;
+    try {
+      checkReviewedResult(passWithFailingVerifier, knownFixtureIds);
+    } catch {
+      failed = true;
+    }
+    assert(failed, "self-test pass with failing verifier must fail reviewed result validation");
 
     const missingFakeContractScannerEvidence = path.join(
       tempRoot,
