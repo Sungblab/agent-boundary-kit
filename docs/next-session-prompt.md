@@ -2,6 +2,8 @@
 
 Use this prompt when opening a new Codex or Claude Code session in this repo.
 
+For the latest status summary and a bounded single-session implementation prompt, also review `docs/current-status-and-one-session-implementation-prompt.md`.
+
 ```text
 You are working in the `agent-boundary-kit` repository.
 
