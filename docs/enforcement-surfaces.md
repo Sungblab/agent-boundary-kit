@@ -98,6 +98,8 @@ The Claude hook wrapper output fixtures are recorded in `docs/claude-hook-wrappe
 
 The Claude hook wrapper implementation contract is recorded in `docs/claude-hook-wrapper-implementation-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js`, which keeps the future wrapper contract-only before implementation fixtures exist.
 
+The Claude hook wrapper implementation fixtures are recorded in `docs/claude-hook-wrapper-implementation-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-wrapper-implementation-fixtures.js`, which fixes valid and rejected wrapper inputs before local wrapper code exists.
+
 The Claude hook native payload mapping fixtures are recorded in `docs/claude-hook-native-payload-mapping-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js`, which rejects transcript reads and blocks native payloads that lack explicit ABK task metadata.
 
 The Claude hook native metadata carrier fixtures are recorded in `docs/claude-hook-native-metadata-carrier-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js`, which requires `hookId`, `repoRoot`, and `task` to stay explicit when native payloads become ABK hook events.
@@ -393,6 +395,8 @@ Blocks completion when:
 125. Add a Claude hook wrapper output fixture check. Completed: `benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js`.
 126. Add a Claude hook wrapper implementation contract. Completed: `docs/claude-hook-wrapper-implementation-contract.md`.
 127. Add a Claude hook wrapper implementation contract check. Completed: `benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js`.
-128. Claude hooks remain specs until wrapper implementation fixtures are reviewed against the bounded native command entrypoint.
+128. Add Claude hook wrapper implementation fixtures. Completed: `docs/claude-hook-wrapper-implementation-fixtures.md`.
+129. Add a Claude hook wrapper implementation fixture check. Completed: `benchmarks/scripts/check-claude-hook-wrapper-implementation-fixtures.js`.
+130. Claude hooks remain specs until local wrapper implementation is reviewed against the bounded native command entrypoint.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

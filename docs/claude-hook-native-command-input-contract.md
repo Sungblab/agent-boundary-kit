@@ -30,6 +30,8 @@ The wrapper output fixtures are recorded in `docs/claude-hook-wrapper-output-fix
 
 The wrapper implementation contract is recorded in `docs/claude-hook-wrapper-implementation-contract.md`.
 
+The wrapper implementation fixtures are recorded in `docs/claude-hook-wrapper-implementation-fixtures.md`.
+
 The current command entrypoint boundary is recorded in `docs/claude-hook-command-adapter-entrypoint.md`.
 
 It must not accept carrier file paths.
@@ -82,6 +84,7 @@ node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
 node benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js
+node benchmarks/scripts/check-claude-hook-wrapper-implementation-fixtures.js
 node benchmarks/scripts/check-claude-hook-native-command-entrypoint.js
 node benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js
 node benchmarks/scripts/check-claude-hook-native-adapter.js

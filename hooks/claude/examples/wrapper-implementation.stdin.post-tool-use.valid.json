@@ -1,0 +1,11 @@
+{
+  "session_id": "claude-session-redacted",
+  "transcript_path": "/user-owned/claude/transcript.jsonl",
+  "cwd": "/repo",
+  "permission_mode": "default",
+  "hook_event_name": "PostToolUse",
+  "tool_name": "Write",
+  "tool_input": {
+    "file_path": "src/mindmap/new-surface.ts"
+  }
+}

@@ -38,6 +38,8 @@ The command input contract is `docs/claude-hook-native-command-input-contract.md
 
 The wrapper implementation contract is `docs/claude-hook-wrapper-implementation-contract.md`.
 
+The wrapper implementation fixtures are `docs/claude-hook-wrapper-implementation-fixtures.md`.
+
 The carrier fixture contract is `docs/claude-hook-native-metadata-carrier-fixtures.md`.
 
 The current entrypoint boundary is unchanged.
@@ -95,6 +97,7 @@ Before wrapper output fixture language is described as ready, run:
 ```sh
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
 node benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js
+node benchmarks/scripts/check-claude-hook-wrapper-implementation-fixtures.js
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js
@@ -139,4 +142,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is wrapper implementation fixtures for `docs/claude-hook-wrapper-implementation-contract.md`, still without hook installation or live settings guidance.
+The next gate is local wrapper module implementation against `docs/claude-hook-wrapper-implementation-fixtures.md`, still without hook installation or live settings guidance.

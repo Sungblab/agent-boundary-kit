@@ -69,6 +69,8 @@ The source evidence says command hooks receive JSON on stdin.
 
 The wrapper output fixtures must stay green before any wrapper implementation exists.
 
+The wrapper implementation fixtures are recorded in `docs/claude-hook-wrapper-implementation-fixtures.md`.
+
 ## Allowed Wrapper Shape
 
 The future wrapper may:
@@ -144,6 +146,7 @@ Before wrapper implementation language is described as ready, run:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js
+node benchmarks/scripts/check-claude-hook-wrapper-implementation-fixtures.js
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
@@ -187,4 +190,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is wrapper implementation fixtures for the candidate command and module, still without hook installation or live settings guidance.
+The next gate is local wrapper module implementation against `docs/claude-hook-wrapper-implementation-fixtures.md`, still without hook installation or live settings guidance.

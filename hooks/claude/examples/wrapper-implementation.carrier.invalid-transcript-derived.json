@@ -1,0 +1,12 @@
+{
+  "carrierVersion": "abk-native-metadata-carrier/v1",
+  "hookId": "post_edit_scope_check",
+  "repoRoot": ".",
+  "taskSource": "transcript_path",
+  "transcript_path": "/user-owned/claude/transcript.jsonl",
+  "task": {
+    "type": "replacement",
+    "declaredBy": "derived-from-transcript",
+    "summary": "Infer task metadata from conversation transcript."
+  }
+}

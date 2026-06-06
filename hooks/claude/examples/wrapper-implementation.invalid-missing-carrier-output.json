@@ -1,0 +1,11 @@
+{
+  "mode": "wrapper-implementation-fixture",
+  "status": "error",
+  "exitCode": 2,
+  "blocked": true,
+  "reason": "wrapper carrier source missing",
+  "inputsUsed": [
+    "native-stdin"
+  ],
+  "findings": []
+}

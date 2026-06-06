@@ -1,0 +1,26 @@
+{
+  "carrierVersion": "abk-native-metadata-carrier/v1",
+  "hookId": "post_edit_scope_check",
+  "repoRoot": ".",
+  "task": {
+    "type": "replacement",
+    "declaredBy": "user-owned-carrier-source",
+    "summary": "Replace a public surface and remove stale references from declared files."
+  },
+  "approvedScope": [
+    "src/mindmap/**",
+    "docs/**",
+    "tests/**"
+  ],
+  "namedTools": [
+    "opendataloader-pdf",
+    "latex"
+  ],
+  "staleTerms": [
+    "legacy mind map",
+    "old mindmap"
+  ],
+  "metadataFiles": [
+    "boundary.json"
+  ]
+}

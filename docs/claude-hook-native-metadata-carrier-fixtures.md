@@ -14,6 +14,8 @@ The wrapper output fixtures are recorded in `docs/claude-hook-wrapper-output-fix
 
 The wrapper implementation contract is recorded in `docs/claude-hook-wrapper-implementation-contract.md`.
 
+The wrapper implementation fixtures are recorded in `docs/claude-hook-wrapper-implementation-fixtures.md`.
+
 They are fixture-only. They are not installed hooks, not installers, and not live settings fragments.
 
 ## Source Evidence
@@ -88,6 +90,7 @@ node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
 node benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js
+node benchmarks/scripts/check-claude-hook-wrapper-implementation-fixtures.js
 node benchmarks/scripts/check-claude-hook-native-adapter.js
 node benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js
 node benchmarks/scripts/check-claude-hook-event-input-contract.js

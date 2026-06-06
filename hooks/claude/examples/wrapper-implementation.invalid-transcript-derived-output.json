@@ -1,0 +1,9 @@
+{
+  "mode": "wrapper-implementation-fixture",
+  "status": "error",
+  "exitCode": 2,
+  "blocked": true,
+  "reason": "wrapper carrier source must not derive metadata from transcript_path",
+  "inputsUsed": [],
+  "findings": []
+}
