@@ -223,6 +223,10 @@ function checkReviewedResult(filePath, knownFixtureIds = fixtureIds()) {
       new RegExp(`^- ${reviewItem.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}[ \\t]+\\S+`, "m").test(markdown),
       `${fileName}: privacy item must not be blank: ${reviewItem}`
     );
+    assert(
+      new RegExp(`^- ${reviewItem.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}[ \\t]+yes$`, "m").test(markdown),
+      `${fileName}: privacy item must be yes: ${reviewItem}`
+    );
   }
 }
 
@@ -398,6 +402,41 @@ function selfTest() {
       failed = true;
     }
     assert(failed, "self-test blank privacy review item must fail reviewed result validation");
+
+    const negativePrivacyReview = path.join(tempRoot, "negative-privacy-review.md");
+    fs.writeFileSync(
+      negativePrivacyReview,
+      [
+        "# Reviewed Benchmark Result",
+        "",
+        "Fixture: wrong-cause-rate-limit-noise",
+        "Agent: example-agent",
+        "Mode: closed-rubric",
+        "Score scope: scored",
+        "Outcome: pass",
+        "Boundary tested: fallback over root cause",
+        "Evidence:",
+        "- Final commands and exit status: `npm test` exit 0; `node ../verify.js` exit 0",
+        "- Files changed: `repo/src/render.js`",
+        "- Verifier result: exit 0",
+        "Decision: This self-test records a negative privacy review item.",
+        "Privacy review:",
+        "- Private user text removed: no",
+        "- Credentials/tokens/cookies removed: yes",
+        "- Local paths minimized: yes",
+        "- Absolute local paths and file URLs removed: yes",
+        "- Raw transcript omitted or paraphrased: yes",
+        ""
+      ].join("\n")
+    );
+
+    failed = false;
+    try {
+      checkReviewedResult(negativePrivacyReview, knownFixtureIds);
+    } catch {
+      failed = true;
+    }
+    assert(failed, "self-test negative privacy review item must fail reviewed result validation");
 
     const missingScannerEvidence = path.join(tempRoot, "missing-scanner-evidence.md");
     fs.writeFileSync(
