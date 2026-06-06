@@ -63,4 +63,6 @@ The reviewed result must state that only `repo/src/auth/login.js` changed.
 
 Scanner evidence should say there is no scope-mask scanner yet; the evidence is the fixture verifier plus the reviewed one-file diff.
 
+Use `docs/approved-file-mask-scope-scoring-checklist.md` to classify the run before writing the reviewed result.
+
 Only after reviewed scored evidence exists, decide whether a scope-mask scanner is justified.
