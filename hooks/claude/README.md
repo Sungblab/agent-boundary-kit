@@ -38,6 +38,8 @@ The local mapper implementation is checked by `benchmarks/scripts/check-abk-runn
 
 The Claude hook packaging contract is recorded in `docs/claude-hook-packaging-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-packaging-contract.js` and keeps future packaging limited to explicit hook events plus `abk-runner map-event`, `abk-runner dry-run`, and `abk-runner scan` command templates. It is still not an installed hook.
 
+The Claude hook package manifest fixtures are recorded in `docs/claude-hook-package-manifest-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js` and keep future manifests fixture-only, manual-review-only, and auto-install disabled. They are still not installed hooks.
+
 The first narrow scanner candidate is defined in `docs/first-scanner-candidate.md`. It targets only test runtime patching. Its red/green evidence is recorded in `docs/scanner-validation-test-runtime-patch.md`, its first application sweep is recorded in `docs/scanner-application-test-runtime-patch.md`, and its read-only script is `benchmarks/scripts/scan-test-runtime-patch.js`.
 
 The next scanner candidate is `test-fake-contract-scan`; its red/green evidence is recorded in `docs/scanner-validation-test-fake-contract.md`, and its read-only script is `benchmarks/scripts/scan-test-fake-contract.js`. It is still not an installed hook.

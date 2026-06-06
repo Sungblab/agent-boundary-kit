@@ -50,6 +50,7 @@ The package boundary depends on these contracts:
 Required implementation checks:
 
 - `benchmarks/scripts/check-claude-hook-packaging-contract.js`
+- `benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js`
 - `benchmarks/scripts/check-abk-runner-map-event.js`
 - `benchmarks/scripts/check-abk-runner-dry-run.js`
 - `benchmarks/scripts/check-abk-runner-scan.js`
@@ -116,6 +117,7 @@ node benchmarks/scripts/check-claude-hook-event-input-contract.js
 node benchmarks/scripts/check-claude-hook-event-mapping-examples.js
 node benchmarks/scripts/check-claude-hook-event-mapper-contract.js
 node benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js
+node benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js
 node benchmarks/scripts/check-abk-runner-map-event.js
 node benchmarks/scripts/check-abk-runner-dry-run.js
 node benchmarks/scripts/check-abk-runner-scan.js
@@ -153,6 +155,15 @@ Do not add SaaS workflow.
 
 Do not generate final responses, PR metadata, release notes, product copy, or completion claims.
 
+## Package Manifest Fixtures
+
+The package manifest fixtures are recorded in `docs/claude-hook-package-manifest-fixtures.md`.
+
+They include:
+
+- `hooks/claude/examples/package-manifest.valid.json`
+- `hooks/claude/examples/package-manifest.invalid-auto-install.json`
+
 ## Next Gate
 
-The next gate is a red/green package manifest fixture that references this contract without installing hooks.
+The next gate is a bounded manual install documentation fixture that references the package manifest without mutating a repository.

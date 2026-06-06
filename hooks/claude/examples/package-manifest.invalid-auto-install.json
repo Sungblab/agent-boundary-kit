@@ -1,0 +1,52 @@
+{
+  "name": "agent-boundary-kit-claude-hooks",
+  "version": "0.0.0-fixture",
+  "status": "fixture-only",
+  "contract": "docs/claude-hook-packaging-contract.md",
+  "installation": {
+    "mode": "manual-review-only",
+    "autoInstall": true
+  },
+  "hooks": [
+    {
+      "hookId": "pre_write_boundary_check",
+      "spec": "hooks/claude/pre-write-boundary-check.md",
+      "commands": [
+        "abk-runner map-event --input <hook-event.json>",
+        "abk-runner dry-run --input <runner-input.json>",
+        "abk-runner scan --input <runner-input.json> --scanner <scanner-id>"
+      ]
+    },
+    {
+      "hookId": "post_edit_scope_check",
+      "spec": "hooks/claude/post-edit-scope-check.md",
+      "commands": [
+        "abk-runner map-event --input <hook-event.json>",
+        "abk-runner dry-run --input <runner-input.json>",
+        "abk-runner scan --input <runner-input.json> --scanner <scanner-id>"
+      ]
+    },
+    {
+      "hookId": "test_integrity_check",
+      "spec": "hooks/claude/test-integrity-check.md",
+      "commands": [
+        "abk-runner map-event --input <hook-event.json>",
+        "abk-runner dry-run --input <runner-input.json>",
+        "abk-runner scan --input <runner-input.json> --scanner <scanner-id>"
+      ]
+    },
+    {
+      "hookId": "completion_evidence_check",
+      "spec": "hooks/claude/completion-evidence-check.md",
+      "commands": [
+        "abk-runner map-event --input <hook-event.json>",
+        "abk-runner dry-run --input <runner-input.json>",
+        "abk-runner scan --input <runner-input.json> --scanner <scanner-id>"
+      ]
+    }
+  ],
+  "nonGoals": [
+    "No raw private transcripts",
+    "No final response generation"
+  ]
+}

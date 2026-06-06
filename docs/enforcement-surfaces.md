@@ -74,6 +74,8 @@ The local Claude hook event mapper implementation is checked by `benchmarks/scri
 
 The Claude hook packaging contract is recorded in `docs/claude-hook-packaging-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-packaging-contract.js`, which keeps future hook packaging limited to explicit runtime events and existing runner command templates without automatic hook installation.
 
+The Claude hook package manifest fixtures are recorded in `docs/claude-hook-package-manifest-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js`, which keeps future manifests fixture-only, manual-review-only, and auto-install disabled.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -306,6 +308,8 @@ Blocks completion when:
 82. Implement the bounded `abk-runner map-event --input <hook-event.json>` command. Completed: `benchmarks/scripts/check-abk-runner-map-event.js`.
 83. Record a Claude hook packaging contract before hook package manifests. Completed: `docs/claude-hook-packaging-contract.md`.
 84. Add a Claude hook packaging contract check. Completed: `benchmarks/scripts/check-claude-hook-packaging-contract.js`.
-85. Claude hooks remain specs until package manifest fixtures exist.
+85. Add Claude hook package manifest fixtures. Completed: `docs/claude-hook-package-manifest-fixtures.md`.
+86. Add a Claude hook package manifest fixture check. Completed: `benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js`.
+87. Claude hooks remain specs until bounded manual install documentation fixtures exist.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.
