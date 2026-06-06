@@ -43,6 +43,7 @@ The contract depends on:
 - `docs/claude-hook-package-manifest-fixtures.md`
 - `docs/claude-hook-manual-install-doc-fixture.md`
 - `docs/claude-hook-command-adapter-contract.md`
+- `docs/claude-hook-command-adapter-fixtures.md`
 - `hooks/claude/examples/package-manifest.valid.json`
 
 The package manifest must remain manual-review-only, must keep automatic installation disabled, and must preserve the local runner command chain:
@@ -86,6 +87,7 @@ Before any Claude hook manual install contract or install documentation is descr
 ```sh
 node benchmarks/scripts/check-claude-hook-manual-install-contract.js
 node benchmarks/scripts/check-claude-hook-command-adapter-contract.js
+node benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js
 node benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js
 node benchmarks/scripts/check-claude-hook-packaging-contract.js
@@ -103,6 +105,7 @@ The evidence must show:
 - no repository-level Claude hook configuration exists
 - manual install documentation still rejects copy and configuration-edit instructions until a later user-approved install document is written
 - the command adapter contract records the stdin-to-runner-input bridge required before live hooks
+- the command adapter fixtures prove the stdin payload maps to explicit runner input before live hooks
 - scanner execution remains gated by `abk-runner map-event --input <hook-event.json>`
 
 ## Non-Goals
@@ -129,4 +132,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a red/green adapter fixture proving that a Claude command hook stdin payload can become explicit runner input without installing hooks.
+The next gate is a bounded adapter implementation contract for a command entrypoint that reads stdin without installing hooks.

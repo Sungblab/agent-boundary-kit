@@ -121,6 +121,7 @@ node benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js
 node benchmarks/scripts/check-claude-hook-manual-install-contract.js
 node benchmarks/scripts/check-claude-hook-command-adapter-contract.js
+node benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js
 node benchmarks/scripts/check-abk-runner-map-event.js
 node benchmarks/scripts/check-abk-runner-dry-run.js
 node benchmarks/scripts/check-abk-runner-scan.js
@@ -189,6 +190,10 @@ Its check is `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`.
 
 It records that Claude Code command hooks receive event JSON on stdin while the current runner requires explicit input file paths.
 
+The command adapter fixtures are recorded in `docs/claude-hook-command-adapter-fixtures.md`.
+
+Their check is `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`.
+
 ## Next Gate
 
-The next gate is a red/green adapter fixture proving the stdin-to-runner-input bridge before manual install instructions.
+The next gate is a bounded adapter implementation contract for a command entrypoint that reads stdin without installing hooks.

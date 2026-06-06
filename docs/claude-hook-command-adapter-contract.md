@@ -103,6 +103,7 @@ Before any adapter, hook package, or manual install document is described as rea
 
 ```sh
 node benchmarks/scripts/check-claude-hook-command-adapter-contract.js
+node benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-contract.js
 node benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js
 node benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js
@@ -122,6 +123,7 @@ The evidence must show:
 - no hook setup files exist
 - no Claude configuration file is created in this repository
 - the stdin-to-runner-input bridge is specified before manual install instructions
+- red/green stdin adapter fixtures exist before adapter implementation
 - runner execution remains gated by `abk-runner map-event --input <hook-event.json>`
 
 ## Non-Goals
@@ -146,4 +148,6 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a red/green adapter fixture proving that a Claude command hook stdin payload can be converted to explicit runner input without reading private context or installing hooks.
+The next gate is `docs/claude-hook-command-adapter-fixtures.md` and `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`.
+
+Only after those fixtures stay green should the repo consider a bounded adapter implementation contract.
