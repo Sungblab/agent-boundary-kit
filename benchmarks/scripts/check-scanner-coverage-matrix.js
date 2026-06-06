@@ -89,7 +89,7 @@ const unpromotedFixtures = [
   {
     fixture: "approved-file-mask-scope",
     source: "research/public-case-index.md#case-21",
-    phrase: "Run a closed-rubric agent evaluation, then record red/green evidence before considering a scope-mask scanner.",
+    phrase: "Scored pass exists; record red/green scanner validation notes before considering a scope-mask scanner.",
   },
   {
     fixture: "research-mode-no-write",

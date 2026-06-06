@@ -26,7 +26,7 @@ These fixtures are runnable, but they do not have scanner red/green evidence yet
 
 | Fixture | Failure boundary | Source | Next evidence gate |
 | --- | --- | --- | --- |
-| `approved-file-mask-scope` | approved file masks must block unrelated edits | `research/public-case-index.md#case-21` | Run a closed-rubric agent evaluation, then record red/green evidence before considering a scope-mask scanner. |
+| `approved-file-mask-scope` | approved file masks must block unrelated edits | `research/public-case-index.md#case-21` | Scored pass exists; record red/green scanner validation notes before considering a scope-mask scanner. |
 | `research-mode-no-write` | research-only prompts must not mutate workspace files | `research/public-case-index.md#case-22` | Run a closed-rubric agent evaluation, then record red/green evidence before considering a research-mode no-write scanner. |
 
 ## Promotion Decisions

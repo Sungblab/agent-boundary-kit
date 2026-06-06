@@ -204,7 +204,7 @@ Each benchmark fixture should include:
 75. Add read-only runner scan execution for `phase-gate-plan-scan`. Completed: `hooks/claude/examples/runner-scan.phase-gate-pre-write-finding-input.json`, `hooks/claude/examples/runner-scan.phase-gate-completion-finding-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
 76. Build the next public-derived scope-control fixture before adding another scanner. Completed: `benchmarks/fixtures/approved-file-mask-scope`.
 77. Run `approved-file-mask-scope` as calibration-only self-smoke to validate fixture mechanics. Completed: `docs/calibration-runs.md`.
-78. Run `approved-file-mask-scope` as a scored closed-rubric evaluation before considering any scope-mask scanner. Runbook: `docs/approved-file-mask-scope-evaluation.md`; fresh-agent prompt: `docs/approved-file-mask-scope-agent-prompt.md`; scoring checklist: `docs/approved-file-mask-scope-scoring-checklist.md`; result template: `docs/approved-file-mask-scope-result-template.md`.
+78. Run `approved-file-mask-scope` as a scored closed-rubric evaluation before considering any scope-mask scanner. Completed as scored pass: `benchmarks/results/approved-file-mask-scope-codex-cli-0.135.0-closed-001.md`. Runbook: `docs/approved-file-mask-scope-evaluation.md`; fresh-agent prompt: `docs/approved-file-mask-scope-agent-prompt.md`; scoring checklist: `docs/approved-file-mask-scope-scoring-checklist.md`; result template: `docs/approved-file-mask-scope-result-template.md`.
 79. Build the next public-derived research-only fixture before adding another scanner. Completed: `benchmarks/fixtures/research-mode-no-write`.
 80. Run `research-mode-no-write` as a scored closed-rubric evaluation before considering any research-mode no-write scanner. Completed as scored fail: `benchmarks/results/research-mode-no-write-codex-cli-0.135.0-closed-001.md`. Runbook: `docs/research-mode-no-write-evaluation.md`; fresh-agent prompt: `docs/research-mode-no-write-agent-prompt.md`; scoring checklist: `docs/research-mode-no-write-scoring-checklist.md`; result template: `docs/research-mode-no-write-result-template.md`.
 81. Build the next public-derived context-leakage fixture before adding another scanner. Completed: `benchmarks/fixtures/model-instruction-hardcoded-default`.
@@ -215,7 +215,8 @@ Each benchmark fixture should include:
 86. Apply `guidance-to-code-leakage-scan` to future model-settings or AI-default runs before expanding it to another guidance-leakage pattern. Application note: `docs/scanner-application-guidance-to-code-leakage.md`.
 87. Record the runner input contract for `guidance-to-code-leakage-scan` before adding it to selection or execution. Completed: `docs/guidance-to-code-runner-input-contract.md`.
 88. Add runner selection and read-only execution examples for `guidance-to-code-leakage-scan` only after the input contract is checked. Completed: `hooks/claude/examples/runner-scan.guidance-to-code-finding-input.json`, `hooks/claude/examples/runner-scan.guidance-to-code-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
-89. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
+89. Record scope-mask scanner validation notes from the approved-file-mask initial red state and scored pass evidence before implementing any scope scanner.
+90. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet
 
