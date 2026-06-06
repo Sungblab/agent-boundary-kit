@@ -60,7 +60,9 @@ These rules can inform a future `Claude hook` package:
 - fake contract scan
 - parser and renderer fallback scans
 - credential fallback scan
+- guidance-to-code leakage scan
 - legacy surface retention scan
+- approved file mask scan
 - completion evidence gate scan
 - untrusted context canary scan
 - noisy-log root-cause scan

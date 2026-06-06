@@ -150,6 +150,8 @@ function main() {
     "CLAUDE.md",
     "Codex skill",
     "Claude hook",
+    "guidance-to-code leakage scan",
+    "approved file mask scan",
   ]) {
     assert(markdown.includes(phrase), `matrix missing promotion phrase: ${phrase}`);
   }
