@@ -134,6 +134,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/check-packaging-readiness.js`: verifies packaging stays tied to fixture-backed scanner evidence
 - `benchmarks/scripts/check-boundary-skill-readiness.js`: verifies the boundary-check Codex skill candidate stays tied to the packaging and read-only runner contracts
 - `benchmarks/scripts/check-codex-skill-install-contract.js`: verifies the Codex skill install contract does not widen into plugin, hook, connector, or watcher behavior
+- `benchmarks/scripts/check-boundary-skill-install-readiness.js`: verifies the boundary-check skill folder shape before manual install instructions
 - `benchmarks/fixtures/`: runnable benchmark fixtures
 - `benchmarks/results/`: reviewed result summary template and publication rules
 - `templates/AGENTS.boundary.md`: repository instruction template for Codex-style agents
@@ -189,6 +190,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - future hook runner dry-run examples are checked for bounded scanner selection and output mapping.
 - the boundary-check skill candidate is checked against the packaging readiness contract and read-only runner evidence contract.
 - the Codex skill install contract is checked before any manual install instructions are published.
+- the boundary-check skill folder shape is checked before manual install instructions are published.
 - `research/public-case-index.md` is checked for case count, required benchmark fields, stable case ids, taxonomy-linked failure types, and manifest source references.
 - repository-level benchmark scripts are checked for portable verifier paths.
 

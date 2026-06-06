@@ -5,7 +5,7 @@ description: Use when coding-agent work risks boundary failures: user intent or 
 
 # Boundary Check
 
-Use this skill to keep coding-agent work inside the user's intended boundary. The source contracts are `docs/packaging-readiness.md`, `docs/scanner-coverage-matrix.md`, and `docs/hook-runner-read-only-execution-contract.md`.
+Use this skill to keep coding-agent work inside the user's intended boundary. The source contracts are `docs/packaging-readiness.md`, `docs/codex-skill-install-contract.md`, `docs/scanner-coverage-matrix.md`, and `docs/hook-runner-read-only-execution-contract.md`.
 
 ## Boundary
 
@@ -153,6 +153,7 @@ For Agent Boundary Kit skill or packaging changes, run:
 
 ```sh
 node benchmarks/scripts/check-boundary-skill-readiness.js
+node benchmarks/scripts/check-boundary-skill-install-readiness.js
 npm run bench:check
 npm run bench:check:red
 ```

@@ -81,6 +81,7 @@ Before any installable surface is claimed ready, run:
 node benchmarks/scripts/check-packaging-readiness.js
 node benchmarks/scripts/check-boundary-skill-readiness.js
 node benchmarks/scripts/check-codex-skill-install-contract.js
+node benchmarks/scripts/check-boundary-skill-install-readiness.js
 node benchmarks/scripts/check-abk-runner-scan.js
 npm run bench:check
 npm run bench:check:red
@@ -115,6 +116,8 @@ Do not turn this repository into a project-management app.
 The Codex skill packaging check is `benchmarks/scripts/check-boundary-skill-readiness.js`. It verifies `skills/boundary-check/SKILL.md` references this contract, `docs/scanner-coverage-matrix.md`, `docs/hook-runner-read-only-execution-contract.md`, every runner scanner id, and the explicit read-only `abk-runner scan` command shape.
 
 The Codex skill install contract check is `benchmarks/scripts/check-codex-skill-install-contract.js`. It verifies `docs/codex-skill-install-contract.md` keeps the first installable candidate manual, bounded, and separate from plugin, hook, connector, dashboard, and watcher behavior.
+
+The boundary skill install-readiness check is `benchmarks/scripts/check-boundary-skill-install-readiness.js`. It verifies the first installable candidate remains a plain `skills/boundary-check/` folder before manual install instructions are published.
 
 Only after those checks pass should the repo consider publishing manual install instructions.
 

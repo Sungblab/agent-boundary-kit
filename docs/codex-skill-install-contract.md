@@ -86,6 +86,7 @@ Before the skill is described as installable, run:
 node benchmarks/scripts/check-packaging-readiness.js
 node benchmarks/scripts/check-boundary-skill-readiness.js
 node benchmarks/scripts/check-codex-skill-install-contract.js
+node benchmarks/scripts/check-boundary-skill-install-readiness.js
 node benchmarks/scripts/check-abk-runner-scan.js
 npm run bench:check
 npm run bench:check:red
@@ -122,7 +123,7 @@ Do not turn this repository into a project-management app.
 
 ## Next Gate
 
-The next gate is a small install-readiness check for the plain `skills/boundary-check/` folder. It should verify the skill folder shape before any manual installation instructions are published.
+The install-readiness check is `benchmarks/scripts/check-boundary-skill-install-readiness.js`. It verifies the plain `skills/boundary-check/` folder shape before any manual installation instructions are published.
 
 Only after that check passes should the repo document a user-approved manual install command.
 
