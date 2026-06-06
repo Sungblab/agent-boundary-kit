@@ -118,6 +118,7 @@ node benchmarks/scripts/check-claude-hook-event-mapping-examples.js
 node benchmarks/scripts/check-claude-hook-event-mapper-contract.js
 node benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js
 node benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js
+node benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js
 node benchmarks/scripts/check-abk-runner-map-event.js
 node benchmarks/scripts/check-abk-runner-dry-run.js
 node benchmarks/scripts/check-abk-runner-scan.js
@@ -164,6 +165,12 @@ They include:
 - `hooks/claude/examples/package-manifest.valid.json`
 - `hooks/claude/examples/package-manifest.invalid-auto-install.json`
 
+## Manual Install Documentation Fixture
+
+The manual install documentation fixture is recorded in `docs/claude-hook-manual-install-doc-fixture.md`.
+
+It is documentation-only and must not mutate a repository.
+
 ## Next Gate
 
-The next gate is a bounded manual install documentation fixture that references the package manifest without mutating a repository.
+The next gate is a manual install contract that can define user-approved installation language without repository mutation.

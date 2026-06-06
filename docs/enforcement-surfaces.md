@@ -76,6 +76,8 @@ The Claude hook packaging contract is recorded in `docs/claude-hook-packaging-co
 
 The Claude hook package manifest fixtures are recorded in `docs/claude-hook-package-manifest-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js`, which keeps future manifests fixture-only, manual-review-only, and auto-install disabled.
 
+The Claude hook manual install documentation fixture is recorded in `docs/claude-hook-manual-install-doc-fixture.md`. Its check is `benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js`, which keeps future install documentation non-mutating before any install contract exists.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -310,6 +312,8 @@ Blocks completion when:
 84. Add a Claude hook packaging contract check. Completed: `benchmarks/scripts/check-claude-hook-packaging-contract.js`.
 85. Add Claude hook package manifest fixtures. Completed: `docs/claude-hook-package-manifest-fixtures.md`.
 86. Add a Claude hook package manifest fixture check. Completed: `benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js`.
-87. Claude hooks remain specs until bounded manual install documentation fixtures exist.
+87. Add a Claude hook manual install documentation fixture. Completed: `docs/claude-hook-manual-install-doc-fixture.md`.
+88. Add a Claude hook manual install documentation fixture check. Completed: `benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js`.
+89. Claude hooks remain specs until a manual install contract exists.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

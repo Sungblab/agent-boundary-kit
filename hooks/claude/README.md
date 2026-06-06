@@ -40,6 +40,8 @@ The Claude hook packaging contract is recorded in `docs/claude-hook-packaging-co
 
 The Claude hook package manifest fixtures are recorded in `docs/claude-hook-package-manifest-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js` and keep future manifests fixture-only, manual-review-only, and auto-install disabled. They are still not installed hooks.
 
+The Claude hook manual install documentation fixture is recorded in `docs/claude-hook-manual-install-doc-fixture.md`. It is checked by `benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js` and keeps future install documentation non-mutating before any install contract exists.
+
 The first narrow scanner candidate is defined in `docs/first-scanner-candidate.md`. It targets only test runtime patching. Its red/green evidence is recorded in `docs/scanner-validation-test-runtime-patch.md`, its first application sweep is recorded in `docs/scanner-application-test-runtime-patch.md`, and its read-only script is `benchmarks/scripts/scan-test-runtime-patch.js`.
 
 The next scanner candidate is `test-fake-contract-scan`; its red/green evidence is recorded in `docs/scanner-validation-test-fake-contract.md`, and its read-only script is `benchmarks/scripts/scan-test-fake-contract.js`. It is still not an installed hook.
