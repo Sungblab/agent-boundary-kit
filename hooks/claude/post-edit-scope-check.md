@@ -56,6 +56,7 @@ Matching scanners:
 - `scan-latex-renderer-boundary.js`
 - `scan-hardcoded-credential-fallback.js`
 - `scan-legacy-surface-retention.js`
+- `scan-approved-file-mask-scope.js`
 - `scan-untrusted-context-canary.js`
 - `scan-noisy-log-root-cause.js`
 

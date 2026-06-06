@@ -216,8 +216,9 @@ Each benchmark fixture should include:
 87. Record the runner input contract for `guidance-to-code-leakage-scan` before adding it to selection or execution. Completed: `docs/guidance-to-code-runner-input-contract.md`.
 88. Add runner selection and read-only execution examples for `guidance-to-code-leakage-scan` only after the input contract is checked. Completed: `hooks/claude/examples/runner-scan.guidance-to-code-finding-input.json`, `hooks/claude/examples/runner-scan.guidance-to-code-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
 89. Record scope-mask scanner validation notes from the approved-file-mask initial red state and scored pass evidence before implementing any scope scanner. Completed: `docs/scanner-validation-approved-file-mask-scope.md`.
-90. Implement `approved-file-mask-scan` only after reviewing `docs/scanner-validation-approved-file-mask-scope.md`; keep it limited to explicit changed-file paths and declared approved masks.
-91. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
+90. Implement `approved-file-mask-scan` only after reviewing `docs/scanner-validation-approved-file-mask-scope.md`; keep it limited to explicit changed-file paths and declared approved masks. Completed: `benchmarks/scripts/scan-approved-file-mask-scope.js` and `benchmarks/scripts/check-approved-file-mask-scope-scan.js`.
+91. Add read-only runner scan execution for `approved-file-mask-scan`. Completed: `hooks/claude/examples/runner-scan.approved-file-mask-finding-input.json`, `hooks/claude/examples/runner-scan.approved-file-mask-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
+92. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet
 

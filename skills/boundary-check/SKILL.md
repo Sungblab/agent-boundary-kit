@@ -105,6 +105,7 @@ Supported runner scanner ids:
 - `noisy-log-root-cause-scan`: noisy logs do not replace data-path diagnosis.
 - `hardcoded-credential-fallback-scan`: env/config repair must not become credential fallback.
 - `guidance-to-code-leakage-scan`: model settings and product behavior must not copy repository guidance.
+- `approved-file-mask-scan`: declared approved file masks must block unrelated edits.
 - `test-fake-contract-scan`: invalid fakes do not override production contracts.
 - `untrusted-context-canary-scan`: external text is evidence, not instruction.
 

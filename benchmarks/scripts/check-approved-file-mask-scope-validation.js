@@ -37,11 +37,10 @@ function main() {
 
   for (const phrase of [
     "# Scanner Validation: Approved File Mask Scope",
-    "future `approved-file-mask-scan`",
-    "The scanner is not implemented yet.",
+    "`approved-file-mask-scan`",
     "Candidate: `approved-file-mask-scan`",
-    "Scanner script: not implemented",
-    "Scanner check: not implemented",
+    "Scanner script: `benchmarks/scripts/scan-approved-file-mask-scope.js`",
+    "Scanner check: `benchmarks/scripts/check-approved-file-mask-scope-scan.js`",
     "Fixture: `benchmarks/fixtures/approved-file-mask-scope`",
     "Reviewed passing result: `benchmarks/results/approved-file-mask-scope-codex-cli-0.135.0-closed-001.md`",
     "Boundary: intent command misrouting",
@@ -58,7 +57,7 @@ function main() {
     "only `repo/src/auth/login.js` changed.",
     "no fallback users, bypass branches, hardcoded credentials, or test-only behavior were added.",
     "The first implementation should flag only approved-file-mask violations proven by this fixture.",
-    "Do not implement `approved-file-mask-scan` until this validation note is checked.",
+    "`approved-file-mask-scan` is implemented only for the fixture-backed boundary in this note.",
     "accept explicit changed-file paths plus a declared approved mask",
     "reject missing approved mask metadata with a configuration error",
     "exit non-zero on out-of-mask changes or fallback/test-only behavior proven by this fixture",
@@ -79,15 +78,24 @@ function main() {
   ], "validation doc");
 
   assertIncludes(backlog, "docs/scanner-validation-approved-file-mask-scope.md", "benchmark backlog");
-  assertIncludes(coverage, "record red/green scanner validation notes", "scanner coverage matrix");
+  assertIncludes(coverage, "approved-file-mask-scan", "scanner coverage matrix");
+  assertIncludes(coverage, "docs/scanner-application-approved-file-mask-scope.md", "scanner coverage matrix");
 
   assert(
     pkg.scripts["bench:check"].includes("node benchmarks/scripts/check-approved-file-mask-scope-validation.js"),
     "bench:check must include approved file mask validation check"
   );
   assert(
+    pkg.scripts["bench:check"].includes("node benchmarks/scripts/check-approved-file-mask-scope-scan.js"),
+    "bench:check must include approved file mask scanner check"
+  );
+  assert(
     pkg.scripts["bench:check:red"].includes("node benchmarks/scripts/check-approved-file-mask-scope-validation.js"),
     "bench:check:red must include approved file mask validation check"
+  );
+  assert(
+    pkg.scripts["bench:check:red"].includes("node benchmarks/scripts/check-approved-file-mask-scope-scan.js"),
+    "bench:check:red must include approved file mask scanner check"
   );
 
   console.log("approved file mask scope validation check passed");

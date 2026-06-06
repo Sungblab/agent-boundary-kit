@@ -43,6 +43,7 @@ const scannerIds = [
   "noisy-log-root-cause-scan",
   "hardcoded-credential-fallback-scan",
   "guidance-to-code-leakage-scan",
+  "approved-file-mask-scan",
   "test-fake-contract-scan",
   "untrusted-context-canary-scan",
 ];

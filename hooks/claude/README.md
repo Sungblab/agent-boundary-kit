@@ -20,7 +20,7 @@ The hook runner selection matrix is recorded in `docs/hook-runner-selection-matr
 
 The plan-only dry-run CLI contract is recorded in `docs/hook-runner-dry-run-cli-contract.md`. Its local implementation is split between `bin/abk-runner.js` and `lib/abk-runner-core.js`, and prints scanner selection plans without executing scanners. `runner-dry-run-cli.planned-output.json`, `runner-dry-run-cli.configuration-error-output.json`, `runner-dry-run-cli.invalid-transcript-output.json`, and `runner-dry-run-cli.unsupported-hook-output.json` are output examples. It is still not an installed hook.
 
-The first read-only execution contract is recorded in `docs/hook-runner-read-only-execution-contract.md`. Its local implementation is split between `bin/abk-runner.js` and `lib/abk-runner-core.js`, limited to `parser-fallback-boundary-scan`, `latex-renderer-boundary-scan`, `hardcoded-credential-fallback-scan`, `guidance-to-code-leakage-scan`, and `legacy-surface-retention-scan` with explicit runner input and changed file paths, `test-runtime-patch-scan` with explicit runner input and test file paths, `test-fake-contract-scan` with explicit runner input plus test and production file paths, `completion-evidence-gate-scan` with explicit runner input plus the declared repo root, `untrusted-context-canary-scan` with explicit runner input plus changed files or completion draft path, `noisy-log-root-cause-scan` with explicit runner input plus changed files or explicit test and production file paths, and `phase-gate-plan-scan` with explicit runner input plus metadata plan file paths. It is still not an installed hook.
+The first read-only execution contract is recorded in `docs/hook-runner-read-only-execution-contract.md`. Its local implementation is split between `bin/abk-runner.js` and `lib/abk-runner-core.js`, limited to `parser-fallback-boundary-scan`, `latex-renderer-boundary-scan`, `hardcoded-credential-fallback-scan`, `guidance-to-code-leakage-scan`, `legacy-surface-retention-scan`, and `approved-file-mask-scan` with explicit runner input and changed file paths, `test-runtime-patch-scan` with explicit runner input and test file paths, `test-fake-contract-scan` with explicit runner input plus test and production file paths, `completion-evidence-gate-scan` with explicit runner input plus the declared repo root, `untrusted-context-canary-scan` with explicit runner input plus changed files or completion draft path, `noisy-log-root-cause-scan` with explicit runner input plus changed files or explicit test and production file paths, and `phase-gate-plan-scan` with explicit runner input plus metadata plan file paths. It is still not an installed hook.
 
 That execution contract includes configuration-error examples for unsupported scanner ids, unselected scanner ids, and missing changed file metadata. It is still not an installed hook.
 
@@ -136,10 +136,12 @@ The next root-cause scanner is `noisy-log-root-cause-scan`; its red/green eviden
 
 The next planning scanner is `phase-gate-plan-scan`; its red/green evidence is recorded in `docs/scanner-validation-phase-gate-plan.md`, its application sweep is recorded in `docs/scanner-application-phase-gate-plan.md`, and its read-only script is `benchmarks/scripts/scan-phase-gate-plan.js`. It is still not an installed hook.
 
+The next scope-mask scanner is `approved-file-mask-scan`; its red/green evidence is recorded in `docs/scanner-validation-approved-file-mask-scope.md`, its application boundary is recorded in `docs/scanner-application-approved-file-mask-scope.md`, and its read-only script is `benchmarks/scripts/scan-approved-file-mask-scope.js`. It is still not an installed hook.
+
 ## Specs
 
 - `pre-write-boundary-check.md`: block writes when the task boundary is not established.
-- `post-edit-scope-check.md`: flag stale public surfaces, out-of-scope edits, and hardcoded credentials.
+- `post-edit-scope-check.md`: flag stale public surfaces, out-of-scope edits, approved-mask violations, and hardcoded credentials.
 - `test-integrity-check.md`: flag tests that make broken behavior pass.
 - `completion-evidence-check.md`: block completion claims without the required gate evidence.
 

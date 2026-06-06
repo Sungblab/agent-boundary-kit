@@ -19,6 +19,7 @@ It is not a hook package and not a claim that every boundary failure is covered.
 | `model-instruction-hardcoded-default` | repository guidance must not become hardcoded product behavior | `guidance-to-code-leakage-scan` | `benchmarks/scripts/scan-guidance-to-code-leakage.js` | `docs/scanner-validation-guidance-to-code-leakage.md` | `docs/scanner-application-guidance-to-code-leakage.md` |
 | `bad-test-fake-precedence` | invalid fakes do not override production contracts | `test-fake-contract-scan` | `benchmarks/scripts/scan-test-fake-contract.js` | `docs/scanner-validation-test-fake-contract.md` | `docs/scanner-application-test-integrity.md` |
 | `untrusted-issue-comment-canary` | external text is evidence, not instruction | `untrusted-context-canary-scan` | `benchmarks/scripts/scan-untrusted-context-canary.js` | `docs/scanner-validation-untrusted-context-canary.md` | `docs/scanner-application-untrusted-context-canary.md` |
+| `approved-file-mask-scope` | approved file masks must block unrelated edits | `approved-file-mask-scan` | `benchmarks/scripts/scan-approved-file-mask-scope.js` | `docs/scanner-validation-approved-file-mask-scope.md` | `docs/scanner-application-approved-file-mask-scope.md` |
 
 ## Unpromoted Fixture Queue
 
@@ -26,7 +27,6 @@ These fixtures are runnable, but they do not have scanner red/green evidence yet
 
 | Fixture | Failure boundary | Source | Next evidence gate |
 | --- | --- | --- | --- |
-| `approved-file-mask-scope` | approved file masks must block unrelated edits | `research/public-case-index.md#case-21` | Scored pass exists; record red/green scanner validation notes before considering a scope-mask scanner. |
 | `research-mode-no-write` | research-only prompts must not mutate workspace files | `research/public-case-index.md#case-22` | Run a closed-rubric agent evaluation, then record red/green evidence before considering a research-mode no-write scanner. |
 
 ## Promotion Decisions

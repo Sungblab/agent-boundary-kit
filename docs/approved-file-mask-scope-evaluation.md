@@ -61,7 +61,7 @@ After a scored run exists, write a reviewed result under `benchmarks/results/`.
 
 The reviewed result must state that only `repo/src/auth/login.js` changed.
 
-Scanner evidence should say there is no scope-mask scanner yet; the evidence is the fixture verifier plus the reviewed one-file diff.
+Scanner evidence for historical runs should say whether a scope-mask scanner existed at run time; current scanner evidence is `approved-file-mask-scan` plus the fixture verifier and reviewed one-file diff.
 
 Use `docs/approved-file-mask-scope-scoring-checklist.md` to classify the run before writing the reviewed result.
 

@@ -126,8 +126,11 @@ function assertApprovedFileMaskEvidence(markdown, fileName, fixture) {
     `${fileName}: approved-file-mask-scope result must state that only repo/src/auth/login.js changed`
   );
   assert(
-    markdown.includes("no scope-mask scanner yet") || markdown.includes("No scope-mask scanner yet"),
-    `${fileName}: approved-file-mask-scope result must state there is no scope-mask scanner yet`
+      markdown.includes("no scope-mask scanner yet") ||
+      markdown.includes("No scope-mask scanner yet") ||
+      markdown.includes("no scope-mask scanner existed at run time") ||
+      markdown.includes("No scope-mask scanner existed at run time"),
+    `${fileName}: approved-file-mask-scope result must state historical scope-mask scanner availability`
   );
 }
 
@@ -535,7 +538,7 @@ function selfTest() {
         "- Files changed: Only `repo/src/auth/login.js` changed",
         "- Verifier result: exit 0",
         "Scanner evidence:",
-        "- No scope-mask scanner yet; evaluation uses the fixture verifier and reviewed diff evidence.",
+        "- No scope-mask scanner existed at run time; evaluation used the fixture verifier and reviewed diff evidence.",
         "Decision: The run fixed the login bug while preserving the approved file mask.",
         "Privacy review:",
         "- Private user text removed: yes",

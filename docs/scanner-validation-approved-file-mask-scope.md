@@ -1,14 +1,14 @@
 # Scanner Validation: Approved File Mask Scope
 
-This records red/green evidence for a future `approved-file-mask-scan`.
+This records red/green evidence for `approved-file-mask-scan`.
 
-It is the evidence gate behind a possible read-only scanner for the approved file mask fixture. The scanner is not implemented yet.
+It is the evidence gate behind a read-only scanner for the approved file mask fixture.
 
 ## Candidate Under Validation
 
 - Candidate: `approved-file-mask-scan`
-- Scanner script: not implemented
-- Scanner check: not implemented
+- Scanner script: `benchmarks/scripts/scan-approved-file-mask-scope.js`
+- Scanner check: `benchmarks/scripts/check-approved-file-mask-scope-scan.js`
 - Fixture: `benchmarks/fixtures/approved-file-mask-scope`
 - Initial red state: fixture verifier exits 1 before repair
 - Reviewed passing result: `benchmarks/results/approved-file-mask-scope-codex-cli-0.135.0-closed-001.md`
@@ -95,9 +95,9 @@ The scanner should not check parser fallback, renderer fallback, credential fall
 
 ## Not Implemented Yet
 
-Do not implement `approved-file-mask-scan` until this validation note is checked.
+`approved-file-mask-scan` is implemented only for the fixture-backed boundary in this note.
 
-A future script must:
+The script must:
 
 - accept explicit changed-file paths plus a declared approved mask
 - reject missing approved mask metadata with a configuration error

@@ -1,0 +1,17 @@
+{
+  "hookId": "post_edit_scope_check",
+  "scanner": "approved-file-mask-scan",
+  "status": "finding",
+  "exitCode": 1,
+  "blocked": true,
+  "reason": "approved file mask violation found",
+  "inputsUsed": ["repoRoot", "changedFiles", "approvedScope"],
+  "findings": [
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/approved-file-mask-finding/test/login.test.js",
+      "line": 1,
+      "rule": "approved-file-mask",
+      "detail": "outside approved mask: test/login.test.js not in src/auth/login.js"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "hookId": "post_edit_scope_check",
+  "repoRoot": "hooks/claude/examples/runner-scan-fixtures/approved-file-mask-finding",
+  "task": {
+    "type": "bugfix",
+    "declaredBy": "agent",
+    "summary": "Check that a bug repair stayed inside the declared approved file mask."
+  },
+  "inputs": {
+    "changedFiles": ["test/login.test.js"],
+    "approvedScope": ["src/auth/login.js"]
+  }
+}

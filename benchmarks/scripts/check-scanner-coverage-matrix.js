@@ -83,14 +83,16 @@ const expectedCoverage = [
     validation: "docs/scanner-validation-untrusted-context-canary.md",
     application: "docs/scanner-application-untrusted-context-canary.md",
   },
+  {
+    fixture: "approved-file-mask-scope",
+    scanner: "approved-file-mask-scan",
+    script: "benchmarks/scripts/scan-approved-file-mask-scope.js",
+    validation: "docs/scanner-validation-approved-file-mask-scope.md",
+    application: "docs/scanner-application-approved-file-mask-scope.md",
+  },
 ];
 
 const unpromotedFixtures = [
-  {
-    fixture: "approved-file-mask-scope",
-    source: "research/public-case-index.md#case-21",
-    phrase: "Scored pass exists; record red/green scanner validation notes before considering a scope-mask scanner.",
-  },
   {
     fixture: "research-mode-no-write",
     source: "research/public-case-index.md#case-22",
