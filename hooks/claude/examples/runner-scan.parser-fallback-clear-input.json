@@ -1,0 +1,13 @@
+{
+  "hookId": "post_edit_scope_check",
+  "repoRoot": "hooks/claude/examples/runner-scan-fixtures/parser-fallback-clear",
+  "task": {
+    "type": "implementation",
+    "declaredBy": "agent",
+    "summary": "Check that the named PDF parser path is kept before adding parser fallback behavior."
+  },
+  "inputs": {
+    "changedFiles": ["src/pdf-ingest.js"],
+    "namedTools": ["opendataloader-pdf"]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "hookId": "post_edit_scope_check",
+  "scanner": "parser-fallback-boundary-scan",
+  "status": "finding",
+  "exitCode": 1,
+  "blocked": true,
+  "reason": "parser fallback boundary violation found",
+  "inputsUsed": ["repoRoot", "changedFiles", "namedTools"],
+  "findings": [
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/parser-fallback-finding/src/pdf-ingest.js",
+      "line": 2,
+      "rule": "parser-fallback-boundary",
+      "detail": "PyMuPDF fallback module reference matched /pymupdf-fallback/: const fallbackParser = require(\"./pymupdf-fallback\");"
+    }
+  ]
+}
