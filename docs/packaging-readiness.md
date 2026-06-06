@@ -40,6 +40,8 @@ The future Claude hook candidates remain specs:
 
 Those Claude hook specs may inform a later hook package only after the hook runtime has a safe way to receive explicit runner input.
 
+The event-to-runner-input boundary for those future hooks is recorded in `docs/claude-hook-event-input-contract.md`.
+
 ## Minimum Installable Slice
 
 The first installable slice should be a small Codex skill update, not a hook package.
@@ -85,6 +87,7 @@ node benchmarks/scripts/check-boundary-skill-readiness.js
 node benchmarks/scripts/check-codex-skill-install-contract.js
 node benchmarks/scripts/check-boundary-skill-install-readiness.js
 node benchmarks/scripts/check-codex-skill-manual-install-doc.js
+node benchmarks/scripts/check-claude-hook-event-input-contract.js
 node benchmarks/scripts/check-abk-runner-scan.js
 npm run bench:check
 npm run bench:check:red
@@ -124,6 +127,8 @@ The boundary skill install-readiness check is `benchmarks/scripts/check-boundary
 
 The manual install doc check is `benchmarks/scripts/check-codex-skill-manual-install-doc.js`. It verifies `docs/codex-skill-manual-install.md` stays limited to user-approved copy commands and does not introduce plugin, hook, connector, dashboard, or broad scanning behavior.
 
+The Claude hook event input contract check is `benchmarks/scripts/check-claude-hook-event-input-contract.js`. It verifies `docs/claude-hook-event-input-contract.md` keeps future hook runtime events limited to explicit metadata before they become runner input.
+
 Only after those checks pass should the repo consider publishing manual install instructions.
 
-Claude hook packaging remains later than the Codex skill gate because hooks need an event-to-runner-input contract that does not read private transcripts.
+Claude hook packaging remains later because hooks still need fixture-like event mapping examples and must not read private transcripts.

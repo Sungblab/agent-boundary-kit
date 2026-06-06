@@ -6,6 +6,8 @@ The runner exists only to pass explicit file or repo paths and declared metadata
 
 The JSON input contract and examples are recorded in `docs/hook-runner-input-contract.md`.
 
+The Claude hook event-to-runner-input contract is recorded in `docs/claude-hook-event-input-contract.md`. It defines which explicit event metadata may be mapped into runner input before any executable hook packaging.
+
 The JSON output contract and examples are recorded in `docs/hook-runner-output-contract.md`.
 
 The dry-run scanner selection examples are recorded in `docs/hook-runner-dry-run-spec.md`.
@@ -107,6 +109,7 @@ node benchmarks/scripts/check-hook-runner-output-contract.js
 node benchmarks/scripts/check-hook-runner-dry-run-spec.js
 node benchmarks/scripts/check-hook-runner-selection-matrix.js
 node benchmarks/scripts/check-hook-runner-dry-run-cli-contract.js
+node benchmarks/scripts/check-claude-hook-event-input-contract.js
 node benchmarks/scripts/check-abk-runner-module-boundary.js
 node benchmarks/scripts/check-abk-runner-dry-run.js
 node benchmarks/scripts/check-abk-runner-scan.js

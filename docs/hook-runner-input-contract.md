@@ -4,6 +4,8 @@ This is the input contract for the future hook runner described in `docs/hook-ru
 
 It is not an installed hook, not a runner implementation, and not plugin packaging. It only fixes the JSON shape a runner may accept before any executable hook is built.
 
+Future Claude hook event data must pass through `docs/claude-hook-event-input-contract.md` before it becomes runner input.
+
 ## Files
 
 - `hooks/claude/runner-input.schema.json`: JSON schema for allowed runner input.
@@ -45,6 +47,7 @@ This contract is checked by:
 
 ```sh
 node benchmarks/scripts/check-hook-runner-input-contract.js
+node benchmarks/scripts/check-claude-hook-event-input-contract.js
 npm run bench:check
 npm run bench:check:red
 ```

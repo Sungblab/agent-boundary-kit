@@ -16,6 +16,8 @@ No inference from private chat context.
 
 The selection matrix may use only declared input from `docs/hook-runner-input-contract.md`, scanner coverage from `docs/scanner-coverage-matrix.md`, output handling from `docs/hook-runner-output-contract.md`, and dry-run examples from `docs/hook-runner-dry-run-spec.md`.
 
+Claude hook event data must first satisfy `docs/claude-hook-event-input-contract.md` before it can become declared runner input.
+
 The plan-only dry-run CLI contract is recorded in `docs/hook-runner-dry-run-cli-contract.md`.
 
 Missing required inputs must return configuration error. The runner must not broaden its read scope to guess missing stale terms, named tools, final gates, issue sources, test files, or plan artifacts.
@@ -86,6 +88,7 @@ This matrix is checked by:
 
 ```sh
 node benchmarks/scripts/check-hook-runner-selection-matrix.js
+node benchmarks/scripts/check-claude-hook-event-input-contract.js
 npm run bench:check
 npm run bench:check:red
 ```
