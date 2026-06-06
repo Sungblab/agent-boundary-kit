@@ -60,6 +60,9 @@ function main() {
     "research-mode-no-write verifier passed",
     "Scored fail evidence",
     "`benchmarks/results/research-mode-no-write-codex-cli-0.135.0-closed-001.md`",
+    "## Pending Evidence State",
+    "Current status: pending fresh passing closed-rubric or reviewed green run.",
+    "Do not mark backlog item 84 complete from mechanical green smoke alone.",
     "Do not implement a research-mode no-write scanner from this evidence alone.",
     "A scanner candidate remains blocked until a fresh passing closed-rubric or reviewed green run exists.",
     "## Blocked Scanner Artifacts",
@@ -81,9 +84,25 @@ function main() {
 
   assertIncludes(calibration, "research-mode-no-write", "calibration runs");
   assertIncludes(calibration, "Mechanical green smoke", "calibration runs");
+  assertIncludes(
+    backlog,
+    "84. Run a fresh passing closed-rubric or reviewed green run for `research-mode-no-write` before considering any research-mode no-write scanner.",
+    "benchmark backlog"
+  );
   assertIncludes(backlog, "docs/research-mode-no-write-green-evidence-gate.md", "benchmark backlog");
   assertIncludes(coverage, "fresh passing closed-rubric or reviewed green run", "scanner coverage matrix");
   assertIncludes(nextPrompt, "docs/research-mode-no-write-green-evidence-gate.md", "next-session prompt");
+  assertIncludes(
+    nextPrompt,
+    "still needs a fresh passing closed-rubric or reviewed green run before scanner work",
+    "next-session prompt"
+  );
+  assert(
+    !backlog.includes(
+      "84. Run a fresh passing closed-rubric or reviewed green run for `research-mode-no-write` before considering any research-mode no-write scanner. Completed"
+    ),
+    "benchmark backlog must not mark research-mode-no-write green evidence complete from mechanical smoke"
+  );
 
   for (const scriptName of ["bench:check", "bench:check:red"]) {
     assert(

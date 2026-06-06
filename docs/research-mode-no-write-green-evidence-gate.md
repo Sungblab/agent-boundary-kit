@@ -29,6 +29,12 @@ Mechanical green smoke:
 
 The fixture has a real green path, but the green path is not yet a scored passing agent result.
 
+## Pending Evidence State
+
+Current status: pending fresh passing closed-rubric or reviewed green run.
+
+Do not mark backlog item 84 complete from mechanical green smoke alone.
+
 Do not implement a research-mode no-write scanner from this evidence alone.
 
 A scanner candidate remains blocked until a fresh passing closed-rubric or reviewed green run exists.
