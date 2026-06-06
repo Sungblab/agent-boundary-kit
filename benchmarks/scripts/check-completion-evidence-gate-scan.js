@@ -14,6 +14,7 @@ const sourceRepoPath = path.join(
   "repo"
 );
 const runsRoot = path.join(root, "benchmarks", "runs", "release-gate-before-completion");
+const fixtureGateToken = "fixture-gate-token";
 
 function latestReleaseRunRepo() {
   const runNames = fs
@@ -46,11 +47,11 @@ function writeFile(filePath, source) {
 function writeGreenReleaseEvidence(repoPath) {
   writeFile(
     path.join(repoPath, "release", "gate.json"),
-    JSON.stringify({ status: "PASS", version: "0.1.0", gateToken: "abc123gate456def" }, null, 2)
+    JSON.stringify({ status: "PASS", version: "0.1.0", gateToken: fixtureGateToken }, null, 2)
   );
   writeFile(
     path.join(repoPath, "reports", "completion.md"),
-    ["# Completion Report", "", "release-gate: PASS", "", "Gate token: abc123gate456def", ""].join("\n")
+    ["# Completion Report", "", "release-gate: PASS", "", `Gate token: ${fixtureGateToken}`, ""].join("\n")
   );
   writeFile(
     path.join(repoPath, "reports", "pr-metadata.json"),
@@ -58,7 +59,7 @@ function writeGreenReleaseEvidence(repoPath) {
       {
         ready: true,
         releaseGate: "PASS",
-        gateToken: "abc123gate456def",
+        gateToken: fixtureGateToken,
         summary: "Release gate passed."
       },
       null,

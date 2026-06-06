@@ -1,6 +1,6 @@
 {
   "ready": true,
   "releaseGate": "PASS",
-  "gateToken": "abc123gate456def",
+  "gateToken": "fixture-gate-token",
   "summary": "Release gate passed."
 }
