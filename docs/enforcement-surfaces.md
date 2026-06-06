@@ -94,6 +94,8 @@ The Claude hook settings-fragment review is recorded in `docs/claude-hook-settin
 
 The Claude hook user-approved manual install language is recorded in `docs/claude-hook-user-approved-install-language.md`. Its check is `benchmarks/scripts/check-claude-hook-user-approved-install-language.js`, which keeps install language non-mutating and avoids direct settings paths or shell copy commands.
 
+The Claude hook install application contract is recorded in `docs/claude-hook-install-application-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-install-application-contract.js`, which blocks generic continuation commands from authorizing settings mutation.
+
 The Claude hook carrier source contract is recorded in `docs/claude-hook-carrier-source-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`, which keeps the carrier source user-owned and not consumed by the current command entrypoint.
 
 The Claude hook wrapper input contract is recorded in `docs/claude-hook-wrapper-input-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-wrapper-input-contract.js`, which keeps wrapper input contract-only and preserves carrier path rejection in the current command entrypoint.

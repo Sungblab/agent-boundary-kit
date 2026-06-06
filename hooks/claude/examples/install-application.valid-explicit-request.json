@@ -1,0 +1,27 @@
+{
+  "fixtureKind": "claude-hook-install-application-contract",
+  "status": "eligible-for-application-review",
+  "explicitInstallRequest": true,
+  "agentMayApplySettings": false,
+  "requiresUserOwnedTarget": true,
+  "sourceContracts": [
+    "docs/claude-hook-user-approved-install-language.md",
+    "docs/claude-hook-settings-fragment-review.md",
+    "docs/claude-hook-wrapper-wiring-review.md",
+    "docs/claude-hook-wrapper-implementation.md"
+  ],
+  "requiredEvidence": [
+    "node benchmarks/scripts/check-claude-hook-install-application-contract.js",
+    "node benchmarks/scripts/check-claude-hook-user-approved-install-language.js",
+    "node benchmarks/scripts/check-claude-hook-settings-fragment-review.js",
+    "node benchmarks/scripts/check-claude-hook-wrapper-wiring-review.js",
+    "npm run bench:check",
+    "npm run bench:check:red"
+  ],
+  "nonGoals": [
+    "No automatic hook installation",
+    "No repository mutation",
+    "Do not create or edit Claude configuration files from this repository",
+    "Do not publish shell copy commands from this contract"
+  ]
+}

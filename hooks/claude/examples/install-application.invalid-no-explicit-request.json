@@ -1,0 +1,22 @@
+{
+  "fixtureKind": "claude-hook-install-application-contract",
+  "status": "blocked",
+  "explicitInstallRequest": false,
+  "agentMayApplySettings": false,
+  "reason": "explicit user install request required",
+  "inputClassification": {
+    "genericContinuation": true,
+    "installApproval": false,
+    "settingsMutationRequest": false
+  },
+  "allowedNextActions": [
+    "stay at language review",
+    "ask for explicit installation request"
+  ],
+  "nonGoals": [
+    "No automatic hook installation",
+    "No repository mutation",
+    "Do not create or edit Claude configuration files",
+    "Do not publish shell copy commands"
+  ]
+}

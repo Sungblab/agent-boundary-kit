@@ -111,4 +111,6 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a user-requested install application turn. Until the user explicitly requests that action, this repository stays at language review.
+The next gate is recorded in `docs/claude-hook-install-application-contract.md`: a user-requested install application turn. Until the user explicitly requests that action, this repository stays at language review.
+
+That gate is checked by `benchmarks/scripts/check-claude-hook-install-application-contract.js`.
