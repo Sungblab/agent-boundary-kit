@@ -1,0 +1,11 @@
+{
+  "fixtureKind": "claude-hook-user-owned-target-review-decision",
+  "status": "blocked",
+  "sourceTextRole": "workflow-command",
+  "packetReviewed": false,
+  "targetReviewEvidenceReviewed": false,
+  "finalUserApplyRequestPresent": false,
+  "settingsMutationAttempted": false,
+  "agentMayApplySettings": false,
+  "reason": "generic continuation text is not an application decision"
+}

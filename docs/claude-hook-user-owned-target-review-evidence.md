@@ -24,6 +24,8 @@ The wrapper wiring evidence is `docs/claude-hook-wrapper-wiring-review.md`.
 
 The target review packet source is `docs/claude-hook-user-owned-target-review-packet.md`.
 
+The target review decision source is `docs/claude-hook-user-owned-target-review-decision.md`.
+
 This evidence record does not identify a user settings path.
 
 This evidence record does not apply settings for the user.
@@ -78,6 +80,7 @@ Before this evidence record is described as ready, run:
 ```sh
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js
+node benchmarks/scripts/check-claude-hook-user-owned-target-review-decision.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js
 node benchmarks/scripts/check-claude-hook-install-application-contract.js
 node benchmarks/scripts/check-claude-hook-user-approved-install-language.js

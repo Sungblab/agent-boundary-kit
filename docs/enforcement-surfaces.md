@@ -102,6 +102,8 @@ The Claude hook user-owned target review evidence is recorded in `docs/claude-ho
 
 The Claude hook user-owned target review packet is recorded in `docs/claude-hook-user-owned-target-review-packet.md`. Its check is `benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js`, which keeps target review packets review-only and rejects agent-applied settings.
 
+The Claude hook user-owned target review decision is recorded in `docs/claude-hook-user-owned-target-review-decision.md`. Its check is `benchmarks/scripts/check-claude-hook-user-owned-target-review-decision.js`, which keeps target review decisions non-mutating and deferred until a final user apply request exists.
+
 The Claude hook carrier source contract is recorded in `docs/claude-hook-carrier-source-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`, which keeps the carrier source user-owned and not consumed by the current command entrypoint.
 
 The Claude hook wrapper input contract is recorded in `docs/claude-hook-wrapper-input-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-wrapper-input-contract.js`, which keeps wrapper input contract-only and preserves carrier path rejection in the current command entrypoint.

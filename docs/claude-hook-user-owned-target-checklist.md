@@ -24,6 +24,8 @@ The target review evidence source is `docs/claude-hook-user-owned-target-review-
 
 The target review packet source is `docs/claude-hook-user-owned-target-review-packet.md`.
 
+The target review decision source is `docs/claude-hook-user-owned-target-review-decision.md`.
+
 This checklist does not identify a user settings path.
 
 This checklist does not apply settings for the user.
@@ -71,6 +73,7 @@ Before this checklist is described as ready, run:
 node benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js
+node benchmarks/scripts/check-claude-hook-user-owned-target-review-decision.js
 node benchmarks/scripts/check-claude-hook-install-application-contract.js
 node benchmarks/scripts/check-claude-hook-user-approved-install-language.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-review.js

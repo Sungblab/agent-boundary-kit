@@ -1,0 +1,11 @@
+{
+  "fixtureKind": "claude-hook-user-owned-target-review-decision",
+  "status": "blocked",
+  "sourceTextRole": "explicit-install-request",
+  "packetReviewed": false,
+  "targetReviewEvidenceReviewed": true,
+  "finalUserApplyRequestPresent": false,
+  "settingsMutationAttempted": false,
+  "agentMayApplySettings": false,
+  "reason": "target review packet required before decision"
+}
