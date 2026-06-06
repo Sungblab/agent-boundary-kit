@@ -82,11 +82,13 @@ The Claude hook manual install contract is recorded in `docs/claude-hook-manual-
 
 The Claude hook command adapter contract is recorded in `docs/claude-hook-command-adapter-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`, which records the stdin-to-runner-input bridge required before live hook instructions.
 
-The Claude hook command adapter fixtures are recorded in `docs/claude-hook-command-adapter-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`, which keeps the stdin bridge at red/green fixture status before adapter implementation.
+The Claude hook command adapter fixtures are recorded in `docs/claude-hook-command-adapter-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`, which keeps the stdin bridge fixture-backed.
 
-The Claude hook command adapter implementation contract is recorded in `docs/claude-hook-command-adapter-implementation-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js`, which bounds the future stdin entrypoint before implementation.
+The Claude hook command adapter implementation contract is recorded in `docs/claude-hook-command-adapter-implementation-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js`, which bounds the stdin entrypoint implementation.
 
-The Claude hook command adapter entrypoint fixtures are recorded in `docs/claude-hook-command-adapter-entrypoint-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js`, which fixes stdin parsing, cleanup, exit-code, and rejection expectations before adapter code.
+The Claude hook command adapter entrypoint fixtures are recorded in `docs/claude-hook-command-adapter-entrypoint-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js`, which fixes stdin parsing, cleanup, exit-code, and rejection expectations.
+
+The Claude hook command adapter entrypoint is recorded in `docs/claude-hook-command-adapter-entrypoint.md`. Its check is `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js`, which verifies the local `abk-claude-hook` stdin adapter without installing hooks.
 
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
@@ -334,6 +336,8 @@ Blocks completion when:
 96. Add a Claude hook command adapter implementation contract check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js`.
 97. Add Claude hook command adapter entrypoint fixtures. Completed: `docs/claude-hook-command-adapter-entrypoint-fixtures.md`.
 98. Add a Claude hook command adapter entrypoint fixture check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js`.
-99. Claude hooks remain specs until a bounded adapter entrypoint implementation exists.
+99. Add a Claude hook command adapter entrypoint contract. Completed: `docs/claude-hook-command-adapter-entrypoint.md`.
+100. Add a Claude hook command adapter entrypoint check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js`.
+101. Claude hooks remain specs until manual install language is checked against the bounded adapter entrypoint.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

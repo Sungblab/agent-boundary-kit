@@ -23,6 +23,8 @@ const requiredPhrases = [
   "not an installed hook",
   "not an installer",
   "not hook setup guidance",
+  "bin/abk-claude-hook.js",
+  "lib/abk-claude-hook-adapter.js",
   "docs/claude-hook-command-adapter-contract.md",
   "docs/claude-hook-command-adapter-fixtures.md",
   "docs/claude-hook-event-mapper-contract.md",
@@ -56,6 +58,7 @@ const requiredPhrases = [
   "Do not generate final copy",
   "node benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js",
   "node benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js",
+  "node benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js",
   "node benchmarks/scripts/check-claude-hook-command-adapter-contract.js",
   "npm run bench:check",
   "npm run bench:check:red",
@@ -68,6 +71,7 @@ const linkedDocs = [
   "docs/packaging-readiness.md",
   "docs/claude-hook-command-adapter-contract.md",
   "docs/claude-hook-command-adapter-fixtures.md",
+  "docs/claude-hook-command-adapter-entrypoint.md",
   "hooks/claude/README.md",
 ];
 
@@ -92,7 +96,6 @@ const forbiddenRepoPaths = [
   "hooks/claude/adapter.js",
   "hooks/claude/adapter.ps1",
   "hooks/claude/adapter.sh",
-  "bin/abk-claude-hook.js",
 ];
 
 function readRelative(relativePath) {

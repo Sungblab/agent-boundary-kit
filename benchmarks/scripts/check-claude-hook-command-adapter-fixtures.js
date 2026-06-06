@@ -109,7 +109,6 @@ const forbiddenRepoPaths = [
   "hooks/claude/adapter.js",
   "hooks/claude/adapter.ps1",
   "hooks/claude/adapter.sh",
-  "bin/abk-claude-hook.js",
 ];
 
 function readJson(filePath) {
@@ -242,7 +241,7 @@ function main() {
   assert.equal(findKey(invalidTranscriptOutput, forbiddenOutputKeys), null, "invalid output contains forbidden key");
 
   for (const forbiddenPath of forbiddenRepoPaths) {
-    assert.ok(!existsRelative(forbiddenPath), `forbidden Claude hook adapter/install path exists before adapter implementation: ${forbiddenPath}`);
+    assert.ok(!existsRelative(forbiddenPath), `forbidden Claude hook install path exists: ${forbiddenPath}`);
   }
 
   for (const relativePath of linkedDocs) {

@@ -77,7 +77,7 @@ The bridge must not infer missing task metadata from private chat history, promp
 
 ## Allowed Adapter Shape
 
-The next adapter may be a small command entrypoint only after red/green fixtures exist.
+The adapter may be a small command entrypoint only when red/green fixtures exist.
 
 Allowed behavior:
 
@@ -122,12 +122,12 @@ npm run bench:check:red
 
 The evidence must show:
 
-- the adapter contract is documentation-only
+- the adapter contract remains bounded
 - no hook setup files exist
 - no Claude configuration file is created in this repository
 - the stdin-to-runner-input bridge is specified before manual install instructions
-- red/green stdin adapter fixtures exist before adapter implementation
-- the adapter implementation contract is specified before entrypoint code
+- red/green stdin adapter fixtures exist for the adapter implementation
+- the adapter implementation contract documents the entrypoint boundary
 - runner execution remains gated by `abk-runner map-event --input <hook-event.json>`
 
 ## Non-Goals
@@ -152,6 +152,6 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is `docs/claude-hook-command-adapter-implementation-contract.md` and `benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js`.
+The next gate is `docs/claude-hook-command-adapter-entrypoint.md` and `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js`.
 
-Only after that contract stays green should the repo consider a bounded adapter entrypoint fixture.
+Only after that entrypoint stays green should the repo consider manual install language.

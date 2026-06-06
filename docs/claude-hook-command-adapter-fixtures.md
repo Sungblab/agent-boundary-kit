@@ -1,8 +1,10 @@
 # Claude Hook Command Adapter Fixtures
 
-These fixtures define the first red fixture and green fixture for a future Claude hook command adapter.
+These fixtures define the first red fixture and green fixture for the Claude hook command adapter.
 
 They extend `docs/claude-hook-command-adapter-contract.md`.
+
+They feed the implementation boundary recorded in `docs/claude-hook-command-adapter-implementation-contract.md`.
 
 They are fixture-only. They are not an installed hook, not an adapter implementation, not an installer, and not hook setup guidance.
 
@@ -65,11 +67,9 @@ npm run bench:check
 npm run bench:check:red
 ```
 
-The check verifies that the stdin payload fixture maps to explicit runner input, that the red fixture rejects transcript-bearing input, and that no adapter, install script, or Claude configuration file exists yet.
+The check verifies that the stdin payload fixture maps to explicit runner input, that the red fixture rejects transcript-bearing input, and that no hook install script or Claude configuration file exists.
 
 ## Non-Goals
-
-Do not implement the adapter in this fixture step.
 
 Do not install Claude hooks.
 
@@ -89,4 +89,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is `docs/claude-hook-command-adapter-implementation-contract.md` and `benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js`.
+The next gate is `docs/claude-hook-command-adapter-entrypoint.md` and `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js`.

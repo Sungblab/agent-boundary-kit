@@ -70,7 +70,6 @@ const forbiddenRepoPaths = [
   "hooks/claude/adapter.js",
   "hooks/claude/adapter.ps1",
   "hooks/claude/adapter.sh",
-  "bin/abk-claude-hook.js",
 ];
 
 const forbiddenContractPhrases = [

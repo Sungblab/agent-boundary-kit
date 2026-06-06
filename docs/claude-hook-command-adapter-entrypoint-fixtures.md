@@ -1,6 +1,6 @@
 # Claude Hook Command Adapter Entrypoint Fixtures
 
-These fixtures define expected adapter entrypoint behavior before adapter code exists.
+These fixtures define expected adapter entrypoint behavior.
 
 They extend `docs/claude-hook-command-adapter-implementation-contract.md`.
 
@@ -66,9 +66,10 @@ The rejected fixture proves:
 
 ## Evidence Gate
 
-Before any adapter entrypoint code is described as ready, run:
+Before any adapter entrypoint is described as ready, run:
 
 ```sh
+node benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js
 node benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js
 node benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js
 node benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js
@@ -77,11 +78,9 @@ npm run bench:check
 npm run bench:check:red
 ```
 
-The check verifies the fixture-only output shape, cleanup trace, runner exit-code preservation, private-context rejection, and absence of adapter or install files.
+The check verifies the fixture output shape, cleanup trace, runner exit-code preservation, private-context rejection, and absence of hook install or setup files.
 
 ## Non-Goals
-
-Do not implement the adapter in this fixture step.
 
 Do not install Claude hooks.
 
@@ -101,4 +100,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a bounded adapter entrypoint implementation checked against these fixtures.
+The next gate is `docs/claude-hook-command-adapter-entrypoint.md` and `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js`.

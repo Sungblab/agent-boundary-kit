@@ -1,12 +1,12 @@
 # Claude Hook Command Adapter Implementation Contract
 
-This is an implementation contract only for a future Claude hook command adapter.
+This is an implementation contract only for the bounded Claude hook command adapter.
 
 It is not an installed hook, not an installer, and not hook setup guidance.
 
 ## Boundary
 
-The future adapter may bridge Claude Code command hook stdin to the existing ABK runner chain.
+The adapter may bridge Claude Code command hook stdin to the existing ABK runner chain.
 
 It must read stdin only.
 
@@ -38,7 +38,7 @@ Do not generate final copy.
 
 ## Preconditions
 
-The implementation contract depends on:
+The implementation depends on:
 
 - `docs/claude-hook-command-adapter-contract.md`
 - `docs/claude-hook-command-adapter-fixtures.md`
@@ -55,7 +55,7 @@ The adapter fixtures must stay green before any entrypoint is implemented.
 
 ## Allowed Entrypoint Shape
 
-The future entrypoint may:
+The entrypoint may:
 
 - read stdin only
 - parse one JSON payload
@@ -73,6 +73,14 @@ It must not:
 - infer missing metadata
 - generate final responses, PR metadata, release notes, product copy, or completion claims
 - execute scanner fan-out
+
+## Current Entrypoint
+
+The current entrypoint is `bin/abk-claude-hook.js`.
+
+The implementation module is `lib/abk-claude-hook-adapter.js`.
+
+The entrypoint reads stdin, writes temporary runner bridge files, calls `map-event`, calls `dry-run` only after a successful map, and does not execute scanners.
 
 ## Temporary File Contract
 
@@ -112,6 +120,7 @@ Before any adapter implementation is described as ready, run:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js
+node benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js
 node benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js
 node benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js
 node benchmarks/scripts/check-claude-hook-command-adapter-contract.js
@@ -126,8 +135,8 @@ npm run bench:check:red
 
 The evidence must show:
 
-- the implementation contract is documentation-only
-- no adapter entrypoint exists yet
+- the implementation contract remains bounded
+- the adapter entrypoint delegates to a bounded module
 - no hook setup files exist
 - no Claude configuration file is created in this repository
 - adapter fixtures map valid stdin payloads to explicit runner input
@@ -135,8 +144,6 @@ The evidence must show:
 - adapter fixtures reject transcript-bearing stdin payloads
 
 ## Non-Goals
-
-Do not implement the adapter in this contract step.
 
 Do not install Claude hooks yet.
 
@@ -158,4 +165,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is `docs/claude-hook-command-adapter-entrypoint-fixtures.md` and `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js`.
+The next gate is `docs/claude-hook-command-adapter-entrypoint.md` and `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js`.
