@@ -77,6 +77,7 @@ Before any installable surface is claimed ready, run:
 
 ```sh
 node benchmarks/scripts/check-packaging-readiness.js
+node benchmarks/scripts/check-boundary-skill-readiness.js
 node benchmarks/scripts/check-abk-runner-scan.js
 npm run bench:check
 npm run bench:check:red
@@ -108,7 +109,7 @@ Do not turn this repository into a project-management app.
 
 ## Next Gate
 
-The next gate is a Codex skill packaging check that verifies `skills/boundary-check/SKILL.md` references this contract, `docs/scanner-coverage-matrix.md`, and `docs/hook-runner-read-only-execution-contract.md`.
+The Codex skill packaging check is `benchmarks/scripts/check-boundary-skill-readiness.js`. It verifies `skills/boundary-check/SKILL.md` references this contract, `docs/scanner-coverage-matrix.md`, `docs/hook-runner-read-only-execution-contract.md`, every runner scanner id, and the explicit read-only `abk-runner scan` command shape.
 
 Only after that check passes should the repo consider a narrow installable skill surface.
 

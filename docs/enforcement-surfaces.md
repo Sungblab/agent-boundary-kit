@@ -54,6 +54,8 @@ The read-only runner now includes configuration-error examples for unsupported s
 
 The packaging readiness contract is recorded in `docs/packaging-readiness.md`. It fixes the next allowed installable surface as a narrow Codex skill candidate and keeps Claude hooks, plugin packaging, connectors, dashboards, and broad workflow tooling out of scope until a separate evidence gate exists.
 
+The boundary skill readiness check is recorded in `benchmarks/scripts/check-boundary-skill-readiness.js`. It verifies `skills/boundary-check/SKILL.md` stays tied to `docs/packaging-readiness.md`, `docs/scanner-coverage-matrix.md`, `docs/hook-runner-read-only-execution-contract.md`, the supported runner scanner ids, and explicit read-only runner evidence.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -268,6 +270,9 @@ Blocks completion when:
 64. Add read-only runner scan execution for `phase-gate-plan-scan`. Completed: `hooks/claude/examples/runner-scan.phase-gate-pre-write-finding-input.json`, `hooks/claude/examples/runner-scan.phase-gate-completion-finding-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
 65. Record a packaging readiness contract before any installable surface. Completed: `docs/packaging-readiness.md`.
 66. Add a packaging readiness check so packaging stays tied to fixture-backed scanner evidence. Completed: `benchmarks/scripts/check-packaging-readiness.js`.
-67. Only then package a Codex skill or Claude hooks.
+67. Add a Codex skill packaging check before any installable skill work. Completed: `benchmarks/scripts/check-boundary-skill-readiness.js`.
+68. Update the boundary-check Codex skill candidate against the packaging readiness and read-only runner contracts. Completed: `skills/boundary-check/SKILL.md`.
+69. Only then consider narrow Codex skill packaging.
+70. Claude hooks remain later than the Codex skill gate.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.
