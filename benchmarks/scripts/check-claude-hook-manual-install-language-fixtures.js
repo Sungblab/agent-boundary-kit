@@ -17,6 +17,7 @@ const packagePath = path.join(root, "package.json");
 const requiredDocPhrases = [
   "# Claude Hook Manual Install Language Fixtures",
   "docs/claude-hook-manual-install-contract.md",
+  "docs/claude-hook-manual-install.md",
   "docs/claude-hook-command-adapter-entrypoint.md",
   "benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js",
   "hooks/claude/examples/manual-install-language.valid.md",
@@ -35,6 +36,7 @@ const requiredDocPhrases = [
   "Do not execute scanners in the install language",
   "abk-claude-hook",
   "node benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js",
+  "node benchmarks/scripts/check-claude-hook-manual-install-document.js",
   "npm run bench:check",
   "npm run bench:check:red",
 ];
@@ -95,6 +97,7 @@ const linkedDocs = [
   "docs/packaging-readiness.md",
   "docs/claude-hook-manual-install-contract.md",
   "docs/claude-hook-manual-install-doc-fixture.md",
+  "docs/claude-hook-manual-install.md",
   "hooks/claude/README.md",
 ];
 

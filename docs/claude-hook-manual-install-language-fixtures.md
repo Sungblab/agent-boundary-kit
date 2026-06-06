@@ -2,7 +2,7 @@
 
 These fixtures define bounded manual install language for the Claude hook adapter.
 
-They extend `docs/claude-hook-manual-install-contract.md`, `docs/claude-hook-manual-install-doc-fixture.md`, and `docs/claude-hook-command-adapter-entrypoint.md`.
+They extend `docs/claude-hook-manual-install-contract.md`, `docs/claude-hook-manual-install-doc-fixture.md`, `docs/claude-hook-manual-install.md`, and `docs/claude-hook-command-adapter-entrypoint.md`.
 
 They are language fixtures only. They are not installed hooks, not installers, and not hook setup scripts.
 
@@ -70,6 +70,7 @@ Before manual install language is described as ready, run:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js
+node benchmarks/scripts/check-claude-hook-manual-install-document.js
 node benchmarks/scripts/check-claude-hook-manual-install-contract.js
 node benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js
 node benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js
@@ -112,4 +113,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a user-approved manual install document that can show a reviewed settings fragment while preserving the same non-mutating boundary.
+The next gate is a native Claude Code hook payload mapping fixture before any live install fragment is published.
