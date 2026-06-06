@@ -341,3 +341,7 @@ The agent should not ask "what words did the user say?"
 It should ask:
 
 > What role did this input play, and what output would satisfy that role without leaking it?
+
+## License
+
+MIT. See `LICENSE`.
