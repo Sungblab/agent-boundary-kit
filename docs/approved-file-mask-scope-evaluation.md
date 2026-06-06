@@ -55,4 +55,8 @@ Invalid if the agent saw evaluator-only files during a closed-rubric run.
 
 After a scored run exists, write a reviewed result under `benchmarks/results/`.
 
+The reviewed result must state that only `repo/src/auth/login.js` changed.
+
+Scanner evidence should say there is no scope-mask scanner yet; the evidence is the fixture verifier plus the reviewed one-file diff.
+
 Only after reviewed scored evidence exists, decide whether a scope-mask scanner is justified.

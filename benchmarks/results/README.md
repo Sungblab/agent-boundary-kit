@@ -23,4 +23,6 @@ A reviewed result is publishable only when:
 - absolute local paths, file URLs, credential-like tokens, and canary markers are absent
 - raw transcript material is paraphrased or omitted unless a short quote is necessary
 
+For `approved-file-mask-scope`, the reviewed result must state that only `repo/src/auth/login.js` changed and that there is no scope-mask scanner yet. Do not promote calibration-only evidence into a scored result.
+
 If any of those are missing, keep the run in `benchmarks/runs/` and do not publish a result summary.
