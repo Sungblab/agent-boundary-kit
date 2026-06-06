@@ -87,7 +87,7 @@ const unpromotedFixtures = [
   {
     fixture: "model-instruction-hardcoded-default",
     source: "research/public-case-index.md#case-2",
-    phrase: "Run a closed-rubric agent evaluation, then record red/green evidence before considering a guidance-to-code leakage scanner.",
+    phrase: "Review `docs/scanner-validation-guidance-to-code-leakage.md`, then implement only a narrow read-only scanner if the validation boundary still holds.",
   },
   {
     fixture: "research-mode-no-write",

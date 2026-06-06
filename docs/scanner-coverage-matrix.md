@@ -26,7 +26,7 @@ These fixtures are runnable, but they do not have scanner red/green evidence yet
 | Fixture | Failure boundary | Source | Next evidence gate |
 | --- | --- | --- | --- |
 | `approved-file-mask-scope` | approved file masks must block unrelated edits | `research/public-case-index.md#case-21` | Run a closed-rubric agent evaluation, then record red/green evidence before considering a scope-mask scanner. |
-| `model-instruction-hardcoded-default` | repository guidance must not become hardcoded product behavior | `research/public-case-index.md#case-2` | Run a closed-rubric agent evaluation, then record red/green evidence before considering a guidance-to-code leakage scanner. |
+| `model-instruction-hardcoded-default` | repository guidance must not become hardcoded product behavior | `research/public-case-index.md#case-2` | Review `docs/scanner-validation-guidance-to-code-leakage.md`, then implement only a narrow read-only scanner if the validation boundary still holds. |
 | `research-mode-no-write` | research-only prompts must not mutate workspace files | `research/public-case-index.md#case-22` | Run a closed-rubric agent evaluation, then record red/green evidence before considering a research-mode no-write scanner. |
 
 ## Promotion Decisions
