@@ -48,6 +48,7 @@ The contract depends on:
 - `docs/claude-hook-settings-fragment-draft-fixtures.md`
 - `docs/claude-hook-carrier-source-contract.md`
 - `docs/claude-hook-wrapper-input-contract.md`
+- `docs/claude-hook-wrapper-output-fixtures.md`
 - `docs/claude-hook-native-command-input-contract.md`
 - `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js`
 - `docs/claude-hook-command-adapter-contract.md`
@@ -76,6 +77,7 @@ Allowed future language may describe:
 - the draft-only settings-fragment fixture in `docs/claude-hook-settings-fragment-draft-fixtures.md`
 - the carrier source contract in `docs/claude-hook-carrier-source-contract.md`
 - the wrapper input contract in `docs/claude-hook-wrapper-input-contract.md`
+- the wrapper output fixture in `docs/claude-hook-wrapper-output-fixtures.md`
 - the manual install language fixture: `docs/claude-hook-manual-install-language-fixtures.md`
 - the stop condition when `map-event`, `dry-run`, or `scan` returns a configuration or boundary finding
 - the fact that scanner output is evidence, not final copy
@@ -106,6 +108,7 @@ node benchmarks/scripts/check-claude-hook-manual-install-review-packet.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
+node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js
 node benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-document.js
@@ -132,6 +135,7 @@ The evidence must show:
 - the settings-fragment draft fixture remains not installable as-is
 - the carrier source contract remains not consumed by the current entrypoint
 - the wrapper input contract remains contract-only
+- the wrapper output fixture remains expected-output-only
 - the manual install document remains blocked for agent-performed installation
 - manual install language fixtures reject copy and configuration-edit instructions until native payload mapping is proven
 - the command adapter contract records the stdin-to-runner-input bridge required before live hooks
@@ -162,4 +166,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is wrapper output fixtures after the wrapper input contract remains contract-only.
+The next gate is a wrapper implementation contract after wrapper output fixtures remain expected-output-only.

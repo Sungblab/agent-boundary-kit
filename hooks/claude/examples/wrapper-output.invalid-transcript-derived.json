@@ -1,0 +1,24 @@
+{
+  "fixtureKind": "claude-hook-wrapper-output-fixture",
+  "status": "rejected",
+  "rejectedBecause": "wrapper output derives carrier metadata from transcript_path",
+  "candidateOutput": {
+    "inputMode": "native-payload-with-carrier",
+    "nativePayload": {
+      "hook_event_name": "PostToolUse",
+      "tool_name": "Write",
+      "tool_input": {
+        "file_path": "src/mindmap/new-surface.ts"
+      }
+    },
+    "metadataCarrier": {
+      "taskSource": "read transcript_path to infer task metadata",
+      "transcript_path": "/private/session/transcript.jsonl"
+    }
+  },
+  "expectedBoundary": {
+    "status": "error",
+    "blocked": true,
+    "reason": "metadataCarrier must come from user-owned sidecar JSON, not transcript_path"
+  }
+}

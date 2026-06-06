@@ -1,0 +1,20 @@
+{
+  "fixtureKind": "claude-hook-wrapper-output-fixture",
+  "status": "rejected",
+  "rejectedBecause": "current entrypoint must reject carrier paths",
+  "inputMode": "native-payload-with-carrier",
+  "nativePayload": {
+    "hook_event_name": "PostToolUse",
+    "tool_name": "Write",
+    "tool_input": {
+      "file_path": "src/mindmap/new-surface.ts"
+    }
+  },
+  "carrierPath": "<user-owned-carrier-json>",
+  "metadataCarrierPath": "<user-owned-carrier-json>",
+  "expectedBoundary": {
+    "status": "error",
+    "blocked": true,
+    "reason": "abk-claude-hook must receive explicit metadataCarrier, not carrier file paths"
+  }
+}

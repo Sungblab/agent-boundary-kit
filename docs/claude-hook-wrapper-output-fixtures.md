@@ -1,10 +1,12 @@
-# Claude Hook Wrapper Input Contract
+# Claude Hook Wrapper Output Fixtures
 
-This is a contract only.
+These fixtures define the expected output envelope for a future Claude hook wrapper.
 
-It is not an installed hook, not an installer, and not live settings guidance.
+They are fixture only.
 
-It is not implemented by the current entrypoint.
+They are not an installed hook, not an installer, and not live settings guidance.
+
+They are not implemented by the current entrypoint.
 
 ## Source Evidence
 
@@ -22,21 +24,21 @@ The source evidence says command hooks receive JSON on stdin.
 
 User approval required.
 
-The wrapper input combines native stdin with user-owned sidecar JSON.
+The wrapper output combines a native stdin projection with user-owned sidecar JSON.
 
-The wrapper must produce a native-payload-with-carrier envelope.
+The expected output envelope is `native-payload-with-carrier`.
 
-The produced envelope must include `nativePayload` and `metadataCarrier`.
+The expected output envelope includes `nativePayload` and `metadataCarrier`.
 
-The wrapper output fixture contract is `docs/claude-hook-wrapper-output-fixtures.md`.
-
-The output envelope contract is `docs/claude-hook-native-command-input-contract.md`.
+The wrapper input contract is `docs/claude-hook-wrapper-input-contract.md`.
 
 The carrier source contract is `docs/claude-hook-carrier-source-contract.md`.
 
+The command input contract is `docs/claude-hook-native-command-input-contract.md`.
+
 The carrier fixture contract is `docs/claude-hook-native-metadata-carrier-fixtures.md`.
 
-The wrapper is not consumed by the current entrypoint.
+The current entrypoint boundary is unchanged.
 
 carrierPath and metadataCarrierPath remain rejected by abk-claude-hook.
 
@@ -60,25 +62,25 @@ Do not publish shell copy commands.
 
 ## Fixtures
 
-Valid wrapper input contract:
+Valid wrapper output:
 
-- `hooks/claude/examples/wrapper-input.valid.json`
+- `hooks/claude/examples/wrapper-output.valid-envelope.json`
 
-Rejected transcript-derived wrapper:
+Rejected transcript-derived wrapper output:
 
-- `hooks/claude/examples/wrapper-input.invalid-transcript-derived.json`
+- `hooks/claude/examples/wrapper-output.invalid-transcript-derived.json`
 
-Rejected current-entrypoint carrier path:
+Rejected current-entrypoint carrier path output:
 
-- `hooks/claude/examples/wrapper-input.invalid-current-entrypoint-carrier-path.json`
+- `hooks/claude/examples/wrapper-output.invalid-current-entrypoint-carrier-path.json`
 
-The valid fixture is contract-only and not installable as-is.
+The valid fixture is expected-output-only and not installable as-is.
 
-The valid fixture records native stdin as the source for the native payload.
+The valid fixture records native stdin projection as the source for `nativePayload`.
 
 The valid fixture records user-owned sidecar JSON as the source for `metadataCarrier`.
 
-The valid fixture records that the current entrypoint does not consume wrapper input.
+The valid fixture records that the current entrypoint does not implement this wrapper output.
 
 The rejected transcript-derived fixture intentionally mentions transcript_path.
 
@@ -86,11 +88,11 @@ The rejected current-entrypoint fixture intentionally includes carrierPath and m
 
 ## Evidence Gate
 
-Before wrapper input language is described as ready, run:
+Before wrapper output fixture language is described as ready, run:
 
 ```sh
-node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
+node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js
 node benchmarks/scripts/check-claude-hook-native-command-input-contract.js
@@ -102,10 +104,10 @@ npm run bench:check:red
 
 The evidence must show:
 
-- the wrapper input contract is contract-only
-- the wrapper is not implemented by the current entrypoint
-- native stdin is the native payload source
-- user-owned sidecar JSON is the carrier source
+- the wrapper output fixture is fixture-only
+- the wrapper output is not implemented by the current entrypoint
+- native stdin projection is the `nativePayload` source
+- user-owned sidecar JSON is the `metadataCarrier` source
 - the output envelope is `native-payload-with-carrier`
 - `metadataCarrier` remains explicit
 - carrierPath and metadataCarrierPath remain rejected by abk-claude-hook
@@ -124,7 +126,7 @@ Do not add setup scripts.
 
 Do not create or edit Claude configuration files.
 
-Do not execute scanners from wrapper input language.
+Do not execute scanners from wrapper output fixtures.
 
 Do not implement wrapper file reading in this gate.
 
@@ -134,4 +136,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a wrapper implementation contract that maps native stdin plus reviewed user-owned carrier JSON into `docs/claude-hook-wrapper-output-fixtures.md`, still without installation or live settings guidance.
+The next gate is a wrapper implementation contract that would map native stdin plus reviewed user-owned carrier JSON into the expected output envelope, still without hook installation or live settings guidance.

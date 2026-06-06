@@ -2,7 +2,7 @@
 
 These fixtures define bounded manual install language for the Claude hook adapter.
 
-They extend `docs/claude-hook-manual-install-contract.md`, `docs/claude-hook-manual-install-doc-fixture.md`, `docs/claude-hook-manual-install.md`, `docs/claude-hook-manual-install-review-packet.md`, `docs/claude-hook-settings-fragment-draft-fixtures.md`, `docs/claude-hook-carrier-source-contract.md`, `docs/claude-hook-wrapper-input-contract.md`, `docs/claude-hook-native-command-input-contract.md`, and `docs/claude-hook-command-adapter-entrypoint.md`.
+They extend `docs/claude-hook-manual-install-contract.md`, `docs/claude-hook-manual-install-doc-fixture.md`, `docs/claude-hook-manual-install.md`, `docs/claude-hook-manual-install-review-packet.md`, `docs/claude-hook-settings-fragment-draft-fixtures.md`, `docs/claude-hook-carrier-source-contract.md`, `docs/claude-hook-wrapper-input-contract.md`, `docs/claude-hook-wrapper-output-fixtures.md`, `docs/claude-hook-native-command-input-contract.md`, and `docs/claude-hook-command-adapter-entrypoint.md`.
 
 They are language fixtures only. They are not installed hooks, not installers, and not hook setup scripts.
 
@@ -35,6 +35,8 @@ It may point to `docs/claude-hook-settings-fragment-draft-fixtures.md`.
 It may point to `docs/claude-hook-carrier-source-contract.md`.
 
 It may point to `docs/claude-hook-wrapper-input-contract.md`.
+
+It may point to `docs/claude-hook-wrapper-output-fixtures.md`.
 
 It may require manual approval only.
 
@@ -86,6 +88,7 @@ node benchmarks/scripts/check-claude-hook-manual-install-review-packet.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
+node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js
 node benchmarks/scripts/check-claude-hook-manual-install-document.js
 node benchmarks/scripts/check-claude-hook-native-command-entrypoint.js
@@ -106,6 +109,7 @@ The evidence must show:
 - the valid fixture links the settings-fragment draft fixtures
 - the valid fixture links the carrier source contract
 - the valid fixture links the wrapper input contract
+- the valid fixture links the wrapper output fixture contract
 - the valid fixture cites native command entrypoint evidence
 - the valid fixture cites official Claude Code hooks and settings references
 - the valid fixture does not include shell copy commands
@@ -137,4 +141,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is wrapper output fixtures after the wrapper input contract remains contract-only.
+The next gate is a wrapper implementation contract after wrapper output fixtures remain expected-output-only.

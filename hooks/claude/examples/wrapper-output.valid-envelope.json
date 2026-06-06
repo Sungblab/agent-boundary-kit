@@ -1,0 +1,69 @@
+{
+  "fixtureKind": "claude-hook-wrapper-output-fixture",
+  "status": "expected-output-only",
+  "userApprovalRequired": true,
+  "notImplementedByCurrentEntrypoint": true,
+  "notInstallableAsIs": true,
+  "wrapperMayReadTranscript": false,
+  "wrapperMayMutateConfiguration": false,
+  "currentEntrypointMustRejectCarrierPaths": true,
+  "sourceReferences": {
+    "hooks": "https://code.claude.com/docs/en/hooks",
+    "settings": "https://code.claude.com/docs/en/configuration"
+  },
+  "inputSources": {
+    "nativePayload": "native-stdin-projection",
+    "metadataCarrier": "user-owned-sidecar-json"
+  },
+  "outputEnvelope": {
+    "inputMode": "native-payload-with-carrier",
+    "nativePayload": {
+      "hook_event_name": "PostToolUse",
+      "tool_name": "Write",
+      "tool_input": {
+        "file_path": "src/mindmap/new-surface.ts"
+      }
+    },
+    "metadataCarrier": {
+      "carrierVersion": "abk-native-metadata-carrier/v1",
+      "hookId": "post_edit_scope_check",
+      "repoRoot": ".",
+      "task": {
+        "type": "replacement",
+        "declaredBy": "user-owned-carrier-source",
+        "summary": "Replace a public surface and remove stale references from declared files."
+      },
+      "approvedScope": [
+        "src/mindmap/**",
+        "docs/**",
+        "tests/**"
+      ],
+      "namedTools": [
+        "opendataloader-pdf",
+        "latex"
+      ],
+      "staleTerms": [
+        "legacy mind map",
+        "old mindmap"
+      ],
+      "metadataFiles": [
+        "boundary.json"
+      ]
+    }
+  },
+  "evidenceGates": [
+    "node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js",
+    "node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js",
+    "node benchmarks/scripts/check-claude-hook-native-command-input-contract.js",
+    "npm run bench:check",
+    "npm run bench:check:red"
+  ],
+  "nonGoals": [
+    "No raw private transcripts",
+    "No automatic hook installation",
+    "No repository mutation",
+    "Do not create or edit Claude configuration files",
+    "Do not publish shell copy commands",
+    "Do not execute scanners from wrapper output fixtures"
+  ]
+}
