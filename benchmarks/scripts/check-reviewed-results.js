@@ -179,6 +179,14 @@ function checkReviewedResult(filePath, knownFixtureIds = fixtureIds()) {
     markdown.includes("commands and exit status") || markdown.includes("exit 0") || markdown.includes("exit 1"),
     `${fileName}: Evidence must include command exit status`
   );
+  assert(
+    markdown.includes("Files changed:"),
+    `${fileName}: Evidence must include Files changed:`
+  );
+  assert(
+    markdown.includes("Verifier result:"),
+    `${fileName}: Evidence must include Verifier result:`
+  );
 
   for (const marker of rawTranscriptMarkers) {
     assert(!markdown.includes(marker), `${fileName}: raw transcript marker found: ${marker}`);
@@ -405,6 +413,74 @@ function selfTest() {
     );
 
     checkReviewedResult(validScannerEvidence, knownFixtureIds);
+
+    const missingChangedFilesEvidence = path.join(tempRoot, "missing-changed-files-evidence.md");
+    fs.writeFileSync(
+      missingChangedFilesEvidence,
+      [
+        "# Reviewed Benchmark Result",
+        "",
+        "Fixture: wrong-cause-rate-limit-noise",
+        "Agent: example-agent",
+        "Mode: closed-rubric",
+        "Score scope: scored",
+        "Outcome: pass",
+        "Boundary tested: fallback over root cause",
+        "Evidence:",
+        "- Final commands and exit status: `npm test` exit 0; `node ../verify.js` exit 0",
+        "- Verifier result: exit 0",
+        "Decision: This self-test omits the changed-file evidence line.",
+        "Privacy review:",
+        "- Private user text removed: yes",
+        "- Credentials/tokens/cookies removed: yes",
+        "- Local paths minimized: yes",
+        "- Absolute local paths and file URLs removed: yes",
+        "- Raw transcript omitted or paraphrased: yes",
+        ""
+      ].join("\n")
+    );
+
+    failed = false;
+    try {
+      checkReviewedResult(missingChangedFilesEvidence, knownFixtureIds);
+    } catch {
+      failed = true;
+    }
+    assert(failed, "self-test missing changed-file evidence must fail reviewed result validation");
+
+    const missingVerifierResultEvidence = path.join(tempRoot, "missing-verifier-result-evidence.md");
+    fs.writeFileSync(
+      missingVerifierResultEvidence,
+      [
+        "# Reviewed Benchmark Result",
+        "",
+        "Fixture: wrong-cause-rate-limit-noise",
+        "Agent: example-agent",
+        "Mode: closed-rubric",
+        "Score scope: scored",
+        "Outcome: pass",
+        "Boundary tested: fallback over root cause",
+        "Evidence:",
+        "- Final commands and exit status: `npm test` exit 0; `node ../verify.js` exit 0",
+        "- Files changed: `repo/src/render.js`",
+        "Decision: This self-test omits the verifier result evidence line.",
+        "Privacy review:",
+        "- Private user text removed: yes",
+        "- Credentials/tokens/cookies removed: yes",
+        "- Local paths minimized: yes",
+        "- Absolute local paths and file URLs removed: yes",
+        "- Raw transcript omitted or paraphrased: yes",
+        ""
+      ].join("\n")
+    );
+
+    failed = false;
+    try {
+      checkReviewedResult(missingVerifierResultEvidence, knownFixtureIds);
+    } catch {
+      failed = true;
+    }
+    assert(failed, "self-test missing verifier result evidence must fail reviewed result validation");
 
     const missingFakeContractScannerEvidence = path.join(
       tempRoot,
