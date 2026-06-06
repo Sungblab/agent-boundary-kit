@@ -42,6 +42,7 @@ Do not publish shell copy commands.
 
 The implementation is bounded by:
 
+- `docs/claude-hook-wrapper-wiring-review.md`
 - `docs/claude-hook-wrapper-implementation-fixtures.md`
 - `docs/claude-hook-wrapper-implementation-contract.md`
 - `docs/claude-hook-wrapper-output-fixtures.md`
@@ -83,6 +84,7 @@ Before this wrapper implementation is described as ready, run:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-wrapper-implementation.js
+node benchmarks/scripts/check-claude-hook-wrapper-wiring-review.js
 node benchmarks/scripts/check-claude-hook-wrapper-implementation-fixtures.js
 node benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
@@ -119,4 +121,6 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is wiring review: prove whether this wrapper output can safely feed the existing native command entrypoint without publishing live settings guidance.
+The next gate is recorded in `docs/claude-hook-wrapper-wiring-review.md`: prove whether this wrapper output can safely feed the existing native command entrypoint without publishing live settings guidance.
+
+That gate is checked by `benchmarks/scripts/check-claude-hook-wrapper-wiring-review.js`.

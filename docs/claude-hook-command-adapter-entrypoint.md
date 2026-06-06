@@ -12,6 +12,8 @@ The native command input contract is recorded separately in `docs/claude-hook-na
 
 Native command envelope execution is checked by `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js`.
 
+Wrapper wiring review is recorded separately in `docs/claude-hook-wrapper-wiring-review.md` and checked by `benchmarks/scripts/check-claude-hook-wrapper-wiring-review.js`.
+
 ## Boundary
 
 The entrypoint may bridge one Claude hook stdin payload into the existing ABK runner chain.
@@ -113,6 +115,7 @@ node benchmarks/scripts/check-claude-hook-command-adapter-contract.js
 node benchmarks/scripts/check-claude-hook-native-adapter.js
 node benchmarks/scripts/check-claude-hook-native-command-input-contract.js
 node benchmarks/scripts/check-claude-hook-native-command-entrypoint.js
+node benchmarks/scripts/check-claude-hook-wrapper-wiring-review.js
 npm run bench:check
 npm run bench:check:red
 ```

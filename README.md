@@ -112,6 +112,8 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/check-claude-hook-wrapper-implementation-fixtures.js`: verifies wrapper implementation fixtures omit private native fields and stay non-executable
 - `docs/claude-hook-wrapper-implementation.md`: local wrapper implementation boundary for `abk-claude-hook-wrapper`
 - `benchmarks/scripts/check-claude-hook-wrapper-implementation.js`: verifies the wrapper emits the expected envelope without installing hooks, running scanners, or widening `abk-claude-hook`
+- `docs/claude-hook-wrapper-wiring-review.md`: review-only wrapper-to-entrypoint wiring evidence for the local wrapper command
+- `benchmarks/scripts/check-claude-hook-wrapper-wiring-review.js`: verifies wrapper output feeds `abk-claude-hook` without installing hooks, running scanners, or publishing live settings guidance
 - `docs/claude-hook-native-payload-mapping-fixtures.md`: native Claude Code hook payload fixtures proving native payload alone is insufficient
 - `docs/claude-hook-native-metadata-carrier-fixtures.md`: explicit metadata carrier fixtures for native Claude Code hook payloads
 - `docs/claude-hook-native-adapter.md`: bounded native payload plus carrier adapter for ABK hook event mapping
@@ -267,6 +269,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - Claude hook wrapper implementation contracts are checked against `docs/claude-hook-wrapper-implementation-contract.md` and remain contract-only until wrapper implementation fixtures exist.
 - Claude hook wrapper implementation fixtures are checked against `docs/claude-hook-wrapper-implementation-fixtures.md` and remain fixture-only until local wrapper implementation exists.
 - Claude hook wrapper implementation is checked against `docs/claude-hook-wrapper-implementation.md` and remains local-only until wrapper wiring review proves the next boundary.
+- Claude hook wrapper wiring review is checked against `docs/claude-hook-wrapper-wiring-review.md` and remains review-only until manual settings-fragment review is user-approved.
 - native Claude Code hook payload mapping fixtures are checked against `docs/claude-hook-native-payload-mapping-fixtures.md` before live settings fragments.
 - native Claude Code metadata carrier fixtures are checked against `docs/claude-hook-native-metadata-carrier-fixtures.md` before native payloads can become ABK hook events.
 - the native Claude Code payload adapter is checked against `docs/claude-hook-native-adapter.md` before live hook entrypoint input is widened.

@@ -76,6 +76,8 @@ The Claude hook wrapper implementation fixtures are recorded in `docs/claude-hoo
 
 The Claude hook wrapper implementation is recorded in `docs/claude-hook-wrapper-implementation.md`.
 
+The Claude hook wrapper wiring review is recorded in `docs/claude-hook-wrapper-wiring-review.md`.
+
 The Claude hook native payload mapping fixtures are recorded in `docs/claude-hook-native-payload-mapping-fixtures.md`.
 
 The Claude hook native metadata carrier fixtures are recorded in `docs/claude-hook-native-metadata-carrier-fixtures.md`.
@@ -158,6 +160,7 @@ node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
 node benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-implementation-fixtures.js
 node benchmarks/scripts/check-claude-hook-wrapper-implementation.js
+node benchmarks/scripts/check-claude-hook-wrapper-wiring-review.js
 node benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js
 node benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js
 node benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js
@@ -246,6 +249,8 @@ The Claude hook wrapper implementation contract check is `benchmarks/scripts/che
 The Claude hook wrapper implementation fixture check is `benchmarks/scripts/check-claude-hook-wrapper-implementation-fixtures.js`. It verifies `docs/claude-hook-wrapper-implementation-fixtures.md` fixes valid and rejected wrapper inputs before wrapper code, hook installation, or settings guidance exists.
 
 The Claude hook wrapper implementation check is `benchmarks/scripts/check-claude-hook-wrapper-implementation.js`. It verifies `docs/claude-hook-wrapper-implementation.md` and the local `abk-claude-hook-wrapper` command emit the expected envelope without installing hooks, running scanners, or widening `abk-claude-hook`.
+
+The Claude hook wrapper wiring review check is `benchmarks/scripts/check-claude-hook-wrapper-wiring-review.js`. It verifies `docs/claude-hook-wrapper-wiring-review.md` and the local wrapper-to-entrypoint chain without installing hooks, running scanners, or publishing live settings guidance.
 
 The Claude hook native payload mapping fixture check is `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js`. It verifies `docs/claude-hook-native-payload-mapping-fixtures.md` rejects transcript reads and blocks native payloads that lack explicit ABK task metadata.
 
