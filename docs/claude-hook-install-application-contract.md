@@ -26,6 +26,8 @@ The user-owned target checklist source is `docs/claude-hook-user-owned-target-ch
 
 The target review evidence source is `docs/claude-hook-user-owned-target-review-evidence.md`.
 
+The target review packet source is `docs/claude-hook-user-owned-target-review-packet.md`.
+
 The application contract does not provide settings mutation commands.
 
 The application contract does not name a local settings path.
@@ -56,6 +58,7 @@ Before install application language is described as ready, run:
 node benchmarks/scripts/check-claude-hook-install-application-contract.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js
+node benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js
 node benchmarks/scripts/check-claude-hook-user-approved-install-language.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-review.js
 node benchmarks/scripts/check-claude-hook-wrapper-wiring-review.js

@@ -64,6 +64,7 @@ Immediate next work:
 31. Review `docs/claude-hook-install-application-contract.md` and run `node benchmarks/scripts/check-claude-hook-install-application-contract.js` before treating any user text as an install application request.
 32. Review `docs/claude-hook-user-owned-target-checklist.md` and run `node benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js` before treating any explicit install request as eligible for target review.
 33. Review `docs/claude-hook-user-owned-target-review-evidence.md` and run `node benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js` before recording any target review evidence.
+34. Review `docs/claude-hook-user-owned-target-review-packet.md` and run `node benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js` before drafting any target review packet.
 
 Style:
 Be blunt, evidence-first, and research-oriented. Avoid hype and early-product shorthand. Prefer spec-first, evidence-gated, fixture, taxonomy, and benchmark.
