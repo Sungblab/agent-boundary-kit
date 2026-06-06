@@ -1,0 +1,10 @@
+{
+  "hookId": "post_edit_scope_check",
+  "scanner": "noisy-log-root-cause-scan",
+  "status": "clear",
+  "exitCode": 0,
+  "blocked": false,
+  "reason": "no noisy log root-cause finding for declared inputs",
+  "inputsUsed": ["repoRoot", "changedFiles", "commandLog"],
+  "findings": []
+}

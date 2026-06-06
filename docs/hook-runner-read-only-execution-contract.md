@@ -8,7 +8,7 @@ The implemented command shape is:
 abk-runner scan --input <runner-input.json> --scanner <scanner-id>
 ```
 
-The supported scanner ids are `parser-fallback-boundary-scan`, `latex-renderer-boundary-scan`, `hardcoded-credential-fallback-scan`, `legacy-surface-retention-scan`, `test-runtime-patch-scan`, `test-fake-contract-scan`, `completion-evidence-gate-scan`, and `untrusted-context-canary-scan`.
+The supported scanner ids are `parser-fallback-boundary-scan`, `latex-renderer-boundary-scan`, `hardcoded-credential-fallback-scan`, `legacy-surface-retention-scan`, `test-runtime-patch-scan`, `test-fake-contract-scan`, `completion-evidence-gate-scan`, `untrusted-context-canary-scan`, and `noisy-log-root-cause-scan`.
 
 ## Boundary
 
@@ -62,6 +62,10 @@ Execution examples:
 - `hooks/claude/examples/runner-scan.untrusted-context-post-edit-clear-input.json`
 - `hooks/claude/examples/runner-scan.untrusted-context-completion-finding-input.json`
 - `hooks/claude/examples/runner-scan.untrusted-context-completion-clear-input.json`
+- `hooks/claude/examples/runner-scan.noisy-log-post-edit-finding-input.json`
+- `hooks/claude/examples/runner-scan.noisy-log-post-edit-clear-input.json`
+- `hooks/claude/examples/runner-scan.noisy-log-test-integrity-finding-input.json`
+- `hooks/claude/examples/runner-scan.noisy-log-test-integrity-clear-input.json`
 - `hooks/claude/examples/runner-scan.unselected-scanner-input.json`
 - `hooks/claude/examples/runner-scan.missing-changed-files-input.json`
 
@@ -89,6 +93,10 @@ Output examples:
 - `hooks/claude/examples/runner-scan.untrusted-context-post-edit-clear-output.json`
 - `hooks/claude/examples/runner-scan.untrusted-context-completion-finding-output.json`
 - `hooks/claude/examples/runner-scan.untrusted-context-completion-clear-output.json`
+- `hooks/claude/examples/runner-scan.noisy-log-post-edit-finding-output.json`
+- `hooks/claude/examples/runner-scan.noisy-log-post-edit-clear-output.json`
+- `hooks/claude/examples/runner-scan.noisy-log-test-integrity-finding-output.json`
+- `hooks/claude/examples/runner-scan.noisy-log-test-integrity-clear-output.json`
 - `hooks/claude/examples/runner-scan.unsupported-scanner-output.json`
 - `hooks/claude/examples/runner-scan.unselected-scanner-output.json`
 - `hooks/claude/examples/runner-scan.missing-changed-files-output.json`
@@ -107,7 +115,7 @@ Exit 2 means invalid input, rejected transcript fields, unsupported hook id, uns
 
 ## Current Implementation Scope
 
-The current implementation may execute only `parser-fallback-boundary-scan`, `latex-renderer-boundary-scan`, `hardcoded-credential-fallback-scan`, `legacy-surface-retention-scan`, `test-runtime-patch-scan`, `test-fake-contract-scan`, `completion-evidence-gate-scan`, and `untrusted-context-canary-scan`.
+The current implementation may execute only `parser-fallback-boundary-scan`, `latex-renderer-boundary-scan`, `hardcoded-credential-fallback-scan`, `legacy-surface-retention-scan`, `test-runtime-patch-scan`, `test-fake-contract-scan`, `completion-evidence-gate-scan`, `untrusted-context-canary-scan`, and `noisy-log-root-cause-scan`.
 
 For `parser-fallback-boundary-scan`, it must pass changed files from the declared `repoRoot` and `inputs.changedFiles` fields. `inputs.namedTools` is used to select the scanner, not to infer alternate parser files. If required declared fields are missing, it must return `exitCode: 2`.
 
@@ -124,6 +132,8 @@ For `test-fake-contract-scan`, it must pass explicit files from `inputs.testFile
 For `completion-evidence-gate-scan`, it must pass only the declared `repoRoot` as the bounded repo directory after `inputs.completionDraft`, `inputs.commandLog`, and `inputs.finalGate` select the scanner. It must not infer completion drafts, command logs, or final gate artifacts from private chat context.
 
 For `untrusted-context-canary-scan`, post-edit inputs must pass changed files from the declared `repoRoot` and `inputs.changedFiles` fields. Completion inputs must pass only `inputs.completionDraft`, resolved under the declared `repoRoot`. `inputs.externalSources` selects the scanner and records evidence provenance; it must not be treated as trusted output or scanned as a source of agent instructions.
+
+For `noisy-log-root-cause-scan`, post-edit inputs must pass changed files from the declared `repoRoot` and `inputs.changedFiles` fields. Test-integrity inputs must pass explicit files from `inputs.testFiles` and `inputs.productionFiles`, resolved under the declared `repoRoot` when present. `inputs.commandLog` selects the scanner and records noisy evidence; it must not be scanned as failure evidence or used to infer source, test, or data files.
 
 For pre-execution command errors, the output may use `runner-command-contract` as the bounded `scanner` value. It must not map an unknown scanner request to a supported scanner id.
 

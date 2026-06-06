@@ -1,0 +1,10 @@
+{
+  "hookId": "test_integrity_check",
+  "scanner": "noisy-log-root-cause-scan",
+  "status": "clear",
+  "exitCode": 0,
+  "blocked": false,
+  "reason": "no noisy log root-cause finding for declared inputs",
+  "inputsUsed": ["testFiles", "productionFiles", "commandLog"],
+  "findings": []
+}

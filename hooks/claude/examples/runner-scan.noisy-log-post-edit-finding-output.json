@@ -1,0 +1,17 @@
+{
+  "hookId": "post_edit_scope_check",
+  "scanner": "noisy-log-root-cause-scan",
+  "status": "finding",
+  "exitCode": 1,
+  "blocked": true,
+  "reason": "wrong-cause data-path behavior found",
+  "inputsUsed": ["repoRoot", "changedFiles", "commandLog"],
+  "findings": [
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/noisy-log-post-edit-finding/src/render.js",
+      "line": 5,
+      "rule": "noisy-log-root-cause",
+      "detail": "missing API display field matched /record.name/: return response.records.map((record) => record.name).filter(Boolean);"
+    }
+  ]
+}

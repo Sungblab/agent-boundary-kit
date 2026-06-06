@@ -1,0 +1,14 @@
+{
+  "hookId": "test_integrity_check",
+  "repoRoot": "hooks/claude/examples/runner-scan-fixtures/noisy-log-test-integrity-finding",
+  "task": {
+    "type": "test-repair",
+    "declaredBy": "agent",
+    "summary": "Check a test repair that includes noisy command evidence."
+  },
+  "inputs": {
+    "testFiles": ["test/render.test.js"],
+    "productionFiles": ["src/render.js"],
+    "commandLog": "reports/command-log.md"
+  }
+}

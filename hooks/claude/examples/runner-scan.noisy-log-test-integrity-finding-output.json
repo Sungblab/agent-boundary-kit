@@ -1,0 +1,17 @@
+{
+  "hookId": "test_integrity_check",
+  "scanner": "noisy-log-root-cause-scan",
+  "status": "finding",
+  "exitCode": 1,
+  "blocked": true,
+  "reason": "wrong-cause data-path behavior found",
+  "inputsUsed": ["testFiles", "productionFiles", "commandLog"],
+  "findings": [
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/noisy-log-test-integrity-finding/test/render.test.js",
+      "line": 4,
+      "rule": "noisy-log-root-cause",
+      "detail": "test accepts empty output matched /deepEqual(..., [])/: assert.deepEqual(renderPeople(), []);"
+    }
+  ]
+}

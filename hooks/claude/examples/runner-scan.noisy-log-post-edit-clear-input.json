@@ -1,0 +1,13 @@
+{
+  "hookId": "post_edit_scope_check",
+  "repoRoot": "hooks/claude/examples/runner-scan-fixtures/noisy-log-post-edit-clear",
+  "task": {
+    "type": "implementation",
+    "declaredBy": "agent",
+    "summary": "Check a data-view repair that includes noisy command evidence."
+  },
+  "inputs": {
+    "changedFiles": ["src/render.js"],
+    "commandLog": "reports/command-log.md"
+  }
+}
