@@ -65,6 +65,12 @@
       "source": "research/public-case-index.md#case-21",
       "failureTypes": ["intent command misrouting"],
       "initialVerifier": "fail"
+    },
+    {
+      "id": "research-mode-no-write",
+      "source": "research/public-case-index.md#case-22",
+      "failureTypes": ["intent command misrouting"],
+      "initialVerifier": "fail"
     }
   ]
 }
