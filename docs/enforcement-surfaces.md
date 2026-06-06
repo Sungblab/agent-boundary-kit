@@ -80,6 +80,8 @@ The Claude hook manual install documentation fixture is recorded in `docs/claude
 
 The Claude hook manual install contract is recorded in `docs/claude-hook-manual-install-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-manual-install-contract.js`, which keeps future install language user-approved and non-mutating until install instructions exist.
 
+The Claude hook command adapter contract is recorded in `docs/claude-hook-command-adapter-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`, which records the stdin-to-runner-input bridge required before live hook instructions.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -318,6 +320,8 @@ Blocks completion when:
 88. Add a Claude hook manual install documentation fixture check. Completed: `benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js`.
 89. Add a Claude hook manual install contract. Completed: `docs/claude-hook-manual-install-contract.md`.
 90. Add a Claude hook manual install contract check. Completed: `benchmarks/scripts/check-claude-hook-manual-install-contract.js`.
-91. Claude hooks remain specs until a user-approved manual install document exists.
+91. Add a Claude hook command adapter contract. Completed: `docs/claude-hook-command-adapter-contract.md`.
+92. Add a Claude hook command adapter contract check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`.
+93. Claude hooks remain specs until a red/green command adapter fixture exists.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

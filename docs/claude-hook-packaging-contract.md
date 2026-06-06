@@ -120,6 +120,7 @@ node benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js
 node benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js
 node benchmarks/scripts/check-claude-hook-manual-install-contract.js
+node benchmarks/scripts/check-claude-hook-command-adapter-contract.js
 node benchmarks/scripts/check-abk-runner-map-event.js
 node benchmarks/scripts/check-abk-runner-dry-run.js
 node benchmarks/scripts/check-abk-runner-scan.js
@@ -180,6 +181,14 @@ Its check is `benchmarks/scripts/check-claude-hook-manual-install-contract.js`.
 
 It defines future user-approved manual installation language without adding installer code.
 
+## Command Adapter Contract
+
+The command adapter contract is recorded in `docs/claude-hook-command-adapter-contract.md`.
+
+Its check is `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`.
+
+It records that Claude Code command hooks receive event JSON on stdin while the current runner requires explicit input file paths.
+
 ## Next Gate
 
-The next gate is a user-approved manual install document that can define bounded installation and uninstall instructions without changing this repository into an installer.
+The next gate is a red/green adapter fixture proving the stdin-to-runner-input bridge before manual install instructions.

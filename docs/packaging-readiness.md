@@ -54,6 +54,8 @@ The future Claude hook manual install documentation fixture is recorded in `docs
 
 The future Claude hook manual install contract is recorded in `docs/claude-hook-manual-install-contract.md`.
 
+The future Claude hook command adapter contract is recorded in `docs/claude-hook-command-adapter-contract.md`.
+
 ## Minimum Installable Slice
 
 The first installable slice should be a small Codex skill update, not a hook package.
@@ -106,6 +108,7 @@ node benchmarks/scripts/check-claude-hook-packaging-contract.js
 node benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js
 node benchmarks/scripts/check-claude-hook-manual-install-contract.js
+node benchmarks/scripts/check-claude-hook-command-adapter-contract.js
 node benchmarks/scripts/check-abk-runner-map-event.js
 node benchmarks/scripts/check-abk-runner-scan.js
 npm run bench:check
@@ -161,6 +164,8 @@ The Claude hook package manifest fixture check is `benchmarks/scripts/check-clau
 The Claude hook manual install documentation fixture check is `benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js`. It verifies `docs/claude-hook-manual-install-doc-fixture.md` keeps future install documentation non-mutating before any install contract exists.
 
 The Claude hook manual install contract check is `benchmarks/scripts/check-claude-hook-manual-install-contract.js`. It verifies `docs/claude-hook-manual-install-contract.md` keeps future manual installation language user-approved and non-mutating until install instructions exist.
+
+The Claude hook command adapter contract check is `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`. It verifies `docs/claude-hook-command-adapter-contract.md` records the stdin-to-runner-input bridge required before live hook instructions.
 
 Only after those checks pass should the repo consider publishing manual install instructions.
 

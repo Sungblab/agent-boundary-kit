@@ -93,6 +93,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `docs/claude-hook-package-manifest-fixtures.md`: fixture-only package manifest shape for future Claude hook packaging
 - `docs/claude-hook-manual-install-doc-fixture.md`: documentation-only manual install fixture for future Claude hook packaging
 - `docs/claude-hook-manual-install-contract.md`: contract for future user-approved Claude hook manual install language
+- `docs/claude-hook-command-adapter-contract.md`: contract for the stdin-to-runner-input bridge required before live Claude hooks
 - `docs/packaging-readiness.md`: evidence gate for future Codex skill or Claude hook packaging
 - `docs/codex-skill-install-contract.md`: boundary contract for the first manual Codex skill install candidate
 - `docs/codex-skill-manual-install.md`: user-approved manual copy instructions for the boundary-check Codex skill candidate
@@ -149,6 +150,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js`: verifies future Claude hook package manifests stay fixture-only and manual-review-only
 - `benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js`: verifies future Claude hook manual install docs remain documentation-only and non-mutating
 - `benchmarks/scripts/check-claude-hook-manual-install-contract.js`: verifies future Claude hook manual install language stays user-approved and non-mutating until install docs exist
+- `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`: verifies live Claude hook docs stay blocked until stdin event input can bridge to explicit runner files
 - `benchmarks/scripts/check-packaging-readiness.js`: verifies packaging stays tied to fixture-backed scanner evidence
 - `benchmarks/scripts/check-boundary-skill-readiness.js`: verifies the boundary-check Codex skill candidate stays tied to the packaging and read-only runner contracts
 - `benchmarks/scripts/check-codex-skill-install-contract.js`: verifies the Codex skill install contract does not widen into plugin, hook, connector, or watcher behavior
@@ -216,6 +218,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - future Claude hook package manifests are checked against fixture-only, manual-review-only constraints before any install documentation.
 - future Claude hook manual install documentation is checked as non-mutating documentation before any install contract.
 - future Claude hook manual install language is checked against `docs/claude-hook-manual-install-contract.md` before any install instructions.
+- future Claude hook command adapters are checked against `docs/claude-hook-command-adapter-contract.md` before any live hook instructions.
 - the boundary-check skill candidate is checked against the packaging readiness contract and read-only runner evidence contract.
 - the Codex skill install contract is checked before any manual install instructions are published.
 - the boundary-check skill folder shape is checked before manual install instructions are published.
