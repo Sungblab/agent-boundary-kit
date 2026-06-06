@@ -56,6 +56,8 @@ The packaging readiness contract is recorded in `docs/packaging-readiness.md`. I
 
 The boundary skill readiness check is recorded in `benchmarks/scripts/check-boundary-skill-readiness.js`. It verifies `skills/boundary-check/SKILL.md` stays tied to `docs/packaging-readiness.md`, `docs/scanner-coverage-matrix.md`, `docs/hook-runner-read-only-execution-contract.md`, the supported runner scanner ids, and explicit read-only runner evidence.
 
+The Codex skill install contract is recorded in `docs/codex-skill-install-contract.md`. Its check is `benchmarks/scripts/check-codex-skill-install-contract.js`, which keeps the first installable candidate manual, bounded to `skills/boundary-check/SKILL.md`, and separate from plugin manifests, hooks, connectors, dashboards, background watchers, and bundled executable scripts.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -272,7 +274,9 @@ Blocks completion when:
 66. Add a packaging readiness check so packaging stays tied to fixture-backed scanner evidence. Completed: `benchmarks/scripts/check-packaging-readiness.js`.
 67. Add a Codex skill packaging check before any installable skill work. Completed: `benchmarks/scripts/check-boundary-skill-readiness.js`.
 68. Update the boundary-check Codex skill candidate against the packaging readiness and read-only runner contracts. Completed: `skills/boundary-check/SKILL.md`.
-69. Only then consider narrow Codex skill packaging.
-70. Claude hooks remain later than the Codex skill gate.
+69. Record a Codex skill install contract before publishing manual install instructions. Completed: `docs/codex-skill-install-contract.md`.
+70. Add a Codex skill install contract check. Completed: `benchmarks/scripts/check-codex-skill-install-contract.js`.
+71. Only then consider manual Codex skill install instructions.
+72. Claude hooks remain later than the Codex skill gate.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

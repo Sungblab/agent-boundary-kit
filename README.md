@@ -86,6 +86,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `docs/hook-runner-output-contract.md`: JSON output contract and examples for bounded runner results
 - `docs/hook-runner-dry-run-spec.md`: dry-run example for scanner selection and bounded result mapping
 - `docs/packaging-readiness.md`: evidence gate for future Codex skill or Claude hook packaging
+- `docs/codex-skill-install-contract.md`: boundary contract for the first manual Codex skill install candidate
 - `docs/first-ten-result-synthesis.md`: first reviewed-result synthesis and enforcement-surface gap analysis
 - `docs/first-scanner-candidate.md`: first narrow scanner candidate and red/green validation path
 - `docs/scanner-validation-test-runtime-patch.md`: recorded red/green evidence for the first scanner
@@ -132,6 +133,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/check-hook-runner-dry-run-spec.js`: verifies the dry-run scanner selection example
 - `benchmarks/scripts/check-packaging-readiness.js`: verifies packaging stays tied to fixture-backed scanner evidence
 - `benchmarks/scripts/check-boundary-skill-readiness.js`: verifies the boundary-check Codex skill candidate stays tied to the packaging and read-only runner contracts
+- `benchmarks/scripts/check-codex-skill-install-contract.js`: verifies the Codex skill install contract does not widen into plugin, hook, connector, or watcher behavior
 - `benchmarks/fixtures/`: runnable benchmark fixtures
 - `benchmarks/results/`: reviewed result summary template and publication rules
 - `templates/AGENTS.boundary.md`: repository instruction template for Codex-style agents
@@ -186,6 +188,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - future hook runner output examples are checked against a bounded JSON contract.
 - future hook runner dry-run examples are checked for bounded scanner selection and output mapping.
 - the boundary-check skill candidate is checked against the packaging readiness contract and read-only runner evidence contract.
+- the Codex skill install contract is checked before any manual install instructions are published.
 - `research/public-case-index.md` is checked for case count, required benchmark fields, stable case ids, taxonomy-linked failure types, and manifest source references.
 - repository-level benchmark scripts are checked for portable verifier paths.
 
