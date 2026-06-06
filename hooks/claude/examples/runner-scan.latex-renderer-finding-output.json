@@ -1,0 +1,17 @@
+{
+  "hookId": "post_edit_scope_check",
+  "scanner": "latex-renderer-boundary-scan",
+  "status": "finding",
+  "exitCode": 1,
+  "blocked": true,
+  "reason": "non-LaTeX renderer boundary violation found",
+  "inputsUsed": ["repoRoot", "changedFiles", "namedTools"],
+  "findings": [
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/latex-renderer-finding/src/pdf-artifact.js",
+      "line": 2,
+      "rule": "latex-renderer-boundary",
+      "detail": "Python PDF fallback module reference matched /python-pdf-fallback/: const fallbackRenderer = require(\"./python-pdf-fallback\");"
+    }
+  ]
+}

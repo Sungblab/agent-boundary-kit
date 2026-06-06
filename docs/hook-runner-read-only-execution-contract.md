@@ -8,7 +8,7 @@ The implemented command shape is:
 abk-runner scan --input <runner-input.json> --scanner <scanner-id>
 ```
 
-The supported scanner ids are `parser-fallback-boundary-scan`, `legacy-surface-retention-scan`, `test-runtime-patch-scan`, and `test-fake-contract-scan`.
+The supported scanner ids are `parser-fallback-boundary-scan`, `latex-renderer-boundary-scan`, `legacy-surface-retention-scan`, `test-runtime-patch-scan`, and `test-fake-contract-scan`.
 
 ## Boundary
 
@@ -48,6 +48,8 @@ Execution examples:
 - `hooks/claude/examples/runner-scan.legacy-surface-clear-input.json`
 - `hooks/claude/examples/runner-scan.parser-fallback-finding-input.json`
 - `hooks/claude/examples/runner-scan.parser-fallback-clear-input.json`
+- `hooks/claude/examples/runner-scan.latex-renderer-finding-input.json`
+- `hooks/claude/examples/runner-scan.latex-renderer-clear-input.json`
 - `hooks/claude/examples/runner-scan.test-runtime-finding-input.json`
 - `hooks/claude/examples/runner-scan.test-runtime-clear-input.json`
 - `hooks/claude/examples/runner-scan.test-fake-finding-input.json`
@@ -65,6 +67,8 @@ Output examples:
 - `hooks/claude/examples/runner-scan.legacy-surface-clear-output.json`
 - `hooks/claude/examples/runner-scan.parser-fallback-finding-output.json`
 - `hooks/claude/examples/runner-scan.parser-fallback-clear-output.json`
+- `hooks/claude/examples/runner-scan.latex-renderer-finding-output.json`
+- `hooks/claude/examples/runner-scan.latex-renderer-clear-output.json`
 - `hooks/claude/examples/runner-scan.test-runtime-finding-output.json`
 - `hooks/claude/examples/runner-scan.test-runtime-clear-output.json`
 - `hooks/claude/examples/runner-scan.test-fake-finding-output.json`
@@ -87,9 +91,11 @@ Exit 2 means invalid input, rejected transcript fields, unsupported hook id, uns
 
 ## Current Implementation Scope
 
-The current implementation may execute only `parser-fallback-boundary-scan`, `legacy-surface-retention-scan`, `test-runtime-patch-scan`, and `test-fake-contract-scan`.
+The current implementation may execute only `parser-fallback-boundary-scan`, `latex-renderer-boundary-scan`, `legacy-surface-retention-scan`, `test-runtime-patch-scan`, and `test-fake-contract-scan`.
 
 For `parser-fallback-boundary-scan`, it must pass changed files from the declared `repoRoot` and `inputs.changedFiles` fields. `inputs.namedTools` is used to select the scanner, not to infer alternate parser files. If required declared fields are missing, it must return `exitCode: 2`.
+
+For `latex-renderer-boundary-scan`, it must pass changed files from the declared `repoRoot` and `inputs.changedFiles` fields. `inputs.namedTools` is used to select the scanner, not to infer alternate renderer files. If required declared fields are missing, it must return `exitCode: 2`.
 
 For `legacy-surface-retention-scan`, it must pass changed files from the declared `repoRoot` and `inputs.changedFiles` fields. If those fields are missing, it must return `exitCode: 2`.
 

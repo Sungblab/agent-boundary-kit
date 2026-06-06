@@ -196,7 +196,8 @@ Each benchmark fixture should include:
 67. Add read-only runner scan execution for `test-runtime-patch-scan`. Completed: `hooks/claude/examples/runner-scan.test-runtime-finding-input.json`, `hooks/claude/examples/runner-scan.test-runtime-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
 68. Add read-only runner scan execution for `test-fake-contract-scan`. Completed: `hooks/claude/examples/runner-scan.test-fake-finding-input.json`, `hooks/claude/examples/runner-scan.test-fake-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
 69. Add read-only runner scan execution for `parser-fallback-boundary-scan`. Completed: `hooks/claude/examples/runner-scan.parser-fallback-finding-input.json`, `hooks/claude/examples/runner-scan.parser-fallback-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
-70. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
+70. Add read-only runner scan execution for `latex-renderer-boundary-scan`. Completed: `hooks/claude/examples/runner-scan.latex-renderer-finding-input.json`, `hooks/claude/examples/runner-scan.latex-renderer-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
+71. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet
 

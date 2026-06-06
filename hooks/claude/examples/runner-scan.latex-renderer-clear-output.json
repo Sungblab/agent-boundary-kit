@@ -1,0 +1,10 @@
+{
+  "hookId": "post_edit_scope_check",
+  "scanner": "latex-renderer-boundary-scan",
+  "status": "clear",
+  "exitCode": 0,
+  "blocked": false,
+  "reason": "no LaTeX renderer boundary finding for declared inputs",
+  "inputsUsed": ["repoRoot", "changedFiles", "namedTools"],
+  "findings": []
+}

@@ -1,0 +1,13 @@
+{
+  "hookId": "post_edit_scope_check",
+  "repoRoot": "hooks/claude/examples/runner-scan-fixtures/latex-renderer-clear",
+  "task": {
+    "type": "implementation",
+    "declaredBy": "agent",
+    "summary": "Check that the named LaTeX renderer path is kept before adding renderer fallback behavior."
+  },
+  "inputs": {
+    "changedFiles": ["src/pdf-artifact.js"],
+    "namedTools": ["latex"]
+  }
+}
