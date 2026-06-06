@@ -1,0 +1,16 @@
+{
+  "session_id": "native-session-fixture",
+  "transcript_path": "<claude-transcript-jsonl>",
+  "cwd": "<repo-root>",
+  "permission_mode": "default",
+  "hook_event_name": "PostToolUse",
+  "tool_name": "Write",
+  "tool_input": {
+    "file_path": "src/mindmap/new-surface.ts",
+    "content": "export const currentSurface = true;"
+  },
+  "tool_response": {
+    "filePath": "src/mindmap/new-surface.ts",
+    "success": true
+  }
+}

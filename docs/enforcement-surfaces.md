@@ -84,6 +84,8 @@ The Claude hook manual install language fixtures are recorded in `docs/claude-ho
 
 The Claude hook manual install document is recorded in `docs/claude-hook-manual-install.md`. Its check is `benchmarks/scripts/check-claude-hook-manual-install-document.js`, which keeps live installation blocked until native Claude Code hook payload mapping is proven.
 
+The Claude hook native payload mapping fixtures are recorded in `docs/claude-hook-native-payload-mapping-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js`, which rejects transcript reads and blocks native payloads that lack explicit ABK task metadata.
+
 The Claude hook command adapter contract is recorded in `docs/claude-hook-command-adapter-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`, which records the stdin-to-runner-input bridge required before live hook instructions.
 
 The Claude hook command adapter fixtures are recorded in `docs/claude-hook-command-adapter-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`, which keeps the stdin bridge fixture-backed.
@@ -336,16 +338,18 @@ Blocks completion when:
 92. Add a Claude hook manual install language fixture check. Completed: `benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js`.
 93. Add a Claude hook manual install document. Completed: `docs/claude-hook-manual-install.md`.
 94. Add a Claude hook manual install document check. Completed: `benchmarks/scripts/check-claude-hook-manual-install-document.js`.
-95. Add a Claude hook command adapter contract. Completed: `docs/claude-hook-command-adapter-contract.md`.
-96. Add a Claude hook command adapter contract check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`.
-97. Add Claude hook command adapter red/green fixtures. Completed: `docs/claude-hook-command-adapter-fixtures.md`.
-98. Add a Claude hook command adapter fixture check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`.
-99. Add a Claude hook command adapter implementation contract. Completed: `docs/claude-hook-command-adapter-implementation-contract.md`.
-100. Add a Claude hook command adapter implementation contract check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js`.
-101. Add Claude hook command adapter entrypoint fixtures. Completed: `docs/claude-hook-command-adapter-entrypoint-fixtures.md`.
-102. Add a Claude hook command adapter entrypoint fixture check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js`.
-103. Add a Claude hook command adapter entrypoint contract. Completed: `docs/claude-hook-command-adapter-entrypoint.md`.
-104. Add a Claude hook command adapter entrypoint check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js`.
-105. Claude hooks remain specs until native Claude Code hook payload mapping is proven.
+95. Add Claude hook native payload mapping fixtures. Completed: `docs/claude-hook-native-payload-mapping-fixtures.md`.
+96. Add a Claude hook native payload mapping fixture check. Completed: `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js`.
+97. Add a Claude hook command adapter contract. Completed: `docs/claude-hook-command-adapter-contract.md`.
+98. Add a Claude hook command adapter contract check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`.
+99. Add Claude hook command adapter red/green fixtures. Completed: `docs/claude-hook-command-adapter-fixtures.md`.
+100. Add a Claude hook command adapter fixture check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`.
+101. Add a Claude hook command adapter implementation contract. Completed: `docs/claude-hook-command-adapter-implementation-contract.md`.
+102. Add a Claude hook command adapter implementation contract check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js`.
+103. Add Claude hook command adapter entrypoint fixtures. Completed: `docs/claude-hook-command-adapter-entrypoint-fixtures.md`.
+104. Add a Claude hook command adapter entrypoint fixture check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js`.
+105. Add a Claude hook command adapter entrypoint contract. Completed: `docs/claude-hook-command-adapter-entrypoint.md`.
+106. Add a Claude hook command adapter entrypoint check. Completed: `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js`.
+107. Claude hooks remain specs until an explicit metadata carrier for native payloads exists.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

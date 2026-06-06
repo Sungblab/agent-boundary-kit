@@ -32,6 +32,8 @@ Review `docs/claude-hook-command-adapter-entrypoint.md` before naming `abk-claud
 
 Review `docs/claude-hook-event-input-contract.md` before claiming native Claude Code hook payload compatibility.
 
+Review `docs/claude-hook-native-payload-mapping-fixtures.md` before publishing any live settings fragment.
+
 No raw private transcripts.
 
 No automatic hook installation.
@@ -62,6 +64,7 @@ Before this manual install document is described as ready, run:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-manual-install-document.js
+node benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-contract.js
 node benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js
@@ -102,4 +105,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a native Claude Code hook payload mapping fixture that proves the incoming command-hook JSON can be reduced to explicit ABK event metadata before any live install fragment is published.
+The next gate is an explicit metadata carrier for native Claude Code hook events after `docs/claude-hook-native-payload-mapping-fixtures.md` proves native payload alone is insufficient.

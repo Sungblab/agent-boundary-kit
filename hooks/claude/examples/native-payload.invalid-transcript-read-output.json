@@ -1,0 +1,17 @@
+{
+  "mode": "native-payload-mapping-fixture",
+  "source": "claude-code-command-hook",
+  "hookEventName": "PostToolUse",
+  "status": "error",
+  "exitCode": 2,
+  "blocked": true,
+  "reason": "native payload transcript_path is not an allowed runner input",
+  "inputsUsed": [],
+  "findings": [],
+  "nonGoals": [
+    "Do not read transcripts",
+    "Do not pass private context through",
+    "Do not install hooks",
+    "Do not execute scanners"
+  ]
+}

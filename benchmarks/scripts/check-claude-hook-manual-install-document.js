@@ -23,6 +23,7 @@ const requiredPhrases = [
   "native Claude Code hook payload compatibility is not proven",
   "current adapter expects ABK hook event fields",
   "docs/claude-hook-manual-install-language-fixtures.md",
+  "docs/claude-hook-native-payload-mapping-fixtures.md",
   "docs/claude-hook-command-adapter-entrypoint.md",
   "docs/claude-hook-event-input-contract.md",
   "https://code.claude.com/docs/en/hooks",
@@ -38,6 +39,7 @@ const requiredPhrases = [
   "No automatic hook installation",
   "No repository mutation",
   "node benchmarks/scripts/check-claude-hook-manual-install-document.js",
+  "node benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js",
   "node benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js",
   "node benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js",
   "npm run bench:check",
@@ -84,6 +86,7 @@ const linkedDocs = [
   "docs/packaging-readiness.md",
   "docs/claude-hook-manual-install-contract.md",
   "docs/claude-hook-manual-install-language-fixtures.md",
+  "docs/claude-hook-native-payload-mapping-fixtures.md",
   "hooks/claude/README.md",
 ];
 

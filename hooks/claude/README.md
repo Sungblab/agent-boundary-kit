@@ -48,6 +48,8 @@ The Claude hook manual install language fixtures are recorded in `docs/claude-ho
 
 The Claude hook manual install document is recorded in `docs/claude-hook-manual-install.md`. It is checked by `benchmarks/scripts/check-claude-hook-manual-install-document.js` and remains blocked for live installation until native Claude Code hook payload mapping is proven.
 
+The Claude hook native payload mapping fixtures are recorded in `docs/claude-hook-native-payload-mapping-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js` and prove native Claude Code payload alone is insufficient because ABK task metadata must remain explicit.
+
 The Claude hook command adapter contract is recorded in `docs/claude-hook-command-adapter-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-command-adapter-contract.js` and records the stdin-to-runner-input bridge required before live hook instructions.
 
 The Claude hook command adapter fixtures are recorded in `docs/claude-hook-command-adapter-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js` and keep the stdin bridge fixture-backed.

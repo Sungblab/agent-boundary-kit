@@ -4,6 +4,8 @@ This contract defines how a future Claude hook event may be mapped into the runn
 
 It is not an installed hook, not hook packaging, and not a runner implementation.
 
+Native Claude Code hook payload fixture coverage is recorded in `docs/claude-hook-native-payload-mapping-fixtures.md` and checked by `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js`.
+
 ## Boundary
 
 Hook events may supply only explicit event metadata.

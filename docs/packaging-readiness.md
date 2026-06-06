@@ -58,6 +58,8 @@ The Claude hook manual install language fixtures are recorded in `docs/claude-ho
 
 The Claude hook manual install document is recorded in `docs/claude-hook-manual-install.md`.
 
+The Claude hook native payload mapping fixtures are recorded in `docs/claude-hook-native-payload-mapping-fixtures.md`.
+
 The future Claude hook command adapter contract is recorded in `docs/claude-hook-command-adapter-contract.md`.
 
 The Claude hook command adapter fixtures are recorded in `docs/claude-hook-command-adapter-fixtures.md`.
@@ -122,6 +124,7 @@ node benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js
 node benchmarks/scripts/check-claude-hook-manual-install-contract.js
 node benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-document.js
+node benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js
 node benchmarks/scripts/check-claude-hook-command-adapter-contract.js
 node benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js
 node benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js
@@ -187,6 +190,8 @@ The Claude hook manual install language fixture check is `benchmarks/scripts/che
 
 The Claude hook manual install document check is `benchmarks/scripts/check-claude-hook-manual-install-document.js`. It verifies `docs/claude-hook-manual-install.md` remains blocked for live installation until native Claude Code hook payload mapping is proven.
 
+The Claude hook native payload mapping fixture check is `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js`. It verifies `docs/claude-hook-native-payload-mapping-fixtures.md` rejects transcript reads and blocks native payloads that lack explicit ABK task metadata.
+
 The Claude hook command adapter contract check is `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`. It verifies `docs/claude-hook-command-adapter-contract.md` records the stdin-to-runner-input bridge required before live hook instructions.
 
 The Claude hook command adapter fixture check is `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`. It verifies `docs/claude-hook-command-adapter-fixtures.md` records red/green stdin adapter fixtures.
@@ -197,6 +202,6 @@ The Claude hook command adapter entrypoint fixture check is `benchmarks/scripts/
 
 The Claude hook command adapter entrypoint check is `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js`. It verifies `docs/claude-hook-command-adapter-entrypoint.md`, `bin/abk-claude-hook.js`, and `lib/abk-claude-hook-adapter.js` execute fixture-backed stdin mapping without installing hooks.
 
-Only after those checks pass should the repo consider native Claude Code hook payload mapping fixtures.
+Only after those checks pass should the repo consider an explicit metadata carrier for native Claude Code hook events.
 
 Claude hook installation remains later because packaging still needs red/green package manifest fixtures and must not read private transcripts.

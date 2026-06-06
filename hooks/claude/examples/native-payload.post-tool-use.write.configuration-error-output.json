@@ -1,0 +1,30 @@
+{
+  "mode": "native-payload-mapping-fixture",
+  "source": "claude-code-command-hook",
+  "hookEventName": "PostToolUse",
+  "status": "configuration-error",
+  "exitCode": 2,
+  "blocked": true,
+  "reason": "native payload is missing explicit ABK hook metadata",
+  "partialEvent": {
+    "changedFiles": [
+      "src/mindmap/new-surface.ts"
+    ]
+  },
+  "missingExplicitMetadata": [
+    "hookId",
+    "repoRoot",
+    "task"
+  ],
+  "inputsUsed": [
+    "hook_event_name",
+    "tool_name",
+    "tool_input.file_path"
+  ],
+  "nonGoals": [
+    "Do not read transcripts",
+    "Do not infer task metadata",
+    "Do not install hooks",
+    "Do not execute scanners"
+  ]
+}
