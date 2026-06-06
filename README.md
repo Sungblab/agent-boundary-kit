@@ -89,6 +89,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `docs/claude-hook-event-mapping-examples.md`: fixture-like valid and rejected hook event mapping examples
 - `docs/claude-hook-event-mapper-contract.md`: bounded command contract for the hook event mapper
 - `docs/claude-hook-event-mapper-output-fixtures.md`: red/green output fixtures for the hook event mapper
+- `docs/claude-hook-packaging-contract.md`: boundary contract for future Claude hook packaging
 - `docs/packaging-readiness.md`: evidence gate for future Codex skill or Claude hook packaging
 - `docs/codex-skill-install-contract.md`: boundary contract for the first manual Codex skill install candidate
 - `docs/codex-skill-manual-install.md`: user-approved manual copy instructions for the boundary-check Codex skill candidate
@@ -141,6 +142,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/check-claude-hook-event-mapper-contract.js`: verifies the event mapper command remains bounded and non-executing
 - `benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js`: verifies mapper output fixtures before local execution checks
 - `benchmarks/scripts/check-abk-runner-map-event.js`: verifies the local `abk-runner map-event --input` command against valid, rejected transcript, missing-field, unknown-field, and invalid JSON output fixtures
+- `benchmarks/scripts/check-claude-hook-packaging-contract.js`: verifies future Claude hook packaging remains bounded to explicit events and runner commands
 - `benchmarks/scripts/check-packaging-readiness.js`: verifies packaging stays tied to fixture-backed scanner evidence
 - `benchmarks/scripts/check-boundary-skill-readiness.js`: verifies the boundary-check Codex skill candidate stays tied to the packaging and read-only runner contracts
 - `benchmarks/scripts/check-codex-skill-install-contract.js`: verifies the Codex skill install contract does not widen into plugin, hook, connector, or watcher behavior
@@ -204,6 +206,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - Claude hook event mapper commands are checked against bounded implementation rules.
 - Claude hook event mapper output fixtures are checked against local `map-event` execution.
 - local `abk-runner map-event --input` execution is checked against valid, rejected transcript, missing-field, unknown-field, and invalid JSON output fixtures.
+- future Claude hook packaging is checked against `docs/claude-hook-packaging-contract.md` before any hook installation work.
 - the boundary-check skill candidate is checked against the packaging readiness contract and read-only runner evidence contract.
 - the Codex skill install contract is checked before any manual install instructions are published.
 - the boundary-check skill folder shape is checked before manual install instructions are published.

@@ -46,6 +46,8 @@ The event mapper command boundary is recorded in `docs/claude-hook-event-mapper-
 
 The event mapper output fixture gate is recorded in `docs/claude-hook-event-mapper-output-fixtures.md`.
 
+The future Claude hook packaging boundary is recorded in `docs/claude-hook-packaging-contract.md`.
+
 ## Minimum Installable Slice
 
 The first installable slice should be a small Codex skill update, not a hook package.
@@ -94,6 +96,7 @@ node benchmarks/scripts/check-codex-skill-manual-install-doc.js
 node benchmarks/scripts/check-claude-hook-event-input-contract.js
 node benchmarks/scripts/check-claude-hook-event-mapper-contract.js
 node benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js
+node benchmarks/scripts/check-claude-hook-packaging-contract.js
 node benchmarks/scripts/check-abk-runner-map-event.js
 node benchmarks/scripts/check-abk-runner-scan.js
 npm run bench:check
@@ -142,6 +145,8 @@ The Claude hook event mapper output fixture check is `benchmarks/scripts/check-c
 
 The local mapper implementation check is `benchmarks/scripts/check-abk-runner-map-event.js`. It verifies `abk-runner map-event --input <hook-event.json>` emits those output fixtures exactly.
 
+The Claude hook packaging contract check is `benchmarks/scripts/check-claude-hook-packaging-contract.js`. It verifies `docs/claude-hook-packaging-contract.md` keeps future hook packaging bounded to explicit event JSON, `abk-runner map-event`, `abk-runner dry-run`, and `abk-runner scan` command templates without installing hooks automatically.
+
 Only after those checks pass should the repo consider publishing manual install instructions.
 
-Claude hook packaging remains later because hooks still need a bounded mapper implementation with passing output fixtures and must not read private transcripts.
+Claude hook installation remains later because packaging still needs red/green package manifest fixtures and must not read private transcripts.
