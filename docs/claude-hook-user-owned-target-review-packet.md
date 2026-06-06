@@ -26,6 +26,8 @@ The target review decision source is `docs/claude-hook-user-owned-target-review-
 
 The final apply request source is `docs/claude-hook-final-apply-request-contract.md`.
 
+The application preflight review source is `docs/claude-hook-application-preflight-review-contract.md`.
+
 This packet does not identify a user settings path.
 
 This packet does not apply settings for the user.
@@ -70,6 +72,7 @@ Before this review packet is described as ready, run:
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-decision.js
 node benchmarks/scripts/check-claude-hook-final-apply-request-contract.js
+node benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js
 node benchmarks/scripts/check-claude-hook-install-application-contract.js

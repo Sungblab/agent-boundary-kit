@@ -106,6 +106,8 @@ The Claude hook user-owned target review decision is recorded in `docs/claude-ho
 
 The Claude hook final apply request contract is recorded in `docs/claude-hook-final-apply-request-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-final-apply-request-contract.js`, which recognizes a final apply request without applying settings and advances only to application preflight review.
 
+The Claude hook application preflight review contract is recorded in `docs/claude-hook-application-preflight-review-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js`, which reviews preflight evidence without applying settings and advances only to user execution packet review.
+
 The Claude hook carrier source contract is recorded in `docs/claude-hook-carrier-source-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`, which keeps the carrier source user-owned and not consumed by the current command entrypoint.
 
 The Claude hook wrapper input contract is recorded in `docs/claude-hook-wrapper-input-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-wrapper-input-contract.js`, which keeps wrapper input contract-only and preserves carrier path rejection in the current command entrypoint.
@@ -420,5 +422,7 @@ Blocks completion when:
 130. Claude hooks remain specs until local wrapper implementation is reviewed against the bounded native command entrypoint.
 131. Add a Claude hook final apply request contract. Completed: `docs/claude-hook-final-apply-request-contract.md`.
 132. Add a Claude hook final apply request contract check. Completed: `benchmarks/scripts/check-claude-hook-final-apply-request-contract.js`.
+133. Add a Claude hook application preflight review contract. Completed: `docs/claude-hook-application-preflight-review-contract.md`.
+134. Add a Claude hook application preflight review contract check. Completed: `benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js`.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

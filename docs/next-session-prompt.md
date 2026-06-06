@@ -67,6 +67,7 @@ Immediate next work:
 34. Review `docs/claude-hook-user-owned-target-review-packet.md` and run `node benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js` before drafting any target review packet.
 35. Review `docs/claude-hook-user-owned-target-review-decision.md` and run `node benchmarks/scripts/check-claude-hook-user-owned-target-review-decision.js` before recording any target review decision.
 36. Review `docs/claude-hook-final-apply-request-contract.md` and run `node benchmarks/scripts/check-claude-hook-final-apply-request-contract.js` before treating any final user request as eligible for application preflight review.
+37. Review `docs/claude-hook-application-preflight-review-contract.md` and run `node benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js` before treating any preflight review as eligible for user execution packet review.
 
 Style:
 Be blunt, evidence-first, and research-oriented. Avoid hype and early-product shorthand. Prefer spec-first, evidence-gated, fixture, taxonomy, and benchmark.

@@ -1,0 +1,7 @@
+{
+  "fixtureKind": "claude-hook-application-preflight-review-contract",
+  "status": "blocked",
+  "backupEvidenceReviewed": false,
+  "reason": "backup evidence required before application preflight review",
+  "agentMayApplySettings": false
+}

@@ -1,0 +1,7 @@
+{
+  "fixtureKind": "claude-hook-application-preflight-review-contract",
+  "status": "blocked",
+  "settingsMutationAttempted": true,
+  "agentMayApplySettings": false,
+  "reason": "application preflight review must not apply settings"
+}
