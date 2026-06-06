@@ -29,6 +29,8 @@ No automatic inference of scope, named tools, final gates, stale terms, external
 
 The manual install boundary for that candidate is defined in `docs/codex-skill-install-contract.md`.
 
+The user-approved manual copy instructions for that candidate are defined in `docs/codex-skill-manual-install.md`.
+
 The future Claude hook candidates remain specs:
 
 - `hooks/claude/pre-write-boundary-check.md`
@@ -82,6 +84,7 @@ node benchmarks/scripts/check-packaging-readiness.js
 node benchmarks/scripts/check-boundary-skill-readiness.js
 node benchmarks/scripts/check-codex-skill-install-contract.js
 node benchmarks/scripts/check-boundary-skill-install-readiness.js
+node benchmarks/scripts/check-codex-skill-manual-install-doc.js
 node benchmarks/scripts/check-abk-runner-scan.js
 npm run bench:check
 npm run bench:check:red
@@ -118,6 +121,8 @@ The Codex skill packaging check is `benchmarks/scripts/check-boundary-skill-read
 The Codex skill install contract check is `benchmarks/scripts/check-codex-skill-install-contract.js`. It verifies `docs/codex-skill-install-contract.md` keeps the first installable candidate manual, bounded, and separate from plugin, hook, connector, dashboard, and watcher behavior.
 
 The boundary skill install-readiness check is `benchmarks/scripts/check-boundary-skill-install-readiness.js`. It verifies the first installable candidate remains a plain `skills/boundary-check/` folder before manual install instructions are published.
+
+The manual install doc check is `benchmarks/scripts/check-codex-skill-manual-install-doc.js`. It verifies `docs/codex-skill-manual-install.md` stays limited to user-approved copy commands and does not introduce plugin, hook, connector, dashboard, or broad scanning behavior.
 
 Only after those checks pass should the repo consider publishing manual install instructions.
 

@@ -60,6 +60,8 @@ The Codex skill install contract is recorded in `docs/codex-skill-install-contra
 
 The boundary skill install-readiness check is recorded in `benchmarks/scripts/check-boundary-skill-install-readiness.js`. It verifies `skills/boundary-check/` remains a plain `SKILL.md` folder before manual install instructions are published.
 
+The Codex skill manual install document is recorded in `docs/codex-skill-manual-install.md`. Its check is `benchmarks/scripts/check-codex-skill-manual-install-doc.js`, which keeps installation guidance limited to user-approved manual copy commands.
+
 Do not add new hook scripts, plugin packaging, dashboards, connectors, or broad workflow tooling before those refinements are tied back to fixture evidence.
 
 ## Fixture Coverage
@@ -279,7 +281,8 @@ Blocks completion when:
 69. Record a Codex skill install contract before publishing manual install instructions. Completed: `docs/codex-skill-install-contract.md`.
 70. Add a Codex skill install contract check. Completed: `benchmarks/scripts/check-codex-skill-install-contract.js`.
 71. Add a boundary skill install-readiness check for the plain skill folder. Completed: `benchmarks/scripts/check-boundary-skill-install-readiness.js`.
-72. Only then consider manual Codex skill install instructions.
-73. Claude hooks remain later than the Codex skill gate.
+72. Document user-approved manual Codex skill copy instructions. Completed: `docs/codex-skill-manual-install.md`.
+73. Add a manual install instruction check. Completed: `benchmarks/scripts/check-codex-skill-manual-install-doc.js`.
+74. Claude hooks remain later than the Codex skill gate.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.
