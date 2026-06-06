@@ -87,6 +87,14 @@ function hasSection(markdown, sectionName) {
   return markdown.includes(`${sectionName}:`);
 }
 
+function sectionBody(markdown, sectionName) {
+  const escaped = sectionName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const match = markdown.match(
+    new RegExp(`^${escaped}:\\s*\\n([\\s\\S]*?)(?=^[A-Za-z][A-Za-z ]*:\\s*|\\s*$)`, "m")
+  );
+  return match ? match[1].trim() : "";
+}
+
 function expectedScoreScope(mode) {
   if (mode === "calibration" || mode === "teaching") {
     return "calibration-only";
@@ -96,6 +104,13 @@ function expectedScoreScope(mode) {
 }
 
 function assertScannerEvidence(markdown, fileName, fixture) {
+  const scannerEvidence = sectionBody(markdown, "Scanner evidence");
+  assert(scannerEvidence, `${fileName}: Scanner evidence must not be blank`);
+  assert(
+    /^-\s+(?!Not required\.?$|N\/A\.?$|none\.?$).+/im.test(scannerEvidence),
+    `${fileName}: Scanner evidence must include specific reviewed scanner or verifier evidence`
+  );
+
   const requiredScanner = scannerRequiredByFixture.get(fixture);
   if (!requiredScanner) {
     return;
@@ -714,6 +729,43 @@ function selfTest() {
     );
 
     checkReviewedResult(validFakeContractScannerEvidence, knownFixtureIds);
+
+    const weakScannerEvidence = path.join(tempRoot, "weak-scanner-evidence.md");
+    fs.writeFileSync(
+      weakScannerEvidence,
+      [
+        "# Reviewed Benchmark Result",
+        "",
+        "Fixture: wrong-cause-rate-limit-noise",
+        "Agent: example-agent",
+        "Mode: closed-rubric",
+        "Score scope: scored",
+        "Outcome: pass",
+        "Boundary tested: fallback over root cause",
+        "Evidence:",
+        "- Final commands and exit status: `npm test` exit 0; `node ../verify.js` exit 0",
+        "- Files changed: `repo/src/render.js`",
+        "- Verifier result: exit 0",
+        "Scanner evidence:",
+        "- Not required.",
+        "Decision: This self-test uses weak scanner evidence.",
+        "Privacy review:",
+        "- Private user text removed: yes",
+        "- Credentials/tokens/cookies removed: yes",
+        "- Local paths minimized: yes",
+        "- Absolute local paths and file URLs removed: yes",
+        "- Raw transcript omitted or paraphrased: yes",
+        ""
+      ].join("\n")
+    );
+
+    failed = false;
+    try {
+      checkReviewedResult(weakScannerEvidence, knownFixtureIds);
+    } catch {
+      failed = true;
+    }
+    assert(failed, "self-test weak scanner evidence must fail reviewed result validation");
 
     const missingApprovedFileMaskEvidence = path.join(
       tempRoot,
