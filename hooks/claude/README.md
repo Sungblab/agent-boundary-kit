@@ -54,6 +54,8 @@ The Claude hook manual install review packet is recorded in `docs/claude-hook-ma
 
 The Claude hook settings-fragment draft fixtures are recorded in `docs/claude-hook-settings-fragment-draft-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js` and keep the draft not installable as-is until a carrier source contract exists.
 
+The Claude hook carrier source contract is recorded in `docs/claude-hook-carrier-source-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-carrier-source-contract.js` and keeps the carrier source user-owned and not consumed by the current command entrypoint.
+
 The Claude hook native payload mapping fixtures are recorded in `docs/claude-hook-native-payload-mapping-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js` and prove native Claude Code payload alone is insufficient because ABK task metadata must remain explicit.
 
 The Claude hook native metadata carrier fixtures are recorded in `docs/claude-hook-native-metadata-carrier-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js` and prove native payload plus explicit carrier metadata can produce an ABK hook event without reading transcripts.

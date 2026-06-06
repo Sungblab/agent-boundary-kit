@@ -90,6 +90,8 @@ The Claude hook manual install review packet is recorded in `docs/claude-hook-ma
 
 The Claude hook settings-fragment draft fixtures are recorded in `docs/claude-hook-settings-fragment-draft-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js`, which keeps the draft not installable as-is and records the explicit carrier gap.
 
+The Claude hook carrier source contract is recorded in `docs/claude-hook-carrier-source-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`, which keeps the carrier source user-owned and not consumed by the current command entrypoint.
+
 The Claude hook native payload mapping fixtures are recorded in `docs/claude-hook-native-payload-mapping-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js`, which rejects transcript reads and blocks native payloads that lack explicit ABK task metadata.
 
 The Claude hook native metadata carrier fixtures are recorded in `docs/claude-hook-native-metadata-carrier-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js`, which requires `hookId`, `repoRoot`, and `task` to stay explicit when native payloads become ABK hook events.
@@ -377,6 +379,8 @@ Blocks completion when:
 117. Add a Claude hook manual install review packet check. Completed: `benchmarks/scripts/check-claude-hook-manual-install-review-packet.js`.
 118. Add Claude hook settings-fragment draft fixtures. Completed: `docs/claude-hook-settings-fragment-draft-fixtures.md`.
 119. Add a Claude hook settings-fragment draft fixture check. Completed: `benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js`.
-120. Claude hooks remain specs until a carrier source contract is reviewed against the bounded native command entrypoint.
+120. Add a Claude hook carrier source contract. Completed: `docs/claude-hook-carrier-source-contract.md`.
+121. Add a Claude hook carrier source contract check. Completed: `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`.
+122. Claude hooks remain specs until a wrapper input contract is reviewed against the bounded native command entrypoint.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

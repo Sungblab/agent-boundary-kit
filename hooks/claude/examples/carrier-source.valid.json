@@ -1,0 +1,66 @@
+{
+  "fixtureKind": "claude-hook-carrier-source-contract",
+  "status": "contract-only",
+  "userApprovalRequired": true,
+  "agentMayCreateOrEdit": false,
+  "notInstallableAsIs": true,
+  "consumedByCurrentEntrypoint": false,
+  "currentEntrypointMustRejectCarrierPaths": true,
+  "sourceReferences": {
+    "hooks": "https://code.claude.com/docs/en/hooks",
+    "settings": "https://code.claude.com/docs/en/configuration"
+  },
+  "carrierSource": {
+    "kind": "user-owned-sidecar-json",
+    "sourceId": "abk-boundary-carrier",
+    "pathPlaceholder": "<user-owned-carrier-json>",
+    "readPolicy": "user-reviewed-only",
+    "currentEntrypoint": "not-consumed"
+  },
+  "commandEnvelope": {
+    "inputMode": "native-payload-with-carrier",
+    "requiredField": "metadataCarrier",
+    "contract": "docs/claude-hook-native-command-input-contract.md"
+  },
+  "metadataCarrier": {
+    "carrierVersion": "abk-native-metadata-carrier/v1",
+    "hookId": "post_edit_scope_check",
+    "repoRoot": ".",
+    "task": {
+      "type": "replacement",
+      "declaredBy": "user-owned-carrier-source",
+      "summary": "Replace a public surface and remove stale references from declared files."
+    },
+    "approvedScope": [
+      "src/mindmap/**",
+      "docs/**",
+      "tests/**"
+    ],
+    "namedTools": [
+      "opendataloader-pdf",
+      "latex"
+    ],
+    "staleTerms": [
+      "legacy mind map",
+      "old mindmap"
+    ],
+    "metadataFiles": [
+      "boundary.json"
+    ]
+  },
+  "evidenceGates": [
+    "node benchmarks/scripts/check-claude-hook-carrier-source-contract.js",
+    "node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js",
+    "node benchmarks/scripts/check-claude-hook-native-command-input-contract.js",
+    "npm run bench:check",
+    "npm run bench:check:red"
+  ],
+  "nonGoals": [
+    "No raw private transcripts",
+    "No automatic hook installation",
+    "No repository mutation",
+    "Do not create or edit Claude configuration files",
+    "Do not publish shell copy commands",
+    "Do not execute scanners from carrier source language"
+  ]
+}

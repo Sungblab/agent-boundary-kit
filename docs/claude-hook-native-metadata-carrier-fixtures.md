@@ -6,6 +6,8 @@ They extend `docs/claude-hook-native-payload-mapping-fixtures.md`, `docs/claude-
 
 The bounded adapter implementation is recorded in `docs/claude-hook-native-adapter.md`.
 
+The carrier source contract is recorded in `docs/claude-hook-carrier-source-contract.md`.
+
 They are fixture-only. They are not installed hooks, not installers, and not live settings fragments.
 
 ## Source Evidence
@@ -76,6 +78,7 @@ Before metadata carrier mapping is described as ready, run:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js
+node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-native-adapter.js
 node benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js
 node benchmarks/scripts/check-claude-hook-event-input-contract.js

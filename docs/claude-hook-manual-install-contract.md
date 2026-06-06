@@ -46,6 +46,7 @@ The contract depends on:
 - `docs/claude-hook-manual-install.md`
 - `docs/claude-hook-manual-install-review-packet.md`
 - `docs/claude-hook-settings-fragment-draft-fixtures.md`
+- `docs/claude-hook-carrier-source-contract.md`
 - `docs/claude-hook-native-command-input-contract.md`
 - `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js`
 - `docs/claude-hook-command-adapter-contract.md`
@@ -72,6 +73,7 @@ Allowed future language may describe:
 - native command entrypoint evidence from `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js`
 - the review-only packet in `docs/claude-hook-manual-install-review-packet.md`
 - the draft-only settings-fragment fixture in `docs/claude-hook-settings-fragment-draft-fixtures.md`
+- the carrier source contract in `docs/claude-hook-carrier-source-contract.md`
 - the manual install language fixture: `docs/claude-hook-manual-install-language-fixtures.md`
 - the stop condition when `map-event`, `dry-run`, or `scan` returns a configuration or boundary finding
 - the fact that scanner output is evidence, not final copy
@@ -100,6 +102,7 @@ Before any Claude hook manual install contract or install documentation is descr
 node benchmarks/scripts/check-claude-hook-manual-install-contract.js
 node benchmarks/scripts/check-claude-hook-manual-install-review-packet.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js
+node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js
 node benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-document.js
@@ -124,6 +127,7 @@ The evidence must show:
 - the manual install document records native command entrypoint evidence
 - the manual install review packet remains review-only
 - the settings-fragment draft fixture remains not installable as-is
+- the carrier source contract remains not consumed by the current entrypoint
 - the manual install document remains blocked for agent-performed installation
 - manual install language fixtures reject copy and configuration-edit instructions until native payload mapping is proven
 - the command adapter contract records the stdin-to-runner-input bridge required before live hooks
@@ -154,4 +158,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a carrier source contract after the settings-fragment draft fixture remains not installable as-is.
+The next gate is a wrapper input contract after the carrier source contract remains not consumed by the current entrypoint.

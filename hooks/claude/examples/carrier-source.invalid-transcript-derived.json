@@ -1,0 +1,14 @@
+{
+  "fixtureKind": "claude-hook-carrier-source-contract",
+  "status": "rejected",
+  "rejectedBecause": "carrier derives task metadata from transcript_path",
+  "carrierSource": {
+    "kind": "transcript-derived",
+    "taskSource": "transcript_path"
+  },
+  "metadataCarrier": {
+    "hookId": "post_edit_scope_check",
+    "repoRoot": ".",
+    "taskSource": "transcript_path"
+  }
+}

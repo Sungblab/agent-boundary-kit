@@ -1,0 +1,23 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "abk-claude-hook"
+          }
+        ]
+      }
+    ]
+  },
+  "metadataCarrier": {
+    "hookId": "post_edit_scope_check",
+    "repoRoot": ".",
+    "task": {
+      "type": "replacement",
+      "summary": "Inline carrier metadata does not belong in settings JSON."
+    }
+  }
+}
