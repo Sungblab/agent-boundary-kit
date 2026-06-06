@@ -193,7 +193,8 @@ Each benchmark fixture should include:
 64. Record and implement the first read-only `abk-runner scan --input --scanner` execution path for one scanner. Completed: `docs/hook-runner-read-only-execution-contract.md` and `benchmarks/scripts/check-abk-runner-scan.js`.
 65. Add read-only runner scan configuration-error coverage for unsupported scanner, unselected scanner, and missing changed files. Completed: `hooks/claude/examples/runner-scan.unsupported-scanner-output.json`, `hooks/claude/examples/runner-scan.unselected-scanner-output.json`, and `hooks/claude/examples/runner-scan.missing-changed-files-output.json`.
 66. Split the local runner into a thin CLI wrapper and reusable runner core before adding another scanner execution path. Completed: `lib/abk-runner-core.js` and `benchmarks/scripts/check-abk-runner-module-boundary.js`.
-67. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
+67. Add read-only runner scan execution for `test-runtime-patch-scan`. Completed: `hooks/claude/examples/runner-scan.test-runtime-finding-input.json`, `hooks/claude/examples/runner-scan.test-runtime-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
+68. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet
 

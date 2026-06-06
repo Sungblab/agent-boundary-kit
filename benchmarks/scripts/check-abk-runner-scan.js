@@ -10,6 +10,7 @@ const cases = [
   {
     name: "legacy surface finding",
     input: "hooks/claude/examples/runner-scan.legacy-surface-finding-input.json",
+    expectedHookId: "post_edit_scope_check",
     scanner: "legacy-surface-retention-scan",
     expectedScanner: "legacy-surface-retention-scan",
     expected: "hooks/claude/examples/runner-scan.legacy-surface-finding-output.json",
@@ -18,14 +19,34 @@ const cases = [
   {
     name: "legacy surface clear",
     input: "hooks/claude/examples/runner-scan.legacy-surface-clear-input.json",
+    expectedHookId: "post_edit_scope_check",
     scanner: "legacy-surface-retention-scan",
     expectedScanner: "legacy-surface-retention-scan",
     expected: "hooks/claude/examples/runner-scan.legacy-surface-clear-output.json",
     exitCode: 0,
   },
   {
+    name: "test runtime patch finding",
+    input: "hooks/claude/examples/runner-scan.test-runtime-finding-input.json",
+    expectedHookId: "test_integrity_check",
+    scanner: "test-runtime-patch-scan",
+    expectedScanner: "test-runtime-patch-scan",
+    expected: "hooks/claude/examples/runner-scan.test-runtime-finding-output.json",
+    exitCode: 1,
+  },
+  {
+    name: "test runtime patch clear",
+    input: "hooks/claude/examples/runner-scan.test-runtime-clear-input.json",
+    expectedHookId: "test_integrity_check",
+    scanner: "test-runtime-patch-scan",
+    expectedScanner: "test-runtime-patch-scan",
+    expected: "hooks/claude/examples/runner-scan.test-runtime-clear-output.json",
+    exitCode: 0,
+  },
+  {
     name: "unsupported scanner configuration error",
     input: "hooks/claude/examples/runner-scan.legacy-surface-finding-input.json",
+    expectedHookId: "post_edit_scope_check",
     scanner: "unknown-boundary-scan",
     expectedScanner: "runner-command-contract",
     expected: "hooks/claude/examples/runner-scan.unsupported-scanner-output.json",
@@ -34,6 +55,7 @@ const cases = [
   {
     name: "unselected scanner configuration error",
     input: "hooks/claude/examples/runner-scan.unselected-scanner-input.json",
+    expectedHookId: "post_edit_scope_check",
     scanner: "legacy-surface-retention-scan",
     expectedScanner: "legacy-surface-retention-scan",
     expected: "hooks/claude/examples/runner-scan.unselected-scanner-output.json",
@@ -42,6 +64,7 @@ const cases = [
   {
     name: "missing changed files configuration error",
     input: "hooks/claude/examples/runner-scan.missing-changed-files-input.json",
+    expectedHookId: "post_edit_scope_check",
     scanner: "legacy-surface-retention-scan",
     expectedScanner: "legacy-surface-retention-scan",
     expected: "hooks/claude/examples/runner-scan.missing-changed-files-output.json",
@@ -106,7 +129,7 @@ function runScan(testCase) {
 }
 
 function assertRunnerOutput(output, testCase) {
-  assert.equal(output.hookId, "post_edit_scope_check", `${testCase.name}: hookId mismatch`);
+  assert.equal(output.hookId, testCase.expectedHookId, `${testCase.name}: hookId mismatch`);
   assert.equal(output.scanner, testCase.expectedScanner, `${testCase.name}: scanner mismatch`);
   assert.ok(["clear", "finding", "error"].includes(output.status), `${testCase.name}: invalid status`);
   assert.equal(output.exitCode, testCase.exitCode, `${testCase.name}: output exitCode mismatch`);

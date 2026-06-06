@@ -1,0 +1,17 @@
+{
+  "hookId": "test_integrity_check",
+  "scanner": "test-runtime-patch-scan",
+  "status": "finding",
+  "exitCode": 1,
+  "blocked": true,
+  "reason": "test runtime patching found",
+  "inputsUsed": ["testFiles", "productionFiles", "behaviorContract"],
+  "findings": [
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/test-runtime-finding/e2e/dropdown.spec.js",
+      "line": 2,
+      "rule": "test-runtime-patch",
+      "detail": "browser runtime injection matched /page\\.evaluate/: await page.evaluate(() => window.menuOpen = true);"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "hookId": "test_integrity_check",
+  "repoRoot": "hooks/claude/examples/runner-scan-fixtures/test-runtime-clear",
+  "task": {
+    "type": "test repair",
+    "declaredBy": "agent",
+    "summary": "Check browser tests for runtime patching."
+  },
+  "inputs": {
+    "testFiles": ["e2e/dropdown.spec.js"],
+    "productionFiles": ["src/dropdown.js"],
+    "behaviorContract": "The test must observe the shipped dropdown behavior without browser runtime injection."
+  }
+}

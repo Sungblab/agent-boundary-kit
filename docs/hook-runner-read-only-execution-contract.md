@@ -8,7 +8,7 @@ The implemented command shape is:
 abk-runner scan --input <runner-input.json> --scanner <scanner-id>
 ```
 
-The first supported scanner id is `legacy-surface-retention-scan`.
+The supported scanner ids are `legacy-surface-retention-scan` and `test-runtime-patch-scan`.
 
 ## Boundary
 
@@ -46,6 +46,8 @@ Execution examples:
 
 - `hooks/claude/examples/runner-scan.legacy-surface-finding-input.json`
 - `hooks/claude/examples/runner-scan.legacy-surface-clear-input.json`
+- `hooks/claude/examples/runner-scan.test-runtime-finding-input.json`
+- `hooks/claude/examples/runner-scan.test-runtime-clear-input.json`
 - `hooks/claude/examples/runner-scan.unselected-scanner-input.json`
 - `hooks/claude/examples/runner-scan.missing-changed-files-input.json`
 
@@ -57,6 +59,8 @@ Output examples:
 
 - `hooks/claude/examples/runner-scan.legacy-surface-finding-output.json`
 - `hooks/claude/examples/runner-scan.legacy-surface-clear-output.json`
+- `hooks/claude/examples/runner-scan.test-runtime-finding-output.json`
+- `hooks/claude/examples/runner-scan.test-runtime-clear-output.json`
 - `hooks/claude/examples/runner-scan.unsupported-scanner-output.json`
 - `hooks/claude/examples/runner-scan.unselected-scanner-output.json`
 - `hooks/claude/examples/runner-scan.missing-changed-files-output.json`
@@ -75,9 +79,11 @@ Exit 2 means invalid input, rejected transcript fields, unsupported hook id, uns
 
 ## Current Implementation Scope
 
-The first implementation may execute only `legacy-surface-retention-scan`.
+The current implementation may execute only `legacy-surface-retention-scan` and `test-runtime-patch-scan`.
 
-It must pass changed files from the declared `repoRoot` and `inputs.changedFiles` fields. If those fields are missing, it must return `exitCode: 2`.
+For `legacy-surface-retention-scan`, it must pass changed files from the declared `repoRoot` and `inputs.changedFiles` fields. If those fields are missing, it must return `exitCode: 2`.
+
+For `test-runtime-patch-scan`, it must pass explicit test files from `inputs.testFiles`, resolved under the declared `repoRoot` when present. It must not scan production files, infer related tests, or fan out to `test-fake-contract-scan`.
 
 For pre-execution command errors, the output may use `runner-command-contract` as the bounded `scanner` value. It must not map an unknown scanner request to a supported scanner id.
 
@@ -93,7 +99,7 @@ npm run bench:check
 npm run bench:check:red
 ```
 
-The check verifies clear, finding, and configuration-error outputs for the first supported read-only scanner.
+The check verifies clear and finding outputs for the supported read-only scanners plus bounded configuration-error outputs.
 
 ## Non-Goals
 

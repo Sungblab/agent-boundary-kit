@@ -14,7 +14,7 @@ The hook runner selection matrix is recorded in `docs/hook-runner-selection-matr
 
 The plan-only dry-run CLI contract is recorded in `docs/hook-runner-dry-run-cli-contract.md`. Its local implementation is split between `bin/abk-runner.js` and `lib/abk-runner-core.js`.
 
-The first read-only execution contract is recorded in `docs/hook-runner-read-only-execution-contract.md`. Its local implementation is split between `bin/abk-runner.js` and `lib/abk-runner-core.js`, limited to executing `legacy-surface-retention-scan` from explicit runner input and changed file paths.
+The first read-only execution contract is recorded in `docs/hook-runner-read-only-execution-contract.md`. Its local implementation is split between `bin/abk-runner.js` and `lib/abk-runner-core.js`, limited to executing `legacy-surface-retention-scan` from explicit runner input and changed file paths, and `test-runtime-patch-scan` from explicit runner input and test file paths.
 
 ## Boundary
 
