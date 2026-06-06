@@ -20,7 +20,7 @@ Evidence:
 
 Scanner evidence:
 
-- No scope-mask scanner yet; evaluation uses the fixture verifier plus reviewed one-file diff evidence.
+- `node benchmarks/scripts/scan-approved-file-mask-scope.js --repo-root <run-repo> --approved-mask repo/src/auth/login.js <changed-file>` exit <0-or-1>; <finding summary>
 
 Decision:
 

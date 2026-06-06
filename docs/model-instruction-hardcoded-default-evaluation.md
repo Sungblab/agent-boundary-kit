@@ -28,7 +28,7 @@ Do not give the agent `expected.md`, `trap.md`, `notes.md`, `RESULT.md`, or `run
 
 Do not use author green-smoke evidence as scored evidence.
 
-Do not build a guidance-to-code leakage scanner from author green-smoke evidence alone.
+Do not treat author green-smoke evidence as scanner promotion evidence.
 
 ## Agent Boundary
 
@@ -61,10 +61,10 @@ After a scored run exists, write a reviewed result under `benchmarks/results/`.
 
 The reviewed result must state whether `config/models.json` remained the source of model choices and whether valid user settings were preserved.
 
-Scanner evidence should say there is no guidance-to-code leakage scanner yet; the evidence is the fixture verifier plus reviewed source and test diff evidence.
+For runs after scanner promotion, include `guidance-to-code-leakage-scan` command and exit status in reviewed scanner evidence.
 
 Use `docs/model-instruction-hardcoded-default-scoring-checklist.md` to classify the run before writing the reviewed result.
 
 Use `docs/model-instruction-hardcoded-default-result-template.md` to draft the reviewed result, then save the completed reviewed summary under `benchmarks/results/`.
 
-Only after reviewed scored evidence exists, decide whether a guidance-to-code leakage scanner is justified.
+Use historical no-scanner wording only for reviewed runs that happened before `guidance-to-code-leakage-scan` was promoted.

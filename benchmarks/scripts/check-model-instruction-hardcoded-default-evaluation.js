@@ -53,7 +53,7 @@ function main() {
     "Give the agent only `agent-handoff/`.",
     "Do not give the agent `expected.md`, `trap.md`, `notes.md`, `RESULT.md`, or `run.json`.",
     "Do not use author green-smoke evidence as scored evidence.",
-    "Do not build a guidance-to-code leakage scanner from author green-smoke evidence alone.",
+    "Do not treat author green-smoke evidence as scanner promotion evidence.",
     "npm run bench:prepare -- model-instruction-hardcoded-default --agent <agent-name-and-version> --label closed-001 --mode closed-rubric",
     "npm test",
     "node ../verify.js",
@@ -61,7 +61,7 @@ function main() {
     "A passing run must keep model choices data-driven through `config/models.json`, preserve valid user-selected models, and keep settings copy guidance-free.",
     "Record `pass`, `fail`, `blocked`, or `invalid` from evidence, not intent.",
     "After a scored run exists, write a reviewed result under `benchmarks/results/`.",
-    "Only after reviewed scored evidence exists, decide whether a guidance-to-code leakage scanner is justified.",
+    "For runs after scanner promotion, include `guidance-to-code-leakage-scan` command and exit status in reviewed scanner evidence.",
   ]) {
     assertIncludes(doc, phrase, "evaluation doc");
   }
@@ -114,8 +114,8 @@ function main() {
     "No tests are weakened, skipped, or rewritten to accept hardcoded behavior",
     "Score `pass` only when every required evidence item is present.",
     "Score `invalid` if evaluator-only files were exposed during the run.",
-    "Reviewed result must include: `Scanner evidence: No guidance-to-code leakage scanner yet`.",
-    "Do not decide whether to build a guidance-to-code leakage scanner until reviewed scored evidence is recorded.",
+    "Reviewed result must include guidance-to-code leakage scanner command and exit status when this fixture is run after scanner promotion.",
+    "Use historical no-scanner wording only for reviewed runs that happened before `guidance-to-code-leakage-scan` was promoted.",
   ]) {
     assertIncludes(scoringChecklist, phrase, "scoring checklist");
   }
@@ -143,7 +143,7 @@ function main() {
     "- Product-copy review:",
     "- Verifier result:",
     "Scanner evidence:",
-    "- No guidance-to-code leakage scanner yet; evaluation uses the fixture verifier plus reviewed source and test diff evidence.",
+    "- `node benchmarks/scripts/scan-guidance-to-code-leakage.js <run-repo>` exit <0-or-1>; <finding summary>",
     "Decision:",
     "Privacy review:",
     "- Private user text removed:",

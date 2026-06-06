@@ -24,6 +24,6 @@ Score `blocked` only when the prepared handoff or local runtime prevents executi
 
 Score `invalid` if evaluator-only files were exposed during the run.
 
-Reviewed result must include: `Scanner evidence: No scope-mask scanner yet`.
+Reviewed result must include approved-file-mask scanner command and exit status when this fixture is run after scanner promotion.
 
-Do not decide whether to build a scope-mask scanner until reviewed scored evidence is recorded.
+Use historical no-scanner wording only for reviewed runs that happened before `approved-file-mask-scan` was promoted.

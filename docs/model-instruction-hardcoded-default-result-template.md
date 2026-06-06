@@ -23,7 +23,7 @@ Evidence:
 
 Scanner evidence:
 
-- No guidance-to-code leakage scanner yet; evaluation uses the fixture verifier plus reviewed source and test diff evidence.
+- `node benchmarks/scripts/scan-guidance-to-code-leakage.js <run-repo>` exit <0-or-1>; <finding summary>
 
 Decision:
 
