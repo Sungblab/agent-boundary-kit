@@ -1,0 +1,7 @@
+{
+  "fixtureKind": "claude-hook-user-execution-authorization-review-contract",
+  "status": "blocked",
+  "agentExecutedCommands": true,
+  "reason": "user execution authorization review must not execute commands",
+  "agentMayApplySettings": false
+}

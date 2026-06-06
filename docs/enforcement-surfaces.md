@@ -110,6 +110,8 @@ The Claude hook application preflight review contract is recorded in `docs/claud
 
 The Claude hook user execution packet review contract is recorded in `docs/claude-hook-user-execution-packet-review-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-user-execution-packet-review-contract.js`, which keeps manual execution packets review-only and blocks executable command publication.
 
+The Claude hook user execution authorization review contract is recorded in `docs/claude-hook-user-execution-authorization-review-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-user-execution-authorization-review-contract.js`, which keeps authorization review separate from agent-run commands and settings application.
+
 The Claude hook carrier source contract is recorded in `docs/claude-hook-carrier-source-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`, which keeps the carrier source user-owned and not consumed by the current command entrypoint.
 
 The Claude hook wrapper input contract is recorded in `docs/claude-hook-wrapper-input-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-wrapper-input-contract.js`, which keeps wrapper input contract-only and preserves carrier path rejection in the current command entrypoint.
@@ -428,5 +430,7 @@ Blocks completion when:
 134. Add a Claude hook application preflight review contract check. Completed: `benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js`.
 135. Add a Claude hook user execution packet review contract. Completed: `docs/claude-hook-user-execution-packet-review-contract.md`.
 136. Add a Claude hook user execution packet review contract check. Completed: `benchmarks/scripts/check-claude-hook-user-execution-packet-review-contract.js`.
+137. Add a Claude hook user execution authorization review contract. Completed: `docs/claude-hook-user-execution-authorization-review-contract.md`.
+138. Add a Claude hook user execution authorization review contract check. Completed: `benchmarks/scripts/check-claude-hook-user-execution-authorization-review-contract.js`.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

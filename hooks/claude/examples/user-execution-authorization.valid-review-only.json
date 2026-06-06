@@ -1,0 +1,25 @@
+{
+  "fixtureKind": "claude-hook-user-execution-authorization-review-contract",
+  "status": "ready-for-user-performed-application",
+  "sourceTextRole": "user-execution-authorization-review",
+  "userExecutionPacketReviewed": true,
+  "applicationPreflightReviewed": true,
+  "finalApplyRequestReviewed": true,
+  "userAuthorizationReviewed": true,
+  "executableCommandsPublished": false,
+  "agentExecutedCommands": false,
+  "agentMayApplySettings": false,
+  "settingsMutationAttempted": false,
+  "nextGate": "user-performed-application-only",
+  "requiredEvidence": [
+    "node benchmarks/scripts/check-claude-hook-user-execution-packet-review-contract.js",
+    "node benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js",
+    "node benchmarks/scripts/check-claude-hook-final-apply-request-contract.js",
+    "node benchmarks/scripts/check-claude-hook-user-owned-target-review-decision.js",
+    "node benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js",
+    "node benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js",
+    "node benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js",
+    "node benchmarks/scripts/check-claude-hook-user-approved-install-language.js",
+    "node benchmarks/scripts/check-claude-hook-settings-fragment-review.js"
+  ]
+}

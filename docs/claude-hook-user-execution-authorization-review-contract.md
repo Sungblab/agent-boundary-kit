@@ -1,22 +1,24 @@
-# Claude Hook User Execution Packet Review Contract
+# Claude Hook User Execution Authorization Review Contract
 
-This document records a user execution packet review contract only.
+This document records a user execution authorization review contract only.
 
 It is not settings application, not an installed hook, not an installer, and not a setup script.
 
 ## Boundary
 
-user execution packet review is not settings application.
+user execution authorization review is not settings application.
 
-Agent must not edit settings during user execution packet review.
+Agent must not edit settings during user execution authorization review.
 
-Agent must not publish executable commands during user execution packet review.
+Agent must not execute commands during user execution authorization review.
 
-A valid packet review can only advance to user execution authorization review.
+A valid authorization review can only advance to user-performed application.
 
-application preflight review required before user execution packet review.
+user execution packet review required before authorization review.
 
-manual execution packet remains review-only.
+user-performed application is outside this repository.
+
+The user execution packet review source is `docs/claude-hook-user-execution-packet-review-contract.md`.
 
 The application preflight review source is `docs/claude-hook-application-preflight-review-contract.md`.
 
@@ -38,57 +40,54 @@ The settings-fragment review source is `docs/claude-hook-settings-fragment-revie
 
 The wrapper wiring evidence source is `docs/claude-hook-wrapper-wiring-review.md`.
 
-The user execution authorization review source is `docs/claude-hook-user-execution-authorization-review-contract.md`.
-
 This contract does not identify a user settings path.
 
 This contract does not apply settings for the user.
 
 This contract does not create repository hook setup files.
 
-This contract does not publish an executable packet.
+This contract does not execute commands for the user.
 
 ## Review Rule
 
-A valid user execution packet review is ready only for `user-execution-authorization-review`.
+A valid user execution authorization review is ready only for `user-performed-application-only`.
 
 That means:
 
-- the source text role is user execution packet review
+- the source text role is user execution authorization review
+- user execution packet review was reviewed
 - application preflight review was reviewed
 - final apply request was reviewed
-- target review decision was reviewed
-- backup evidence was reviewed
-- settings-fragment review was reviewed
-- user-approved install language was reviewed
+- user authorization was reviewed
 - executable commands were not published
+- agent did not execute commands
 - no settings mutation was attempted
 - agent may not apply settings
-- the next gate remains review-only
+- the next gate is outside this repository
 
 ## Fixtures
 
-Valid review-only packet:
+Valid review-only authorization:
 
-- `hooks/claude/examples/user-execution-packet.valid-review-only.json`
+- `hooks/claude/examples/user-execution-authorization.valid-review-only.json`
 
-Rejected missing preflight:
+Rejected missing packet:
 
-- `hooks/claude/examples/user-execution-packet.invalid-missing-preflight.json`
+- `hooks/claude/examples/user-execution-authorization.invalid-missing-packet.json`
 
-Rejected executable commands:
+Rejected agent-executed commands:
 
-- `hooks/claude/examples/user-execution-packet.invalid-executable-commands.json`
+- `hooks/claude/examples/user-execution-authorization.invalid-agent-executed-commands.json`
 
 Rejected agent-applied settings:
 
-- `hooks/claude/examples/user-execution-packet.invalid-agent-applied-settings.json`
+- `hooks/claude/examples/user-execution-authorization.invalid-agent-applied-settings.json`
 
-The valid fixture proves that a user execution packet can be reviewed without publishing executable commands or applying settings.
+The valid fixture proves that user authorization can be reviewed without executing commands or applying settings.
 
-The missing preflight fixture proves that packet review cannot start before application preflight review.
+The missing packet fixture proves that authorization review cannot start before user execution packet review.
 
-The executable commands fixture proves that this gate cannot publish shell copy commands or direct execution language.
+The agent-executed commands fixture proves that authorization review does not authorize agent-run commands.
 
 The agent-applied settings fixture proves that settings mutation blocks this gate.
 
@@ -97,6 +96,7 @@ The agent-applied settings fixture proves that settings mutation blocks this gat
 Before this contract is described as ready, verify:
 
 ```sh
+node benchmarks/scripts/check-claude-hook-user-execution-authorization-review-contract.js
 node benchmarks/scripts/check-claude-hook-user-execution-packet-review-contract.js
 node benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js
 node benchmarks/scripts/check-claude-hook-final-apply-request-contract.js
@@ -104,22 +104,20 @@ node benchmarks/scripts/check-claude-hook-user-owned-target-review-decision.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js
-node benchmarks/scripts/check-claude-hook-user-execution-authorization-review-contract.js
 npm run bench:check
 npm run bench:check:red
 ```
 
 The evidence must show:
 
-- user execution packet review contract only
-- user execution packet review is not settings application
+- user execution authorization review contract only
+- user execution authorization review is not settings application
+- user execution packet review is required
 - application preflight review is required
 - final apply request is required
-- target review decision is required
-- target review packet is required
-- target review evidence is required
-- backup evidence is required
+- user authorization is reviewed without command execution
 - executable commands are not published
+- agent does not execute commands
 - settings mutation is not attempted
 - agent may not apply settings inside this repository
 - no shell copy command is published
@@ -140,7 +138,7 @@ Do not create or edit Claude configuration files.
 
 Do not publish shell copy commands.
 
-Do not execute scanners from user execution packet review language.
+Do not execute scanners from user execution authorization review language.
 
 Do not add installer code.
 
@@ -150,6 +148,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is recorded in `docs/claude-hook-user-execution-authorization-review-contract.md`: user execution authorization review. It still does not apply settings, install hooks, or mutate Claude configuration.
-
-That gate is checked by `benchmarks/scripts/check-claude-hook-user-execution-authorization-review-contract.js`.
+The next gate is user-performed application only. That action is outside this repository and is not performed by the agent.

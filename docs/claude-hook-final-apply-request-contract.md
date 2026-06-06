@@ -32,6 +32,8 @@ The application preflight review source is `docs/claude-hook-application-preflig
 
 The user execution packet review source is `docs/claude-hook-user-execution-packet-review-contract.md`.
 
+The user execution authorization review source is `docs/claude-hook-user-execution-authorization-review-contract.md`.
+
 This contract does not identify a user settings path.
 
 This contract does not apply settings for the user.
@@ -90,6 +92,7 @@ node benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js
 node benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js
 node benchmarks/scripts/check-claude-hook-user-execution-packet-review-contract.js
+node benchmarks/scripts/check-claude-hook-user-execution-authorization-review-contract.js
 npm run bench:check
 npm run bench:check:red
 ```
