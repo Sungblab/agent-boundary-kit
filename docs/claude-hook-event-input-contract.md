@@ -137,7 +137,7 @@ Do not package hooks yet.
 
 Do not execute scanners.
 
-Do not implement an event mapper yet.
+Do not widen the event mapper beyond explicit event metadata.
 
 Do not read raw chat, prompts, hidden conversation state, or broad workspace files.
 
@@ -149,6 +149,8 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 The fixture-like event mapping example set is recorded in `docs/claude-hook-event-mapping-examples.md` and checked by `benchmarks/scripts/check-claude-hook-event-mapping-examples.js`.
 
-The future event mapper command contract is recorded in `docs/claude-hook-event-mapper-contract.md` and checked by `benchmarks/scripts/check-claude-hook-event-mapper-contract.js`.
+The event mapper command contract is recorded in `docs/claude-hook-event-mapper-contract.md` and checked by `benchmarks/scripts/check-claude-hook-event-mapper-contract.js`.
 
-Only after those contracts stay green should the repo consider implementing `abk-runner map-event --input <hook-event.json>`.
+The local `abk-runner map-event --input <hook-event.json>` implementation is checked by `benchmarks/scripts/check-abk-runner-map-event.js`.
+
+Only after those contracts stay green should the repo consider a separate Claude hook packaging contract.

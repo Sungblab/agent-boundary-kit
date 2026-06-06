@@ -27,7 +27,7 @@ function main() {
   assert.ok(nonEmptyLines(binSource).length <= 6, "bin runner must stay a thin wrapper");
 
   const core = require(corePath);
-  for (const exportName of ["main", "dryRun", "scan", "selectScanners"]) {
+  for (const exportName of ["main", "dryRun", "mapEvent", "scan", "selectScanners"]) {
     assert.equal(typeof core[exportName], "function", `core must export ${exportName}`);
   }
 

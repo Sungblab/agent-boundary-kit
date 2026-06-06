@@ -2,7 +2,7 @@
 
 These fixtures define the first expected outputs for the future `abk-runner map-event --input <hook-event.json>` command.
 
-They extend `docs/claude-hook-event-mapper-contract.md`. They are not a mapper implementation, not an installed hook, and not scanner execution.
+They extend `docs/claude-hook-event-mapper-contract.md`. They are not an installed hook, not hook packaging, and not scanner execution.
 
 ## Boundary
 
@@ -70,9 +70,10 @@ The error output must not include the private transcript, prompt text, message a
 
 ## Evidence Gate
 
-Before implementing the mapper command, run:
+To verify the mapper command, run:
 
 ```sh
+node benchmarks/scripts/check-abk-runner-map-event.js
 node benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js
 node benchmarks/scripts/check-claude-hook-event-mapper-contract.js
 node benchmarks/scripts/check-claude-hook-event-mapping-examples.js
@@ -81,11 +82,11 @@ npm run bench:check
 npm run bench:check:red
 ```
 
-The output fixture check verifies the valid mapping output, rejected transcript output, linked docs, and package-level check wiring.
+The output fixture check verifies the valid mapping output, rejected transcript output, linked docs, and package-level check wiring. The runner check verifies the local CLI emits those outputs exactly.
 
 ## Non-Goals
 
-Do not implement the mapper until these fixtures pass.
+Do not widen the mapper beyond these fixtures.
 
 Do not install Claude hooks.
 
@@ -97,6 +98,13 @@ Do not write files.
 
 Do not generate final copy.
 
-## Next Gate
+## Current Implementation
 
-After these fixtures pass, implement only the bounded `abk-runner map-event --input <hook-event.json>` command against these fixtures.
+The local implementation is checked by `benchmarks/scripts/check-abk-runner-map-event.js`.
+
+The current executable evidence covers only:
+
+- `abk-runner map-event --input hooks/claude/examples/hook-event.post-edit.valid.json`
+- `abk-runner map-event --input hooks/claude/examples/hook-event.invalid-transcript.json`
+
+The implementation must stay bounded to explicit event metadata and must not install hooks, execute scanners, select scanners, write files, or generate final copy.

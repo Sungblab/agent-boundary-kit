@@ -30,9 +30,11 @@ The Claude hook event-to-runner-input contract is recorded in `docs/claude-hook-
 
 The Claude hook event mapping examples are recorded in `docs/claude-hook-event-mapping-examples.md`. They are checked by `benchmarks/scripts/check-claude-hook-event-mapping-examples.js` and cover one valid event plus one rejected transcript event.
 
-The Claude hook event mapper contract is recorded in `docs/claude-hook-event-mapper-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-event-mapper-contract.js` and defines a bounded future `abk-runner map-event --input <hook-event.json>` command without installing hooks or executing scanners.
+The Claude hook event mapper contract is recorded in `docs/claude-hook-event-mapper-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-event-mapper-contract.js` and defines a bounded `abk-runner map-event --input <hook-event.json>` command without installing hooks or executing scanners.
 
-The Claude hook event mapper output fixtures are recorded in `docs/claude-hook-event-mapper-output-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js` and fix the valid runner-input output plus the rejected transcript configuration-error output before implementation.
+The Claude hook event mapper output fixtures are recorded in `docs/claude-hook-event-mapper-output-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js` and fix the valid runner-input output plus the rejected transcript configuration-error output.
+
+The local mapper implementation is checked by `benchmarks/scripts/check-abk-runner-map-event.js`. It maps explicit event metadata only and still does not install hooks, select scanners, or execute scanners.
 
 The first narrow scanner candidate is defined in `docs/first-scanner-candidate.md`. It targets only test runtime patching. Its red/green evidence is recorded in `docs/scanner-validation-test-runtime-patch.md`, its first application sweep is recorded in `docs/scanner-application-test-runtime-patch.md`, and its read-only script is `benchmarks/scripts/scan-test-runtime-patch.js`.
 

@@ -42,9 +42,9 @@ Those Claude hook specs may inform a later hook package only after the hook runt
 
 The event-to-runner-input boundary for those future hooks is recorded in `docs/claude-hook-event-input-contract.md`.
 
-The future event mapper command boundary is recorded in `docs/claude-hook-event-mapper-contract.md`.
+The event mapper command boundary is recorded in `docs/claude-hook-event-mapper-contract.md`.
 
-The future event mapper output fixture gate is recorded in `docs/claude-hook-event-mapper-output-fixtures.md`.
+The event mapper output fixture gate is recorded in `docs/claude-hook-event-mapper-output-fixtures.md`.
 
 ## Minimum Installable Slice
 
@@ -94,6 +94,7 @@ node benchmarks/scripts/check-codex-skill-manual-install-doc.js
 node benchmarks/scripts/check-claude-hook-event-input-contract.js
 node benchmarks/scripts/check-claude-hook-event-mapper-contract.js
 node benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js
+node benchmarks/scripts/check-abk-runner-map-event.js
 node benchmarks/scripts/check-abk-runner-scan.js
 npm run bench:check
 npm run bench:check:red
@@ -135,9 +136,11 @@ The manual install doc check is `benchmarks/scripts/check-codex-skill-manual-ins
 
 The Claude hook event input contract check is `benchmarks/scripts/check-claude-hook-event-input-contract.js`. It verifies `docs/claude-hook-event-input-contract.md` keeps future hook runtime events limited to explicit metadata before they become runner input.
 
-The Claude hook event mapper contract check is `benchmarks/scripts/check-claude-hook-event-mapper-contract.js`. It verifies `docs/claude-hook-event-mapper-contract.md` keeps the future `abk-runner map-event --input <hook-event.json>` command bounded to event-to-runner-input mapping without installing hooks or executing scanners.
+The Claude hook event mapper contract check is `benchmarks/scripts/check-claude-hook-event-mapper-contract.js`. It verifies `docs/claude-hook-event-mapper-contract.md` keeps the `abk-runner map-event --input <hook-event.json>` command bounded to event-to-runner-input mapping without installing hooks or executing scanners.
 
-The Claude hook event mapper output fixture check is `benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js`. It verifies `docs/claude-hook-event-mapper-output-fixtures.md` fixes valid and rejected transcript outputs before any mapper implementation.
+The Claude hook event mapper output fixture check is `benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js`. It verifies `docs/claude-hook-event-mapper-output-fixtures.md` fixes valid and rejected transcript outputs.
+
+The local mapper implementation check is `benchmarks/scripts/check-abk-runner-map-event.js`. It verifies `abk-runner map-event --input <hook-event.json>` emits those output fixtures exactly.
 
 Only after those checks pass should the repo consider publishing manual install instructions.
 

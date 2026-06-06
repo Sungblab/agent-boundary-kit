@@ -30,7 +30,7 @@ Do not infer missing metadata.
 
 ## Command Shape
 
-The future command shape is:
+The implemented command shape is:
 
 ```sh
 abk-runner map-event --input <hook-event.json>
@@ -85,9 +85,10 @@ The mapper must not repair errors by reading private chat context or broad works
 
 ## Evidence Gate
 
-Before implementing the mapper command, run:
+To verify the mapper command, run:
 
 ```sh
+node benchmarks/scripts/check-abk-runner-map-event.js
 node benchmarks/scripts/check-claude-hook-event-mapper-contract.js
 node benchmarks/scripts/check-claude-hook-event-input-contract.js
 node benchmarks/scripts/check-claude-hook-event-mapping-examples.js
@@ -98,6 +99,14 @@ npm run bench:check:red
 ```
 
 The check verifies the command shape, input and output boundaries, error handling, non-goals, and links from related hook runner docs.
+
+## Current Implementation
+
+The local implementation is split between `bin/abk-runner.js` and `lib/abk-runner-core.js`.
+
+It maps explicit hook event metadata into runner input and rejects transcript-bearing events with bounded configuration-error output.
+
+It is checked by `benchmarks/scripts/check-abk-runner-map-event.js`.
 
 ## Non-Goals
 
@@ -119,4 +128,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 The output fixture gate is `docs/claude-hook-event-mapper-output-fixtures.md` and `benchmarks/scripts/check-claude-hook-event-mapper-output-fixtures.js`.
 
-Only after that gate passes should the repo implement the bounded `abk-runner map-event --input <hook-event.json>` command.
+Only after the mapper command stays green should the repo consider a separate Claude hook packaging contract.

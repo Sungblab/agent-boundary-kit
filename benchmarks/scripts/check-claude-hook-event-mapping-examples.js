@@ -154,7 +154,7 @@ function main() {
     "No raw private transcripts",
     "No message arrays",
     "Do not install Claude hooks",
-    "Do not implement an event mapper yet",
+    "Do not widen the event mapper beyond these examples",
   ]) {
     assert.ok(doc.includes(phrase), `Claude hook event mapping examples doc missing phrase: ${phrase}`);
   }

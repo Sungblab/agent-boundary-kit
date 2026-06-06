@@ -122,7 +122,7 @@ function main() {
     "No file writes",
     "Do not install Claude hooks",
     "Do not execute scanners",
-    "Do not implement the mapper until these fixtures pass",
+    "Do not widen the mapper beyond these fixtures",
   ]) {
     assert.ok(doc.includes(phrase), `Claude hook event mapper output fixtures doc missing phrase: ${phrase}`);
   }
