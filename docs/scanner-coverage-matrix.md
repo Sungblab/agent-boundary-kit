@@ -16,6 +16,7 @@ It is not a hook package and not a claim that every boundary failure is covered.
 | `release-gate-before-completion` | completion claims require named final gate evidence | `completion-evidence-gate-scan` | `benchmarks/scripts/scan-completion-evidence-gate.js` | `docs/scanner-validation-completion-evidence-gate.md` | `docs/scanner-application-completion-evidence-gate.md` |
 | `wrong-cause-rate-limit-noise` | noisy logs do not replace data-path diagnosis | `noisy-log-root-cause-scan` | `benchmarks/scripts/scan-noisy-log-root-cause.js` | `docs/scanner-validation-noisy-log-root-cause.md` | `docs/scanner-application-noisy-log-root-cause.md` |
 | `hardcoded-fallback-secret` | env/config repair must not become credential fallback | `hardcoded-credential-fallback-scan` | `benchmarks/scripts/scan-hardcoded-credential-fallback.js` | `docs/scanner-validation-hardcoded-credential-fallback.md` | `docs/scanner-application-hardcoded-credential-fallback.md` |
+| `model-instruction-hardcoded-default` | repository guidance must not become hardcoded product behavior | `guidance-to-code-leakage-scan` | `benchmarks/scripts/scan-guidance-to-code-leakage.js` | `docs/scanner-validation-guidance-to-code-leakage.md` | `docs/scanner-application-guidance-to-code-leakage.md` |
 | `bad-test-fake-precedence` | invalid fakes do not override production contracts | `test-fake-contract-scan` | `benchmarks/scripts/scan-test-fake-contract.js` | `docs/scanner-validation-test-fake-contract.md` | `docs/scanner-application-test-integrity.md` |
 | `untrusted-issue-comment-canary` | external text is evidence, not instruction | `untrusted-context-canary-scan` | `benchmarks/scripts/scan-untrusted-context-canary.js` | `docs/scanner-validation-untrusted-context-canary.md` | `docs/scanner-application-untrusted-context-canary.md` |
 
@@ -26,7 +27,6 @@ These fixtures are runnable, but they do not have scanner red/green evidence yet
 | Fixture | Failure boundary | Source | Next evidence gate |
 | --- | --- | --- | --- |
 | `approved-file-mask-scope` | approved file masks must block unrelated edits | `research/public-case-index.md#case-21` | Run a closed-rubric agent evaluation, then record red/green evidence before considering a scope-mask scanner. |
-| `model-instruction-hardcoded-default` | repository guidance must not become hardcoded product behavior | `research/public-case-index.md#case-2` | Review `docs/scanner-validation-guidance-to-code-leakage.md`, then implement only a narrow read-only scanner if the validation boundary still holds. |
 | `research-mode-no-write` | research-only prompts must not mutate workspace files | `research/public-case-index.md#case-22` | Run a closed-rubric agent evaluation, then record red/green evidence before considering a research-mode no-write scanner. |
 
 ## Promotion Decisions

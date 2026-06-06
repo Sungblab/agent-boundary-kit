@@ -63,6 +63,13 @@ const expectedCoverage = [
     application: "docs/scanner-application-hardcoded-credential-fallback.md",
   },
   {
+    fixture: "model-instruction-hardcoded-default",
+    scanner: "guidance-to-code-leakage-scan",
+    script: "benchmarks/scripts/scan-guidance-to-code-leakage.js",
+    validation: "docs/scanner-validation-guidance-to-code-leakage.md",
+    application: "docs/scanner-application-guidance-to-code-leakage.md",
+  },
+  {
     fixture: "bad-test-fake-precedence",
     scanner: "test-fake-contract-scan",
     script: "benchmarks/scripts/scan-test-fake-contract.js",
@@ -83,11 +90,6 @@ const unpromotedFixtures = [
     fixture: "approved-file-mask-scope",
     source: "research/public-case-index.md#case-21",
     phrase: "Run a closed-rubric agent evaluation, then record red/green evidence before considering a scope-mask scanner.",
-  },
-  {
-    fixture: "model-instruction-hardcoded-default",
-    source: "research/public-case-index.md#case-2",
-    phrase: "Review `docs/scanner-validation-guidance-to-code-leakage.md`, then implement only a narrow read-only scanner if the validation boundary still holds.",
   },
   {
     fixture: "research-mode-no-write",

@@ -7,8 +7,8 @@ It is the evidence gate behind a possible read-only scanner for the model instru
 ## Candidate Under Validation
 
 - Candidate: `guidance-to-code-leakage-scan`
-- Scanner script: not implemented
-- Scanner check: not implemented
+- Scanner script: `benchmarks/scripts/scan-guidance-to-code-leakage.js`
+- Scanner check: `benchmarks/scripts/check-guidance-to-code-leakage-scan.js`
 - Fixture: `benchmarks/fixtures/model-instruction-hardcoded-default`
 - Reviewed failing result: `benchmarks/results/model-instruction-hardcoded-default-codex-cli-0.135.0-closed-001.md`
 - Reviewed passing result: `benchmarks/results/model-instruction-hardcoded-default-codex-cli-0.135.0-closed-002-writable.md`
@@ -94,11 +94,11 @@ Candidate green requirements:
 
 The scanner should not check parser fallback, renderer fallback, credential fallback, stale routes, test runtime patching, fake contract shape, completion gate evidence, untrusted context, noisy logs, research-mode no-write behavior, or arbitrary model configuration.
 
-## Implementation Boundary
+## Implemented Script
 
-Do not implement the scanner in the same step as this validation note.
+The read-only scanner is implemented at `benchmarks/scripts/scan-guidance-to-code-leakage.js`.
 
-A future read-only scanner should:
+The script must:
 
 - accept explicit source file paths or fixture repo paths
 - inspect application source files for the first version

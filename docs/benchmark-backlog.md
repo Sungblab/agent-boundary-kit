@@ -211,8 +211,9 @@ Each benchmark fixture should include:
 82. Run `model-instruction-hardcoded-default` as a scored closed-rubric evaluation before considering any guidance-to-code leakage scanner. Completed as scored fail: `benchmarks/results/model-instruction-hardcoded-default-codex-cli-0.135.0-closed-001.md`. Completed as scored pass: `benchmarks/results/model-instruction-hardcoded-default-codex-cli-0.135.0-closed-002-writable.md`. Runbook: `docs/model-instruction-hardcoded-default-evaluation.md`; fresh-agent prompt: `docs/model-instruction-hardcoded-default-agent-prompt.md`; scoring checklist: `docs/model-instruction-hardcoded-default-scoring-checklist.md`; result template: `docs/model-instruction-hardcoded-default-result-template.md`.
 83. Run a fresh passing closed-rubric or reviewed green run for `research-mode-no-write` before considering any research-mode no-write scanner.
 84. Record guidance-to-code leakage scanner validation notes from the model-instruction red and green evidence before implementing any scanner script. Completed: `docs/scanner-validation-guidance-to-code-leakage.md`.
-85. Implement `guidance-to-code-leakage-scan` only after reviewing `docs/scanner-validation-guidance-to-code-leakage.md`; keep it limited to source-level guidance-to-code leakage proven by `model-instruction-hardcoded-default`.
-86. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
+85. Implement `guidance-to-code-leakage-scan` only after reviewing `docs/scanner-validation-guidance-to-code-leakage.md`; keep it limited to source-level guidance-to-code leakage proven by `model-instruction-hardcoded-default`. Completed: `benchmarks/scripts/scan-guidance-to-code-leakage.js`.
+86. Apply `guidance-to-code-leakage-scan` to future model-settings or AI-default runs before expanding it to another guidance-leakage pattern. Application note: `docs/scanner-application-guidance-to-code-leakage.md`.
+87. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet
 

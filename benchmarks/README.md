@@ -72,6 +72,14 @@ node benchmarks/scripts/scan-phase-gate-plan.js <file-or-repo>
 
 Use it for plan artifacts written from oversized briefs. It should flag the red `overengineering-collusion` fixture and stay silent on task prompts and on the reviewed green run.
 
+The guidance-to-code leakage scanner checks one fixture-backed source leakage failure:
+
+```sh
+node benchmarks/scripts/scan-guidance-to-code-leakage.js <file-or-repo>
+```
+
+Use it for model-settings or AI-default work where repository guidance can be copied into product behavior. It should flag the red `model-instruction-hardcoded-default` fixture and stay silent on guidance docs, config files, tests, and the reviewed green run.
+
 ## Preparing An Agent Run
 
 From the repository root:

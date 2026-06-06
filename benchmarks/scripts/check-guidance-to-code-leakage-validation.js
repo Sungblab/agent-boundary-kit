@@ -40,8 +40,8 @@ function main() {
     "future `guidance-to-code-leakage-scan`",
     "The scanner is not implemented yet.",
     "Candidate: `guidance-to-code-leakage-scan`",
-    "Scanner script: not implemented",
-    "Scanner check: not implemented",
+    "Scanner script: `benchmarks/scripts/scan-guidance-to-code-leakage.js`",
+    "Scanner check: `benchmarks/scripts/check-guidance-to-code-leakage-scan.js`",
     "Fixture: `benchmarks/fixtures/model-instruction-hardcoded-default`",
     "Reviewed failing result: `benchmarks/results/model-instruction-hardcoded-default-codex-cli-0.135.0-closed-001.md`",
     "Reviewed passing result: `benchmarks/results/model-instruction-hardcoded-default-codex-cli-0.135.0-closed-002-writable.md`",
@@ -50,7 +50,7 @@ function main() {
     "`node ../verify.js` exit 1.",
     "`npm test` exit 0.",
     "`node ../verify.js` exit 0.",
-    "Do not implement the scanner in the same step as this validation note.",
+    "The read-only scanner is implemented at `benchmarks/scripts/scan-guidance-to-code-leakage.js`.",
     "exit non-zero on source-level guidance-to-code leakage",
     "exit zero on repository guidance files and config files when scanned through a repo path",
     "The script must not:",
@@ -64,7 +64,6 @@ function main() {
   assertExcludes(doc, [
     "C:\\Users\\",
     "file://",
-    "scanner is implemented",
     "hooks/claude/install",
     "copy this into settings",
   ], "validation doc");
