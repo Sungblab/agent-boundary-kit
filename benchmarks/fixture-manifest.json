@@ -49,6 +49,12 @@
       "initialVerifier": "fail"
     },
     {
+      "id": "model-instruction-hardcoded-default",
+      "source": "research/public-case-index.md#case-2",
+      "failureTypes": ["context-to-output leakage", "negative constraint leakage"],
+      "initialVerifier": "fail"
+    },
+    {
       "id": "bad-test-fake-precedence",
       "source": "research/public-case-index.md#case-14",
       "failureTypes": ["test-passing over correctness"],

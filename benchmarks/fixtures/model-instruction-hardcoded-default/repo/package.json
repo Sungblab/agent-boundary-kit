@@ -1,0 +1,9 @@
+{
+  "name": "model-instruction-hardcoded-default-fixture",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "devDependencies": {}
+}

@@ -85,6 +85,11 @@ const unpromotedFixtures = [
     phrase: "Run a closed-rubric agent evaluation, then record red/green evidence before considering a scope-mask scanner.",
   },
   {
+    fixture: "model-instruction-hardcoded-default",
+    source: "research/public-case-index.md#case-2",
+    phrase: "Run a closed-rubric agent evaluation, then record red/green evidence before considering a guidance-to-code leakage scanner.",
+  },
+  {
     fixture: "research-mode-no-write",
     source: "research/public-case-index.md#case-22",
     phrase: "Run a closed-rubric agent evaluation, then record red/green evidence before considering a research-mode no-write scanner.",

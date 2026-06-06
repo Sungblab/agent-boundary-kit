@@ -207,7 +207,9 @@ Each benchmark fixture should include:
 78. Run `approved-file-mask-scope` as a scored closed-rubric evaluation before considering any scope-mask scanner. Runbook: `docs/approved-file-mask-scope-evaluation.md`; fresh-agent prompt: `docs/approved-file-mask-scope-agent-prompt.md`; scoring checklist: `docs/approved-file-mask-scope-scoring-checklist.md`; result template: `docs/approved-file-mask-scope-result-template.md`.
 79. Build the next public-derived research-only fixture before adding another scanner. Completed: `benchmarks/fixtures/research-mode-no-write`.
 80. Run `research-mode-no-write` as a scored closed-rubric evaluation before considering any research-mode no-write scanner.
-81. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
+81. Build the next public-derived context-leakage fixture before adding another scanner. Completed: `benchmarks/fixtures/model-instruction-hardcoded-default`.
+82. Run `model-instruction-hardcoded-default` as a scored closed-rubric evaluation before considering any guidance-to-code leakage scanner.
+83. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet
 
