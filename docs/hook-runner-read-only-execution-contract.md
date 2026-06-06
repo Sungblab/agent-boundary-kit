@@ -8,7 +8,7 @@ The implemented command shape is:
 abk-runner scan --input <runner-input.json> --scanner <scanner-id>
 ```
 
-The supported scanner ids are `legacy-surface-retention-scan` and `test-runtime-patch-scan`.
+The supported scanner ids are `legacy-surface-retention-scan`, `test-runtime-patch-scan`, and `test-fake-contract-scan`.
 
 ## Boundary
 
@@ -48,6 +48,8 @@ Execution examples:
 - `hooks/claude/examples/runner-scan.legacy-surface-clear-input.json`
 - `hooks/claude/examples/runner-scan.test-runtime-finding-input.json`
 - `hooks/claude/examples/runner-scan.test-runtime-clear-input.json`
+- `hooks/claude/examples/runner-scan.test-fake-finding-input.json`
+- `hooks/claude/examples/runner-scan.test-fake-clear-input.json`
 - `hooks/claude/examples/runner-scan.unselected-scanner-input.json`
 - `hooks/claude/examples/runner-scan.missing-changed-files-input.json`
 
@@ -61,6 +63,8 @@ Output examples:
 - `hooks/claude/examples/runner-scan.legacy-surface-clear-output.json`
 - `hooks/claude/examples/runner-scan.test-runtime-finding-output.json`
 - `hooks/claude/examples/runner-scan.test-runtime-clear-output.json`
+- `hooks/claude/examples/runner-scan.test-fake-finding-output.json`
+- `hooks/claude/examples/runner-scan.test-fake-clear-output.json`
 - `hooks/claude/examples/runner-scan.unsupported-scanner-output.json`
 - `hooks/claude/examples/runner-scan.unselected-scanner-output.json`
 - `hooks/claude/examples/runner-scan.missing-changed-files-output.json`
@@ -79,11 +83,13 @@ Exit 2 means invalid input, rejected transcript fields, unsupported hook id, uns
 
 ## Current Implementation Scope
 
-The current implementation may execute only `legacy-surface-retention-scan` and `test-runtime-patch-scan`.
+The current implementation may execute only `legacy-surface-retention-scan`, `test-runtime-patch-scan`, and `test-fake-contract-scan`.
 
 For `legacy-surface-retention-scan`, it must pass changed files from the declared `repoRoot` and `inputs.changedFiles` fields. If those fields are missing, it must return `exitCode: 2`.
 
 For `test-runtime-patch-scan`, it must pass explicit test files from `inputs.testFiles`, resolved under the declared `repoRoot` when present. It must not scan production files, infer related tests, or fan out to `test-fake-contract-scan`.
+
+For `test-fake-contract-scan`, it must pass explicit files from `inputs.testFiles` and `inputs.productionFiles`, resolved under the declared `repoRoot` when present. It must not infer fake files, scan broad directories, or fan out to `test-runtime-patch-scan`.
 
 For pre-execution command errors, the output may use `runner-command-contract` as the bounded `scanner` value. It must not map an unknown scanner request to a supported scanner id.
 

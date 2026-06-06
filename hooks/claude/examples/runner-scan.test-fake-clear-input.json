@@ -1,0 +1,14 @@
+{
+  "hookId": "test_integrity_check",
+  "repoRoot": "hooks/claude/examples/runner-scan-fixtures/test-fake-clear",
+  "task": {
+    "type": "test repair",
+    "declaredBy": "agent",
+    "summary": "Check tests and production files for fake contract drift."
+  },
+  "inputs": {
+    "testFiles": ["test/fake-users.js"],
+    "productionFiles": ["src/normalize-users.js"],
+    "behaviorContract": "Production user records expose email directly; fake data must not introduce a contact wrapper."
+  }
+}

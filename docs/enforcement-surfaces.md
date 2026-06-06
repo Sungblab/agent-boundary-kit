@@ -48,7 +48,7 @@ The hook runner selection matrix is recorded in `docs/hook-runner-selection-matr
 
 The hook runner dry-run CLI contract is recorded in `docs/hook-runner-dry-run-cli-contract.md`. Its first local implementation is split between `bin/abk-runner.js` and `lib/abk-runner-core.js`, limited to plan-only scanner selection without scanner execution.
 
-The hook runner read-only execution contract is recorded in `docs/hook-runner-read-only-execution-contract.md`. Its local implementation is split between `bin/abk-runner.js` and `lib/abk-runner-core.js`, limited to `legacy-surface-retention-scan` with explicit runner input and changed file paths, and `test-runtime-patch-scan` with explicit runner input and test file paths.
+The hook runner read-only execution contract is recorded in `docs/hook-runner-read-only-execution-contract.md`. Its local implementation is split between `bin/abk-runner.js` and `lib/abk-runner-core.js`, limited to `legacy-surface-retention-scan` with explicit runner input and changed file paths, `test-runtime-patch-scan` with explicit runner input and test file paths, and `test-fake-contract-scan` with explicit runner input plus test and production file paths.
 
 The read-only runner now includes configuration-error examples for unsupported scanner ids, unselected scanner ids, and missing changed file metadata. Unsupported scanner ids use `runner-command-contract` instead of being mapped to a supported scanner id.
 
@@ -256,6 +256,7 @@ Blocks completion when:
 54. Add read-only runner scan configuration-error coverage for unsupported scanner, unselected scanner, and missing changed files. Completed: `hooks/claude/examples/runner-scan.unsupported-scanner-output.json`, `hooks/claude/examples/runner-scan.unselected-scanner-output.json`, and `hooks/claude/examples/runner-scan.missing-changed-files-output.json`.
 55. Split the local runner into a thin CLI wrapper and reusable runner core before adding another scanner execution path. Completed: `lib/abk-runner-core.js` and `benchmarks/scripts/check-abk-runner-module-boundary.js`.
 56. Add read-only runner scan execution for `test-runtime-patch-scan`. Completed: `hooks/claude/examples/runner-scan.test-runtime-finding-input.json`, `hooks/claude/examples/runner-scan.test-runtime-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
-57. Only then package a Codex skill or Claude hooks.
+57. Add read-only runner scan execution for `test-fake-contract-scan`. Completed: `hooks/claude/examples/runner-scan.test-fake-finding-input.json`, `hooks/claude/examples/runner-scan.test-fake-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
+58. Only then package a Codex skill or Claude hooks.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

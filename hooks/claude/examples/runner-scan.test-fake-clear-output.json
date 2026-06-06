@@ -1,0 +1,10 @@
+{
+  "hookId": "test_integrity_check",
+  "scanner": "test-fake-contract-scan",
+  "status": "clear",
+  "exitCode": 0,
+  "blocked": false,
+  "reason": "no test fake contract finding for declared inputs",
+  "inputsUsed": ["testFiles", "productionFiles", "behaviorContract"],
+  "findings": []
+}

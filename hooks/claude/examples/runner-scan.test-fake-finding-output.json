@@ -1,0 +1,23 @@
+{
+  "hookId": "test_integrity_check",
+  "scanner": "test-fake-contract-scan",
+  "status": "finding",
+  "exitCode": 1,
+  "blocked": true,
+  "reason": "test fake contract mismatch found",
+  "inputsUsed": ["testFiles", "productionFiles", "behaviorContract"],
+  "findings": [
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/test-fake-finding/src/normalize-users.js",
+      "line": 4,
+      "rule": "test-fake-contract",
+      "detail": "production reads fake-only contact.email matched /contact\\.email/: email: user.contact.email"
+    },
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/test-fake-finding/test/fake-users.js",
+      "line": 5,
+      "rule": "test-fake-contract",
+      "detail": "fake-only contact shape matched /contact\\s*:/: contact: { email: \"ada@example.com\" }"
+    }
+  ]
+}
