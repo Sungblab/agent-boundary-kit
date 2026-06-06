@@ -106,6 +106,8 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/check-claude-hook-wrapper-input-contract.js`: verifies wrapper input stays contract-only and does not make `abk-claude-hook` read carrier paths
 - `docs/claude-hook-wrapper-output-fixtures.md`: expected-output-only wrapper envelope fixtures for native stdin plus user-owned carrier metadata
 - `benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js`: verifies wrapper output fixtures stay fixture-only and do not make `abk-claude-hook` read carrier paths
+- `docs/claude-hook-wrapper-implementation-contract.md`: contract-only boundary for a future wrapper command that emits native-payload-with-carrier envelopes
+- `benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js`: verifies wrapper implementation language stays contract-only and does not install hooks or widen `abk-claude-hook`
 - `docs/claude-hook-native-payload-mapping-fixtures.md`: native Claude Code hook payload fixtures proving native payload alone is insufficient
 - `docs/claude-hook-native-metadata-carrier-fixtures.md`: explicit metadata carrier fixtures for native Claude Code hook payloads
 - `docs/claude-hook-native-adapter.md`: bounded native payload plus carrier adapter for ABK hook event mapping
@@ -258,6 +260,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - Claude hook carrier source contracts are checked against `docs/claude-hook-carrier-source-contract.md` and remain separate from the current command entrypoint until a wrapper input contract exists.
 - Claude hook wrapper input contracts are checked against `docs/claude-hook-wrapper-input-contract.md` and remain contract-only until output fixtures exist.
 - Claude hook wrapper output fixtures are checked against `docs/claude-hook-wrapper-output-fixtures.md` and remain expected-output-only until a wrapper implementation contract exists.
+- Claude hook wrapper implementation contracts are checked against `docs/claude-hook-wrapper-implementation-contract.md` and remain contract-only until wrapper implementation fixtures exist.
 - native Claude Code hook payload mapping fixtures are checked against `docs/claude-hook-native-payload-mapping-fixtures.md` before live settings fragments.
 - native Claude Code metadata carrier fixtures are checked against `docs/claude-hook-native-metadata-carrier-fixtures.md` before native payloads can become ABK hook events.
 - the native Claude Code payload adapter is checked against `docs/claude-hook-native-adapter.md` before live hook entrypoint input is widened.

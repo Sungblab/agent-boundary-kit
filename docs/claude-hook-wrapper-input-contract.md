@@ -30,6 +30,8 @@ The produced envelope must include `nativePayload` and `metadataCarrier`.
 
 The wrapper output fixture contract is `docs/claude-hook-wrapper-output-fixtures.md`.
 
+The wrapper implementation contract is `docs/claude-hook-wrapper-implementation-contract.md`.
+
 The output envelope contract is `docs/claude-hook-native-command-input-contract.md`.
 
 The carrier source contract is `docs/claude-hook-carrier-source-contract.md`.
@@ -91,6 +93,7 @@ Before wrapper input language is described as ready, run:
 ```sh
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
+node benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js
 node benchmarks/scripts/check-claude-hook-native-command-input-contract.js
@@ -134,4 +137,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a wrapper implementation contract that maps native stdin plus reviewed user-owned carrier JSON into `docs/claude-hook-wrapper-output-fixtures.md`, still without installation or live settings guidance.
+The next gate is wrapper implementation fixtures that consume `docs/claude-hook-wrapper-implementation-contract.md`, still without installation or live settings guidance.

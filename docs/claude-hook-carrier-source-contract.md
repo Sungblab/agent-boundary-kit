@@ -40,6 +40,8 @@ The wrapper input contract is `docs/claude-hook-wrapper-input-contract.md`.
 
 The wrapper output fixture contract is `docs/claude-hook-wrapper-output-fixtures.md`.
 
+The wrapper implementation contract is `docs/claude-hook-wrapper-implementation-contract.md`.
+
 The carrier fixture contract is `docs/claude-hook-native-metadata-carrier-fixtures.md`.
 
 The settings-fragment draft fixture is `docs/claude-hook-settings-fragment-draft-fixtures.md`.
@@ -96,6 +98,7 @@ Before carrier source language is described as ready, run:
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
+node benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js
 node benchmarks/scripts/check-claude-hook-native-command-input-contract.js
 node benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js
@@ -138,4 +141,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a wrapper implementation contract that consumes the reviewed output fixture shape, still without implementation in `abk-claude-hook` or hook installation.
+The next gate is wrapper implementation fixtures that consume `docs/claude-hook-wrapper-implementation-contract.md`, still without implementation in `abk-claude-hook` or hook installation.

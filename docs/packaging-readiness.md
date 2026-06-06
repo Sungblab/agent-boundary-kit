@@ -70,6 +70,8 @@ The Claude hook wrapper input contract is recorded in `docs/claude-hook-wrapper-
 
 The Claude hook wrapper output fixtures are recorded in `docs/claude-hook-wrapper-output-fixtures.md`.
 
+The Claude hook wrapper implementation contract is recorded in `docs/claude-hook-wrapper-implementation-contract.md`.
+
 The Claude hook native payload mapping fixtures are recorded in `docs/claude-hook-native-payload-mapping-fixtures.md`.
 
 The Claude hook native metadata carrier fixtures are recorded in `docs/claude-hook-native-metadata-carrier-fixtures.md`.
@@ -149,6 +151,7 @@ node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
+node benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js
 node benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js
 node benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js
 node benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js
@@ -231,6 +234,8 @@ The Claude hook carrier source contract check is `benchmarks/scripts/check-claud
 The Claude hook wrapper input contract check is `benchmarks/scripts/check-claude-hook-wrapper-input-contract.js`. It verifies `docs/claude-hook-wrapper-input-contract.md` stays contract-only and does not make `abk-claude-hook` read carrier paths.
 
 The Claude hook wrapper output fixture check is `benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js`. It verifies `docs/claude-hook-wrapper-output-fixtures.md` fixes the expected output envelope without implementing wrapper file reads or accepting carrier paths in `abk-claude-hook`.
+
+The Claude hook wrapper implementation contract check is `benchmarks/scripts/check-claude-hook-wrapper-implementation-contract.js`. It verifies `docs/claude-hook-wrapper-implementation-contract.md` stays contract-only and keeps wrapper behavior separate from hook installation, scanner execution, and `abk-claude-hook` carrier path widening.
 
 The Claude hook native payload mapping fixture check is `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js`. It verifies `docs/claude-hook-native-payload-mapping-fixtures.md` rejects transcript reads and blocks native payloads that lack explicit ABK task metadata.
 
