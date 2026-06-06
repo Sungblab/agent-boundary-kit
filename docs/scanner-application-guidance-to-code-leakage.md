@@ -64,4 +64,6 @@ Green evidence:
 
 Apply this scanner to future runs where an agent changes AI model settings, defaults, settings labels, or source-level model-selection behavior.
 
+Before adding it to runner selection or execution, use `docs/guidance-to-code-runner-input-contract.md` as the input boundary.
+
 Do not package it into hooks until runner inputs and application surfaces are reviewed separately.
