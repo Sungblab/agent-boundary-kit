@@ -60,6 +60,7 @@ Immediate next work:
 27. Review `docs/claude-hook-wrapper-implementation.md` and run `node benchmarks/scripts/check-claude-hook-wrapper-implementation.js` before changing the local wrapper command or module.
 28. Review `docs/claude-hook-wrapper-wiring-review.md` and run `node benchmarks/scripts/check-claude-hook-wrapper-wiring-review.js` before changing wrapper-to-entrypoint wiring.
 29. Review `docs/claude-hook-settings-fragment-review.md` and run `node benchmarks/scripts/check-claude-hook-settings-fragment-review.js` before changing wrapper-backed settings-fragment review language.
+30. Review `docs/claude-hook-user-approved-install-language.md` and run `node benchmarks/scripts/check-claude-hook-user-approved-install-language.js` before changing user-approved manual install language.
 
 Style:
 Be blunt, evidence-first, and research-oriented. Avoid hype and early-product shorthand. Prefer spec-first, evidence-gated, fixture, taxonomy, and benchmark.

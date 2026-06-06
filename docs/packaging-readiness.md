@@ -66,6 +66,8 @@ The Claude hook settings-fragment draft fixtures are recorded in `docs/claude-ho
 
 The Claude hook settings-fragment review is recorded in `docs/claude-hook-settings-fragment-review.md`.
 
+The Claude hook user-approved manual install language is recorded in `docs/claude-hook-user-approved-install-language.md`.
+
 The Claude hook carrier source contract is recorded in `docs/claude-hook-carrier-source-contract.md`.
 
 The Claude hook wrapper input contract is recorded in `docs/claude-hook-wrapper-input-contract.md`.
@@ -157,6 +159,7 @@ node benchmarks/scripts/check-claude-hook-manual-install-document.js
 node benchmarks/scripts/check-claude-hook-manual-install-review-packet.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-review.js
+node benchmarks/scripts/check-claude-hook-user-approved-install-language.js
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
@@ -242,6 +245,8 @@ The Claude hook manual install review packet check is `benchmarks/scripts/check-
 The Claude hook settings-fragment draft fixture check is `benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js`. It verifies `docs/claude-hook-settings-fragment-draft-fixtures.md` keeps the draft not installable as-is and records the carrier gap before any user-owned configuration path exists.
 
 The Claude hook settings-fragment review check is `benchmarks/scripts/check-claude-hook-settings-fragment-review.js`. It verifies `docs/claude-hook-settings-fragment-review.md` keeps the wrapper-backed settings candidate review-only, user-approved, and non-mutating.
+
+The Claude hook user-approved manual install language check is `benchmarks/scripts/check-claude-hook-user-approved-install-language.js`. It verifies `docs/claude-hook-user-approved-install-language.md` stays language-only and avoids direct settings paths, shell copy commands, and agent-applied settings.
 
 The Claude hook carrier source contract check is `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`. It verifies `docs/claude-hook-carrier-source-contract.md` keeps the source user-owned and not consumed by the current command entrypoint.
 

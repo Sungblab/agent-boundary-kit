@@ -131,4 +131,6 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is user-approved manual installation language, still separate from agent-performed installation.
+The next gate is recorded in `docs/claude-hook-user-approved-install-language.md`: user-approved manual installation language, still separate from agent-performed installation.
+
+That gate is checked by `benchmarks/scripts/check-claude-hook-user-approved-install-language.js`.

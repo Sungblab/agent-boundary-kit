@@ -38,6 +38,8 @@ Review `docs/claude-hook-manual-install-review-packet.md` before changing user-f
 
 Review `docs/claude-hook-settings-fragment-draft-fixtures.md` before drafting any settings-fragment fixture.
 
+Review `docs/claude-hook-user-approved-install-language.md` before changing user-approved manual installation language.
+
 Review `docs/claude-hook-carrier-source-contract.md` before drafting any carrier source language.
 
 Review `docs/claude-hook-wrapper-input-contract.md` before drafting any wrapper input language.
@@ -88,6 +90,7 @@ Before this manual install document is described as ready for manual install lan
 node benchmarks/scripts/check-claude-hook-manual-install-document.js
 node benchmarks/scripts/check-claude-hook-manual-install-review-packet.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js
+node benchmarks/scripts/check-claude-hook-user-approved-install-language.js
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
@@ -143,4 +146,6 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a wrapper implementation contract, still without shell copy commands, live settings fragments, or agent-performed configuration mutation.
+The next gate is recorded in `docs/claude-hook-user-approved-install-language.md`, still without shell copy commands, live settings fragments, or agent-performed configuration mutation.
+
+That gate is checked by `benchmarks/scripts/check-claude-hook-user-approved-install-language.js`.

@@ -56,6 +56,8 @@ The Claude hook settings-fragment draft fixtures are recorded in `docs/claude-ho
 
 The Claude hook settings-fragment review is recorded in `docs/claude-hook-settings-fragment-review.md`. It is checked by `benchmarks/scripts/check-claude-hook-settings-fragment-review.js` and keeps the wrapper-backed settings candidate review-only, user-approved, and non-mutating.
 
+The Claude hook user-approved manual install language is recorded in `docs/claude-hook-user-approved-install-language.md`. It is checked by `benchmarks/scripts/check-claude-hook-user-approved-install-language.js` and keeps install language non-mutating without direct settings paths or shell copy commands.
+
 The Claude hook carrier source contract is recorded in `docs/claude-hook-carrier-source-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-carrier-source-contract.js` and keeps the carrier source user-owned and not consumed by the current command entrypoint.
 
 The Claude hook wrapper input contract is recorded in `docs/claude-hook-wrapper-input-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-wrapper-input-contract.js` and keeps wrapper input contract-only while preserving current carrier path rejection.
