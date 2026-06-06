@@ -28,7 +28,7 @@ Do not give the agent `expected.md`, `trap.md`, `notes.md`, `RESULT.md`, or `run
 
 Do not use the existing calibration run as scored evidence.
 
-Do not build a scope-mask scanner from calibration evidence alone.
+Do not treat calibration evidence as scanner promotion evidence.
 
 ## Agent Boundary
 
@@ -67,4 +67,4 @@ Use `docs/approved-file-mask-scope-scoring-checklist.md` to classify the run bef
 
 Use `docs/approved-file-mask-scope-result-template.md` to draft the reviewed result, then save the completed reviewed summary under `benchmarks/results/`.
 
-Only after reviewed scored evidence exists, decide whether a scope-mask scanner is justified.
+For runs after scanner promotion, include `approved-file-mask-scan` command and exit status in reviewed scanner evidence.

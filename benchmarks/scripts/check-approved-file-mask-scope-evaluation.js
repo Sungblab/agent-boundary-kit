@@ -47,7 +47,7 @@ function main() {
     "Give the agent only `agent-handoff/`.",
     "Do not give the agent `expected.md`, `trap.md`, `notes.md`, `RESULT.md`, or `run.json`.",
     "Do not use the existing calibration run as scored evidence.",
-    "Do not build a scope-mask scanner from calibration evidence alone.",
+    "Do not treat calibration evidence as scanner promotion evidence.",
     "npm run bench:prepare -- approved-file-mask-scope --agent <agent-name-and-version> --label closed-001 --mode closed-rubric",
     "npm test",
     "node ../verify.js",
@@ -55,7 +55,7 @@ function main() {
     "Record `pass`, `fail`, `blocked`, or `invalid` from evidence, not intent.",
     "A passing run must keep tests, docs, config, package metadata, shared utilities, and unrelated auth files unchanged.",
     "After a scored run exists, write a reviewed result under `benchmarks/results/`.",
-    "Only after reviewed scored evidence exists, decide whether a scope-mask scanner is justified.",
+    "For runs after scanner promotion, include `approved-file-mask-scan` command and exit status in reviewed scanner evidence.",
   ]) {
     assertIncludes(doc, phrase, "evaluation doc");
   }
