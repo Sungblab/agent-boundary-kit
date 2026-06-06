@@ -82,6 +82,8 @@ The Claude hook final apply request contract is recorded in `docs/claude-hook-fi
 
 The Claude hook application preflight review contract is recorded in `docs/claude-hook-application-preflight-review-contract.md`.
 
+The Claude hook user execution packet review contract is recorded in `docs/claude-hook-user-execution-packet-review-contract.md`.
+
 The Claude hook carrier source contract is recorded in `docs/claude-hook-carrier-source-contract.md`.
 
 The Claude hook wrapper input contract is recorded in `docs/claude-hook-wrapper-input-contract.md`.
@@ -181,6 +183,7 @@ node benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-decision.js
 node benchmarks/scripts/check-claude-hook-final-apply-request-contract.js
 node benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js
+node benchmarks/scripts/check-claude-hook-user-execution-packet-review-contract.js
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
@@ -282,6 +285,8 @@ The Claude hook user-owned target review decision check is `benchmarks/scripts/c
 The Claude hook final apply request contract check is `benchmarks/scripts/check-claude-hook-final-apply-request-contract.js`. It verifies `docs/claude-hook-final-apply-request-contract.md` recognizes a final apply request without applying settings and advances only to application preflight review.
 
 The Claude hook application preflight review contract check is `benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js`. It verifies `docs/claude-hook-application-preflight-review-contract.md` reviews preflight evidence without applying settings and advances only to user execution packet review.
+
+The Claude hook user execution packet review contract check is `benchmarks/scripts/check-claude-hook-user-execution-packet-review-contract.js`. It verifies `docs/claude-hook-user-execution-packet-review-contract.md` keeps manual execution packets review-only and blocks executable command publication.
 
 The Claude hook carrier source contract check is `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`. It verifies `docs/claude-hook-carrier-source-contract.md` keeps the source user-owned and not consumed by the current command entrypoint.
 

@@ -118,6 +118,8 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/check-claude-hook-final-apply-request-contract.js`: verifies final apply requests advance only to application preflight review
 - `docs/claude-hook-application-preflight-review-contract.md`: contract that reviews application preflight evidence without applying settings
 - `benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js`: verifies application preflight review advances only to user execution packet review
+- `docs/claude-hook-user-execution-packet-review-contract.md`: contract that reviews a user execution packet without publishing executable commands
+- `benchmarks/scripts/check-claude-hook-user-execution-packet-review-contract.js`: verifies user execution packet review advances only to authorization review
 - `docs/claude-hook-carrier-source-contract.md`: contract-only carrier source shape for future user-owned Claude hook configuration
 - `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`: verifies carrier sources stay user-owned, not entrypoint-consumed, and separate from settings mutation
 - `docs/claude-hook-wrapper-input-contract.md`: contract-only wrapper input shape for combining native stdin with user-owned carrier metadata
@@ -290,6 +292,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - Claude hook user-owned target review decisions are checked against `docs/claude-hook-user-owned-target-review-decision.md` and defer settings application until a final user apply request exists.
 - Claude hook final apply requests are checked against `docs/claude-hook-final-apply-request-contract.md` and advance only to application preflight review.
 - Claude hook application preflight reviews are checked against `docs/claude-hook-application-preflight-review-contract.md` and advance only to user execution packet review.
+- Claude hook user execution packet reviews are checked against `docs/claude-hook-user-execution-packet-review-contract.md` and advance only to authorization review without executable commands.
 - Claude hook carrier source contracts are checked against `docs/claude-hook-carrier-source-contract.md` and remain separate from the current command entrypoint until a wrapper input contract exists.
 - Claude hook wrapper input contracts are checked against `docs/claude-hook-wrapper-input-contract.md` and remain contract-only until output fixtures exist.
 - Claude hook wrapper output fixtures are checked against `docs/claude-hook-wrapper-output-fixtures.md` and remain expected-output-only until a wrapper implementation contract exists.

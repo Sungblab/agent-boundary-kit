@@ -34,6 +34,8 @@ The final apply request source is `docs/claude-hook-final-apply-request-contract
 
 The application preflight review source is `docs/claude-hook-application-preflight-review-contract.md`.
 
+The user execution packet review source is `docs/claude-hook-user-execution-packet-review-contract.md`.
+
 The application contract does not provide settings mutation commands.
 
 The application contract does not name a local settings path.
@@ -68,6 +70,7 @@ node benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-decision.js
 node benchmarks/scripts/check-claude-hook-final-apply-request-contract.js
 node benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js
+node benchmarks/scripts/check-claude-hook-user-execution-packet-review-contract.js
 node benchmarks/scripts/check-claude-hook-user-approved-install-language.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-review.js
 node benchmarks/scripts/check-claude-hook-wrapper-wiring-review.js

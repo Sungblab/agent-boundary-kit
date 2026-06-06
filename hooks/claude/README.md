@@ -72,6 +72,8 @@ The Claude hook final apply request contract is recorded in `docs/claude-hook-fi
 
 The Claude hook application preflight review contract is recorded in `docs/claude-hook-application-preflight-review-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js` and reviews preflight evidence without applying settings.
 
+The Claude hook user execution packet review contract is recorded in `docs/claude-hook-user-execution-packet-review-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-user-execution-packet-review-contract.js` and keeps manual execution packets review-only.
+
 The Claude hook carrier source contract is recorded in `docs/claude-hook-carrier-source-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-carrier-source-contract.js` and keeps the carrier source user-owned and not consumed by the current command entrypoint.
 
 The Claude hook wrapper input contract is recorded in `docs/claude-hook-wrapper-input-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-wrapper-input-contract.js` and keeps wrapper input contract-only while preserving current carrier path rejection.

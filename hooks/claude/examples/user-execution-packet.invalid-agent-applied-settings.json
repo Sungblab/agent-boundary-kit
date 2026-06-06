@@ -1,0 +1,7 @@
+{
+  "fixtureKind": "claude-hook-user-execution-packet-review-contract",
+  "status": "blocked",
+  "settingsMutationAttempted": true,
+  "agentMayApplySettings": false,
+  "reason": "user execution packet review must not apply settings"
+}

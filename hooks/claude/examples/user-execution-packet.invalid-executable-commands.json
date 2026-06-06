@@ -1,0 +1,7 @@
+{
+  "fixtureKind": "claude-hook-user-execution-packet-review-contract",
+  "status": "blocked",
+  "executableCommandsPublished": true,
+  "reason": "user execution packet review must not publish executable commands",
+  "agentMayApplySettings": false
+}

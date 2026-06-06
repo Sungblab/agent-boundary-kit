@@ -1,0 +1,7 @@
+{
+  "fixtureKind": "claude-hook-user-execution-packet-review-contract",
+  "status": "blocked",
+  "applicationPreflightReviewed": false,
+  "reason": "application preflight review required before user execution packet review",
+  "agentMayApplySettings": false
+}
