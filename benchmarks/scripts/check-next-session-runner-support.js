@@ -48,6 +48,13 @@ function main() {
     assert(markdown.includes(script), `next-session prompt missing runner scanner script: ${script}`);
   }
 
+  for (const phrase of [
+    "Future model-instruction reviewed runs must include `guidance-to-code-leakage-scan` command and exit status in scanner evidence.",
+    "Future approved-file-mask reviewed runs must include `approved-file-mask-scan` command and exit status in scanner evidence.",
+  ]) {
+    assert(markdown.includes(phrase), `next-session prompt missing promoted scanner result guidance: ${phrase}`);
+  }
+
   assert(!supportLine.includes("11 scanners"), "next-session prompt must not claim 11 scanners");
 
   for (const scriptName of ["bench:check", "bench:check:red"]) {
