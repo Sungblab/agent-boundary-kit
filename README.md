@@ -122,6 +122,8 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/check-claude-hook-user-execution-packet-review-contract.js`: verifies user execution packet review advances only to authorization review
 - `docs/claude-hook-user-execution-authorization-review-contract.md`: contract that reviews user execution authorization without agent-run commands
 - `benchmarks/scripts/check-claude-hook-user-execution-authorization-review-contract.js`: verifies authorization review advances only to user-performed application
+- `docs/claude-hook-user-performed-application-boundary-contract.md`: terminal boundary contract for user-performed application outside this repository
+- `benchmarks/scripts/check-claude-hook-user-performed-application-boundary-contract.js`: verifies the repo does not claim or verify external user-performed application
 - `docs/claude-hook-carrier-source-contract.md`: contract-only carrier source shape for future user-owned Claude hook configuration
 - `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`: verifies carrier sources stay user-owned, not entrypoint-consumed, and separate from settings mutation
 - `docs/claude-hook-wrapper-input-contract.md`: contract-only wrapper input shape for combining native stdin with user-owned carrier metadata
@@ -296,6 +298,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - Claude hook application preflight reviews are checked against `docs/claude-hook-application-preflight-review-contract.md` and advance only to user execution packet review.
 - Claude hook user execution packet reviews are checked against `docs/claude-hook-user-execution-packet-review-contract.md` and advance only to authorization review without executable commands.
 - Claude hook user execution authorization reviews are checked against `docs/claude-hook-user-execution-authorization-review-contract.md` and advance only to user-performed application without agent-run commands.
+- Claude hook user-performed application boundaries are checked against `docs/claude-hook-user-performed-application-boundary-contract.md` and prevent external completion or verification claims.
 - Claude hook carrier source contracts are checked against `docs/claude-hook-carrier-source-contract.md` and remain separate from the current command entrypoint until a wrapper input contract exists.
 - Claude hook wrapper input contracts are checked against `docs/claude-hook-wrapper-input-contract.md` and remain contract-only until output fixtures exist.
 - Claude hook wrapper output fixtures are checked against `docs/claude-hook-wrapper-output-fixtures.md` and remain expected-output-only until a wrapper implementation contract exists.

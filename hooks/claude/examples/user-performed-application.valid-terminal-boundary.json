@@ -1,0 +1,19 @@
+{
+  "fixtureKind": "claude-hook-user-performed-application-boundary-contract",
+  "status": "terminal-boundary-recorded",
+  "sourceTextRole": "terminal-boundary",
+  "userExecutionAuthorizationReviewed": true,
+  "userPerformedApplicationOnly": true,
+  "agentMayApplySettings": false,
+  "agentExecutedCommands": false,
+  "settingsMutationAttempted": false,
+  "agentClaimedCompletion": false,
+  "agentClaimedExternalVerification": false,
+  "nextGate": "none-terminal-boundary",
+  "requiredEvidence": [
+    "node benchmarks/scripts/check-claude-hook-user-execution-authorization-review-contract.js",
+    "node benchmarks/scripts/check-claude-hook-user-execution-packet-review-contract.js",
+    "node benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js",
+    "node benchmarks/scripts/check-claude-hook-final-apply-request-contract.js"
+  ]
+}

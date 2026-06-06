@@ -40,6 +40,8 @@ The settings-fragment review source is `docs/claude-hook-settings-fragment-revie
 
 The wrapper wiring evidence source is `docs/claude-hook-wrapper-wiring-review.md`.
 
+The user-performed application boundary source is `docs/claude-hook-user-performed-application-boundary-contract.md`.
+
 This contract does not identify a user settings path.
 
 This contract does not apply settings for the user.
@@ -104,6 +106,7 @@ node benchmarks/scripts/check-claude-hook-user-owned-target-review-decision.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js
+node benchmarks/scripts/check-claude-hook-user-performed-application-boundary-contract.js
 npm run bench:check
 npm run bench:check:red
 ```
@@ -148,4 +151,6 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is user-performed application only. That action is outside this repository and is not performed by the agent.
+The terminal boundary is recorded in `docs/claude-hook-user-performed-application-boundary-contract.md`: user-performed application only. That action is outside this repository and is not performed by the agent.
+
+That boundary is checked by `benchmarks/scripts/check-claude-hook-user-performed-application-boundary-contract.js`.

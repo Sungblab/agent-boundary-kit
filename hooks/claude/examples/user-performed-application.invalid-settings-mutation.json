@@ -1,0 +1,7 @@
+{
+  "fixtureKind": "claude-hook-user-performed-application-boundary-contract",
+  "status": "blocked",
+  "settingsMutationAttempted": true,
+  "reason": "terminal boundary must not apply settings",
+  "agentMayApplySettings": false
+}

@@ -34,6 +34,8 @@ The user execution packet review source is `docs/claude-hook-user-execution-pack
 
 The user execution authorization review source is `docs/claude-hook-user-execution-authorization-review-contract.md`.
 
+The user-performed application boundary source is `docs/claude-hook-user-performed-application-boundary-contract.md`.
+
 The wrapper wiring evidence is `docs/claude-hook-wrapper-wiring-review.md`.
 
 This decision does not identify a user settings path.
@@ -95,6 +97,7 @@ node benchmarks/scripts/check-claude-hook-final-apply-request-contract.js
 node benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js
 node benchmarks/scripts/check-claude-hook-user-execution-packet-review-contract.js
 node benchmarks/scripts/check-claude-hook-user-execution-authorization-review-contract.js
+node benchmarks/scripts/check-claude-hook-user-performed-application-boundary-contract.js
 node benchmarks/scripts/check-claude-hook-install-application-contract.js
 npm run bench:check
 npm run bench:check:red

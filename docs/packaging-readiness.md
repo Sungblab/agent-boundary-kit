@@ -86,6 +86,8 @@ The Claude hook user execution packet review contract is recorded in `docs/claud
 
 The Claude hook user execution authorization review contract is recorded in `docs/claude-hook-user-execution-authorization-review-contract.md`.
 
+The Claude hook user-performed application boundary contract is recorded in `docs/claude-hook-user-performed-application-boundary-contract.md`.
+
 The Claude hook carrier source contract is recorded in `docs/claude-hook-carrier-source-contract.md`.
 
 The Claude hook wrapper input contract is recorded in `docs/claude-hook-wrapper-input-contract.md`.
@@ -187,6 +189,7 @@ node benchmarks/scripts/check-claude-hook-final-apply-request-contract.js
 node benchmarks/scripts/check-claude-hook-application-preflight-review-contract.js
 node benchmarks/scripts/check-claude-hook-user-execution-packet-review-contract.js
 node benchmarks/scripts/check-claude-hook-user-execution-authorization-review-contract.js
+node benchmarks/scripts/check-claude-hook-user-performed-application-boundary-contract.js
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
@@ -292,6 +295,8 @@ The Claude hook application preflight review contract check is `benchmarks/scrip
 The Claude hook user execution packet review contract check is `benchmarks/scripts/check-claude-hook-user-execution-packet-review-contract.js`. It verifies `docs/claude-hook-user-execution-packet-review-contract.md` keeps manual execution packets review-only and blocks executable command publication.
 
 The Claude hook user execution authorization review contract check is `benchmarks/scripts/check-claude-hook-user-execution-authorization-review-contract.js`. It verifies `docs/claude-hook-user-execution-authorization-review-contract.md` keeps authorization review separate from agent-run commands and settings application.
+
+The Claude hook user-performed application boundary contract check is `benchmarks/scripts/check-claude-hook-user-performed-application-boundary-contract.js`. It verifies `docs/claude-hook-user-performed-application-boundary-contract.md` records the terminal boundary without external completion or verification claims.
 
 The Claude hook carrier source contract check is `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`. It verifies `docs/claude-hook-carrier-source-contract.md` keeps the source user-owned and not consumed by the current command entrypoint.
 

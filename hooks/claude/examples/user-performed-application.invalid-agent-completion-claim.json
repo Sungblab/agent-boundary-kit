@@ -1,0 +1,7 @@
+{
+  "fixtureKind": "claude-hook-user-performed-application-boundary-contract",
+  "status": "blocked",
+  "agentClaimedCompletion": true,
+  "reason": "agent must not claim user-performed application completed",
+  "agentMayApplySettings": false
+}

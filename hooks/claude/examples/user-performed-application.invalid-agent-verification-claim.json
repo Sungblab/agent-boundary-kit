@@ -1,0 +1,7 @@
+{
+  "fixtureKind": "claude-hook-user-performed-application-boundary-contract",
+  "status": "blocked",
+  "agentClaimedExternalVerification": true,
+  "reason": "agent must not verify external user-owned settings from this repository",
+  "agentMayApplySettings": false
+}

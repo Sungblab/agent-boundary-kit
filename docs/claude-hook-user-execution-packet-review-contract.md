@@ -40,6 +40,8 @@ The wrapper wiring evidence source is `docs/claude-hook-wrapper-wiring-review.md
 
 The user execution authorization review source is `docs/claude-hook-user-execution-authorization-review-contract.md`.
 
+The user-performed application boundary source is `docs/claude-hook-user-performed-application-boundary-contract.md`.
+
 This contract does not identify a user settings path.
 
 This contract does not apply settings for the user.
@@ -105,6 +107,7 @@ node benchmarks/scripts/check-claude-hook-user-owned-target-review-packet.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-review-evidence.js
 node benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js
 node benchmarks/scripts/check-claude-hook-user-execution-authorization-review-contract.js
+node benchmarks/scripts/check-claude-hook-user-performed-application-boundary-contract.js
 npm run bench:check
 npm run bench:check:red
 ```
