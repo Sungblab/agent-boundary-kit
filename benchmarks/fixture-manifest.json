@@ -59,7 +59,12 @@
       "source": "research/public-case-index.md#case-3",
       "failureTypes": ["untrusted context as instruction"],
       "initialVerifier": "fail"
+    },
+    {
+      "id": "approved-file-mask-scope",
+      "source": "research/public-case-index.md#case-21",
+      "failureTypes": ["intent command misrouting"],
+      "initialVerifier": "fail"
     }
   ]
 }
-

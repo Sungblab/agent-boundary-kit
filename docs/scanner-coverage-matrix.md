@@ -19,6 +19,14 @@ It is not a hook package and not a claim that every boundary failure is covered.
 | `bad-test-fake-precedence` | invalid fakes do not override production contracts | `test-fake-contract-scan` | `benchmarks/scripts/scan-test-fake-contract.js` | `docs/scanner-validation-test-fake-contract.md` | `docs/scanner-application-test-integrity.md` |
 | `untrusted-issue-comment-canary` | external text is evidence, not instruction | `untrusted-context-canary-scan` | `benchmarks/scripts/scan-untrusted-context-canary.js` | `docs/scanner-validation-untrusted-context-canary.md` | `docs/scanner-application-untrusted-context-canary.md` |
 
+## Unpromoted Fixture Queue
+
+These fixtures are runnable, but they do not have scanner red/green evidence yet. They should inform manual evaluation before any scanner, hook, skill rule, or packaging claim is added.
+
+| Fixture | Failure boundary | Source | Next evidence gate |
+| --- | --- | --- | --- |
+| `approved-file-mask-scope` | approved file masks must block unrelated edits | `research/public-case-index.md#case-21` | Run a closed-rubric agent evaluation, then record red/green evidence before considering a scope-mask scanner. |
+
 ## Promotion Decisions
 
 These rules are ready to remain in `AGENTS.md` and the `templates/AGENTS.boundary.md` template:

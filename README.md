@@ -272,6 +272,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - public docs and result summaries are checked for local paths, file URLs, and credential-like tokens.
 - the read-only scanners are checked against recorded red/green evidence.
 - future hook runner docs are checked for explicit input boundaries and scanner mapping.
+- fixture-to-scanner checks distinguish promoted scanner-backed fixtures from runnable fixtures still waiting for red/green scanner evidence.
 - future hook runner input examples are checked against a bounded JSON contract.
 - future hook runner output examples are checked against a bounded JSON contract.
 - future hook runner dry-run examples are checked for bounded scanner selection and output mapping.

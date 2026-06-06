@@ -78,6 +78,14 @@ const expectedCoverage = [
   },
 ];
 
+const unpromotedFixtures = [
+  {
+    fixture: "approved-file-mask-scope",
+    source: "research/public-case-index.md#case-21",
+    phrase: "Run a closed-rubric agent evaluation, then record red/green evidence before considering a scope-mask scanner.",
+  },
+];
+
 function assert(condition, message) {
   if (!condition) {
     throw new Error(message);
@@ -94,7 +102,10 @@ function main() {
   const markdown = fs.readFileSync(matrixPath, "utf8");
   const manifest = readJson(manifestPath);
   const manifestIds = manifest.fixtures.map((fixture) => fixture.id).sort();
-  const coverageIds = expectedCoverage.map((item) => item.fixture).sort();
+  const coverageIds = expectedCoverage
+    .map((item) => item.fixture)
+    .concat(unpromotedFixtures.map((item) => item.fixture))
+    .sort();
 
   assert(
     JSON.stringify(manifestIds) === JSON.stringify(coverageIds),
@@ -103,12 +114,19 @@ function main() {
 
   assert(markdown.includes("# Scanner Coverage Matrix"), "matrix must have # Scanner Coverage Matrix heading");
   assert(markdown.includes("## Fixture Coverage"), "matrix must have ## Fixture Coverage section");
+  assert(markdown.includes("## Unpromoted Fixture Queue"), "matrix must have ## Unpromoted Fixture Queue section");
   assert(markdown.includes("## Promotion Decisions"), "matrix must have ## Promotion Decisions section");
   assert(markdown.includes("## Packaging Boundary"), "matrix must have ## Packaging Boundary section");
 
   for (const item of expectedCoverage) {
     for (const value of [item.fixture, item.scanner, item.script, item.validation, item.application]) {
       assert(markdown.includes(value), `matrix missing ${value}`);
+    }
+  }
+
+  for (const item of unpromotedFixtures) {
+    for (const value of [item.fixture, item.source, item.phrase]) {
+      assert(markdown.includes(value), `matrix missing unpromoted fixture evidence: ${value}`);
     }
   }
 
@@ -122,7 +140,9 @@ function main() {
     assert(markdown.includes(phrase), `matrix missing promotion phrase: ${phrase}`);
   }
 
-  console.log(`scanner coverage matrix check passed (${expectedCoverage.length} fixtures)`);
+  console.log(
+    `scanner coverage matrix check passed (${expectedCoverage.length} promoted fixtures, ${unpromotedFixtures.length} unpromoted fixtures)`
+  );
 }
 
 main();
