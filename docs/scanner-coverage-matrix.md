@@ -25,6 +25,8 @@ It is not a hook package and not a claim that every boundary failure is covered.
 
 These fixtures are runnable, but they do not have scanner red/green evidence yet. They should inform manual evaluation before any scanner, hook, skill rule, or packaging claim is added.
 
+Select the next scanner candidate only from the unpromoted fixture queue after its next evidence gate is satisfied.
+
 | Fixture | Failure boundary | Source | Next evidence gate |
 | --- | --- | --- | --- |
 | `research-mode-no-write` | research-only prompts must not mutate workspace files | `research/public-case-index.md#case-22` | Mechanical green evidence is recorded; still needs a fresh passing closed-rubric or reviewed green run before considering a research-mode no-write scanner. |

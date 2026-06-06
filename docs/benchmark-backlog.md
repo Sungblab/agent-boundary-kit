@@ -219,7 +219,7 @@ Each benchmark fixture should include:
 90. Record scope-mask scanner validation notes from the approved-file-mask initial red state and scored pass evidence before implementing any scope scanner. Completed: `docs/scanner-validation-approved-file-mask-scope.md`.
 91. Implement `approved-file-mask-scan` only after reviewing `docs/scanner-validation-approved-file-mask-scope.md`; keep it limited to explicit changed-file paths and declared approved masks. Completed: `benchmarks/scripts/scan-approved-file-mask-scope.js` and `benchmarks/scripts/check-approved-file-mask-scope-scan.js`.
 92. Add read-only runner scan execution for `approved-file-mask-scan`. Completed: `hooks/claude/examples/runner-scan.approved-file-mask-finding-input.json`, `hooks/claude/examples/runner-scan.approved-file-mask-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
-93. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
+93. Select the next scanner candidate only from the unpromoted fixture queue after its next evidence gate is satisfied.
 
 ## Not Yet
 

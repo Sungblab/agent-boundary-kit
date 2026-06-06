@@ -146,6 +146,7 @@ function main() {
 
   for (const phrase of [
     "Do not package hooks yet",
+    "Select the next scanner candidate only from the unpromoted fixture queue after its next evidence gate is satisfied.",
     "AGENTS.md",
     "CLAUDE.md",
     "Codex skill",
