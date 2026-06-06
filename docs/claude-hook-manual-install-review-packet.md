@@ -21,6 +21,7 @@ The review packet extends:
 - `docs/claude-hook-manual-install.md`
 - `docs/claude-hook-manual-install-contract.md`
 - `docs/claude-hook-manual-install-language-fixtures.md`
+- `docs/claude-hook-settings-fragment-draft-fixtures.md`
 - `docs/claude-hook-native-command-input-contract.md`
 
 Native command entrypoint evidence is:
@@ -65,6 +66,7 @@ Before manual install review language is described as ready, run:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-manual-install-review-packet.js
+node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js
 node benchmarks/scripts/check-claude-hook-manual-install-document.js
 node benchmarks/scripts/check-claude-hook-native-command-entrypoint.js
@@ -79,6 +81,7 @@ The evidence must show:
 - the valid packet requires `native-payload-with-carrier`
 - the valid packet requires `metadataCarrier`
 - the valid packet lists evidence gates
+- the settings-fragment draft fixture is not installable as-is
 - no live hook settings fragment is published
 - no shell copy command is published
 - no repository-level Claude configuration exists
@@ -103,4 +106,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a user-approved settings-fragment draft fixture, still non-mutating and still separate from any agent-performed installation.
+The next gate is a carrier source contract, still non-mutating and still separate from any agent-performed installation.

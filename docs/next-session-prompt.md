@@ -51,6 +51,7 @@ Immediate next work:
 18. Run `node benchmarks/scripts/check-claude-hook-native-command-entrypoint.js` before claiming `abk-claude-hook` maps native payload plus carrier envelopes.
 19. Run `node benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js` before changing Claude hook manual install language after native entrypoint work.
 20. Review `docs/claude-hook-manual-install-review-packet.md` and run `node benchmarks/scripts/check-claude-hook-manual-install-review-packet.js` before drafting any Claude hook settings-fragment fixture.
+21. Review `docs/claude-hook-settings-fragment-draft-fixtures.md` and run `node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js` before drafting any carrier source contract.
 
 Style:
 Be blunt, evidence-first, and research-oriented. Avoid hype and early-product shorthand. Prefer spec-first, evidence-gated, fixture, taxonomy, and benchmark.

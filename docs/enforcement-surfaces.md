@@ -88,6 +88,8 @@ The Claude hook manual install native entrypoint readiness check is recorded in 
 
 The Claude hook manual install review packet is recorded in `docs/claude-hook-manual-install-review-packet.md`. Its check is `benchmarks/scripts/check-claude-hook-manual-install-review-packet.js`, which keeps review language separate from live settings fragments and shell commands.
 
+The Claude hook settings-fragment draft fixtures are recorded in `docs/claude-hook-settings-fragment-draft-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js`, which keeps the draft not installable as-is and records the explicit carrier gap.
+
 The Claude hook native payload mapping fixtures are recorded in `docs/claude-hook-native-payload-mapping-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js`, which rejects transcript reads and blocks native payloads that lack explicit ABK task metadata.
 
 The Claude hook native metadata carrier fixtures are recorded in `docs/claude-hook-native-metadata-carrier-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js`, which requires `hookId`, `repoRoot`, and `task` to stay explicit when native payloads become ABK hook events.
@@ -373,6 +375,8 @@ Blocks completion when:
 115. Add Claude hook manual install native entrypoint readiness. Completed: `benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js`.
 116. Add a Claude hook manual install review packet. Completed: `docs/claude-hook-manual-install-review-packet.md`.
 117. Add a Claude hook manual install review packet check. Completed: `benchmarks/scripts/check-claude-hook-manual-install-review-packet.js`.
-118. Claude hooks remain specs until a user-approved settings-fragment draft fixture is reviewed against the bounded native command entrypoint.
+118. Add Claude hook settings-fragment draft fixtures. Completed: `docs/claude-hook-settings-fragment-draft-fixtures.md`.
+119. Add a Claude hook settings-fragment draft fixture check. Completed: `benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js`.
+120. Claude hooks remain specs until a carrier source contract is reviewed against the bounded native command entrypoint.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.

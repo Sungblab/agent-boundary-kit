@@ -98,6 +98,8 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js`: verifies manual install language review is gated by native command entrypoint evidence
 - `docs/claude-hook-manual-install-review-packet.md`: review-only packet for user-approved Claude hook manual install language
 - `benchmarks/scripts/check-claude-hook-manual-install-review-packet.js`: verifies manual install review packets stay review-only before any settings-fragment draft work
+- `docs/claude-hook-settings-fragment-draft-fixtures.md`: draft-only settings-fragment fixture that keeps the carrier gap explicit
+- `benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js`: verifies settings-fragment drafts are not installable as-is and do not mutate configuration
 - `docs/claude-hook-native-payload-mapping-fixtures.md`: native Claude Code hook payload fixtures proving native payload alone is insufficient
 - `docs/claude-hook-native-metadata-carrier-fixtures.md`: explicit metadata carrier fixtures for native Claude Code hook payloads
 - `docs/claude-hook-native-adapter.md`: bounded native payload plus carrier adapter for ABK hook event mapping
@@ -246,6 +248,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - the Claude hook manual install document is checked against `docs/claude-hook-manual-install.md` and stays blocked for agent-performed installation.
 - Claude hook manual install readiness is checked against native command entrypoint evidence before install language review can advance.
 - Claude hook manual install review packets are checked against `docs/claude-hook-manual-install-review-packet.md` before any settings-fragment draft work.
+- Claude hook settings-fragment draft fixtures are checked against `docs/claude-hook-settings-fragment-draft-fixtures.md` and remain not installable as-is until a carrier source contract exists.
 - native Claude Code hook payload mapping fixtures are checked against `docs/claude-hook-native-payload-mapping-fixtures.md` before live settings fragments.
 - native Claude Code metadata carrier fixtures are checked against `docs/claude-hook-native-metadata-carrier-fixtures.md` before native payloads can become ABK hook events.
 - the native Claude Code payload adapter is checked against `docs/claude-hook-native-adapter.md` before live hook entrypoint input is widened.

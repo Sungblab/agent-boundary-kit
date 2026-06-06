@@ -36,6 +36,8 @@ Review `docs/claude-hook-manual-install-language-fixtures.md` before changing in
 
 Review `docs/claude-hook-manual-install-review-packet.md` before changing user-facing manual install review language.
 
+Review `docs/claude-hook-settings-fragment-draft-fixtures.md` before drafting any settings-fragment fixture.
+
 Review `docs/claude-hook-command-adapter-entrypoint.md` before naming `abk-claude-hook` in install language.
 
 Review `docs/claude-hook-event-input-contract.md` before changing ABK hook event fields.
@@ -79,6 +81,7 @@ Before this manual install document is described as ready for manual install lan
 ```sh
 node benchmarks/scripts/check-claude-hook-manual-install-document.js
 node benchmarks/scripts/check-claude-hook-manual-install-review-packet.js
+node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js
 node benchmarks/scripts/check-claude-hook-native-command-entrypoint.js
 node benchmarks/scripts/check-claude-hook-native-command-input-contract.js
@@ -96,6 +99,7 @@ The evidence must show:
 
 - native command entrypoint evidence is proven
 - the manual install review packet is review-only
+- the settings-fragment draft fixture is not installable as-is
 - the document is ready only for user-approved manual install language review
 - agent-performed installation remains blocked
 - no live hook settings fragment is published
@@ -127,4 +131,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is user-approved manual install language review for the bounded native command entrypoint, still without shell copy commands, live settings fragments, or agent-performed configuration mutation.
+The next gate is a carrier source contract for a user-owned hook configuration path, still without shell copy commands, live settings fragments, or agent-performed configuration mutation.
