@@ -1,0 +1,15 @@
+{
+  "fixtureKind": "claude-hook-user-owned-target-checklist",
+  "status": "blocked",
+  "explicitInstallRequest": true,
+  "userOwnedTargetProvided": true,
+  "targetInsideRepository": false,
+  "targetScopeReviewed": true,
+  "backupPlanProvided": false,
+  "agentMayApplySettings": false,
+  "reason": "backup plan required before settings application",
+  "allowedNextActions": [
+    "request backup evidence",
+    "stay at target review"
+  ]
+}

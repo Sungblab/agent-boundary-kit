@@ -62,6 +62,7 @@ Immediate next work:
 29. Review `docs/claude-hook-settings-fragment-review.md` and run `node benchmarks/scripts/check-claude-hook-settings-fragment-review.js` before changing wrapper-backed settings-fragment review language.
 30. Review `docs/claude-hook-user-approved-install-language.md` and run `node benchmarks/scripts/check-claude-hook-user-approved-install-language.js` before changing user-approved manual install language.
 31. Review `docs/claude-hook-install-application-contract.md` and run `node benchmarks/scripts/check-claude-hook-install-application-contract.js` before treating any user text as an install application request.
+32. Review `docs/claude-hook-user-owned-target-checklist.md` and run `node benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js` before treating any explicit install request as eligible for target review.
 
 Style:
 Be blunt, evidence-first, and research-oriented. Avoid hype and early-product shorthand. Prefer spec-first, evidence-gated, fixture, taxonomy, and benchmark.

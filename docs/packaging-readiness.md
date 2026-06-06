@@ -70,6 +70,8 @@ The Claude hook user-approved manual install language is recorded in `docs/claud
 
 The Claude hook install application contract is recorded in `docs/claude-hook-install-application-contract.md`.
 
+The Claude hook user-owned target checklist is recorded in `docs/claude-hook-user-owned-target-checklist.md`.
+
 The Claude hook carrier source contract is recorded in `docs/claude-hook-carrier-source-contract.md`.
 
 The Claude hook wrapper input contract is recorded in `docs/claude-hook-wrapper-input-contract.md`.
@@ -163,6 +165,7 @@ node benchmarks/scripts/check-claude-hook-settings-fragment-draft-fixtures.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-review.js
 node benchmarks/scripts/check-claude-hook-user-approved-install-language.js
 node benchmarks/scripts/check-claude-hook-install-application-contract.js
+node benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js
 node benchmarks/scripts/check-claude-hook-carrier-source-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-input-contract.js
 node benchmarks/scripts/check-claude-hook-wrapper-output-fixtures.js
@@ -252,6 +255,8 @@ The Claude hook settings-fragment review check is `benchmarks/scripts/check-clau
 The Claude hook user-approved manual install language check is `benchmarks/scripts/check-claude-hook-user-approved-install-language.js`. It verifies `docs/claude-hook-user-approved-install-language.md` stays language-only and avoids direct settings paths, shell copy commands, and agent-applied settings.
 
 The Claude hook install application contract check is `benchmarks/scripts/check-claude-hook-install-application-contract.js`. It verifies `docs/claude-hook-install-application-contract.md` blocks generic continuation commands from authorizing settings mutation.
+
+The Claude hook user-owned target checklist check is `benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js`. It verifies `docs/claude-hook-user-owned-target-checklist.md` blocks repository targets, missing backup evidence, and agent-applied settings even after an explicit install request.
 
 The Claude hook carrier source contract check is `benchmarks/scripts/check-claude-hook-carrier-source-contract.js`. It verifies `docs/claude-hook-carrier-source-contract.md` keeps the source user-owned and not consumed by the current command entrypoint.
 

@@ -22,6 +22,8 @@ The wrapper wiring evidence is `docs/claude-hook-wrapper-wiring-review.md`.
 
 The wrapper implementation boundary is `docs/claude-hook-wrapper-implementation.md`.
 
+The user-owned target checklist source is `docs/claude-hook-user-owned-target-checklist.md`.
+
 The application contract does not provide settings mutation commands.
 
 The application contract does not name a local settings path.
@@ -42,12 +44,15 @@ The blocked fixture proves that ordinary continuation text does not authorize se
 
 The eligible fixture proves that even with an explicit install request, this repository remains a source fixture and contract repo. Applying settings still requires a user-owned target outside this repo.
 
+The target checklist source for that later review is `docs/claude-hook-user-owned-target-checklist.md`.
+
 ## Evidence Gate
 
 Before install application language is described as ready, run:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-install-application-contract.js
+node benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js
 node benchmarks/scripts/check-claude-hook-user-approved-install-language.js
 node benchmarks/scripts/check-claude-hook-settings-fragment-review.js
 node benchmarks/scripts/check-claude-hook-wrapper-wiring-review.js
@@ -90,4 +95,6 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate requires a new user turn that explicitly asks to apply installation to a user-owned target. Without that request, stay at language review.
+The next gate is recorded in `docs/claude-hook-user-owned-target-checklist.md`: a user-owned target review. Without an explicit request and target evidence, stay at language review.
+
+That gate is checked by `benchmarks/scripts/check-claude-hook-user-owned-target-checklist.js`.

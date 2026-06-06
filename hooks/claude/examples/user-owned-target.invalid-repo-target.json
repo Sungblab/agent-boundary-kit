@@ -1,0 +1,15 @@
+{
+  "fixtureKind": "claude-hook-user-owned-target-checklist",
+  "status": "blocked",
+  "explicitInstallRequest": true,
+  "userOwnedTargetProvided": true,
+  "targetInsideRepository": true,
+  "targetScopeReviewed": false,
+  "backupPlanRequired": true,
+  "agentMayApplySettings": false,
+  "reason": "target must be user-owned outside this repository",
+  "allowedNextActions": [
+    "ask for a user-owned target outside this repository",
+    "stay at target review"
+  ]
+}

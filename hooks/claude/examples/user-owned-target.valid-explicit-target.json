@@ -1,0 +1,20 @@
+{
+  "fixtureKind": "claude-hook-user-owned-target-checklist",
+  "status": "ready-for-user-target-review",
+  "explicitInstallRequest": true,
+  "userOwnedTargetProvided": true,
+  "targetInsideRepository": false,
+  "targetScopeReviewed": true,
+  "backupPlanRequired": true,
+  "agentMayApplySettings": false,
+  "allowedNextActions": [
+    "review target ownership",
+    "review target scope",
+    "record backup evidence"
+  ],
+  "requiredEvidence": [
+    "node benchmarks/scripts/check-claude-hook-install-application-contract.js",
+    "node benchmarks/scripts/check-claude-hook-user-approved-install-language.js",
+    "node benchmarks/scripts/check-claude-hook-settings-fragment-review.js"
+  ]
+}
