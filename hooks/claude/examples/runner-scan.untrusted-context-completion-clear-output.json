@@ -1,0 +1,10 @@
+{
+  "hookId": "completion_evidence_check",
+  "scanner": "untrusted-context-canary-scan",
+  "status": "clear",
+  "exitCode": 0,
+  "blocked": false,
+  "reason": "external evidence is referenced without routing untrusted instructions into trusted output",
+  "inputsUsed": ["externalSources", "completionDraft"],
+  "findings": []
+}

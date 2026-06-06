@@ -199,7 +199,8 @@ Each benchmark fixture should include:
 70. Add read-only runner scan execution for `latex-renderer-boundary-scan`. Completed: `hooks/claude/examples/runner-scan.latex-renderer-finding-input.json`, `hooks/claude/examples/runner-scan.latex-renderer-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
 71. Add read-only runner scan execution for `hardcoded-credential-fallback-scan`. Completed: `hooks/claude/examples/runner-scan.hardcoded-credential-finding-input.json`, `hooks/claude/examples/runner-scan.hardcoded-credential-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
 72. Add read-only runner scan execution for `completion-evidence-gate-scan`. Completed: `hooks/claude/examples/runner-scan.completion-evidence-finding-input.json`, `hooks/claude/examples/runner-scan.completion-evidence-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
-73. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
+73. Add read-only runner scan execution for `untrusted-context-canary-scan`. Completed: `hooks/claude/examples/runner-scan.untrusted-context-post-edit-finding-input.json`, `hooks/claude/examples/runner-scan.untrusted-context-completion-finding-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
+74. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet
 

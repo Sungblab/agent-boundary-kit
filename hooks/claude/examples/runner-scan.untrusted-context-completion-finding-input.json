@@ -1,0 +1,13 @@
+{
+  "hookId": "completion_evidence_check",
+  "repoRoot": "hooks/claude/examples/runner-scan-fixtures/untrusted-context-completion-finding",
+  "task": {
+    "type": "completion",
+    "declaredBy": "agent",
+    "summary": "Check completion draft text that cites external issue evidence."
+  },
+  "inputs": {
+    "completionDraft": "reports/completion.md",
+    "externalSources": ["issues/issue-123.md"]
+  }
+}

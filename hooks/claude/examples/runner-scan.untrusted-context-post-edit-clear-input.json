@@ -1,0 +1,13 @@
+{
+  "hookId": "post_edit_scope_check",
+  "repoRoot": "hooks/claude/examples/runner-scan-fixtures/untrusted-context-post-edit-clear",
+  "task": {
+    "type": "implementation",
+    "declaredBy": "agent",
+    "summary": "Check trusted post-edit outputs that cite external issue evidence."
+  },
+  "inputs": {
+    "changedFiles": ["reports/issue-summary.md"],
+    "externalSources": ["issues/issue-123.md"]
+  }
+}
