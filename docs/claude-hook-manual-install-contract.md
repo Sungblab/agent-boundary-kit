@@ -44,6 +44,7 @@ The contract depends on:
 - `docs/claude-hook-manual-install-doc-fixture.md`
 - `docs/claude-hook-manual-install-language-fixtures.md`
 - `docs/claude-hook-manual-install.md`
+- `docs/claude-hook-manual-install-review-packet.md`
 - `docs/claude-hook-native-command-input-contract.md`
 - `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js`
 - `docs/claude-hook-command-adapter-contract.md`
@@ -68,6 +69,7 @@ Allowed future language may describe:
 - the bounded command source: `docs/claude-hook-command-adapter-entrypoint.md`
 - the native command input source: `docs/claude-hook-native-command-input-contract.md`
 - native command entrypoint evidence from `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js`
+- the review-only packet in `docs/claude-hook-manual-install-review-packet.md`
 - the manual install language fixture: `docs/claude-hook-manual-install-language-fixtures.md`
 - the stop condition when `map-event`, `dry-run`, or `scan` returns a configuration or boundary finding
 - the fact that scanner output is evidence, not final copy
@@ -94,6 +96,7 @@ Before any Claude hook manual install contract or install documentation is descr
 
 ```sh
 node benchmarks/scripts/check-claude-hook-manual-install-contract.js
+node benchmarks/scripts/check-claude-hook-manual-install-review-packet.js
 node benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js
 node benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-document.js
@@ -116,6 +119,7 @@ The evidence must show:
 - no install scripts or setup scripts exist in `hooks/claude/`
 - no repository-level Claude hook configuration exists
 - the manual install document records native command entrypoint evidence
+- the manual install review packet remains review-only
 - the manual install document remains blocked for agent-performed installation
 - manual install language fixtures reject copy and configuration-edit instructions until native payload mapping is proven
 - the command adapter contract records the stdin-to-runner-input bridge required before live hooks
@@ -146,4 +150,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is user-approved manual install language review for the bounded native command entrypoint before any live install fragment is published.
+The next gate is a user-approved settings-fragment draft fixture after the review packet remains review-only.

@@ -34,6 +34,8 @@ The source evidence says command hooks receive JSON on stdin and Claude Code set
 
 Review `docs/claude-hook-manual-install-language-fixtures.md` before changing install language.
 
+Review `docs/claude-hook-manual-install-review-packet.md` before changing user-facing manual install review language.
+
 Review `docs/claude-hook-command-adapter-entrypoint.md` before naming `abk-claude-hook` in install language.
 
 Review `docs/claude-hook-event-input-contract.md` before changing ABK hook event fields.
@@ -76,6 +78,7 @@ Before this manual install document is described as ready for manual install lan
 
 ```sh
 node benchmarks/scripts/check-claude-hook-manual-install-document.js
+node benchmarks/scripts/check-claude-hook-manual-install-review-packet.js
 node benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js
 node benchmarks/scripts/check-claude-hook-native-command-entrypoint.js
 node benchmarks/scripts/check-claude-hook-native-command-input-contract.js
@@ -92,6 +95,7 @@ npm run bench:check:red
 The evidence must show:
 
 - native command entrypoint evidence is proven
+- the manual install review packet is review-only
 - the document is ready only for user-approved manual install language review
 - agent-performed installation remains blocked
 - no live hook settings fragment is published

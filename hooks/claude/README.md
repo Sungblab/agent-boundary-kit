@@ -50,6 +50,8 @@ The Claude hook manual install document is recorded in `docs/claude-hook-manual-
 
 The Claude hook manual install native entrypoint readiness check is recorded in `benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js`. It keeps manual install language review gated by native command entrypoint evidence while agent-performed installation remains blocked.
 
+The Claude hook manual install review packet is recorded in `docs/claude-hook-manual-install-review-packet.md`. It is checked by `benchmarks/scripts/check-claude-hook-manual-install-review-packet.js` and keeps user-facing review language separate from live settings fragments and shell commands.
+
 The Claude hook native payload mapping fixtures are recorded in `docs/claude-hook-native-payload-mapping-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js` and prove native Claude Code payload alone is insufficient because ABK task metadata must remain explicit.
 
 The Claude hook native metadata carrier fixtures are recorded in `docs/claude-hook-native-metadata-carrier-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js` and prove native payload plus explicit carrier metadata can produce an ABK hook event without reading transcripts.

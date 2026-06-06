@@ -6,6 +6,8 @@ Review `docs/claude-hook-command-adapter-entrypoint.md` before using `abk-claude
 
 Review `docs/claude-hook-native-command-input-contract.md` before using native payload envelopes.
 
+Review `docs/claude-hook-manual-install-review-packet.md` before drafting any settings-fragment fixture.
+
 Review `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js` for native command entrypoint evidence.
 
 Review `hooks/claude/examples/package-manifest.valid.json` before writing any local hook configuration.

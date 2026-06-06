@@ -2,7 +2,7 @@
 
 These fixtures define bounded manual install language for the Claude hook adapter.
 
-They extend `docs/claude-hook-manual-install-contract.md`, `docs/claude-hook-manual-install-doc-fixture.md`, `docs/claude-hook-manual-install.md`, `docs/claude-hook-native-command-input-contract.md`, and `docs/claude-hook-command-adapter-entrypoint.md`.
+They extend `docs/claude-hook-manual-install-contract.md`, `docs/claude-hook-manual-install-doc-fixture.md`, `docs/claude-hook-manual-install.md`, `docs/claude-hook-manual-install-review-packet.md`, `docs/claude-hook-native-command-input-contract.md`, and `docs/claude-hook-command-adapter-entrypoint.md`.
 
 They are language fixtures only. They are not installed hooks, not installers, and not hook setup scripts.
 
@@ -27,6 +27,8 @@ It may point to `docs/claude-hook-command-adapter-entrypoint.md`.
 It may point to `docs/claude-hook-native-command-input-contract.md`.
 
 It may cite native command entrypoint evidence from `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js`.
+
+It may point to `docs/claude-hook-manual-install-review-packet.md`.
 
 It may require manual approval only.
 
@@ -74,6 +76,7 @@ Before manual install language is described as ready, run:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js
+node benchmarks/scripts/check-claude-hook-manual-install-review-packet.js
 node benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js
 node benchmarks/scripts/check-claude-hook-manual-install-document.js
 node benchmarks/scripts/check-claude-hook-native-command-entrypoint.js
@@ -90,6 +93,7 @@ The evidence must show:
 - the valid fixture names `abk-claude-hook`
 - the valid fixture links the bounded adapter entrypoint
 - the valid fixture links the native command input contract
+- the valid fixture links the manual install review packet
 - the valid fixture cites native command entrypoint evidence
 - the valid fixture cites official Claude Code hooks and settings references
 - the valid fixture does not include shell copy commands
@@ -121,4 +125,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is user-approved manual install language review for the bounded native command entrypoint before any live install fragment is published.
+The next gate is a user-approved settings-fragment draft fixture after the review packet remains review-only.

@@ -86,6 +86,8 @@ The Claude hook manual install document is recorded in `docs/claude-hook-manual-
 
 The Claude hook manual install native entrypoint readiness check is recorded in `benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js`. It verifies manual install language review is gated by native command entrypoint evidence.
 
+The Claude hook manual install review packet is recorded in `docs/claude-hook-manual-install-review-packet.md`. Its check is `benchmarks/scripts/check-claude-hook-manual-install-review-packet.js`, which keeps review language separate from live settings fragments and shell commands.
+
 The Claude hook native payload mapping fixtures are recorded in `docs/claude-hook-native-payload-mapping-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js`, which rejects transcript reads and blocks native payloads that lack explicit ABK task metadata.
 
 The Claude hook native metadata carrier fixtures are recorded in `docs/claude-hook-native-metadata-carrier-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js`, which requires `hookId`, `repoRoot`, and `task` to stay explicit when native payloads become ABK hook events.
@@ -369,6 +371,8 @@ Blocks completion when:
 113. Add a Claude hook native command entrypoint check. Completed: `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js`.
 114. Implement the native command input contract in `abk-claude-hook`. Completed: `lib/abk-claude-hook-adapter.js`.
 115. Add Claude hook manual install native entrypoint readiness. Completed: `benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js`.
-116. Claude hooks remain specs until user-approved manual install language is re-reviewed against the bounded native command entrypoint.
+116. Add a Claude hook manual install review packet. Completed: `docs/claude-hook-manual-install-review-packet.md`.
+117. Add a Claude hook manual install review packet check. Completed: `benchmarks/scripts/check-claude-hook-manual-install-review-packet.js`.
+118. Claude hooks remain specs until a user-approved settings-fragment draft fixture is reviewed against the bounded native command entrypoint.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.
