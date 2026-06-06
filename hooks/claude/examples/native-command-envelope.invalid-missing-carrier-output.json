@@ -1,0 +1,15 @@
+{
+  "mode": "native-command-input-contract-fixture",
+  "status": "error",
+  "exitCode": 2,
+  "blocked": true,
+  "reason": "native command envelope missing metadataCarrier",
+  "inputsUsed": [],
+  "findings": [],
+  "nonGoals": [
+    "Do not read transcripts",
+    "Do not infer missing metadata",
+    "Do not install hooks",
+    "Do not execute scanners"
+  ]
+}

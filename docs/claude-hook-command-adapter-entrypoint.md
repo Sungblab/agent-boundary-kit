@@ -8,6 +8,8 @@ It implements the boundary recorded in `docs/claude-hook-command-adapter-impleme
 
 Native payload plus carrier mapping is recorded separately in `docs/claude-hook-native-adapter.md` and checked by `benchmarks/scripts/check-claude-hook-native-adapter.js`.
 
+The native command input contract is recorded separately in `docs/claude-hook-native-command-input-contract.md` and checked by `benchmarks/scripts/check-claude-hook-native-command-input-contract.js`.
+
 ## Boundary
 
 The entrypoint may bridge one Claude hook stdin payload into the existing ABK runner chain.
@@ -95,6 +97,7 @@ node benchmarks/scripts/check-claude-hook-command-adapter-implementation-contrac
 node benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js
 node benchmarks/scripts/check-claude-hook-command-adapter-contract.js
 node benchmarks/scripts/check-claude-hook-native-adapter.js
+node benchmarks/scripts/check-claude-hook-native-command-input-contract.js
 npm run bench:check
 npm run bench:check:red
 ```
@@ -128,4 +131,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is a command-entrypoint input contract that decides how a user-approved hook command may receive explicit carrier metadata without reading transcripts, mutating Claude configuration, or publishing live settings fragments.
+The next gate is implementation of the native command input contract without installing hooks, mutating Claude configuration, or publishing live settings fragments.

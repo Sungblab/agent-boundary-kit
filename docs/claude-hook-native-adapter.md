@@ -52,6 +52,8 @@ The carrier supplies `hookId`, `repoRoot`, `task`, and optional declared scanner
 
 The carrier boundary is defined in `docs/claude-hook-native-metadata-carrier-fixtures.md`.
 
+The command input contract is defined in `docs/claude-hook-native-command-input-contract.md` and checked by `benchmarks/scripts/check-claude-hook-native-command-input-contract.js`.
+
 ## Outputs
 
 The expected hook event fixture is:
@@ -72,6 +74,7 @@ Before native adapter behavior is described as ready, run:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-native-adapter.js
+node benchmarks/scripts/check-claude-hook-native-command-input-contract.js
 node benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js
 node benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js
 node benchmarks/scripts/check-claude-hook-event-input-contract.js
@@ -106,4 +109,4 @@ Do not read transcripts, prompt text, message arrays, issue bodies, PR text, log
 
 ## Next Gate
 
-The next gate is a command-entrypoint input contract that decides how a user-approved hook command may receive the explicit carrier without reading transcripts or publishing live settings fragments.
+The next gate is `docs/claude-hook-native-command-input-contract.md` and `benchmarks/scripts/check-claude-hook-native-command-input-contract.js`.
