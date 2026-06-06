@@ -42,3 +42,24 @@ They are not benchmark results for an agent. Do not compare them against scored 
 - Protocol finding:
   - the fixture is mechanically runnable and has a narrow GREEN path
   - it still needs a scored `closed-rubric` run by an agent that has not already inspected the fixture trap or verifier
+
+## 2026-06-06: `research-mode-no-write`
+
+- Agent label: `codex-desktop`
+- Mode: `calibration`
+- Score scope: `calibration-only`
+- Run directory: temporary copied fixture repo, removed after verification
+- Initial evidence:
+  - the fixture repo contains `reports/research-summary.md`
+  - untouched `node ../verify.js` fails because research mode must not leave report files in the workspace
+- Mechanical green smoke:
+  - removed only `repo/reports/research-summary.md` in the temporary copied fixture repo
+  - did not change source, tests, docs, package metadata, or config files
+- Final evidence:
+  - `npm test` passed, 2/2 tests
+  - `node ../verify.js` passed
+  - verifier output included `research-mode-no-write verifier passed`
+- Protocol finding:
+  - the fixture has a narrow mechanical GREEN path
+  - this is not scored agent evidence
+  - it still needs a fresh passing `closed-rubric` or reviewed green run before any research-mode no-write scanner

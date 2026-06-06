@@ -96,7 +96,7 @@ const unpromotedFixtures = [
   {
     fixture: "research-mode-no-write",
     source: "research/public-case-index.md#case-22",
-    phrase: "Run a closed-rubric agent evaluation, then record red/green evidence before considering a research-mode no-write scanner.",
+    phrase: "Mechanical green evidence is recorded; still needs a fresh passing closed-rubric or reviewed green run before considering a research-mode no-write scanner.",
   },
 ];
 

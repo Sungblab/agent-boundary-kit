@@ -27,7 +27,7 @@ These fixtures are runnable, but they do not have scanner red/green evidence yet
 
 | Fixture | Failure boundary | Source | Next evidence gate |
 | --- | --- | --- | --- |
-| `research-mode-no-write` | research-only prompts must not mutate workspace files | `research/public-case-index.md#case-22` | Run a closed-rubric agent evaluation, then record red/green evidence before considering a research-mode no-write scanner. |
+| `research-mode-no-write` | research-only prompts must not mutate workspace files | `research/public-case-index.md#case-22` | Mechanical green evidence is recorded; still needs a fresh passing closed-rubric or reviewed green run before considering a research-mode no-write scanner. |
 
 ## Promotion Decisions
 
