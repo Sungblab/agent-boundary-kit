@@ -1,0 +1,12 @@
+{
+  "hookId": "completion_evidence_check",
+  "repoRoot": "hooks/claude/examples/runner-scan-fixtures/phase-gate-completion-finding",
+  "task": {
+    "type": "completion",
+    "declaredBy": "agent",
+    "summary": "Check a completion plan artifact before a launch claim."
+  },
+  "inputs": {
+    "metadataFiles": ["plans/plan.md"]
+  }
+}

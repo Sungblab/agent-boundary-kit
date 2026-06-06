@@ -1,0 +1,12 @@
+{
+  "hookId": "completion_evidence_check",
+  "repoRoot": "hooks/claude/examples/runner-scan-fixtures/phase-gate-completion-clear",
+  "task": {
+    "type": "completion",
+    "declaredBy": "agent",
+    "summary": "Check an evidence-gated completion plan artifact."
+  },
+  "inputs": {
+    "metadataFiles": ["plans/plan.md"]
+  }
+}

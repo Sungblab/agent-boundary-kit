@@ -1,0 +1,12 @@
+{
+  "hookId": "pre_write_boundary_check",
+  "repoRoot": "hooks/claude/examples/runner-scan-fixtures/phase-gate-pre-write-finding",
+  "task": {
+    "type": "planning-only",
+    "declaredBy": "agent",
+    "summary": "Check an oversized planning artifact before implementation."
+  },
+  "inputs": {
+    "metadataFiles": ["plans/plan.md"]
+  }
+}

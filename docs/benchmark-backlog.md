@@ -201,7 +201,8 @@ Each benchmark fixture should include:
 72. Add read-only runner scan execution for `completion-evidence-gate-scan`. Completed: `hooks/claude/examples/runner-scan.completion-evidence-finding-input.json`, `hooks/claude/examples/runner-scan.completion-evidence-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
 73. Add read-only runner scan execution for `untrusted-context-canary-scan`. Completed: `hooks/claude/examples/runner-scan.untrusted-context-post-edit-finding-input.json`, `hooks/claude/examples/runner-scan.untrusted-context-completion-finding-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
 74. Add read-only runner scan execution for `noisy-log-root-cause-scan`. Completed: `hooks/claude/examples/runner-scan.noisy-log-post-edit-finding-input.json`, `hooks/claude/examples/runner-scan.noisy-log-test-integrity-finding-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
-75. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
+75. Add read-only runner scan execution for `phase-gate-plan-scan`. Completed: `hooks/claude/examples/runner-scan.phase-gate-pre-write-finding-input.json`, `hooks/claude/examples/runner-scan.phase-gate-completion-finding-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
+76. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet
 

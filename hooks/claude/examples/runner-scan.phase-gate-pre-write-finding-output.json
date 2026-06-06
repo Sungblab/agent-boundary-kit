@@ -1,0 +1,47 @@
+{
+  "hookId": "pre_write_boundary_check",
+  "scanner": "phase-gate-plan-scan",
+  "status": "finding",
+  "exitCode": 1,
+  "blocked": true,
+  "reason": "oversized planning without phase-gate evidence found",
+  "inputsUsed": ["task", "metadataFiles"],
+  "findings": [
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/phase-gate-pre-write-finding/plans/plan.md",
+      "line": 1,
+      "rule": "phase-gate-plan",
+      "detail": "missing scope challenge: missing /too large|too broad|not fit|one slice/"
+    },
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/phase-gate-pre-write-finding/plans/plan.md",
+      "line": 1,
+      "rule": "phase-gate-plan",
+      "detail": "missing first proof point: missing /first fixture|first proof|first slice|proof point/"
+    },
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/phase-gate-pre-write-finding/plans/plan.md",
+      "line": 1,
+      "rule": "phase-gate-plan",
+      "detail": "missing evidence gate: missing /pass criteria|pass/fail|evidence gate|verification/"
+    },
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/phase-gate-pre-write-finding/plans/plan.md",
+      "line": 1,
+      "rule": "phase-gate-plan",
+      "detail": "missing deferred scope: missing /defer|deferred|out of scope|later/"
+    },
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/phase-gate-pre-write-finding/plans/plan.md",
+      "line": 1,
+      "rule": "phase-gate-plan",
+      "detail": "broad current scope: plan accepts multiple future capabilities as current scope"
+    },
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/phase-gate-pre-write-finding/plans/plan.md",
+      "line": 1,
+      "rule": "phase-gate-plan",
+      "detail": "completion claim: plan claims implementation or launch completion"
+    }
+  ]
+}
