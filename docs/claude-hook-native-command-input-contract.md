@@ -70,6 +70,7 @@ Before the command entrypoint accepts native payload input, run:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-native-command-input-contract.js
+node benchmarks/scripts/check-claude-hook-native-command-entrypoint.js
 node benchmarks/scripts/check-claude-hook-native-adapter.js
 node benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js
 node benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js
@@ -106,3 +107,5 @@ Do not turn this into a broad command router.
 ## Next Gate
 
 The next gate is implementation of this input contract in `lib/abk-claude-hook-adapter.js`, still without hook installation, live settings fragments, scanner execution, or transcript reads.
+
+That implementation gate is checked by `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js`.

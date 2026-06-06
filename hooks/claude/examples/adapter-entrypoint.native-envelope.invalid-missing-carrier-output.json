@@ -1,0 +1,31 @@
+{
+  "mode": "adapter-entrypoint-fixture",
+  "inputSource": "stdin",
+  "inputMode": "native-payload-with-carrier",
+  "hookId": "unknown",
+  "status": "error",
+  "exitCode": 2,
+  "blocked": true,
+  "reason": "native command envelope missing metadataCarrier",
+  "runnerChain": [
+    {
+      "command": "native-payload-adapter",
+      "exitCode": 2
+    }
+  ],
+  "scanExecuted": false,
+  "inputsUsed": [],
+  "findings": [],
+  "temporaryFiles": {
+    "root": "<explicit-temp-dir>",
+    "created": [],
+    "deletedBeforeExit": true,
+    "repositoryWrites": []
+  },
+  "nonGoals": [
+    "Do not install hooks",
+    "Do not write final responses",
+    "Do not echo private transcript text",
+    "Do not execute scanners"
+  ]
+}

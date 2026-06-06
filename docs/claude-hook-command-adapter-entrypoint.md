@@ -10,6 +10,8 @@ Native payload plus carrier mapping is recorded separately in `docs/claude-hook-
 
 The native command input contract is recorded separately in `docs/claude-hook-native-command-input-contract.md` and checked by `benchmarks/scripts/check-claude-hook-native-command-input-contract.js`.
 
+Native command envelope execution is checked by `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js`.
+
 ## Boundary
 
 The entrypoint may bridge one Claude hook stdin payload into the existing ABK runner chain.
@@ -78,6 +80,10 @@ The adapter reports scanner selection only as `willExecute: false`.
 
 The adapter reports temporary file cleanup through the fixture placeholder `<explicit-temp-dir>` and an empty `repositoryWrites` array.
 
+The adapter also accepts the `native-payload-with-carrier` stdin envelope defined in `docs/claude-hook-native-command-input-contract.md`.
+
+That native mode maps through `lib/abk-claude-native-payload-adapter.js`, writes only the sanitized ABK hook event to temporary bridge files, and does not preserve the native stdin payload.
+
 The valid-output fixture is:
 
 - `hooks/claude/examples/adapter-entrypoint.valid-plan-output.json`
@@ -85,6 +91,14 @@ The valid-output fixture is:
 The rejected transcript fixture is:
 
 - `hooks/claude/examples/adapter-entrypoint.invalid-transcript-output.json`
+
+The valid native envelope fixture is:
+
+- `hooks/claude/examples/adapter-entrypoint.native-envelope.valid-plan-output.json`
+
+The rejected native missing-carrier fixture is:
+
+- `hooks/claude/examples/adapter-entrypoint.native-envelope.invalid-missing-carrier-output.json`
 
 ## Evidence Gate
 
@@ -98,6 +112,7 @@ node benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js
 node benchmarks/scripts/check-claude-hook-command-adapter-contract.js
 node benchmarks/scripts/check-claude-hook-native-adapter.js
 node benchmarks/scripts/check-claude-hook-native-command-input-contract.js
+node benchmarks/scripts/check-claude-hook-native-command-entrypoint.js
 npm run bench:check
 npm run bench:check:red
 ```
@@ -109,6 +124,8 @@ The evidence must prove:
 - valid stdin preserves `map-event` and `dry-run` exit codes
 - rejected transcript stdin preserves Exit 2 and stops after `map-event`
 - temporary files are removed before exit
+- native stdin envelope maps through `native-payload-adapter` before `map-event`
+- native stdin envelope output does not echo `transcript_path`, `session_id`, raw native content, or tool responses
 - no hook install files or Claude configuration files exist in the repository
 
 ## Non-Goals
@@ -131,4 +148,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is implementation of the native command input contract without installing hooks, mutating Claude configuration, or publishing live settings fragments.
+The next gate is user-approved manual install language review only after the native command entrypoint evidence stays green without installing hooks, mutating Claude configuration, or publishing live settings fragments.

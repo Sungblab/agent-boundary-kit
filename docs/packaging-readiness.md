@@ -66,6 +66,8 @@ The Claude hook native adapter is recorded in `docs/claude-hook-native-adapter.m
 
 The Claude hook native command input contract is recorded in `docs/claude-hook-native-command-input-contract.md`.
 
+The Claude hook native command entrypoint check is recorded in `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js`.
+
 The future Claude hook command adapter contract is recorded in `docs/claude-hook-command-adapter-contract.md`.
 
 The Claude hook command adapter fixtures are recorded in `docs/claude-hook-command-adapter-fixtures.md`.
@@ -134,6 +136,7 @@ node benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js
 node benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js
 node benchmarks/scripts/check-claude-hook-native-adapter.js
 node benchmarks/scripts/check-claude-hook-native-command-input-contract.js
+node benchmarks/scripts/check-claude-hook-native-command-entrypoint.js
 node benchmarks/scripts/check-claude-hook-command-adapter-contract.js
 node benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js
 node benchmarks/scripts/check-claude-hook-command-adapter-implementation-contract.js
@@ -207,6 +210,8 @@ The Claude hook native adapter check is `benchmarks/scripts/check-claude-hook-na
 
 The Claude hook native command input contract check is `benchmarks/scripts/check-claude-hook-native-command-input-contract.js`. It verifies `docs/claude-hook-native-command-input-contract.md` keeps native payload input as one explicit stdin envelope and rejects missing carrier metadata.
 
+The Claude hook native command entrypoint check is `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js`. It verifies `abk-claude-hook` accepts that envelope without preserving private native payload fields.
+
 The Claude hook command adapter contract check is `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`. It verifies `docs/claude-hook-command-adapter-contract.md` records the stdin-to-runner-input bridge required before live hook instructions.
 
 The Claude hook command adapter fixture check is `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`. It verifies `docs/claude-hook-command-adapter-fixtures.md` records red/green stdin adapter fixtures.
@@ -217,6 +222,6 @@ The Claude hook command adapter entrypoint fixture check is `benchmarks/scripts/
 
 The Claude hook command adapter entrypoint check is `benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js`. It verifies `docs/claude-hook-command-adapter-entrypoint.md`, `bin/abk-claude-hook.js`, and `lib/abk-claude-hook-adapter.js` execute fixture-backed stdin mapping without installing hooks.
 
-Only after those checks pass should the repo consider implementing the native command input contract in `abk-claude-hook`.
+Only after those checks pass should the repo consider user-approved manual install language review for the bounded native command entrypoint.
 
 Claude hook installation remains later because packaging still needs red/green package manifest fixtures and must not read private transcripts.

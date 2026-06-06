@@ -99,6 +99,7 @@ Public examples are useful for validation. They show that a seed case is not jus
 - `docs/claude-hook-native-metadata-carrier-fixtures.md`: explicit metadata carrier fixtures for native Claude Code hook payloads
 - `docs/claude-hook-native-adapter.md`: bounded native payload plus carrier adapter for ABK hook event mapping
 - `docs/claude-hook-native-command-input-contract.md`: stdin envelope contract for native payload plus carrier input
+- `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js`: verifies `abk-claude-hook` accepts the native payload envelope without preserving private native payload fields
 - `docs/claude-hook-command-adapter-contract.md`: contract for the stdin-to-runner-input bridge required before live Claude hooks
 - `docs/claude-hook-command-adapter-fixtures.md`: red/green fixtures for the Claude hook stdin adapter
 - `docs/claude-hook-command-adapter-implementation-contract.md`: implementation contract for the bounded stdin adapter entrypoint
@@ -244,6 +245,7 @@ npm run bench:prepare -- <fixture-id> --agent <agent-name> --mode <mode>
 - native Claude Code metadata carrier fixtures are checked against `docs/claude-hook-native-metadata-carrier-fixtures.md` before native payloads can become ABK hook events.
 - the native Claude Code payload adapter is checked against `docs/claude-hook-native-adapter.md` before live hook entrypoint input is widened.
 - native Claude Code command input is checked against `docs/claude-hook-native-command-input-contract.md` before `abk-claude-hook` accepts native payload envelopes.
+- native Claude Code command entrypoint execution is checked by `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js` before live hook install language can advance.
 - future Claude hook command adapters are checked against `docs/claude-hook-command-adapter-contract.md` before any live hook instructions.
 - Claude hook stdin adapter fixtures are checked against `docs/claude-hook-command-adapter-fixtures.md`.
 - Claude hook adapter implementation is checked against `docs/claude-hook-command-adapter-implementation-contract.md`.

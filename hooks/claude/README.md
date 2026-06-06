@@ -56,6 +56,8 @@ The Claude hook native adapter is recorded in `docs/claude-hook-native-adapter.m
 
 The Claude hook native command input contract is recorded in `docs/claude-hook-native-command-input-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-native-command-input-contract.js` and keeps native payload input as a single explicit stdin envelope with `nativePayload` and `metadataCarrier`.
 
+The Claude hook native command entrypoint is checked by `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js`. It verifies `abk-claude-hook` maps that envelope through the native payload adapter without echoing `transcript_path`, `session_id`, raw native content, or tool responses.
+
 The Claude hook command adapter contract is recorded in `docs/claude-hook-command-adapter-contract.md`. It is checked by `benchmarks/scripts/check-claude-hook-command-adapter-contract.js` and records the stdin-to-runner-input bridge required before live hook instructions.
 
 The Claude hook command adapter fixtures are recorded in `docs/claude-hook-command-adapter-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js` and keep the stdin bridge fixture-backed.

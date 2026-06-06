@@ -92,6 +92,8 @@ The Claude hook native adapter is recorded in `docs/claude-hook-native-adapter.m
 
 The Claude hook native command input contract is recorded in `docs/claude-hook-native-command-input-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-native-command-input-contract.js`, which keeps native payload input as one explicit stdin envelope with `nativePayload` and `metadataCarrier`.
 
+The Claude hook native command entrypoint is checked by `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js`. It verifies `abk-claude-hook` maps that envelope without echoing private native payload fields.
+
 The Claude hook command adapter contract is recorded in `docs/claude-hook-command-adapter-contract.md`. Its check is `benchmarks/scripts/check-claude-hook-command-adapter-contract.js`, which records the stdin-to-runner-input bridge required before live hook instructions.
 
 The Claude hook command adapter fixtures are recorded in `docs/claude-hook-command-adapter-fixtures.md`. Their check is `benchmarks/scripts/check-claude-hook-command-adapter-fixtures.js`, which keeps the stdin bridge fixture-backed.
@@ -362,6 +364,8 @@ Blocks completion when:
 110. Add a Claude hook native adapter check. Completed: `benchmarks/scripts/check-claude-hook-native-adapter.js`.
 111. Add a Claude hook native command input contract. Completed: `docs/claude-hook-native-command-input-contract.md`.
 112. Add a Claude hook native command input contract check. Completed: `benchmarks/scripts/check-claude-hook-native-command-input-contract.js`.
-113. Claude hooks remain specs until `abk-claude-hook` implements the native command input contract without reading transcripts or publishing live settings fragments.
+113. Add a Claude hook native command entrypoint check. Completed: `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js`.
+114. Implement the native command input contract in `abk-claude-hook`. Completed: `lib/abk-claude-hook-adapter.js`.
+115. Claude hooks remain specs until user-approved manual install language is re-reviewed against the bounded native command entrypoint.
 
 Connectors are not needed unless the project later consumes external issue, PR, CI, or agent-run data.
