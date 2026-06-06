@@ -61,6 +61,7 @@ Before any package manifest is described as ready, run:
 ```sh
 node benchmarks/scripts/check-claude-hook-package-manifest-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js
+node benchmarks/scripts/check-claude-hook-manual-install-contract.js
 node benchmarks/scripts/check-claude-hook-packaging-contract.js
 node benchmarks/scripts/check-abk-runner-map-event.js
 node benchmarks/scripts/check-abk-runner-dry-run.js
@@ -98,6 +99,10 @@ It includes:
 - `hooks/claude/examples/manual-install-doc.valid.md`
 - `hooks/claude/examples/manual-install-doc.invalid-mutating.md`
 
+The manual install contract is recorded in `docs/claude-hook-manual-install-contract.md`.
+
+Its check is `benchmarks/scripts/check-claude-hook-manual-install-contract.js`.
+
 ## Next Gate
 
-The next gate is a manual install contract that can define user-approved installation language without repository mutation.
+The next gate is a user-approved manual install document that can define bounded installation and uninstall instructions without changing this repository into an installer.
