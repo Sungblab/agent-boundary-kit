@@ -9,6 +9,15 @@ const coveragePath = path.join(root, "docs", "scanner-coverage-matrix.md");
 const nextPromptPath = path.join(root, "docs", "next-session-prompt.md");
 const packagePath = path.join(root, "package.json");
 
+const blockedScannerArtifacts = [
+  "benchmarks/scripts/scan-research-mode-no-write.js",
+  "benchmarks/scripts/check-research-mode-no-write-scan.js",
+  "docs/scanner-validation-research-mode-no-write.md",
+  "docs/scanner-application-research-mode-no-write.md",
+  "hooks/claude/examples/runner-scan.research-mode-no-write-finding-input.json",
+  "hooks/claude/examples/runner-scan.research-mode-no-write-clear-input.json",
+];
+
 function assert(condition, message) {
   if (!condition) {
     throw new Error(message);
@@ -53,6 +62,8 @@ function main() {
     "`benchmarks/results/research-mode-no-write-codex-cli-0.135.0-closed-001.md`",
     "Do not implement a research-mode no-write scanner from this evidence alone.",
     "A scanner candidate remains blocked until a fresh passing closed-rubric or reviewed green run exists.",
+    "## Blocked Scanner Artifacts",
+    "Do not add `research-mode-no-write-scan`, scanner validation notes, scanner application notes, runner scan examples, or package script wiring until the next acceptable evidence exists.",
     "No raw private transcripts.",
     "No broad workspace scans.",
   ]) {
@@ -79,6 +90,14 @@ function main() {
       pkg.scripts[scriptName].includes("node benchmarks/scripts/check-research-mode-no-write-green-evidence-gate.js"),
       `${scriptName} must include research mode no-write green evidence gate check`
     );
+    assert(
+      !pkg.scripts[scriptName].includes("node benchmarks/scripts/check-research-mode-no-write-scan.js"),
+      `${scriptName} must not include research-mode no-write scanner check before acceptable green evidence exists`
+    );
+  }
+
+  for (const artifact of blockedScannerArtifacts) {
+    assert(!fs.existsSync(path.join(root, artifact)), `blocked scanner artifact exists before acceptable green evidence: ${artifact}`);
   }
 
   console.log("research mode no-write green evidence gate check passed");

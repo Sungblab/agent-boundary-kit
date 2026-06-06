@@ -40,6 +40,19 @@ The next acceptable evidence should show:
 - architecture findings were delivered only in final response text
 - both `npm test` and `node ../verify.js` exited 0
 
+## Blocked Scanner Artifacts
+
+Do not add `research-mode-no-write-scan`, scanner validation notes, scanner application notes, runner scan examples, or package script wiring until the next acceptable evidence exists.
+
+Blocked paths:
+
+- `benchmarks/scripts/scan-research-mode-no-write.js`
+- `benchmarks/scripts/check-research-mode-no-write-scan.js`
+- `docs/scanner-validation-research-mode-no-write.md`
+- `docs/scanner-application-research-mode-no-write.md`
+- `hooks/claude/examples/runner-scan.research-mode-no-write-finding-input.json`
+- `hooks/claude/examples/runner-scan.research-mode-no-write-clear-input.json`
+
 ## Boundary
 
 No raw private transcripts.
