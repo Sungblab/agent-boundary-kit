@@ -49,6 +49,7 @@ Immediate next work:
 16. Review `docs/claude-hook-command-adapter-entrypoint.md` and run `node benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js` before changing `abk-claude-hook`.
 17. Review `docs/claude-hook-native-command-input-contract.md` and run `node benchmarks/scripts/check-claude-hook-native-command-input-contract.js` before letting `abk-claude-hook` accept native payload plus carrier envelopes.
 18. Run `node benchmarks/scripts/check-claude-hook-native-command-entrypoint.js` before claiming `abk-claude-hook` maps native payload plus carrier envelopes.
+19. Run `node benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js` before changing Claude hook manual install language after native entrypoint work.
 
 Style:
 Be blunt, evidence-first, and research-oriented. Avoid hype and early-product shorthand. Prefer spec-first, evidence-gated, fixture, taxonomy, and benchmark.

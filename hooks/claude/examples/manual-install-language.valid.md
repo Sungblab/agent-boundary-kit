@@ -4,6 +4,10 @@ This is manual approval only.
 
 Review `docs/claude-hook-command-adapter-entrypoint.md` before using `abk-claude-hook`.
 
+Review `docs/claude-hook-native-command-input-contract.md` before using native payload envelopes.
+
+Review `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js` for native command entrypoint evidence.
+
 Review `hooks/claude/examples/package-manifest.valid.json` before writing any local hook configuration.
 
 Claude Code hook reference: `https://code.claude.com/docs/en/hooks`.

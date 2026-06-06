@@ -58,6 +58,8 @@ The Claude hook manual install language fixtures are recorded in `docs/claude-ho
 
 The Claude hook manual install document is recorded in `docs/claude-hook-manual-install.md`.
 
+The Claude hook manual install native entrypoint readiness check is recorded in `benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js`.
+
 The Claude hook native payload mapping fixtures are recorded in `docs/claude-hook-native-payload-mapping-fixtures.md`.
 
 The Claude hook native metadata carrier fixtures are recorded in `docs/claude-hook-native-metadata-carrier-fixtures.md`.
@@ -132,6 +134,7 @@ node benchmarks/scripts/check-claude-hook-manual-install-doc-fixture.js
 node benchmarks/scripts/check-claude-hook-manual-install-contract.js
 node benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-document.js
+node benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js
 node benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js
 node benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js
 node benchmarks/scripts/check-claude-hook-native-adapter.js
@@ -200,7 +203,9 @@ The Claude hook manual install contract check is `benchmarks/scripts/check-claud
 
 The Claude hook manual install language fixture check is `benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js`. It verifies `docs/claude-hook-manual-install-language-fixtures.md` names `abk-claude-hook` without shell copy commands, repository mutation, or automatic setup.
 
-The Claude hook manual install document check is `benchmarks/scripts/check-claude-hook-manual-install-document.js`. It verifies `docs/claude-hook-manual-install.md` remains blocked for live installation until native Claude Code hook payload mapping is proven.
+The Claude hook manual install document check is `benchmarks/scripts/check-claude-hook-manual-install-document.js`. It verifies `docs/claude-hook-manual-install.md` is ready only for user-approved manual install language review and remains blocked for agent-performed installation.
+
+The Claude hook manual install native entrypoint readiness check is `benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js`. It verifies manual install language review is gated by native command entrypoint evidence while agent-performed installation remains blocked.
 
 The Claude hook native payload mapping fixture check is `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js`. It verifies `docs/claude-hook-native-payload-mapping-fixtures.md` rejects transcript reads and blocks native payloads that lack explicit ABK task metadata.
 

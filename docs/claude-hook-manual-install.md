@@ -4,13 +4,19 @@ This is a user-approved manual install document.
 
 ## Status
 
-Status: blocked for live installation.
+Status: ready for user-approved manual install language review.
+
+Blocked for agent-performed installation.
 
 Do not paste a live settings fragment yet.
 
-The native Claude Code hook payload compatibility is not proven.
+The native command entrypoint evidence is proven by `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js`.
 
-The current adapter expects ABK hook event fields.
+The current adapter accepts ABK hook event fields and native payload envelopes with metadataCarrier.
+
+metadataCarrier is required.
+
+No live hook settings fragment is published.
 
 ## Source Evidence
 
@@ -30,9 +36,13 @@ Review `docs/claude-hook-manual-install-language-fixtures.md` before changing in
 
 Review `docs/claude-hook-command-adapter-entrypoint.md` before naming `abk-claude-hook` in install language.
 
-Review `docs/claude-hook-event-input-contract.md` before claiming native Claude Code hook payload compatibility.
+Review `docs/claude-hook-event-input-contract.md` before changing ABK hook event fields.
 
-Review `docs/claude-hook-native-payload-mapping-fixtures.md` before publishing any live settings fragment.
+Review `docs/claude-hook-native-payload-mapping-fixtures.md` before changing native payload handling.
+
+Review `docs/claude-hook-native-command-input-contract.md` before changing native-payload-with-carrier input.
+
+Review `benchmarks/scripts/check-claude-hook-native-command-entrypoint.js` before claiming native command entrypoint readiness.
 
 No raw private transcripts.
 
@@ -52,18 +62,24 @@ Do not generate final copy.
 
 The reviewed settings fragment is intentionally blocked.
 
-Reason: the current adapter is verified against ABK hook event fixtures, not native Claude Code hook payload fixtures.
+Reason: native command entrypoint evidence exists, but installation is still a user-owned configuration action.
 
-The next implementation must first prove that native Claude Code hook stdin can be mapped into the allowed event fields without reading private transcripts, prompt text, message arrays, broad workspace files, or inferred metadata.
+The current allowed next step is manual install language review, not settings mutation.
 
-Until that proof exists, this document must not include a live hook settings fragment.
+The user must explicitly request installation in that turn before an agent may help apply settings outside this repository.
+
+Until that approval exists, this document must not include a live hook settings fragment.
 
 ## Evidence Gate
 
-Before this manual install document is described as ready, run:
+Before this manual install document is described as ready for manual install language review, run:
 
 ```sh
 node benchmarks/scripts/check-claude-hook-manual-install-document.js
+node benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js
+node benchmarks/scripts/check-claude-hook-native-command-entrypoint.js
+node benchmarks/scripts/check-claude-hook-native-command-input-contract.js
+node benchmarks/scripts/check-claude-hook-native-adapter.js
 node benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js
 node benchmarks/scripts/check-claude-hook-manual-install-contract.js
@@ -75,7 +91,9 @@ npm run bench:check:red
 
 The evidence must show:
 
-- the document remains blocked for live installation
+- native command entrypoint evidence is proven
+- the document is ready only for user-approved manual install language review
+- agent-performed installation remains blocked
 - no live hook settings fragment is published
 - no hook install files or setup scripts exist in this repository
 - no Claude configuration files exist in this repository
@@ -105,4 +123,4 @@ Do not generate final responses, PR metadata, release notes, product copy, or co
 
 ## Next Gate
 
-The next gate is an explicit metadata carrier for native Claude Code hook events after `docs/claude-hook-native-payload-mapping-fixtures.md` proves native payload alone is insufficient.
+The next gate is user-approved manual install language review for the bounded native command entrypoint, still without shell copy commands, live settings fragments, or agent-performed configuration mutation.

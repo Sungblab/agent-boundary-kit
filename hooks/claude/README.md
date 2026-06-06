@@ -46,7 +46,9 @@ The Claude hook manual install contract is recorded in `docs/claude-hook-manual-
 
 The Claude hook manual install language fixtures are recorded in `docs/claude-hook-manual-install-language-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js` and name `abk-claude-hook` without shell copy commands, repository mutation, or automatic setup.
 
-The Claude hook manual install document is recorded in `docs/claude-hook-manual-install.md`. It is checked by `benchmarks/scripts/check-claude-hook-manual-install-document.js` and remains blocked for live installation until native Claude Code hook payload mapping is proven.
+The Claude hook manual install document is recorded in `docs/claude-hook-manual-install.md`. It is checked by `benchmarks/scripts/check-claude-hook-manual-install-document.js` and is ready only for user-approved manual install language review while agent-performed installation remains blocked.
+
+The Claude hook manual install native entrypoint readiness check is recorded in `benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js`. It keeps manual install language review gated by native command entrypoint evidence while agent-performed installation remains blocked.
 
 The Claude hook native payload mapping fixtures are recorded in `docs/claude-hook-native-payload-mapping-fixtures.md`. They are checked by `benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js` and prove native Claude Code payload alone is insufficient because ABK task metadata must remain explicit.
 

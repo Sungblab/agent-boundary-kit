@@ -71,6 +71,7 @@ Before the command entrypoint accepts native payload input, run:
 ```sh
 node benchmarks/scripts/check-claude-hook-native-command-input-contract.js
 node benchmarks/scripts/check-claude-hook-native-command-entrypoint.js
+node benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js
 node benchmarks/scripts/check-claude-hook-native-adapter.js
 node benchmarks/scripts/check-claude-hook-native-metadata-carrier-fixtures.js
 node benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js

@@ -19,13 +19,17 @@ const requiredSections = [
 
 const requiredPhrases = [
   "user-approved manual install document",
-  "blocked for live installation",
-  "native Claude Code hook payload compatibility is not proven",
-  "current adapter expects ABK hook event fields",
+  "ready for user-approved manual install language review",
+  "Blocked for agent-performed installation",
+  "native command entrypoint evidence is proven",
+  "current adapter accepts ABK hook event fields and native payload envelopes with metadataCarrier",
+  "metadataCarrier is required",
   "docs/claude-hook-manual-install-language-fixtures.md",
   "docs/claude-hook-native-payload-mapping-fixtures.md",
+  "docs/claude-hook-native-command-input-contract.md",
   "docs/claude-hook-command-adapter-entrypoint.md",
   "docs/claude-hook-event-input-contract.md",
+  "benchmarks/scripts/check-claude-hook-native-command-entrypoint.js",
   "https://code.claude.com/docs/en/hooks",
   "https://code.claude.com/docs/en/configuration",
   "command hooks receive JSON on stdin",
@@ -39,11 +43,20 @@ const requiredPhrases = [
   "No automatic hook installation",
   "No repository mutation",
   "node benchmarks/scripts/check-claude-hook-manual-install-document.js",
-  "node benchmarks/scripts/check-claude-hook-native-payload-mapping-fixtures.js",
+  "node benchmarks/scripts/check-claude-hook-manual-install-native-entrypoint-readiness.js",
+  "node benchmarks/scripts/check-claude-hook-native-command-entrypoint.js",
+  "node benchmarks/scripts/check-claude-hook-native-command-input-contract.js",
   "node benchmarks/scripts/check-claude-hook-manual-install-language-fixtures.js",
   "node benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js",
   "npm run bench:check",
   "npm run bench:check:red",
+];
+
+const forbiddenStalePhrases = [
+  "native Claude Code hook payload compatibility is not proven",
+  "current adapter expects ABK hook event fields",
+  "Reason: the current adapter is verified against ABK hook event fixtures",
+  "must first prove that native Claude Code hook stdin can be mapped",
 ];
 
 const forbiddenDocPhrases = [
@@ -114,6 +127,10 @@ function main() {
 
   for (const phrase of forbiddenDocPhrases) {
     assert.ok(!markdown.includes(phrase), `Claude hook manual install document includes forbidden phrase: ${phrase}`);
+  }
+
+  for (const phrase of forbiddenStalePhrases) {
+    assert.ok(!markdown.includes(phrase), `Claude hook manual install document includes stale phrase: ${phrase}`);
   }
 
   for (const forbiddenPath of forbiddenRepoPaths) {
