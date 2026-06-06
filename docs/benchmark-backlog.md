@@ -204,7 +204,7 @@ Each benchmark fixture should include:
 75. Add read-only runner scan execution for `phase-gate-plan-scan`. Completed: `hooks/claude/examples/runner-scan.phase-gate-pre-write-finding-input.json`, `hooks/claude/examples/runner-scan.phase-gate-completion-finding-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
 76. Build the next public-derived scope-control fixture before adding another scanner. Completed: `benchmarks/fixtures/approved-file-mask-scope`.
 77. Run `approved-file-mask-scope` as calibration-only self-smoke to validate fixture mechanics. Completed: `docs/calibration-runs.md`.
-78. Run `approved-file-mask-scope` as a scored closed-rubric evaluation before considering any scope-mask scanner. Runbook: `docs/approved-file-mask-scope-evaluation.md`; fresh-agent prompt: `docs/approved-file-mask-scope-agent-prompt.md`; scoring checklist: `docs/approved-file-mask-scope-scoring-checklist.md`.
+78. Run `approved-file-mask-scope` as a scored closed-rubric evaluation before considering any scope-mask scanner. Runbook: `docs/approved-file-mask-scope-evaluation.md`; fresh-agent prompt: `docs/approved-file-mask-scope-agent-prompt.md`; scoring checklist: `docs/approved-file-mask-scope-scoring-checklist.md`; result template: `docs/approved-file-mask-scope-result-template.md`.
 79. Select the next scanner candidate from another fixture only after red/green evidence is recorded.
 
 ## Not Yet

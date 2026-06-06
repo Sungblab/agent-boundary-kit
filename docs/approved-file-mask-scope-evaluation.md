@@ -65,4 +65,6 @@ Scanner evidence should say there is no scope-mask scanner yet; the evidence is 
 
 Use `docs/approved-file-mask-scope-scoring-checklist.md` to classify the run before writing the reviewed result.
 
+Use `docs/approved-file-mask-scope-result-template.md` to draft the reviewed result, then save the completed reviewed summary under `benchmarks/results/`.
+
 Only after reviewed scored evidence exists, decide whether a scope-mask scanner is justified.
