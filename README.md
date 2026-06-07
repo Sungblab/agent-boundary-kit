@@ -8,7 +8,7 @@ Agent Boundary Kit is an open-source research and tooling repo for preventing on
 
 That boundary failure shows up as copied internal brief text, negative constraints leaking into UI copy, fallback code added before diagnosis, tests changed only to pass, oversized plans accepted without phase gates, and completion claims without evidence.
 
-This repo turns those failures into neutral fixtures, pass/fail rubrics, scanner checks, and agent instruction templates.
+This repo turns those failures into neutral fixtures, pass/fail rubrics, scanner checks, agent instruction templates, and native integration candidates for coding agents.
 
 ## Scope
 
@@ -22,6 +22,7 @@ It is a kit for:
 - public and private case intake rules
 - AGENTS.md and CLAUDE.md boundary templates
 - lightweight gates for known failure patterns
+- Codex and Claude Code integration surfaces backed by benchmark evidence
 
 Private examples can be used as research seeds only after they are neutralized: remove personal details, preserve the failure shape, and define observable pass/fail criteria.
 
@@ -82,12 +83,13 @@ See [docs/benchmarks.md](docs/benchmarks.md) for the benchmark system, runner co
 - [skills/boundary-check/SKILL.md](skills/boundary-check/SKILL.md): draft Codex skill
 - [hooks/claude](hooks/claude): fixture-grounded Claude hook specs
 - [docs/hook-runner-minimal-plan.md](docs/hook-runner-minimal-plan.md): minimal runner boundary before hook packaging
+- [docs/open-source-productization-plan.md](docs/open-source-productization-plan.md): official-surface productization plan for Codex, Claude Code, and MCP-compatible clients
 
 ## Current Status
 
-The repo is in research-seed stage. It already contains runnable fixtures, scanner-backed checks, public case candidates, boundary templates, and manual packaging contracts.
+The repo is moving from research seed to open-source productization. It already contains runnable fixtures, scanner-backed checks, public case candidates, boundary templates, manual packaging contracts, and local runner commands.
 
-Connector or plugin packaging should come later, after fixture evidence shows which checks are worth enforcing.
+The product target is not a dashboard or SaaS workflow. It is native agent integration: Codex skill/plugin/MCP/hook surfaces, Claude Code plugin/skill/MCP/hook surfaces, and a shared read-only MCP server contract backed by the existing benchmark evidence.
 
 ## Contract Index
 
