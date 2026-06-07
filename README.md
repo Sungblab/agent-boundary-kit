@@ -73,6 +73,47 @@ npm run bench:check:red
 
 See [docs/benchmarks.md](docs/benchmarks.md) for the benchmark system, runner commands, scanner coverage, and publication rules.
 
+## CLI And MCP
+
+After installation, use the local commands directly or through `npx agent-boundary-kit`.
+
+```sh
+npx agent-boundary-kit --help
+npx agent-boundary-kit scan --input runner-input.json --scanner legacy-surface-retention-scan
+```
+
+The package also exposes these binaries:
+
+- `abk-runner`: maps explicit runner input to dry-run and read-only scanner execution.
+- `abk-mcp-server`: exposes `list_scanners`, `validate_runner_input`, `dry_run`, and `scan` for Codex, Claude Code, and MCP-compatible clients.
+- `abk-claude-hook`: maps explicit Claude hook event envelopes to runner input.
+- `abk-claude-hook-wrapper`: wraps native Claude hook payloads with explicit ABK carrier metadata.
+
+The MCP contract is [docs/mcp-server-contract.md](docs/mcp-server-contract.md). It keeps scanner output as evidence, not final copy.
+
+## Native Plugin Candidates
+
+The repository includes reviewable native integration candidates:
+
+- Codex plugin candidate: [plugins/codex-agent-boundary-kit](plugins/codex-agent-boundary-kit)
+- Claude Code plugin candidate: [plugins/claude-code-agent-boundary-kit](plugins/claude-code-agent-boundary-kit)
+
+These candidates package the boundary skill and shared `abk-mcp-server` configuration. They are not marketplace submissions, and they do not apply user hook settings automatically.
+
+## Npm Readiness
+
+This repository is intended to reach publish-ready package state before an actual npm release.
+
+Run:
+
+```sh
+npm run bench:check
+npm run bench:check:red
+npm run pack:dry-run
+```
+
+Do not run `npm publish` until package contents, docs, and integration candidates have been reviewed from the dry-run output.
+
 ## Main Artifacts
 
 - [research/public-case-index.md](research/public-case-index.md): public case candidates converted into benchmark ideas

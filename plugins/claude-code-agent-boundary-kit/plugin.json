@@ -1,0 +1,29 @@
+{
+  "name": "agent-boundary-kit",
+  "version": "0.1.0",
+  "description": "Boundary failure checks for Claude Code and MCP-compatible agent clients.",
+  "mcpServers": {
+    "abk": {
+      "command": "abk-mcp-server",
+      "args": []
+    }
+  },
+  "skills": [
+    {
+      "name": "abk-boundary-check",
+      "path": "./skills/abk-boundary-check/SKILL.md"
+    }
+  ],
+  "commands": [
+    {
+      "name": "abk-boundary-review",
+      "path": "./commands/abk-boundary-review.md"
+    }
+  ],
+  "hooks": [
+    {
+      "name": "reviewed-only",
+      "description": "Hook candidates remain review-only until user-owned configuration is explicitly approved."
+    }
+  ]
+}

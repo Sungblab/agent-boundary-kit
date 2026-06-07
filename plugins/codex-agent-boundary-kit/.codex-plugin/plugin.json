@@ -1,0 +1,13 @@
+{
+  "name": "agent-boundary-kit",
+  "version": "0.1.0",
+  "description": "Boundary failure checks for AI coding agents.",
+  "skills": "./skills/",
+  "mcp_servers": {
+    "abk": {
+      "command": "abk-mcp-server",
+      "args": []
+    }
+  },
+  "hooks": "./hooks/hooks.json"
+}

@@ -12,6 +12,7 @@ const checkedTargets = [
   "templates",
   "skills",
   "hooks",
+  "plugins",
   path.join("benchmarks", "README.md"),
   path.join("benchmarks", "results"),
 ];
