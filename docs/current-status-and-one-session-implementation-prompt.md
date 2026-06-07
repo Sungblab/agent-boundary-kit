@@ -26,7 +26,10 @@ npm run bench:check
 npm run bench:check:red
 ```
 
-Both gates passed in the final reviewed state before this document was added.
+Most recent local verification after the scanner coverage sync:
+
+- `npm run bench:check` passed
+- `npm run bench:check:red` passed
 
 ## Implemented Boundaries
 
@@ -76,6 +79,19 @@ Current evidence:
 - scanner application exists: `docs/scanner-application-research-mode-no-write.md`
 - scanner script and check exist: `benchmarks/scripts/scan-research-mode-no-write.js` and `benchmarks/scripts/check-research-mode-no-write-scan.js`
 - runner scan examples exist for finding and clear states
+
+## Follow-Up Coverage Sync
+
+The promoted scanner is now reflected in the runner, hook scanner, packaging-readiness, and Codex skill readiness contracts.
+
+Updated surfaces:
+
+- `docs/hook-runner-minimal-plan.md`
+- `docs/hook-scanner-contracts.md`
+- `docs/packaging-readiness.md`
+- `hooks/claude/post-edit-scope-check.md`
+- `skills/boundary-check/SKILL.md`
+- matching readiness checks under `benchmarks/scripts/`
 
 ## One Session Implementation Prompt
 
