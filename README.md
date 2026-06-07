@@ -166,9 +166,9 @@ These candidates package the boundary skill and shared `abk-mcp-server` configur
 
 The candidates are review targets, not automatic setup instructions. Keep user-owned Codex and Claude Code configuration separate from this repository until the user explicitly applies a reviewed configuration change.
 
-## Npm Readiness
+## Npm Release Checks
 
-This repository is intended to reach publish-ready package state before an actual npm release.
+Before each npm release, run:
 
 Run:
 
@@ -178,7 +178,7 @@ npm run bench:check:red
 npm run pack:dry-run
 ```
 
-Do not run `npm publish` until package contents, docs, and integration candidates have been reviewed from the dry-run output.
+Do not run `npm publish` for a new version until package contents, docs, and integration candidates have been reviewed from the dry-run output.
 
 ## Main Artifacts
 
