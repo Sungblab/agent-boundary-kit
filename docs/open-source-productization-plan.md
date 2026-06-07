@@ -15,6 +15,12 @@ Agent Boundary Kit should help developers prevent known AI coding-agent boundary
 
 The product should remain local-first and evidence-backed. It should not become a dashboard, SaaS workflow, project-management app, or broad agent orchestration system.
 
+The product boundary is defined in `docs/product-scope.md`.
+
+New public cases should enter through `docs/contributing-boundary-failures.md` and be reviewed with `docs/failure-intake-rubric.md`.
+
+Research seeds become executable coverage only through `docs/fixture-promotion-criteria.md` and `docs/scanner-promotion-criteria.md`.
+
 ## Official Surface Map
 
 ### Codex
@@ -111,5 +117,7 @@ Scope:
 - Add contract checks for `list_scanners`, `validate_runner_input`, `dry_run`, and `scan`.
 - Implement a local stdio MCP server only after the contract fails red.
 - Keep all tools read-only.
+
+The copy-paste prompt for this slice is `docs/next-mcp-server-contract-prompt.md`.
 
 Do not start with marketplace submission, dashboard UI, SaaS hosting, or automatic hook installation.
