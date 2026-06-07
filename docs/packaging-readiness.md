@@ -160,6 +160,7 @@ The packaging candidate must cite all scanner ids that can be executed through t
 - `hardcoded-credential-fallback-scan`
 - `guidance-to-code-leakage-scan`
 - `approved-file-mask-scan`
+- `research-mode-no-write-scan`
 - `test-fake-contract-scan`
 - `untrusted-context-canary-scan`
 

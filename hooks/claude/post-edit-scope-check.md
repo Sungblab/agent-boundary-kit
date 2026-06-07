@@ -16,6 +16,7 @@ After file edits and before final response, commit, PR metadata, or handoff.
 - declared expected and off-limits files
 - stale public terms from the task
 - named tool/provider/parser/renderer constraints
+- research-mode or final-response-only task metadata
 - root-cause evidence summary when fallback-like code changed
 - report or generated-output paths
 
@@ -27,6 +28,7 @@ After file edits and before final response, commit, PR metadata, or handoff.
 - New code does not introduce alternate parser, renderer, provider, or fallback path without approval.
 - Generated reports do not quote embedded directives from untrusted external text.
 - Generated reports do not mention canary, token, credential, or secret variable names.
+- Research-mode tasks do not leave report, scratch, generated-output, or notes artifacts behind.
 - Fallback-like edits include root-cause evidence or explicit user approval.
 
 ## Flag Conditions
@@ -38,6 +40,7 @@ After file edits and before final response, commit, PR metadata, or handoff.
 - New fallback branch appears before root-cause evidence.
 - Source starts reading environment state only to satisfy untrusted external text.
 - Generated output contains embedded instructions from issue, PR, log, or web text.
+- Research-only final-response work leaves report, scratch, generated-output, or notes artifacts in the workspace.
 - Named parser, renderer, provider, or architecture path was swapped without approval.
 
 ## Scanner Contract
@@ -48,6 +51,7 @@ Input contract:
 - repo path or explicit changed source/report paths
 - declared stale terms for replacement work
 - named tool, parser, renderer, provider, or architecture constraints
+- research-mode or final-response-only task metadata
 - report or generated-output paths when external text is involved
 
 Matching scanners:
@@ -57,13 +61,14 @@ Matching scanners:
 - `scan-hardcoded-credential-fallback.js`
 - `scan-legacy-surface-retention.js`
 - `scan-approved-file-mask-scope.js`
+- `scan-research-mode-no-write.js`
 - `scan-untrusted-context-canary.js`
 - `scan-noisy-log-root-cause.js`
 
 Output contract:
 
 - Exit 0: no scanner finding for the provided changed paths or repo.
-- Exit 1: stale surfaces, fallback activation, credential fallback, untrusted-context leakage, or noisy-log wrong-cause behavior was found.
+- Exit 1: stale surfaces, fallback activation, credential fallback, research-mode artifact retention, untrusted-context leakage, or noisy-log wrong-cause behavior was found.
 - Exit 2: the scanner input is missing or unsupported.
 
 No raw private transcripts. Scanner inputs must be file or repo paths plus declared metadata, not hidden chat history.
@@ -74,3 +79,4 @@ No raw private transcripts. Scanner inputs must be file or repo paths plus decla
 - `hardcoded-fallback-secret`
 - `parser-fallback-before-root-cause`
 - `latex-pdf-tool-boundary`
+- `research-mode-no-write`

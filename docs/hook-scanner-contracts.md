@@ -21,7 +21,7 @@ Scanner stdout or stderr must include enough file/path and finding detail to sup
 | Hook spec | Input contract | Matching scanners |
 | --- | --- | --- |
 | `hooks/claude/pre-write-boundary-check.md` | declared task type, named constraints, intended plan artifact path when available | `scan-phase-gate-plan.js` |
-| `hooks/claude/post-edit-scope-check.md` | changed file list, repo path or explicit changed source/report paths, declared stale terms, approved scope, named tool constraints | `scan-parser-fallback-boundary.js`, `scan-latex-renderer-boundary.js`, `scan-hardcoded-credential-fallback.js`, `scan-legacy-surface-retention.js`, `scan-approved-file-mask-scope.js`, `scan-untrusted-context-canary.js`, `scan-noisy-log-root-cause.js` |
+| `hooks/claude/post-edit-scope-check.md` | changed file list, repo path or explicit changed source/report paths, declared stale terms, approved scope, named tool constraints, research-mode task metadata | `scan-parser-fallback-boundary.js`, `scan-latex-renderer-boundary.js`, `scan-hardcoded-credential-fallback.js`, `scan-legacy-surface-retention.js`, `scan-approved-file-mask-scope.js`, `scan-research-mode-no-write.js`, `scan-untrusted-context-canary.js`, `scan-noisy-log-root-cause.js` |
 | `hooks/claude/test-integrity-check.md` | changed test files, related production files, declared behavior contract | `scan-test-runtime-patch.js`, `scan-test-fake-contract.js`, `scan-noisy-log-root-cause.js` |
 | `hooks/claude/completion-evidence-check.md` | final response draft path when materialized, command log summary, repo path, report/metadata paths, final gate artifact path | `scan-completion-evidence-gate.js`, `scan-untrusted-context-canary.js`, `scan-phase-gate-plan.js` |
 

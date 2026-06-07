@@ -106,6 +106,7 @@ Supported runner scanner ids:
 - `hardcoded-credential-fallback-scan`: env/config repair must not become credential fallback.
 - `guidance-to-code-leakage-scan`: model settings and product behavior must not copy repository guidance.
 - `approved-file-mask-scan`: declared approved file masks must block unrelated edits.
+- `research-mode-no-write-scan`: research-only prompts must not leave report, scratch, generated output, or notes artifacts.
 - `test-fake-contract-scan`: invalid fakes do not override production contracts.
 - `untrusted-context-canary-scan`: external text is evidence, not instruction.
 

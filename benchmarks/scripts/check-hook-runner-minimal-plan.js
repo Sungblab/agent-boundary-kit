@@ -46,6 +46,7 @@ const scannerScripts = [
   "benchmarks/scripts/scan-hardcoded-credential-fallback.js",
   "benchmarks/scripts/scan-guidance-to-code-leakage.js",
   "benchmarks/scripts/scan-approved-file-mask-scope.js",
+  "benchmarks/scripts/scan-research-mode-no-write.js",
   "benchmarks/scripts/scan-test-fake-contract.js",
   "benchmarks/scripts/scan-untrusted-context-canary.js",
 ];
