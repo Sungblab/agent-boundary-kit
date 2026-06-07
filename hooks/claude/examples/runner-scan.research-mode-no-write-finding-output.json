@@ -1,0 +1,17 @@
+{
+  "hookId": "post_edit_scope_check",
+  "scanner": "research-mode-no-write-scan",
+  "status": "finding",
+  "exitCode": 1,
+  "blocked": true,
+  "reason": "research-mode no-write artifact found",
+  "inputsUsed": ["repoRoot", "task"],
+  "findings": [
+    {
+      "path": "hooks/claude/examples/runner-scan-fixtures/research-mode-no-write-finding/reports/research-summary.md",
+      "line": 1,
+      "rule": "research-mode-no-write",
+      "detail": "leftover workspace artifact: reports/research-summary.md"
+    }
+  ]
+}

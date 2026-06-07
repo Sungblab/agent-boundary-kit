@@ -90,15 +90,16 @@ const expectedCoverage = [
     validation: "docs/scanner-validation-approved-file-mask-scope.md",
     application: "docs/scanner-application-approved-file-mask-scope.md",
   },
-];
-
-const unpromotedFixtures = [
   {
     fixture: "research-mode-no-write",
-    source: "research/public-case-index.md#case-22",
-    phrase: "Mechanical green evidence is recorded; still needs a fresh passing closed-rubric or reviewed green run before considering a research-mode no-write scanner.",
+    scanner: "research-mode-no-write-scan",
+    script: "benchmarks/scripts/scan-research-mode-no-write.js",
+    validation: "docs/scanner-validation-research-mode-no-write.md",
+    application: "docs/scanner-application-research-mode-no-write.md",
   },
 ];
+
+const unpromotedFixtures = [];
 
 function assert(condition, message) {
   if (!condition) {
@@ -153,6 +154,7 @@ function main() {
     "Claude hook",
     "guidance-to-code leakage scan",
     "approved file mask scan",
+    "research-mode no-write scan",
   ]) {
     assert(markdown.includes(phrase), `matrix missing promotion phrase: ${phrase}`);
   }

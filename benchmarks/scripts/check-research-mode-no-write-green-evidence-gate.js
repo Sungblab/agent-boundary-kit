@@ -9,7 +9,7 @@ const coveragePath = path.join(root, "docs", "scanner-coverage-matrix.md");
 const nextPromptPath = path.join(root, "docs", "next-session-prompt.md");
 const packagePath = path.join(root, "package.json");
 
-const blockedScannerArtifacts = [
+const promotedScannerArtifacts = [
   "benchmarks/scripts/scan-research-mode-no-write.js",
   "benchmarks/scripts/check-research-mode-no-write-scan.js",
   "docs/scanner-validation-research-mode-no-write.md",
@@ -51,7 +51,7 @@ function main() {
   for (const phrase of [
     "# Research Mode No Write Green Evidence Gate",
     "Fixture: `research-mode-no-write`",
-    "This is not scanner validation.",
+    "This note is now historical evidence for the scanner validation.",
     "This is not a hook package.",
     "Mechanical green smoke",
     "Remove only `repo/reports/research-summary.md` in a temporary copied fixture repo.",
@@ -60,13 +60,12 @@ function main() {
     "research-mode-no-write verifier passed",
     "Scored fail evidence",
     "`benchmarks/results/research-mode-no-write-codex-cli-0.135.0-closed-001.md`",
-    "## Pending Evidence State",
-    "Current status: pending fresh passing closed-rubric or reviewed green run.",
-    "Do not mark backlog item 84 complete from mechanical green smoke alone.",
-    "Do not implement a research-mode no-write scanner from this evidence alone.",
-    "A scanner candidate remains blocked until a fresh passing closed-rubric or reviewed green run exists.",
-    "## Blocked Scanner Artifacts",
-    "Do not add `research-mode-no-write-scan`, scanner validation notes, scanner application notes, runner scan examples, or package script wiring until the next acceptable evidence exists.",
+    "## Fresh Passing Evidence State",
+    "Current status: satisfied.",
+    "`benchmarks/results/research-mode-no-write-codex-cli-0.135.0-closed-002.md`",
+    "The scanner candidate is no longer blocked by missing green evidence.",
+    "`research-mode-no-write-scan` command and exit status in scanner evidence",
+    "## Promoted Scanner Artifacts",
     "No raw private transcripts.",
     "No broad workspace scans.",
   ]) {
@@ -86,22 +85,16 @@ function main() {
   assertIncludes(calibration, "Mechanical green smoke", "calibration runs");
   assertIncludes(
     backlog,
-    "84. Run a fresh passing closed-rubric or reviewed green run for `research-mode-no-write` before considering any research-mode no-write scanner.",
+    "84. Run a fresh passing closed-rubric or reviewed green run for `research-mode-no-write` before considering any research-mode no-write scanner. Completed as scored pass: `benchmarks/results/research-mode-no-write-codex-cli-0.135.0-closed-002.md`.",
     "benchmark backlog"
   );
   assertIncludes(backlog, "docs/research-mode-no-write-green-evidence-gate.md", "benchmark backlog");
-  assertIncludes(coverage, "fresh passing closed-rubric or reviewed green run", "scanner coverage matrix");
+  assertIncludes(coverage, "research-mode-no-write-scan", "scanner coverage matrix");
   assertIncludes(nextPrompt, "docs/research-mode-no-write-green-evidence-gate.md", "next-session prompt");
   assertIncludes(
     nextPrompt,
-    "still needs a fresh passing closed-rubric or reviewed green run before scanner work",
+    "Future research-mode reviewed runs must include `research-mode-no-write-scan` command and exit status in scanner evidence.",
     "next-session prompt"
-  );
-  assert(
-    !backlog.includes(
-      "84. Run a fresh passing closed-rubric or reviewed green run for `research-mode-no-write` before considering any research-mode no-write scanner. Completed"
-    ),
-    "benchmark backlog must not mark research-mode-no-write green evidence complete from mechanical smoke"
   );
 
   for (const scriptName of ["bench:check", "bench:check:red"]) {
@@ -110,13 +103,13 @@ function main() {
       `${scriptName} must include research mode no-write green evidence gate check`
     );
     assert(
-      !pkg.scripts[scriptName].includes("node benchmarks/scripts/check-research-mode-no-write-scan.js"),
-      `${scriptName} must not include research-mode no-write scanner check before acceptable green evidence exists`
+      pkg.scripts[scriptName].includes("node benchmarks/scripts/check-research-mode-no-write-scan.js"),
+      `${scriptName} must include research-mode no-write scanner check after acceptable green evidence exists`
     );
   }
 
-  for (const artifact of blockedScannerArtifacts) {
-    assert(!fs.existsSync(path.join(root, artifact)), `blocked scanner artifact exists before acceptable green evidence: ${artifact}`);
+  for (const artifact of promotedScannerArtifacts) {
+    assert(fs.existsSync(path.join(root, artifact)), `promoted scanner artifact is missing after acceptable green evidence: ${artifact}`);
   }
 
   console.log("research mode no-write green evidence gate check passed");

@@ -1,0 +1,10 @@
+{
+  "hookId": "post_edit_scope_check",
+  "repoRoot": "hooks/claude/examples/runner-scan-fixtures/research-mode-no-write-finding",
+  "task": {
+    "type": "research",
+    "declaredBy": "agent",
+    "summary": "Research mode final-response-only architecture findings; no workspace report should remain."
+  },
+  "inputs": {}
+}

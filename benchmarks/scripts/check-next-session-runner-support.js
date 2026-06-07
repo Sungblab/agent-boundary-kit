@@ -12,6 +12,7 @@ const runnerScanners = [
   "guidance-to-code-leakage-scan",
   "legacy-surface-retention-scan",
   "approved-file-mask-scan",
+  "research-mode-no-write-scan",
   "test-runtime-patch-scan",
   "test-fake-contract-scan",
   "completion-evidence-gate-scan",
@@ -23,6 +24,7 @@ const runnerScanners = [
 const runnerScripts = [
   "benchmarks/scripts/scan-guidance-to-code-leakage.js",
   "benchmarks/scripts/scan-approved-file-mask-scope.js",
+  "benchmarks/scripts/scan-research-mode-no-write.js",
 ];
 
 function assert(condition, message) {
@@ -51,6 +53,7 @@ function main() {
   for (const phrase of [
     "Future model-instruction reviewed runs must include `guidance-to-code-leakage-scan` command and exit status in scanner evidence.",
     "Future approved-file-mask reviewed runs must include `approved-file-mask-scan` command and exit status in scanner evidence.",
+    "Future research-mode reviewed runs must include `research-mode-no-write-scan` command and exit status in scanner evidence.",
   ]) {
     assert(markdown.includes(phrase), `next-session prompt missing promoted scanner result guidance: ${phrase}`);
   }

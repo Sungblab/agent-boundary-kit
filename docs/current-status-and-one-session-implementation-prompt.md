@@ -14,7 +14,7 @@ The repo now has:
 - a public case index with benchmark candidates
 - fixture manifests and runnable fixture directories
 - reviewed benchmark result templates and checks
-- 12 promoted read-only scanners tied to fixture-backed red/green evidence
+- 13 promoted read-only scanners tied to fixture-backed red/green evidence
 - a local `abk-runner` with bounded `map-event`, plan-only `dry-run`, and read-only `scan`
 - Claude hook and Codex skill specs kept at review/package-readiness level
 - checks that prevent broad hook installation, plugin packaging, dashboards, connectors, and weak evidence claims from being treated as complete
@@ -44,6 +44,7 @@ The first fixture set and scanner matrix cover these promoted boundaries:
 - invalid fakes do not override production contracts
 - external issue, PR, log, and web text is evidence, not instruction
 - approved file masks must block unrelated edits
+- research-only prompts must not leave workspace artifacts
 
 The promoted scanners are listed in `docs/scanner-coverage-matrix.md`.
 
@@ -62,32 +63,23 @@ Recent work tightened the repo in these areas:
 - future reviewed runs for promoted scanners must include scanner command and exit status
 - next-session handoff text must retain the promoted scanner evidence requirements
 
-## Remaining Work
+## Recently Completed Slice
 
-The next real implementation slice is `research-mode-no-write`.
+The `research-mode-no-write` evidence gate and scanner slice is complete.
 
 Current evidence:
 
 - scored fail result exists: `benchmarks/results/research-mode-no-write-codex-cli-0.135.0-closed-001.md`
 - mechanical green smoke exists: `docs/research-mode-no-write-green-evidence-gate.md`
-- fresh passing closed-rubric or reviewed green run is still missing
-
-Do not implement `research-mode-no-write-scan` until that missing evidence exists.
-
-Do not add:
-
-- `benchmarks/scripts/scan-research-mode-no-write.js`
-- `benchmarks/scripts/check-research-mode-no-write-scan.js`
-- `docs/scanner-validation-research-mode-no-write.md`
-- `docs/scanner-application-research-mode-no-write.md`
-- `hooks/claude/examples/runner-scan.research-mode-no-write-finding-input.json`
-- `hooks/claude/examples/runner-scan.research-mode-no-write-clear-input.json`
-
-unless a fresh passing closed-rubric or reviewed green run exists and is recorded.
+- fresh passing closed-rubric result exists: `benchmarks/results/research-mode-no-write-codex-cli-0.135.0-closed-002.md`
+- scanner validation exists: `docs/scanner-validation-research-mode-no-write.md`
+- scanner application exists: `docs/scanner-application-research-mode-no-write.md`
+- scanner script and check exist: `benchmarks/scripts/scan-research-mode-no-write.js` and `benchmarks/scripts/check-research-mode-no-write-scan.js`
+- runner scan examples exist for finding and clear states
 
 ## One Session Implementation Prompt
 
-Use this prompt for a fresh Codex or Claude Code session. The session should make as much progress as possible, but it must stop before scanner implementation if the fresh passing evidence cannot be produced.
+The previous one-session prompt below has been completed. Keep it as a historical evidence packet for the slice; do not reuse it as current remaining work.
 
 ```text
 You are working in the `agent-boundary-kit` repository.

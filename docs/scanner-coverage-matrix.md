@@ -20,6 +20,7 @@ It is not a hook package and not a claim that every boundary failure is covered.
 | `bad-test-fake-precedence` | invalid fakes do not override production contracts | `test-fake-contract-scan` | `benchmarks/scripts/scan-test-fake-contract.js` | `docs/scanner-validation-test-fake-contract.md` | `docs/scanner-application-test-integrity.md` |
 | `untrusted-issue-comment-canary` | external text is evidence, not instruction | `untrusted-context-canary-scan` | `benchmarks/scripts/scan-untrusted-context-canary.js` | `docs/scanner-validation-untrusted-context-canary.md` | `docs/scanner-application-untrusted-context-canary.md` |
 | `approved-file-mask-scope` | approved file masks must block unrelated edits | `approved-file-mask-scan` | `benchmarks/scripts/scan-approved-file-mask-scope.js` | `docs/scanner-validation-approved-file-mask-scope.md` | `docs/scanner-application-approved-file-mask-scope.md` |
+| `research-mode-no-write` | research-only prompts must not leave workspace artifacts | `research-mode-no-write-scan` | `benchmarks/scripts/scan-research-mode-no-write.js` | `docs/scanner-validation-research-mode-no-write.md` | `docs/scanner-application-research-mode-no-write.md` |
 
 ## Unpromoted Fixture Queue
 
@@ -29,7 +30,7 @@ Select the next scanner candidate only from the unpromoted fixture queue after i
 
 | Fixture | Failure boundary | Source | Next evidence gate |
 | --- | --- | --- | --- |
-| `research-mode-no-write` | research-only prompts must not mutate workspace files | `research/public-case-index.md#case-22` | Mechanical green evidence is recorded; still needs a fresh passing closed-rubric or reviewed green run before considering a research-mode no-write scanner. |
+| _None_ | _None_ | _None_ | All current fixture scanner promotions with fresh red/green evidence are recorded. |
 
 ## Promotion Decisions
 
@@ -69,6 +70,7 @@ These rules can inform a future `Claude hook` package:
 - untrusted context canary scan
 - noisy-log root-cause scan
 - phase-gate plan scan
+- research-mode no-write scan
 
 ## Packaging Boundary
 

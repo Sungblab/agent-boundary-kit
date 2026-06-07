@@ -62,4 +62,4 @@ They are not benchmark results for an agent. Do not compare them against scored 
 - Protocol finding:
   - the fixture has a narrow mechanical GREEN path
   - this is not scored agent evidence
-  - it still needs a fresh passing `closed-rubric` or reviewed green run before any research-mode no-write scanner
+  - later scored evidence satisfied the fresh passing run gate: `benchmarks/results/research-mode-no-write-codex-cli-0.135.0-closed-002.md`
