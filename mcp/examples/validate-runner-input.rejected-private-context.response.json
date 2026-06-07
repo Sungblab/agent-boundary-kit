@@ -1,0 +1,12 @@
+{
+  "tool": "validate_runner_input",
+  "status": "rejected",
+  "exitCode": 2,
+  "willScan": false,
+  "errors": [
+    {
+      "field": "privateTranscript",
+      "reason": "Runner input must use declared metadata and paths, not private conversation context."
+    }
+  ]
+}

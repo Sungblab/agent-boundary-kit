@@ -1,0 +1,13 @@
+{
+  "tool": "dry_run",
+  "status": "planned",
+  "exitCode": 0,
+  "willExecute": false,
+  "selectedScanners": [
+    {
+      "scanner": "legacy-surface-retention-scan",
+      "requiredInputFields": ["repoRoot", "changedFiles", "staleTerms"]
+    }
+  ],
+  "missingInputs": []
+}

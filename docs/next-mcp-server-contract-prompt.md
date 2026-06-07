@@ -75,3 +75,5 @@ Completion criteria:
 - Scanner coverage links back to `docs/scanner-coverage-matrix.md`.
 - No hook installation, marketplace submission, hosted workflow, or web reporting UI is introduced.
 ```
+
+Current status: the contract exists at `docs/mcp-server-contract.md`, fixtures live under `mcp/examples/`, and `benchmarks/scripts/check-mcp-server-contract.js` checks the contract. The next implementation session should implement the server against that contract instead of redefining it.

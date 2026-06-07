@@ -1,0 +1,8 @@
+{
+  "tool": "scan",
+  "scanner": "legacy-surface-retention-scan",
+  "status": "clear",
+  "exitCode": 0,
+  "blocked": false,
+  "findings": []
+}

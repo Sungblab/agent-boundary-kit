@@ -1,0 +1,14 @@
+{
+  "tool": "scan",
+  "scanner": "legacy-surface-retention-scan",
+  "status": "rejected",
+  "exitCode": 2,
+  "blocked": true,
+  "findings": [],
+  "errors": [
+    {
+      "field": "inputs.changedFiles",
+      "reason": "Declared scan path escapes repoRoot."
+    }
+  ]
+}

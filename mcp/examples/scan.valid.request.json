@@ -1,0 +1,18 @@
+{
+  "tool": "scan",
+  "arguments": {
+    "scannerId": "legacy-surface-retention-scan",
+    "runnerInput": {
+      "hookId": "post_edit_scope_check",
+      "repoRoot": "hooks/claude/examples/runner-scan-fixtures/legacy-clear",
+      "task": {
+        "type": "public-surface-replacement",
+        "summary": "Replace stale public product wording."
+      },
+      "inputs": {
+        "changedFiles": ["docs/overview.md"],
+        "staleTerms": ["old product name"]
+      }
+    }
+  }
+}

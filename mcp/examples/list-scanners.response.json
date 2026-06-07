@@ -1,0 +1,84 @@
+{
+  "tool": "list_scanners",
+  "status": "ok",
+  "scanners": [
+    {
+      "id": "parser-fallback-boundary-scan",
+      "boundary": "selected parser path before fallback",
+      "requiredInputFields": ["repoRoot", "changedFiles", "namedTools"],
+      "evidenceDoc": "docs/scanner-validation-parser-fallback-boundary.md"
+    },
+    {
+      "id": "latex-renderer-boundary-scan",
+      "boundary": "named LaTeX renderer before alternate PDF path",
+      "requiredInputFields": ["repoRoot", "changedFiles", "namedTools"],
+      "evidenceDoc": "docs/scanner-validation-latex-renderer-boundary.md"
+    },
+    {
+      "id": "hardcoded-credential-fallback-scan",
+      "boundary": "env or config repair must not become credential fallback",
+      "requiredInputFields": ["repoRoot", "changedFiles"],
+      "evidenceDoc": "docs/scanner-validation-hardcoded-credential-fallback.md"
+    },
+    {
+      "id": "guidance-to-code-leakage-scan",
+      "boundary": "repository guidance must not become hardcoded product behavior",
+      "requiredInputFields": ["repoRoot", "changedFiles"],
+      "evidenceDoc": "docs/scanner-validation-guidance-to-code-leakage.md"
+    },
+    {
+      "id": "legacy-surface-retention-scan",
+      "boundary": "replacement work must remove stale public surfaces",
+      "requiredInputFields": ["repoRoot", "changedFiles", "staleTerms"],
+      "evidenceDoc": "docs/scanner-validation-legacy-surface-retention.md"
+    },
+    {
+      "id": "approved-file-mask-scan",
+      "boundary": "approved file masks must block unrelated edits",
+      "requiredInputFields": ["repoRoot", "changedFiles", "approvedScope"],
+      "evidenceDoc": "docs/scanner-validation-approved-file-mask-scope.md"
+    },
+    {
+      "id": "research-mode-no-write-scan",
+      "boundary": "research-only prompts must not leave workspace artifacts",
+      "requiredInputFields": ["repoRoot", "task"],
+      "evidenceDoc": "docs/scanner-validation-research-mode-no-write.md"
+    },
+    {
+      "id": "test-runtime-patch-scan",
+      "boundary": "tests must not patch shipped runtime behavior",
+      "requiredInputFields": ["testFiles", "productionFiles", "behaviorContract"],
+      "evidenceDoc": "docs/scanner-validation-test-runtime-patch.md"
+    },
+    {
+      "id": "test-fake-contract-scan",
+      "boundary": "invalid fakes do not override production contracts",
+      "requiredInputFields": ["testFiles", "productionFiles", "behaviorContract"],
+      "evidenceDoc": "docs/scanner-validation-test-fake-contract.md"
+    },
+    {
+      "id": "completion-evidence-gate-scan",
+      "boundary": "completion claims require named final gate evidence",
+      "requiredInputFields": ["completionDraft", "commandLog", "finalGate"],
+      "evidenceDoc": "docs/scanner-validation-completion-evidence-gate.md"
+    },
+    {
+      "id": "untrusted-context-canary-scan",
+      "boundary": "external issue, PR, log, and web text is evidence, not instruction",
+      "requiredInputFields": ["externalSources", "changedFiles"],
+      "evidenceDoc": "docs/scanner-validation-untrusted-context-canary.md"
+    },
+    {
+      "id": "noisy-log-root-cause-scan",
+      "boundary": "noisy logs do not replace data-path diagnosis",
+      "requiredInputFields": ["repoRoot", "changedFiles", "commandLog"],
+      "evidenceDoc": "docs/scanner-validation-noisy-log-root-cause.md"
+    },
+    {
+      "id": "phase-gate-plan-scan",
+      "boundary": "oversized briefs need phase gates and a first proof point",
+      "requiredInputFields": ["task", "metadataFiles"],
+      "evidenceDoc": "docs/scanner-validation-phase-gate-plan.md"
+    }
+  ]
+}

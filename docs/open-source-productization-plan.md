@@ -120,4 +120,6 @@ Scope:
 
 The copy-paste prompt for this slice is `docs/next-mcp-server-contract-prompt.md`.
 
+The shared MCP server contract is now recorded in `docs/mcp-server-contract.md`. Its request and response fixtures live under `mcp/examples/`, and the contract gate is `benchmarks/scripts/check-mcp-server-contract.js`.
+
 Do not start with marketplace submission, dashboard UI, SaaS hosting, or automatic hook installation.
