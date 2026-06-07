@@ -73,17 +73,51 @@ npm run bench:check:red
 
 See [docs/benchmarks.md](docs/benchmarks.md) for the benchmark system, runner commands, scanner coverage, and publication rules.
 
-## CLI And MCP
+## Install And Use
 
-After installation, use the local commands directly or through `npx agent-boundary-kit`.
+After the first npm release, the simplest path is direct local execution:
 
 ```sh
-npx agent-boundary-kit --help
+npx agent-boundary-kit dry-run --input runner-input.json
 npx agent-boundary-kit scan --input runner-input.json --scanner legacy-surface-retention-scan
 ```
 
-The package also exposes these binaries:
+For repeated use:
 
+```sh
+npm install -g agent-boundary-kit
+abk-runner dry-run --input runner-input.json
+abk-runner scan --input runner-input.json --scanner legacy-surface-retention-scan
+```
+
+Runner input must be explicit. Do not pass private transcripts, hidden chat history, broad workspace dumps, cookies, tokens, or unreviewed user examples. The runner is meant to check declared files and metadata, then return evidence.
+
+## Codex Users
+
+Use the package through the CLI, the shared MCP server, or the reviewable Codex plugin candidate:
+
+- CLI: run `npx agent-boundary-kit ...` or `abk-runner ...` from the repository being checked.
+- MCP: configure Codex to launch `abk-mcp-server` as a stdio MCP server when you want `list_scanners`, `validate_runner_input`, `dry_run`, and `scan` exposed as tools.
+- Skill/plugin review: inspect [skills/boundary-check/SKILL.md](skills/boundary-check/SKILL.md) and [plugins/codex-agent-boundary-kit](plugins/codex-agent-boundary-kit) before copying or enabling anything in a user or project Codex environment.
+
+Do not ask Codex to install this into user configuration by itself. A Codex session may review the candidate files, explain the exact config change, and run repository evidence gates. The user owns any persistent Codex configuration change.
+
+## Claude Code Users
+
+Use the package through the CLI, the shared MCP server, or the reviewable Claude Code plugin candidate:
+
+- CLI: run `npx agent-boundary-kit ...` or `abk-runner ...` from the repository being checked.
+- MCP: configure Claude Code to launch `abk-mcp-server` when you want ABK scanner tools available in Claude Code.
+- Plugin review: inspect [plugins/claude-code-agent-boundary-kit](plugins/claude-code-agent-boundary-kit) before enabling it in Claude Code.
+- Hook review: read [docs/claude-hook-manual-install.md](docs/claude-hook-manual-install.md) before using any hook language.
+
+Do not ask Claude Code to edit user settings or install hooks by itself. Claude Code may review the candidate, generate a review packet, and explain the expected user-owned configuration action. Hook and plugin enablement remains a user-approved configuration step.
+
+## CLI And MCP
+
+The package exposes these binaries:
+
+- `agent-boundary-kit`: alias for `abk-runner`.
 - `abk-runner`: maps explicit runner input to dry-run and read-only scanner execution.
 - `abk-mcp-server`: exposes `list_scanners`, `validate_runner_input`, `dry_run`, and `scan` for Codex, Claude Code, and MCP-compatible clients.
 - `abk-claude-hook`: maps explicit Claude hook event envelopes to runner input.
@@ -99,6 +133,8 @@ The repository includes reviewable native integration candidates:
 - Claude Code plugin candidate: [plugins/claude-code-agent-boundary-kit](plugins/claude-code-agent-boundary-kit)
 
 These candidates package the boundary skill and shared `abk-mcp-server` configuration. They are not marketplace submissions, and they do not apply user hook settings automatically.
+
+The candidates are review targets, not automatic setup instructions. Keep user-owned Codex and Claude Code configuration separate from this repository until the user explicitly applies a reviewed configuration change.
 
 ## Npm Readiness
 
