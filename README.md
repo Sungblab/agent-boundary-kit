@@ -10,6 +10,34 @@ That boundary failure shows up as copied internal brief text, negative constrain
 
 This repo turns those failures into neutral fixtures, pass/fail rubrics, scanner checks, agent instruction templates, and native integration candidates for coding agents.
 
+## Boundary Failure Example
+
+```text
+User direction: "Do not make this sound corporate or salesy."
+
+Bad agent output:
+"This is not corporate, not salesy, and not enterprise-sounding."
+
+ABK result:
+fail - negative constraint leaked into final copy.
+```
+
+The same boundary shows up in code work:
+
+```text
+User direction: "The fallback is wrong. Find the root cause."
+Bad agent behavior: adds another fallback.
+ABK result: fail - fallback over root cause.
+```
+
+## What It Catches
+
+- Internal guidance copied into public text or source defaults.
+- Negative constraints repeated as final user-facing copy.
+- Fallback code added before root-cause diagnosis.
+- Tests changed to satisfy the agent instead of the product contract.
+- Completion claims without named gate, review, or verification evidence.
+
 ## Scope
 
 This is not a prompt collection, a dashboard, or a general agent-management app.
@@ -99,6 +127,8 @@ evidence was produced, and what I still need to apply manually.
 For manual first use without agent setup:
 
 ```sh
+npx agent-boundary-kit@latest harness inspect
+npx agent-boundary-kit@latest harness plan
 npx agent-boundary-kit@latest dry-run --input runner-input.json
 npx agent-boundary-kit@latest scan --input runner-input.json --scanner legacy-surface-retention-scan
 ```
@@ -108,6 +138,7 @@ npx agent-boundary-kit@latest scan --input runner-input.json --scanner legacy-su
 The simplest path is direct local execution:
 
 ```sh
+npx agent-boundary-kit harness inspect
 npx agent-boundary-kit dry-run --input runner-input.json
 npx agent-boundary-kit scan --input runner-input.json --scanner legacy-surface-retention-scan
 ```
@@ -116,6 +147,7 @@ For repeated use:
 
 ```sh
 npm install -g agent-boundary-kit
+agent-boundary-kit harness inspect
 abk-runner dry-run --input runner-input.json
 abk-runner scan --input runner-input.json --scanner legacy-surface-retention-scan
 ```
@@ -124,11 +156,26 @@ Runner input must be explicit. Do not pass private transcripts, hidden chat hist
 
 ## Codex Users
 
-Use the package through the CLI, the shared MCP server, or the reviewable Codex plugin candidate:
+Prefer the Codex plugin when you want ABK available across repositories without copying per-repo skills or MCP config. The package includes a repo marketplace at [.agents/plugins/marketplace.json](.agents/plugins/marketplace.json) and a Codex plugin at [plugins/codex-agent-boundary-kit](plugins/codex-agent-boundary-kit).
+
+```sh
+agent-boundary-kit harness inspect
+agent-boundary-kit harness install --confirm
+```
+
+`harness install --confirm` registers the GitHub marketplace with the official Codex CLI command:
+
+```sh
+codex plugin marketplace add Sungblab/agent-boundary-kit
+```
+
+Then restart Codex, open **Plugins** in the Codex app or `/plugins` in Codex CLI, install **Agent Boundary Kit**, and start a new thread. Plugin install and hook trust remain user-reviewed Codex steps.
+
+Use the package through the plugin, CLI, or shared MCP server:
 
 - CLI: run `npx agent-boundary-kit ...` or `abk-runner ...` from the repository being checked.
 - MCP: configure Codex to launch `abk-mcp-server` as a stdio MCP server when you want `list_scanners`, `validate_runner_input`, `dry_run`, and `scan` exposed as tools.
-- Skill/plugin review: inspect [skills/boundary-check/SKILL.md](skills/boundary-check/SKILL.md) and [plugins/codex-agent-boundary-kit](plugins/codex-agent-boundary-kit) before copying or enabling anything in a user or project Codex environment.
+- Skill/plugin review: inspect [skills/boundary-check/SKILL.md](skills/boundary-check/SKILL.md), [.agents/plugins/marketplace.json](.agents/plugins/marketplace.json), and [plugins/codex-agent-boundary-kit](plugins/codex-agent-boundary-kit) before enabling anything in a user or project Codex environment.
 
 Codex may review the candidate files, explain the exact config change, and run repository evidence gates. The user owns any persistent Codex configuration change.
 
@@ -148,7 +195,7 @@ Claude Code may review the candidate, generate a review packet, and explain the 
 The package exposes these binaries:
 
 - `agent-boundary-kit`: alias for `abk-runner`.
-- `abk-runner`: maps explicit runner input to dry-run and read-only scanner execution.
+- `abk-runner`: maps explicit runner input to dry-run and read-only scanner execution; also exposes `harness inspect`, `harness plan`, `harness install`, and `harness health` for plugin readiness.
 - `abk-mcp-server`: exposes `list_scanners`, `validate_runner_input`, `dry_run`, and `scan` for Codex, Claude Code, and MCP-compatible clients.
 - `abk-claude-hook`: maps explicit Claude hook event envelopes to runner input.
 - `abk-claude-hook-wrapper`: wraps native Claude hook payloads with explicit ABK carrier metadata.
@@ -159,10 +206,11 @@ The MCP contract is [docs/mcp-server-contract.md](docs/mcp-server-contract.md). 
 
 The repository includes reviewable native integration candidates:
 
+- Codex marketplace: [.agents/plugins/marketplace.json](.agents/plugins/marketplace.json)
 - Codex plugin candidate: [plugins/codex-agent-boundary-kit](plugins/codex-agent-boundary-kit)
 - Claude Code plugin candidate: [plugins/claude-code-agent-boundary-kit](plugins/claude-code-agent-boundary-kit)
 
-These candidates package the boundary skill and shared `abk-mcp-server` configuration. They are not marketplace submissions, and they do not apply user hook settings automatically.
+These candidates package the boundary skill and shared `abk-mcp-server` configuration. The Codex candidate is exposed through the repo marketplace so users can install it once from Codex instead of copying files into each repository. The candidates do not apply user hook settings automatically.
 
 The candidates are review targets, not automatic setup instructions. Keep user-owned Codex and Claude Code configuration separate from this repository until the user explicitly applies a reviewed configuration change.
 

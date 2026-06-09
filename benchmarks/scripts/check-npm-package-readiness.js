@@ -24,12 +24,13 @@ assert(pkg.engines && pkg.engines.node, "package must declare Node engine");
 assert(pkg.publishConfig && pkg.publishConfig.access === "public", "package must publish publicly");
 assert(Array.isArray(pkg.files), "package must declare files allowlist");
 
-for (const binName of ["abk-runner", "abk-claude-hook", "abk-claude-hook-wrapper", "abk-mcp-server"]) {
+for (const binName of ["agent-boundary-kit", "abk-runner", "abk-claude-hook", "abk-claude-hook-wrapper", "abk-mcp-server"]) {
   assert(pkg.bin[binName], `${binName}: missing package bin`);
   assert(exists(pkg.bin[binName]), `${binName}: bin target missing`);
 }
 
 for (const required of [
+  ".agents",
   "bin",
   "lib",
   "benchmarks/scripts",
@@ -52,6 +53,8 @@ assert(pkg.scripts["pack:dry-run"] === "npm pack --dry-run", "pack:dry-run scrip
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 for (const required of [
   "npx agent-boundary-kit",
+  "agent-boundary-kit harness inspect",
+  "codex plugin marketplace add Sungblab/agent-boundary-kit",
   "abk-mcp-server",
   "npm run pack:dry-run",
   "Do not run `npm publish`",

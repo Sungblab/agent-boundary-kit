@@ -2,12 +2,37 @@
   "name": "agent-boundary-kit",
   "version": "0.1.0",
   "description": "Boundary failure checks for AI coding agents.",
+  "author": {
+    "name": "Agent Boundary Kit"
+  },
+  "license": "MIT",
+  "keywords": ["ai-agent", "codex", "mcp", "boundary-failure"],
   "skills": "./skills/",
+  "mcpServers": {
+    "abk": {
+      "command": "abk-mcp-server",
+      "args": []
+    }
+  },
   "mcp_servers": {
     "abk": {
       "command": "abk-mcp-server",
       "args": []
     }
   },
-  "hooks": "./hooks/hooks.json"
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "Agent Boundary Kit",
+    "shortDescription": "Review boundary failures before agent output, tests, hooks, or public copy drift.",
+    "longDescription": "Use Agent Boundary Kit from Codex to inspect explicit scanner inputs, list boundary failure checks, and package the boundary-check skill with the ABK MCP server.",
+    "developerName": "Agent Boundary Kit",
+    "category": "Developer Tools",
+    "capabilities": ["Read", "Write"],
+    "defaultPrompt": [
+      "Use Agent Boundary Kit to review this change for boundary failures.",
+      "List ABK scanners before claiming this task is complete.",
+      "Check whether this public copy leaks internal instructions."
+    ],
+    "brandColor": "#0F766E"
+  }
 }

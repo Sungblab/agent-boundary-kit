@@ -1,0 +1,20 @@
+{
+  "name": "agent-boundary-kit-local",
+  "interface": {
+    "displayName": "Agent Boundary Kit Local"
+  },
+  "plugins": [
+    {
+      "name": "agent-boundary-kit",
+      "source": {
+        "source": "local",
+        "path": "./plugins/codex-agent-boundary-kit"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

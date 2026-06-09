@@ -126,7 +126,7 @@ The Claude hook command adapter entrypoint is recorded in `docs/claude-hook-comm
 
 ## Minimum Installable Slice
 
-The first installable slice should be a small Codex skill update, not a hook package.
+The first installable slice is a Codex plugin candidate plus the ABK MCP server and boundary skill. It is exposed through a repo marketplace so users can install the plugin once in Codex instead of copying skills into each target repository.
 
 Allowed:
 
@@ -135,6 +135,9 @@ Allowed:
 - ask the agent to choose matching scanner ids from declared task metadata
 - show exact `abk-runner scan --input <runner-input.json> --scanner <scanner-id>` command shapes
 - require evidence from `benchmarks/scripts/check-abk-runner-scan.js` before any completion claim
+- expose `.agents/plugins/marketplace.json`
+- package `plugins/codex-agent-boundary-kit/.codex-plugin/plugin.json`
+- register the Codex marketplace with `codex plugin marketplace add Sungblab/agent-boundary-kit`
 
 Blocked until a separate fixture-backed gate exists:
 
@@ -142,7 +145,6 @@ Blocked until a separate fixture-backed gate exists:
 - background watchers
 - broad repository scans without declared input
 - final-response generation from scanner output
-- plugin manifests
 - connector setup
 - dashboard or SaaS workflow
 
@@ -216,6 +218,7 @@ node benchmarks/scripts/check-claude-hook-command-adapter-entrypoint-fixtures.js
 node benchmarks/scripts/check-claude-hook-command-adapter-entrypoint.js
 node benchmarks/scripts/check-abk-runner-map-event.js
 node benchmarks/scripts/check-abk-runner-scan.js
+node benchmarks/scripts/check-abk-harness-cli.js
 npm run bench:check
 npm run bench:check:red
 ```

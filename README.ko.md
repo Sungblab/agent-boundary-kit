@@ -10,6 +10,34 @@ Agent Boundary Kit은 AI 코딩 에이전트가 반복해서 일으키는 한 �
 
 이 리포는 그런 실패를 중립화된 fixture, pass/fail rubric, scanner check, 에이전트 지시 템플릿, 코딩 에이전트용 native integration 후보로 바꿉니다.
 
+## 경계 실패 예시
+
+```text
+User direction: "Do not make this sound corporate or salesy."
+
+Bad agent output:
+"This is not corporate, not salesy, and not enterprise-sounding."
+
+ABK result:
+fail - negative constraint leaked into final copy.
+```
+
+같은 경계 실패는 코드 작업에서도 나타납니다.
+
+```text
+User direction: "The fallback is wrong. Find the root cause."
+Bad agent behavior: adds another fallback.
+ABK result: fail - fallback over root cause.
+```
+
+## 잡아내는 실패
+
+- 내부 지시가 public text나 source default로 복사되는 경우
+- 부정 제약이 최종 사용자 문구로 반복되는 경우
+- root-cause diagnosis 전에 fallback code가 추가되는 경우
+- 제품 contract가 아니라 agent를 만족시키려고 test가 바뀌는 경우
+- 명시된 gate, review, verification evidence 없이 completion을 주장하는 경우
+
 ## 범위
 
 이 리포는 prompt 모음집, dashboard, 일반 agent-management 앱이 아닙니다.
@@ -99,6 +127,8 @@ evidence was produced, and what I still need to apply manually.
 에이전트 setup 없이 먼저 직접 써보려면:
 
 ```sh
+npx agent-boundary-kit@latest harness inspect
+npx agent-boundary-kit@latest harness plan
 npx agent-boundary-kit@latest dry-run --input runner-input.json
 npx agent-boundary-kit@latest scan --input runner-input.json --scanner legacy-surface-retention-scan
 ```
@@ -108,6 +138,7 @@ npx agent-boundary-kit@latest scan --input runner-input.json --scanner legacy-su
 가장 단순한 경로는 로컬에서 직접 실행하는 것입니다.
 
 ```sh
+npx agent-boundary-kit harness inspect
 npx agent-boundary-kit dry-run --input runner-input.json
 npx agent-boundary-kit scan --input runner-input.json --scanner legacy-surface-retention-scan
 ```
@@ -116,6 +147,7 @@ npx agent-boundary-kit scan --input runner-input.json --scanner legacy-surface-r
 
 ```sh
 npm install -g agent-boundary-kit
+agent-boundary-kit harness inspect
 abk-runner dry-run --input runner-input.json
 abk-runner scan --input runner-input.json --scanner legacy-surface-retention-scan
 ```
@@ -124,11 +156,26 @@ Runner input은 명시적이어야 합니다. private transcript, hidden chat hi
 
 ## Codex 사용자
 
-Codex에서는 CLI, shared MCP server, review 가능한 Codex plugin candidate를 통해 사용할 수 있습니다.
+각 repo마다 skill이나 MCP config를 복사하지 않으려면 Codex plugin을 우선 사용하세요. 패키지에는 [.agents/plugins/marketplace.json](.agents/plugins/marketplace.json) repo marketplace와 [plugins/codex-agent-boundary-kit](plugins/codex-agent-boundary-kit) Codex plugin이 포함되어 있습니다.
+
+```sh
+agent-boundary-kit harness inspect
+agent-boundary-kit harness install --confirm
+```
+
+`harness install --confirm`은 공식 Codex CLI marketplace 등록 명령을 실행합니다.
+
+```sh
+codex plugin marketplace add Sungblab/agent-boundary-kit
+```
+
+그 다음 Codex를 재시작하고, Codex app의 **Plugins** 또는 Codex CLI의 `/plugins`에서 **Agent Boundary Kit**을 설치한 뒤 새 thread를 시작합니다. Plugin 설치와 hook trust는 Codex의 user-reviewed 단계로 남습니다.
+
+Codex에서는 plugin, CLI, shared MCP server를 통해 사용할 수 있습니다.
 
 - CLI: 검사 대상 repo에서 `npx agent-boundary-kit ...` 또는 `abk-runner ...`를 실행합니다.
 - MCP: `list_scanners`, `validate_runner_input`, `dry_run`, `scan`을 tool로 쓰려면 Codex가 `abk-mcp-server`를 stdio MCP server로 실행하도록 설정합니다.
-- Skill/plugin review: 사용자 또는 project Codex 환경에 복사하거나 활성화하기 전에 [skills/boundary-check/SKILL.md](skills/boundary-check/SKILL.md)와 [plugins/codex-agent-boundary-kit](plugins/codex-agent-boundary-kit)을 검토합니다.
+- Skill/plugin review: 사용자 또는 project Codex 환경에서 활성화하기 전에 [skills/boundary-check/SKILL.md](skills/boundary-check/SKILL.md), [.agents/plugins/marketplace.json](.agents/plugins/marketplace.json), [plugins/codex-agent-boundary-kit](plugins/codex-agent-boundary-kit)을 검토합니다.
 
 Codex는 candidate file을 검토하고, 정확한 config 변경을 설명하고, repository evidence gate를 실행할 수 있습니다. 지속되는 Codex configuration 변경은 사용자가 소유합니다.
 
@@ -148,7 +195,7 @@ Claude Code는 candidate를 검토하고, review packet을 만들고, 사용자�
 패키지는 다음 binary를 제공합니다.
 
 - `agent-boundary-kit`: `abk-runner` alias입니다.
-- `abk-runner`: 명시적인 runner input을 dry-run 및 read-only scanner execution으로 매핑합니다.
+- `abk-runner`: 명시적인 runner input을 dry-run 및 read-only scanner execution으로 매핑합니다. Plugin readiness를 위한 `harness inspect`, `harness plan`, `harness install`, `harness health`도 제공합니다.
 - `abk-mcp-server`: Codex, Claude Code, MCP-compatible client를 위해 `list_scanners`, `validate_runner_input`, `dry_run`, `scan`을 제공합니다.
 - `abk-claude-hook`: 명시적인 Claude hook event envelope을 runner input으로 매핑합니다.
 - `abk-claude-hook-wrapper`: native Claude hook payload를 명시적인 ABK carrier metadata와 함께 감쌉니다.
@@ -159,10 +206,11 @@ MCP contract는 [docs/mcp-server-contract.md](docs/mcp-server-contract.md)에 �
 
 이 리포에는 review 가능한 native integration candidate가 포함되어 있습니다.
 
+- Codex marketplace: [.agents/plugins/marketplace.json](.agents/plugins/marketplace.json)
 - Codex plugin candidate: [plugins/codex-agent-boundary-kit](plugins/codex-agent-boundary-kit)
 - Claude Code plugin candidate: [plugins/claude-code-agent-boundary-kit](plugins/claude-code-agent-boundary-kit)
 
-이 candidate들은 boundary skill과 shared `abk-mcp-server` configuration을 패키징합니다. Marketplace submission이 아니며, user hook settings를 자동으로 적용하지 않습니다.
+이 candidate들은 boundary skill과 shared `abk-mcp-server` configuration을 패키징합니다. Codex candidate는 repo marketplace로 노출되므로 사용자는 각 repository에 파일을 복사하지 않고 Codex에서 한 번 설치할 수 있습니다. User hook settings는 자동으로 적용하지 않습니다.
 
 candidate는 review target이지 자동 setup instruction이 아닙니다. 사용자가 검토된 configuration change를 명시적으로 적용하기 전까지 user-owned Codex 및 Claude Code configuration은 이 repository와 분리합니다.
 

@@ -39,6 +39,7 @@ The first Codex product surface should be a plugin candidate that bundles:
 - a local stdio MCP server wrapping `abk-runner`
 - optional reviewed hook config that users can inspect before trusting
 - documentation that explains which scanner evidence backs each check
+- `.agents/plugins/marketplace.json` so Codex users can register a marketplace instead of copying files into every repository
 
 ### Claude Code
 
@@ -77,8 +78,9 @@ The MCP server must not read chat transcripts, hidden agent state, broad home di
 2. Add an ABK MCP stdio server that wraps the existing runner without broadening input scope.
 3. Create a Codex plugin candidate with the boundary skill and MCP server config.
 4. Create a Claude Code plugin candidate with the boundary skill, MCP server config, and hook binaries.
-5. Add reviewed manual install and trust-review docs for both agents.
-6. Add marketplace/community submission docs only after local plugin validation passes.
+5. Add the Codex repo marketplace and harness readiness commands.
+6. Add reviewed manual install and trust-review docs for both agents.
+7. Add marketplace/community submission docs only after local plugin validation passes.
 
 ## Readiness Gates
 

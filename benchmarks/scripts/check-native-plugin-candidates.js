@@ -28,9 +28,20 @@ function assertIncludes(markdown, expected, label) {
 const codexManifest = readJson("plugins/codex-agent-boundary-kit/.codex-plugin/plugin.json");
 assert(codexManifest.name === "agent-boundary-kit", "Codex plugin name mismatch");
 assert(codexManifest.skills === "./skills/", "Codex plugin must package skills");
-assert(codexManifest.mcp_servers && codexManifest.mcp_servers.abk, "Codex plugin must declare ABK MCP server");
-assert(codexManifest.mcp_servers.abk.command === "abk-mcp-server", "Codex plugin must use abk-mcp-server command");
+const codexMcpServers = codexManifest.mcpServers || codexManifest.mcp_servers;
+assert(codexMcpServers && codexMcpServers.abk, "Codex plugin must declare ABK MCP server");
+assert(codexMcpServers.abk.command === "abk-mcp-server", "Codex plugin must use abk-mcp-server command");
 assert(codexManifest.hooks === "./hooks/hooks.json", "Codex plugin must point to reviewed hook config");
+assert(codexManifest.interface && codexManifest.interface.displayName === "Agent Boundary Kit", "Codex plugin must include interface metadata");
+
+const marketplace = readJson(".agents/plugins/marketplace.json");
+assert(marketplace.name === "agent-boundary-kit-local", "Codex marketplace name mismatch");
+const marketplaceEntry = marketplace.plugins.find((plugin) => plugin.name === "agent-boundary-kit");
+assert(marketplaceEntry, "Codex marketplace must expose agent-boundary-kit");
+assert(
+  marketplaceEntry.source && marketplaceEntry.source.path === "./plugins/codex-agent-boundary-kit",
+  "Codex marketplace must point to Codex plugin candidate"
+);
 
 const codexSkill = readText("plugins/codex-agent-boundary-kit/skills/boundary-check/SKILL.md");
 assertIncludes(codexSkill, "Agent Boundary Kit", "Codex plugin skill");
@@ -60,6 +71,7 @@ assertIncludes(claudeCommand, "scan", "Claude slash command");
 
 const readme = readText("README.md");
 for (const required of [
+  ".agents/plugins/marketplace.json",
   "plugins/codex-agent-boundary-kit",
   "plugins/claude-code-agent-boundary-kit",
   "Codex plugin candidate",
