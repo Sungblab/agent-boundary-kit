@@ -225,10 +225,11 @@ Each benchmark fixture should include:
 96. Add read-only runner scan execution for `approved-file-mask-scan`. Completed: `hooks/claude/examples/runner-scan.approved-file-mask-finding-input.json`, `hooks/claude/examples/runner-scan.approved-file-mask-clear-input.json`, and `benchmarks/scripts/check-abk-runner-scan.js`.
 97. Select the next scanner candidate only from the unpromoted fixture queue after its next evidence gate is satisfied.
 
-## Not Yet
+## Research-First Guardrails
 
 - Do not build a dashboard.
 - Do not build a SaaS workflow.
 - Do not create a connector.
-- Do not package a plugin before the first three fixtures are runnable.
+- Do not add new plugin commands or hook automation unless a fixture-backed research gap requires that surface.
 - Do not claim a rule prevents a failure until it has failed at least one fixture without the rule and passed with the rule.
+- Prefer the next research slice from `docs/research-program.md`: one seed, one fixture, one rubric, red evidence, green evidence, then scanner or evaluator review.

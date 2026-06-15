@@ -54,6 +54,16 @@ for (const required of [
 }
 
 for (const required of [
+  "preflight and finish guards",
+  "User-text role confusion is one important case, not the whole product.",
+  "## Devflow Boundary",
+  "Use Devflow when the question is",
+  "Use ABK when the question is",
+]) {
+  assertIncludes(productScope, required, "product scope ABK positioning");
+}
+
+for (const required of [
   "Public Contribution Format",
   "Privacy Neutralization Rules",
   "Acceptance Boundary",

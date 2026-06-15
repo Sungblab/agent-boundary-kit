@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "gates": [
+    {
+      "id": "bench-check",
+      "command": "npm run bench:check"
+    },
+    {
+      "id": "bench-check-red",
+      "command": "npm run bench:check:red"
+    },
+    {
+      "id": "pack-dry-run",
+      "command": "npm pack --dry-run --ignore-scripts"
+    }
+  ],
+  "review": {
+    "required": true
+  }
+}

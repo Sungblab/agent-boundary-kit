@@ -47,6 +47,11 @@ const codexSkill = readText("plugins/codex-agent-boundary-kit/skills/boundary-ch
 assertIncludes(codexSkill, "Agent Boundary Kit", "Codex plugin skill");
 assertIncludes(codexSkill, "abk-mcp-server", "Codex plugin skill");
 assertIncludes(codexSkill, "docs/scanner-coverage-matrix.md", "Codex plugin skill");
+assertIncludes(codexSkill, "preflight and finish guard", "Codex plugin skill");
+assertIncludes(codexSkill, "Boundary with Devflow", "Codex plugin skill");
+assertIncludes(codexSkill, "fallback before root cause", "Codex plugin skill");
+assertIncludes(codexSkill, "test-integrity", "Codex plugin skill");
+assertIncludes(codexSkill, "missing verification evidence", "Codex plugin skill");
 
 const codexHooks = readJson("plugins/codex-agent-boundary-kit/hooks/hooks.json");
 assert(codexHooks.hooks, "Codex plugin hooks file must contain hooks object");
@@ -63,6 +68,8 @@ const claudeSkill = readText("plugins/claude-code-agent-boundary-kit/skills/abk-
 assertIncludes(claudeSkill, "Agent Boundary Kit", "Claude plugin skill");
 assertIncludes(claudeSkill, "abk-mcp-server", "Claude plugin skill");
 assertIncludes(claudeSkill, "docs/scanner-coverage-matrix.md", "Claude plugin skill");
+assertIncludes(claudeSkill, "preflight and finish guard", "Claude plugin skill");
+assertIncludes(claudeSkill, "Boundary with Devflow", "Claude plugin skill");
 
 const claudeCommand = readText("plugins/claude-code-agent-boundary-kit/commands/abk-boundary-review.md");
 assertIncludes(claudeCommand, "boundary failure", "Claude slash command");

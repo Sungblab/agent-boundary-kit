@@ -1,7 +1,7 @@
 {
   "name": "agent-boundary-kit",
   "version": "0.1.0",
-  "description": "Boundary failure checks for AI coding agents.",
+  "description": "Preflight and finish guards for AI coding-agent boundary failures.",
   "author": {
     "name": "Agent Boundary Kit"
   },
@@ -23,15 +23,15 @@
   "hooks": "./hooks/hooks.json",
   "interface": {
     "displayName": "Agent Boundary Kit",
-    "shortDescription": "Review boundary failures before agent output, tests, hooks, or public copy drift.",
-    "longDescription": "Use Agent Boundary Kit from Codex to inspect explicit scanner inputs, list boundary failure checks, and package the boundary-check skill with the ABK MCP server.",
+    "shortDescription": "Catch wrong-scope edits, fallback shortcuts, test-passing hacks, and evidence-free completion claims.",
+    "longDescription": "Use Agent Boundary Kit from Codex as a preflight and finish guard. ABK maps risky agent work to fixture-backed boundary checks so Codex does not solve the wrong problem, mutate the wrong surface, trust untrusted evidence, or claim completion before verification evidence exists.",
     "developerName": "Agent Boundary Kit",
     "category": "Developer Tools",
     "capabilities": ["Read", "Write"],
     "defaultPrompt": [
-      "Use Agent Boundary Kit to review this change for boundary failures.",
-      "List ABK scanners before claiming this task is complete.",
-      "Check whether this public copy leaks internal instructions."
+      "Use Agent Boundary Kit to preflight this task before editing.",
+      "Use Agent Boundary Kit to check whether this work can honestly be claimed complete.",
+      "Check whether this change crosses scope, fallback, test-integrity, or evidence boundaries."
     ],
     "brandColor": "#0F766E"
   }

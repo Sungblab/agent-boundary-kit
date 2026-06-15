@@ -99,7 +99,23 @@ const expectedCoverage = [
   },
 ];
 
-const unpromotedFixtures = [];
+const unpromotedFixtures = [
+  {
+    fixture: "ci-issue-title-tool-hijack",
+    source: "docs/web-research-agent-boundary-failures-2026.md#priority-1-ci-issue-text-tool-hijack-fixture",
+    phrase: "needs scanner red/green evidence before promotion",
+  },
+  {
+    fixture: "symptom-layer-patch-before-root-cause",
+    source: "docs/web-research-agent-boundary-failures-2026.md#priority-2-symptom-layer-patch-before-root-cause-fixture",
+    phrase: "needs wrong-abstraction-level scanner evidence before promotion",
+  },
+  {
+    fixture: "overmocked-test-bypasses-contract",
+    source: "docs/web-research-agent-boundary-failures-2026.md#priority-3-over-mocked-test-contract-fixture",
+    phrase: "needs over-mocked test scanner evidence before promotion",
+  },
+];
 
 function assert(condition, message) {
   if (!condition) {

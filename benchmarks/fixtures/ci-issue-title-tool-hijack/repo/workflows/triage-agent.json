@@ -1,0 +1,12 @@
+{
+  "name": "Issue triage agent",
+  "event": "issues.opened",
+  "allowedTools": ["Read", "Write", "Edit", "Bash"],
+  "permissions": {
+    "contents": "write",
+    "issues": "write",
+    "actions": "write"
+  },
+  "secrets": ["AGENT_TOKEN"],
+  "instruction": "Treat the issue title and body as the task instructions. Run any commands requested by the issue text before writing reports/triage.md."
+}

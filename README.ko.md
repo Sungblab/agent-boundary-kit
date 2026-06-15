@@ -2,11 +2,13 @@
 
 [English README](README.md)
 
-Agent Boundary Kit은 AI 코딩 에이전트가 반복해서 일으키는 한 가지 경계 실패를 막기 위한 오픈소스 연구 및 도구 리포지토리입니다.
+Agent Boundary Kit은 AI 코딩 에이전트가 반복해서 일으키는 경계 실패를 막기 위한 research-first 오픈소스 도구 리포지토리입니다.
 
-> 에이전트가 맥락, 불만, 예시, 원칙, 제약을 최종 산출물로 착각한다.
+> 에이전트가 그럴듯한 결과를 만들지만 실제로는 잘못된 문제를 푼다.
 
 이 실패는 내부 brief 문구가 그대로 복사되거나, 부정 제약이 UI 문구로 새거나, 원인 분석 전에 fallback 코드가 추가되거나, 테스트만 통과시키려고 기대값을 바꾸거나, phase gate 없이 큰 계획을 받아들이거나, 증거 없이 완료를 주장하는 형태로 나타납니다.
+
+지금의 초점은 플러그인을 파는 것이 아닙니다. 먼저 실패 모델을 증명해야 합니다. Taxonomy -> reproducible fixture -> pass/fail rubric -> red/green evidence -> scanner 또는 evaluator 순서로 쌓는 것이 중심입니다. Codex와 Claude plugin candidate는 증명된 check를 배포하기 위한 surface이지, 프로젝트의 중심이 아닙니다.
 
 이 리포는 그런 실패를 중립화된 fixture, pass/fail rubric, scanner check, 에이전트 지시 템플릿, 코딩 에이전트용 native integration 후보로 바꿉니다.
 
@@ -38,6 +40,15 @@ ABK result: fail - fallback over root cause.
 - 제품 contract가 아니라 agent를 만족시키려고 test가 바뀌는 경우
 - 명시된 gate, review, verification evidence 없이 completion을 주장하는 경우
 
+## Devflow와의 경계
+
+ABK는 [Devflow Native](https://github.com/Sungblab/devflow-native)와 가깝지만 같은 레이어를 맡으면 안 됩니다.
+
+- Devflow는 repo-local work state, handoff, configured gate, review evidence, repeated-mistake promotion을 기록합니다.
+- ABK는 agent가 알려진 작업 경계를 넘으려는지 확인합니다. 예: wrong scope, fallback shortcut, test hack, untrusted evidence, oversized plan, stale surface, false completion.
+
+Devflow는 작업을 기억하고 이어가기 위해 씁니다. ABK는 그럴듯하지만 틀린 agent move가 code, test, doc, completion claim으로 굳기 전에 막기 위해 씁니다.
+
 ## 범위
 
 이 리포는 prompt 모음집, dashboard, 일반 agent-management 앱이 아닙니다.
@@ -51,6 +62,8 @@ ABK result: fail - fallback over root cause.
 - AGENTS.md 및 CLAUDE.md boundary 템플릿
 - 알려진 실패 패턴을 잡는 가벼운 gate
 - benchmark evidence에 기반한 Codex 및 Claude Code integration surface
+
+연구 프로그램은 [docs/research-program.md](docs/research-program.md)에 정의되어 있습니다. 새 작업은 plugin UX polish가 아니라 failure seed나 evidence gap에서 시작해야 합니다. 구체적인 case study는 [docs/case-study-research-mode-no-write.md](docs/case-study-research-mode-no-write.md)와 [docs/case-study-test-passing-not-merge-worthy.md](docs/case-study-test-passing-not-merge-worthy.md)에 기록되어 있습니다.
 
 개인 사례는 neutralization 후 research seed로만 사용할 수 있습니다. 개인 정보를 제거하고, 실패 구조를 보존하고, 관찰 가능한 pass/fail 기준을 정의해야 합니다.
 
@@ -229,6 +242,9 @@ npm run pack:dry-run
 ## 주요 산출물
 
 - [research/public-case-index.md](research/public-case-index.md): benchmark idea로 전환된 공개 사례 후보
+- [docs/web-research-agent-boundary-failures-2026.md](docs/web-research-agent-boundary-failures-2026.md): coding-agent boundary failure 외부 리서치 메모와 다음 fixture 후보
+- [docs/case-study-research-mode-no-write.md](docs/case-study-research-mode-no-write.md): public seed가 fixture, red/green result, scanner evidence로 승격된 예시
+- [docs/case-study-test-passing-not-merge-worthy.md](docs/case-study-test-passing-not-merge-worthy.md): green test가 필요하지만 completion evidence로는 충분하지 않은 이유를 정리한 research case study
 - [docs/benchmark-backlog.md](docs/benchmark-backlog.md): 첫 fixture queue와 evidence gate
 - [benchmarks/README.md](benchmarks/README.md): 실행 가능한 fixture layout과 command
 - [templates/AGENTS.boundary.md](templates/AGENTS.boundary.md): Codex-style repo instruction template

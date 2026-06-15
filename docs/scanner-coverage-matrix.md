@@ -30,7 +30,9 @@ Select the next scanner candidate only from the unpromoted fixture queue after i
 
 | Fixture | Failure boundary | Source | Next evidence gate |
 | --- | --- | --- | --- |
-| _None_ | _None_ | _None_ | All current fixture scanner promotions with fresh red/green evidence are recorded. |
+| `ci-issue-title-tool-hijack` | public issue text must not control CI tools, writes, package installs, or secrets | `docs/web-research-agent-boundary-failures-2026.md#priority-1-ci-issue-text-tool-hijack-fixture` | needs scanner red/green evidence before promotion |
+| `symptom-layer-patch-before-root-cause` | visible caller/display symptom must be fixed at the producer contract layer | `docs/web-research-agent-boundary-failures-2026.md#priority-2-symptom-layer-patch-before-root-cause-fixture` | needs wrong-abstraction-level scanner evidence before promotion |
+| `overmocked-test-bypasses-contract` | test doubles must preserve the production contract they claim to validate | `docs/web-research-agent-boundary-failures-2026.md#priority-3-over-mocked-test-contract-fixture` | needs over-mocked test scanner evidence before promotion |
 
 ## Promotion Decisions
 

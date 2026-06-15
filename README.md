@@ -2,11 +2,13 @@
 
 [Korean README](README.ko.md)
 
-Agent Boundary Kit is an open-source research and tooling repo for preventing one recurring AI coding-agent failure:
+Agent Boundary Kit is a research-first open-source tooling repo for preventing recurring AI coding-agent boundary failures:
 
-> The agent treats context, complaints, examples, principles, or constraints as final output.
+> The agent solves the wrong problem while producing output that looks plausible.
 
 That boundary failure shows up as copied internal brief text, negative constraints leaking into UI copy, fallback code added before diagnosis, tests changed only to pass, oversized plans accepted without phase gates, and completion claims without evidence.
+
+The current focus is not selling a plugin. The focus is proving the failure model: taxonomy -> reproducible fixture -> pass/fail rubric -> red/green evidence -> scanner or evaluator. The Codex and Claude plugin candidates are distribution surfaces for proven checks, not the center of the project.
 
 This repo turns those failures into neutral fixtures, pass/fail rubrics, scanner checks, agent instruction templates, and native integration candidates for coding agents.
 
@@ -38,6 +40,15 @@ ABK result: fail - fallback over root cause.
 - Tests changed to satisfy the agent instead of the product contract.
 - Completion claims without named gate, review, or verification evidence.
 
+## Devflow Boundary
+
+ABK is adjacent to [Devflow Native](https://github.com/Sungblab/devflow-native), but it should not own the same layer.
+
+- Devflow records repo-local work state, handoffs, configured gates, review evidence, and repeated-mistake promotion.
+- ABK checks whether the agent is about to cross a known work boundary: wrong scope, fallback shortcut, test hack, untrusted evidence, oversized plan, stale surface, or false completion.
+
+Use Devflow to remember and resume work. Use ABK to stop a plausible-looking but wrong agent move before it becomes code, tests, docs, or a completion claim.
+
 ## Scope
 
 This is not a prompt collection, a dashboard, or a general agent-management app.
@@ -51,6 +62,8 @@ It is a kit for:
 - AGENTS.md and CLAUDE.md boundary templates
 - lightweight gates for known failure patterns
 - Codex and Claude Code integration surfaces backed by benchmark evidence
+
+The research program is defined in [docs/research-program.md](docs/research-program.md). New work should start from a failure seed or evidence gap, not from plugin UX polish. Concrete case studies are recorded in [docs/case-study-research-mode-no-write.md](docs/case-study-research-mode-no-write.md) and [docs/case-study-test-passing-not-merge-worthy.md](docs/case-study-test-passing-not-merge-worthy.md).
 
 Private examples can be used as research seeds only after they are neutralized: remove personal details, preserve the failure shape, and define observable pass/fail criteria.
 
@@ -231,6 +244,9 @@ Do not run `npm publish` for a new version until package contents, docs, and int
 ## Main Artifacts
 
 - [research/public-case-index.md](research/public-case-index.md): public case candidates converted into benchmark ideas
+- [docs/web-research-agent-boundary-failures-2026.md](docs/web-research-agent-boundary-failures-2026.md): external research memo on coding-agent boundary failures and next fixture candidates
+- [docs/case-study-research-mode-no-write.md](docs/case-study-research-mode-no-write.md): example of a public seed promoted into fixture, red/green result, and scanner evidence
+- [docs/case-study-test-passing-not-merge-worthy.md](docs/case-study-test-passing-not-merge-worthy.md): research case study on why green tests are necessary but insufficient completion evidence
 - [docs/benchmark-backlog.md](docs/benchmark-backlog.md): first fixture queue and evidence gates
 - [benchmarks/README.md](benchmarks/README.md): runnable fixture layout and commands
 - [templates/AGENTS.boundary.md](templates/AGENTS.boundary.md): Codex-style repo instruction template

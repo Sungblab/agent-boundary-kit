@@ -9,3 +9,7 @@ coverage/
 !benchmarks/fixtures/**/repo/.env
 benchmarks/runs/*
 !benchmarks/runs/.gitkeep
+
+.devflow/state/
+.devflow/next-prompt.md
+plugins/devflow/

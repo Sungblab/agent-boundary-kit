@@ -20,6 +20,8 @@ function runHarness(command) {
 
 const inspect = runHarness("inspect");
 assert(inspect.status === "ok", "harness inspect must report ok");
+assert(inspect.product.role.includes("preflight and finish guard"), "harness inspect must describe ABK role");
+assert(inspect.product.devflowBoundary.includes("Use Devflow for repo-local work state"), "harness inspect must distinguish Devflow");
 assert(inspect.install.preferredCodexMarketplaceCommand === "codex plugin marketplace add Sungblab/agent-boundary-kit", "harness inspect must expose Codex marketplace command");
 assert(
   inspect.checks.some((check) => check.path === ".agents/plugins/marketplace.json" && check.ok),
