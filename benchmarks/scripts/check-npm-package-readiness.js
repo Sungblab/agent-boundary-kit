@@ -23,6 +23,7 @@ assert(pkg.repository && pkg.repository.url.includes("Sungblab/agent-boundary-ki
 assert(pkg.engines && pkg.engines.node, "package must declare Node engine");
 assert(pkg.publishConfig && pkg.publishConfig.access === "public", "package must publish publicly");
 assert(Array.isArray(pkg.files), "package must declare files allowlist");
+assert(pkg.files.includes("!plugins/devflow"), "package files must exclude local devflow plugin bundle");
 
 for (const binName of ["agent-boundary-kit", "abk-runner", "abk-claude-hook", "abk-claude-hook-wrapper", "abk-mcp-server"]) {
   assert(pkg.bin[binName], `${binName}: missing package bin`);
